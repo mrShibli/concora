@@ -21,18 +21,19 @@ class UserController extends Controller
     }
     public function store(Request $request)
     {
-    
+
+       
         $request->validate([
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
-            'contact_number ' => 'required',
-            'city ' => 'required',
+            'contact_number' => 'required',
+            'city' => 'required',
             'state_district' => "required",
             'email' => 'required|string|email|max:255|unique:users,email,',
             'passport_no' => 'required|max:255|unique:users,passport_no',
             'passport_image' => 'required|image',
             'socile_page' => 'required|image',
-            'nid photo' => 'required|image',
+            'nid' => 'required|image',
             'resident' => 'required|image',
             'photo' => 'required|image',
         
@@ -42,7 +43,7 @@ class UserController extends Controller
         $user->first_name  = $request->first_name;
         $user->uae_resident_no = $request->uae_resident_no;
         $user->last_name  = $request->last_name;
-        $user->email = $request->email_;
+        $user->email = $request->email;
         $user->nationality = $request->nationality;
         $user->dob = $request->dob_;
         $user->contact_number = $request->contact_number;
@@ -94,6 +95,7 @@ class UserController extends Controller
         }
         $user->save();
         return redirect()->route('admin.users.index')->with('success', 'User created successfully');
+  
     }
 
 
