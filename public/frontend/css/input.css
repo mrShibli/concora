@@ -1,0 +1,314 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    /* font-family: "Inter", sans-serif;  */
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
+}
+ 
+
+
+
+
+
+@media(max-width:768px){ 
+.applicant .left-side{
+    position: initial; 
+}
+
+.applicant{
+    height: 100%;
+}
+
+.box-container{
+    flex-wrap: wrap;
+}
+
+
+}
+ 
+
+
+@media(max-width:768px){ 
+.applicant .right-side{
+    margin-left: 12px !important; 
+    margin-right: 14px !important; 
+    margin-top: 5px !important; 
+    width: 100%;
+}
+
+}
+
+
+.step-titles{
+    position: relative;
+    z-index: 5;
+}
+.step-titles .step span{
+    z-index: 100;
+}
+
+.step-titles::before{
+    position: absolute;
+    content: '';
+    left:12px;
+    top: 2px;
+    bottom: 2px;
+    width: 1px;
+    background: #d5d5d5; 
+}
+
+
+@media(max-width:1280px){  
+    .left-side{
+        padding-left: 34px !important; 
+    }
+
+    }
+
+@media(max-width:1024px){
+    .step-titles .step{
+        margin-bottom: 30px;
+    }
+    .step-titles::before{ 
+        left:5px; 
+} 
+
+.left-side{
+    padding-top: 90px;
+}
+
+.right-side{
+    margin-top: 70px !important; 
+}
+
+}
+
+@media(max-width:991px){ 
+.step-titles::before{
+    position: absolute;
+    content: '';
+    left:5px;
+    top: 2px;
+    bottom: 2px;
+    width: 1px;
+    background: #d5d5d5; 
+}
+}
+
+@media(max-width:768px){
+    
+.step-titles::before{
+    position: initial; 
+} 
+
+.left-side{
+    padding-left: 12px !important;
+    padding-top: 60px;
+}
+
+
+} 
+
+@media(max-width:375px){ 
+    .left-side{
+        padding-left: 5px !important;
+    }
+ }
+
+ @media(max-width:360px){ 
+     .left-side{
+         padding-left: 2px !important;
+     } 
+     .step-titles span{
+        font-size: 9px;
+     }
+     .step-titles p{
+        font-size: 9px;
+     }
+  }
+ 
+
+
+.field{
+    position: relative;
+}
+
+.field select{
+    font-size: 12px;
+    
+}
+ 
+
+.label-t {
+    position: absolute ;
+    top: 29px;
+    left: 8px; 
+    padding: 2px;
+    transition: .3s;
+    opacity: 0.5;
+    font-size: 12px;
+    transform: translate3d(0, -100%, 0); 
+    background: #fff;
+    color: #505050;  
+    opacity: 1;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.input-t{
+    z-index: 10;
+}
+
+.input-t:focus+.label-t,
+.input-t:valid+.label-t {
+    font-size: 11px;
+    top: 10px;
+    transform: translate3d(0, -100%, 0); 
+    opacity: 1; 
+    background: #fff;
+    color: #000000;
+} 
+
+
+.label-t.date{
+    top: 10px !important; 
+} 
+
+input{
+    font-size: 12px;
+}
+
+.input-t{
+    width: 100%;
+}
+
+select{ 
+    background: none;
+    outline: none;
+}
+
+/* ----------- */
+
+  
+
+
+.bck:hover span,
+.bck:hover p {
+    color: yellow;
+ } 
+
+/* -------------- */
+
+
+
+.step-titles-2 {
+    margin-left: 140px;
+    z-index: 0;
+    border-right: 1px solid #F5F5F5;
+}
+
+
+.grid .flex h2{
+    line-height: 1.4em;
+}
+
+ 
+
+
+@media(max-width:991px){
+ 
+
+    .applicant .left-side .step-titles{
+        margin-top: 1.5rem;
+    }
+
+    .applicant .left-side .step-titles div{
+        margin-bottom: 2rem;
+    } 
+
+    .applicant .right-side{
+        margin-top: 5rem; 
+    }
+    
+    
+    .step-titles2 {
+        border: none;
+        margin-left: 50px
+    } 
+     
+   
+}
+
+
+
+@media(max-width:768px){
+
+    .step-items{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .step-titles{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    } 
+     
+    .select-t{
+        width: 100% !important;
+        display: block;
+    }
+
+    
+.label-t { 
+    top: 27px; 
+    padding: 1px;
+}
+
+    .date .field label{
+        font-size: 10px !important;
+    }
+
+    
+.label-t.date{ 
+    font-size: 10px;
+}
+
+     
+   
+}
+
+@media(max-width:768px){
+
+    .field select option {
+        font-size: 10px; 
+    }
+}
+
+
+
+@media(max-width:344px){
+
+    .step-titles .step span{
+        font-size: 8px;
+    }
+    .step-titles .step p{
+        font-size: 8px;
+    }
+
+}
+
+
+
+
+
+
+
+

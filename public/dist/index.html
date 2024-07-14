@@ -1,0 +1,2284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applicant</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="assets/js/ridercodes.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.3/build/css/intlTelInput.css">
+
+    <style>
+        .error-message {
+            font-size: 0.8rem;
+            margin-top: 3px;
+            color: red;
+            
+        }
+
+        .errormessagenumber {
+            font-size: 0.8rem;
+            margin-top: 3px;
+            color: red;
+            position: relative;
+        }
+
+        .h-\[145vh\] {
+            height: 100%;
+        }
+
+        .stepactive {
+            background-color: red;
+            padding: 5px;
+        }
+
+        .iti.iti--allow-dropdown.iti--separate-dial-code {
+            width: 100%;
+        }
+    </style>
+
+  <link rel="stylesheet" crossorigin href="/assets/index-DXSHw0cc.css">
+</head>
+
+<body>
+
+    <div class="header bg-White-c p-2  Laptop:py-4  shadow-md rounded-b-3xl top-0 right-0 absolute w-full z-10">
+        <div class="container mx-auto">
+            <a href="index.html" id="logo"><img class="w-40 Laptop:w-[215px] Tablet:w-[160px]"
+                    src="/assets/logo-I9dNU-oO.png" alt=""></a>
+        </div>
+    </div>
+
+    <!-- ------------- -->
+
+
+    <div class="applicant bg-Dull-c pb-4 h-[145vh]">
+
+        <div class="box-container container mx-auto flex flex-nowrap gap-4 Laptop:gap-8">
+
+            <div
+                class="left-side Laptop:w-[20%] w-full Laptop:h-[145vh] Laptop:ml-[-40px] h-22  p-2 Laptop:p-4 pb-0 pt-16 Laptop:pt-36   bg-Primary-c ">
+
+                <div class="Laptop:pl-2 Laptop:fixed">
+                    <div class="step-titles gap-2 ">
+
+                        <div class="step flex items-center gap-1 Laptop:mb-14 ">
+                            <span
+                                class="Laptop:h-6 h-3 Laptop:w-6 w-3 leading-3 Laptop:leading-6 text-center  rounded-full  bg-[#e0b228] text-White-c text-[10px] Laptop:text-sm">1</span>
+                            <p class="text-[10px] Laptop:text-sm"> <a
+                                    class="p-1 Laptop:py-1.5 Laptop:px-4  bg-[#e0b228] text-White-c rounded-md">Basic
+                                    Information</a></p>
+                        </div>
+
+                        <div class="step flex items-center gap-1 Laptop:mb-14">
+                            <span
+                                class="Laptop:h-6 h-3 Laptop:w-6 w-3 leading-3 Laptop:leading-6 text-center  rounded-full bg-White-c text-Black-c text-[10px] Laptop:text-sm">2</span>
+                            <p class="text-White-c text-[10px] Laptop:text-sm"><a>NID/CNIC
+                                    Information</a></p>
+                        </div>
+                        <div class="step flex items-center gap-1">
+                            <span
+                                class="Laptop:h-6 h-3 Laptop:w-6 w-3 leading-3 Laptop:leading-6 text-center  rounded-full bg-White-c text-Black-c text-[10px] Laptop:text-sm">3</span>
+                            <p class="text-White-c text-[10px] Laptop:text-base"><a>License
+                                    Information</a></p>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <div
+                class="right-side Laptop:w-[80%] bg-White-c   Laptop:mt-28 Laptop:p-6 Laptop:pb-4 p-4  Tablet:m-4 Tablet:mb-6  rounded-md ">
+
+                <h2 class="text-[14px] font-normal leading-4"><span class="text-Indicates">*</span> Indicates a required
+                    field</h2>
+
+                <form class="form-card " id="msform" method="POST" enctype="multipart/form-data">
+
+                    <!-- Step 1 -->
+                    <fieldset>
+                        <div
+                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-2 Laptop:gap-8 py-4 Laptop:py-6">
+
+                            <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">First Name <span
+                                            class="text-Indicates">*</span></h2>
+                                </div>
+                                <div class="field Laptop:w-[65%] w-[60%]">
+                                    <input type="text" name="first_name" id="first_name" autocomplete="off"
+                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none  " required>
+                                    <label for="" class="label-t">First Name</label>
+                                </div>
+                            </div>
+
+                            <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Last Name <span
+                                            class="text-Indicates">*</span></h2>
+                                </div>
+                                <div class="field Laptop:w-[65%] w-[60%]">
+                                    <input type="text" name="last_name" id="lname" autocomplete="off"
+                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none" required>
+                                    <label for="" class="label-t">Last Name</label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div
+                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-3 Laptop:gap-8 py-4 Laptop:py-6">
+
+                            <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Mother’s Name <span
+                                            class="text-Indicates">*</span></h2>
+                                </div>
+                                <div class="field Laptop:w-[65%] w-[60%]">
+                                    <input type="text" name="m_name" id="first_name" autocomplete="off"
+                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                    <label for="" class="label-t">Mother Name</label>
+                                </div>
+                            </div>
+
+                            <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Date of Birth<span
+                                            class="text-Indicates">*</span></h2>
+                                </div>
+                                <div
+                                    class="Laptop:w-[65%] w-[60%] grid grid-cols-3 gap-1 Tablet:gap-2 border p-2 Tablet:p-2.5 rounded dobdate ">
+
+                                    <div class="field ">
+                                        <select name="" id=""
+                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                            <option value="15">15</option>
+                                            <option value="16">16</option>
+                                            <option value="17">17</option>
+                                            <option value="18">18</option>
+                                            <option value="19">19</option>
+                                            <option value="20">20</option>
+                                            <option value="21">21</option>
+                                            <option value="22">22</option>
+                                            <option value="23">23</option>
+                                            <option value="24">24</option>
+                                            <option value="25">25</option>
+                                            <option value="26">26</option>
+                                            <option value="27">27</option>
+                                            <option value="28">28</option>
+                                            <option value="29">29</option>
+                                            <option value="30">30</option>
+                                            <option value="31">31</option>
+                                        </select>
+
+                                    </div>
+                                    <div class="field">
+                                        <select name="" id=""
+                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                            <option value="January">January</option>
+                                            <option value="February">February</option>
+                                            <option value="March">March</option>
+                                            <option value="April">April</option>
+                                            <option value="May">May</option>
+                                            <option value="June">June</option>
+                                            <option value="July">July</option>
+                                            <option value="August">August</option>
+                                            <option value="September">September</option>
+                                            <option value="October">October</option>
+                                            <option value="November">November</option>
+                                            <option value="December">December</option>
+                                        </select>
+
+                                    </div>
+                                    <div class="field">
+                                        <select name="" id=""
+                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                            <option value="2005">2005</option>
+                                            <option value="2004">2004</option>
+                                            <option value="2003">2003</option>
+                                            <option value="2002">2002</option>
+                                            <option value="2001">2001</option>
+                                            <option value="2000">2000</option>
+                                            <option value="1999">1999</option>
+                                            <option value="1998">1998</option>
+                                            <option value="1997">1997</option>
+                                            <option value="1996">1996</option>
+                                            <option value="1995">1995</option>
+                                            <option value="1994">1994</option>
+                                            <option value="1993">1993</option>
+                                            <option value="1992">1992</option>
+                                            <option value="1991">1991</option>
+                                            <option value="1990">1990</option>
+                                            <option value="1989">1989</option>
+                                            <option value="1988">1988</option>
+                                            <option value="1987">1987</option>
+                                            <option value="1986">1986</option>
+                                            <option value="1985">1985</option>
+                                            <option value="1984">1984</option>
+                                            <option value="1983">1983</option>
+                                            <option value="1982">1982</option>
+                                            <option value="1981">1981</option>
+                                            <option value="1980">1980</option>
+                                            <option value="1979">1979</option>
+                                            <option value="1978">1978</option>
+                                            <option value="1977">1977</option>
+                                            <option value="1976">1976</option>
+                                            <option value="1975">1975</option>
+                                            <option value="1974">1974</option>
+                                            <option value="1973">1973</option>
+                                            <option value="1972">1972</option>
+                                            <option value="1971">1971</option>
+                                            <option value="1970">1970</option>
+                                            <option value="1969">1969</option>
+                                            <option value="1968">1968</option>
+                                            <option value="1967">1967</option>
+                                            <option value="1966">1966</option>
+                                            <option value="1965">1965</option>
+                                            <option value="1964">1964</option>
+                                            <option value="1963">1963</option>
+                                            <option value="1962">1962</option>
+                                            <option value="1961">1961</option>
+                                            <option value="1960">1960</option>
+                                        </select>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="grid grid-cols-1   border-b gap-2  py-4 Laptop:py-6">
+
+                            <div class="flex items-center gap-4">
+                                <div class="Laptop:w-[16%] w-[38%]">
+                                    <h2 class="text-sm  Laptop:text-base font-medium leading-[29px] ">Email Address
+                                        <span class="text-Indicates">*</span>
+                                    </h2>
+                                </div>
+                                <div class="field Laptop:w-[84%] w-[62%] ">
+                                    <input type="email" name="email" id="email" autocomplete="off"
+                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none" required>
+                                    <label for="" class="label-t">Email Address</label>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 gap-4 Laptop:gap-8 py-4 Laptop:py-6">
+
+
+                            <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Nationality <span
+                                            class="text-Indicates">*</span></h2>
+                                </div>
+                                <div class="field Laptop:w-[65%] w-[60%]">
+                                    <select name="nationality" id="nationality"
+                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                        <option value="">Select Nationality</option>
+                                        <option value="Bangladesh">Bangladesh</option>
+                                        <option value="Nepal">Nepal</option>
+                                        <option value="Srilanka">Srilanka</option>
+                                        <option value="Pakistan">Pakistan</option>
+                                        <option value="India">India</option>
+                                    </select>
+
+                                </div>
+                            </div>
+
+                            <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Job Position <span
+                                            class="text-Indicates">*</span></h2>
+                                </div>
+                                <div class="field Laptop:w-[65%] w-[60%]">
+                                    <select name="" id=""
+                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none" required>
+                                        <option value="Rider">Rider</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+
+                        <div
+                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-2 Laptop:gap-8 py-4 Laptop:py-6">
+
+                            <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Contact Number <span
+                                            class="text-Indicates">*</span></h2>
+                                </div>
+                                <div class="field Laptop:w-[65%] w-[60%]">
+                                    <input type="tel" name="contact_number" id="phone" pattern="^[0-9-]+$"
+                                        autocomplete="off" title="Only numbers and hyphens are allowed"
+                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                        <p class="errormessagenumber" id="phone-error"></p>
+                                    <!-- <label for="" class="label-t">Contact Number</label> -->
+                                </div>
+                            </div>
+
+                            <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">WhatsApp Number
+                                        <span class="text-Indicates">*</span>
+                                    </h2>
+                                </div>
+                                <div class="field Laptop:w-[65%] w-[60%]">
+                                    <input type="tel" name="whatsapp_number" id="whatsappnumberflag" autocomplete="off"
+                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none" required>
+                                    <!-- <label for="" class="label-t">WhatsApp Number</label> -->
+                                    <p class="errormessagenumber" id="whatsappnumberflag-error"></p>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div
+                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 gap-2 Laptop:gap-8 py-4 Laptop:py-6">
+                            <div class="flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Applicant Photo
+                                        <span class="text-Indicates">*</span>
+                                    </h2>
+                                    <img class="mt-2 w-10 Laptop:w-14" src="data:image/svg+xml,%3csvg%20id='Capa_1'%20enable-background='new%200%200%20512%20512'%20height='512'%20viewBox='0%200%20512%20512'%20width='512'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%3e%3cg%3e%3cg%3e%3cpath%20d='m256.025%20483.334%20101.429-25.614c57.895-48.074%2094.771-120.586%2094.771-201.719%200-125.144-87.711-229.801-205.012-255.852-137.316%204.631-247.213%20117.407-247.213%20255.851%200%2071.112%2029%20135.446%2075.812%20181.836z'%20fill='%23cbe2ff'/%3e%3c/g%3e%3cg%3e%3cpath%20d='m446.914%20256c0%2083.915-40.381%20158.391-102.765%20205.079l92.031-23.241c46.815-46.39%2075.82-110.724%2075.82-181.838%200-141.385-114.615-256-256-256-11.024%200-21.886.698-32.543%202.05%20126.019%2015.988%20223.457%20123.59%20223.457%20253.95z'%20fill='%23bed8fb'/%3e%3c/g%3e%3cg%3e%3cg%3e%3cg%3e%3cpath%20d='m319.621%2096.952c0-13.075-10.599-23.674-23.674-23.674h-81.582c-30.091%200-54.485%2024.394-54.485%2054.485v60.493h192.209v-59.635c0-13.075-10.599-23.674-23.674-23.674h-.798c-4.416%200-7.996-3.579-7.996-7.995z'%20fill='%23365e7d'/%3e%3cpath%20d='m328.415%20104.947h-.798c-4.416%200-7.996-3.58-7.996-7.996%200-13.075-10.599-23.674-23.674-23.674h-8.945v114.978h65.086v-59.635c.001-13.073-10.599-23.673-23.673-23.673z'%20fill='%232b4d66'/%3e%3cpath%20d='m425.045%20372.355c-6.259-6.182-14.001-10.963-22.79-13.745l-69.891-22.128-76.348-2.683-76.38%202.683-69.891%2022.128c-23.644%207.486-39.713%2029.428-39.713%2054.229v19.094c44.789%2047.328%20107.451%2077.568%20177.183%2079.92%2078.128-17.353%20143.129-69.576%20177.83-139.498z'%20fill='%234a80aa'/%3e%3cpath%20d='m441.968%20431.932v-19.094c0-17.536-8.04-33.635-21.105-44.213-37.111%2075.626-110.422%20130.268-197.346%20141.317%2010.492%201.329%2021.178%202.038%2032.026%202.057%2010.423-.016%2020.708-.62%2030.824-1.782%2061.031-7.212%20115.485-35.894%20155.601-78.285z'%20fill='%23407093'/%3e%3cpath%20d='m261.796%20508.168c15.489-30.751%2055.822-118.067%2044.321-172.609l-50.101-19.499-50.148%2019.5c-11.856%2056.225%2031.37%20147.277%2045.681%20175.29%203.442-.826%206.859-1.721%2010.247-2.682z'%20fill='%23e4f6ff'/%3e%3cpath%20d='m288.197%20483.789-20.314-79.917h-23.767l-20.264%2079.699%2025.058%2027.897c6.361-1.457%2012.634-3.146%2018.81-5.057z'%20fill='%23e28086'/%3e%3cpath%20d='m249.302%20511.905c2.075.054%204.154.091%206.241.095%202.415-.004%204.822-.046%207.222-.113l12.907-14.259c-10.159%203.564-20.61%206.506-31.309%208.779z'%20fill='%23dd636e'/%3e%3cg%3e%3cg%3e%3cg%3e%3cg%3e%3cg%3e%3cg%3e%3cg%3e%3cg%3e%3cpath%20d='m298.774%20328.183v-45.066h-85.58v45.066c0%2023.632%2042.79%2049.446%2042.79%2049.446s42.79-25.814%2042.79-49.446z'%20fill='%23ffddce'/%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cpath%20d='m352.089%20180.318h-16.359c-9.098%200-16.473-7.375-16.473-16.473v-9.015c0-11.851-11.595-20.23-22.847-16.511-26.243%208.674-54.579%208.676-80.823.006l-.031-.01c-11.252-3.717-22.845%204.662-22.845%2016.512v9.019c0%209.098-7.375%2016.473-16.473%2016.473h-16.358v26.938c0%206.883%205.58%2012.464%2012.464%2012.464%202.172%200%203.939%201.701%204.076%203.869%202.628%2041.668%2037.235%2074.654%2079.565%2074.654%2042.33%200%2076.937-32.986%2079.565-74.654.137-2.167%201.904-3.869%204.076-3.869%206.883%200%2012.464-5.58%2012.464-12.464v-26.939z'%20fill='%23ffddce'/%3e%3cpath%20d='m335.73%20180.318c-9.098%200-16.473-7.375-16.473-16.473v-9.015c0-11.851-11.595-20.23-22.847-16.511-3.108%201.027-6.247%201.923-9.407%202.707v88.972c-.438%2028.948-16.3%2054.142-39.725%2067.758%202.861.311%205.763.486%208.706.486%2042.33%200%2076.937-32.986%2079.565-74.654.137-2.167%201.904-3.869%204.076-3.869%206.883%200%2012.464-5.58%2012.464-12.464v-26.938h-16.359z'%20fill='%23ffcbbe'/%3e%3c/g%3e%3cg%20fill='%23f4fbff'%3e%3cpath%20d='m213.194%20316.06-33.558%2027.267%2035.192%2043.513c4.281%204.168%2011.019%204.424%2015.605.594l26.465-22.107z'/%3e%3cpath%20d='m298.79%20316.06-41.892%2049.267%2024.874%2021.268c4.557%203.896%2011.327%203.7%2015.651-.453l34.94-42.815z'/%3e%3c/g%3e%3c/g%3e%3cpath%20d='m213.194%20316.06-49.256%2024.199c-3.75%201.842-5.256%206.404-3.341%2010.117l9.65%2018.71c2.501%204.848%201.578%2010.756-2.282%2014.61-1.987%201.983-4.139%204.131-6.004%205.993-3.338%203.332-4.537%208.255-3.067%2012.737%2011.651%2035.517%2067.725%2089.828%2088.946%20109.478%201.427.038%202.857.064%204.29.08-15.389-29.933-69.922-143.655-38.936-195.924z'%20fill='%23365e7d'/%3e%3cpath%20d='m344.019%20383.695c-3.861-3.854-4.783-9.762-2.282-14.61l9.65-18.71c1.915-3.713.409-8.275-3.341-10.117l-49.256-24.198c30.978%2052.255-23.517%20165.929-38.923%20195.9%201.448-.025%202.893-.061%204.335-.109%2021.265-19.695%2077.248-73.94%2088.888-109.424%201.47-4.482.271-9.405-3.067-12.737-1.865-1.863-4.017-4.012-6.004-5.995z'%20fill='%23365e7d'/%3e%3cpath%20d='m256.898%20365.327-26.06%2021.764%2013.278%2016.781h23.767l13.279-17.771z'%20fill='%23dd636e'/%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/svg%3e" alt="">
+                                </div>
+                                <div id="uploadArea"
+                                    class="field Laptop:w-[65%] w-[60%] border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                    <div class="text-center">
+                                        <img id="previewImage" class="w-8 Laptop:w-10 text-center mx-auto mb-2"
+                                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAoCAYAAACiu5n/AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAARsSURBVHgB3VpNUuJAFH4d0M2MFnOCwRMo69mQ8qfKlXoC8QTqCcQTqCcwnkBdWSpUYDFrc4PJnGAo3Q2SzPcaGDHpJkkTVPyqIrFDOvny+r33vRcETRnu3d0KCVEVQizzJ4VhCcOlweEONp+3MAzbONayNzY8miIETQHu5WXJWlzcB4lt/LtC2eCHQXAM4g5NAbkTbjca+yFRnV6saIqpEM+NsHtzUxZzc+fYrVK+8MNu17Y3N33KAbkQZj8VluXS5FbVga29k4d/WzQh3Nvb7RRkW/DnQ2x2+PT0rbq2JnjjfTmGY/ydMeeXcY0HuMsuTYiJLJzCsg4sc5bWMuwWVCjUMaeOWAfz2ZNY2pjwwGeZbFlxmNPMnr2+3iIDuPf3nMbOtXMXChXbtjtkAOMlLebnj5Q3FIaeDDKGZBl8Ls+BXZUly6LXuyRDGFkYS7mGZXeuOOTDLyv2zo7R049dx3VLIMerKJbL2fdNHmoqwiwk6OvXFcuytnChKvUtG/XbXNPH/2v3XedBcb0WAp9NGTGW8IhiOqCElINgsjctdeQ2Gtu40dgyNrGy1oc5BYiFhV+YtE7J+dXPQpatJiNySthra1ekSFsIbPuUEUrC7WbzBPLQoZRCgiMypcQwuvOWhTSucawYrrKfUwbECLeazfPBEk6GED7+OmmXVSSVlbOQHlwjGgxL9PycqTh55cPSsnqynPQvyLJa1O16WYPTmLydOtghOzgKUcIPwcPy9oIguE56+GJkMl2qISzvM3p6qpummwSRwkhFGoLkAMROaDzGVlki6YZY5+KpnZIhUpB9udEE0gMF5lI6KOeTPmzNz+/S+5JlJPt0sZhFQ/fn447LCCRhEKspTnDekOzrm9SQHujnFsWDl34+FDej8wltUu92l0xVkyHZUaTzaVaAX76UEUjLFATbY6osD6qswjtM+BSEowncwRdS59ZXNzE52SEyS9WEWHSMFVsvguxy7GCvd02mKBSqmPwiOoxgs0X6hp6Hc65Vc1FfAKUCPxyQtlWkWZVBpJyKVqPxhyKKak6I8o/V1d+UIzQ5dAjjFaW8liaaw5A7HLRi0ixvsm8NWU+zSIpAFApbE/e0PiyEcBRjVSYcC/E/m83vNOtQ5Wy89WDCfnT87/NzhWYcmp5XyYJObseG+9FxpqErGy2Y+So6iFS1m7XO/HBQl41eUa71Xo/NP0qwJIKAq5LcUgWqlxo+avRGkCkwDKPDnsVrHUn/LHYG9DWXYzSDkNpZUR8gVbX7aalY5CIh5uRce6IpcEQzhBF5GYXsu0nC0spBcKiagJt43PbJ0n96L8hXP3otLYXIqxaPppB4AZK51LwGLZ5pYdgzH/hsTfM1H9J1iXdifWmQdjhK0+dBB1VXZWigmLRED7gme1ifA/23jSOrUamlQfqA3ySQQoXNEHxp2cir1fGvWjhQFYs1RGtlz+uDQqZZLvZVB1O/PeRWENooVQQHbhiwivkoSqyDYNrhnzyFQrTp8fFqXDv5HyQ8bpR2LgPCAAAAAElFTkSuQmCC" alt="">
+                                        <p class="text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
+                                            or <a href="#" id="uploadLink"
+                                                class="text-Primary-c underline underline-offset-2">Upload
+                                                File</a></p>
+                                    </div>
+                                </div>
+                                <input type="file" id="fileInput" class="hidden" accept="image/*" required>
+                            </div>
+                        </div>
+
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function () {
+                                const uploadArea = document.getElementById('uploadArea');
+                                const uploadLink = document.getElementById('uploadLink');
+                                const fileInput = document.getElementById('fileInput');
+                                const previewImage = document.getElementById('previewImage');
+
+                                uploadArea.addEventListener('click', function () {
+                                    fileInput.click();
+                                });
+
+                                uploadLink.addEventListener('click', function (event) {
+                                    event.preventDefault();
+                                    fileInput.click();
+                                });
+
+                                fileInput.addEventListener('change', function () {
+                                    if (fileInput.files.length > 0) {
+                                        const file = fileInput.files[0];
+                                        const reader = new FileReader();
+
+                                        reader.onload = function (e) {
+                                            previewImage.src = e.target.result;
+                                        }
+
+                                        reader.readAsDataURL(file);
+                                    } else {
+                                        previewImage.src = 'assets/Images/Vector.png';
+                                    }
+                                });
+                            });
+                        </script>
+
+
+
+                        <div class="button text-right Laptop:mt-10 mt-4 pb-4">
+
+                            <input type="button" name="next"
+                                class="action-button next Laptop:px-6 Laptop:py-3 px-4 py-2 text-xs Laptop:text-base bg-Primary-c text-White-c rounded-2xl leading-5"
+                                value="Save & Continue" />
+                        </div>
+                    </fieldset>
+
+                    <!-- Step 2 -->
+                    <fieldset>
+                        <div
+                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-2 Laptop:gap-8 py-4 Laptop:py-6">
+
+                            <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Passport Number
+                                        <span class="text-Indicates">*</span>
+                                    </h2>
+                                </div>
+                                <div class="field Laptop:w-[65%] w-[60%]">
+                                    <input type="number" name="number" id="number" autocomplete="off"
+                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                    <label for="" class="label-t">Passport Number</label>
+                                </div>
+                            </div>
+
+                            <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Date of Expiry <span
+                                            class="text-Indicates">*</span></h2>
+                                </div>
+                                <div
+                                    class="Laptop:w-[65%] w-[60%] grid grid-cols-3 gap-1 Tablet:gap-2 border p-2 Tablet:p-2.5 expiry  rounded date ">
+
+                                    <div class="field ">
+                                        <select name="" id=""
+                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                            <option value="15">15</option>
+                                            <option value="16">16</option>
+                                            <option value="17">17</option>
+                                            <option value="18">18</option>
+                                            <option value="19">19</option>
+                                            <option value="20">20</option>
+                                            <option value="21">21</option>
+                                            <option value="22">22</option>
+                                            <option value="23">23</option>
+                                            <option value="24">24</option>
+                                            <option value="25">25</option>
+                                            <option value="26">26</option>
+                                            <option value="27">27</option>
+                                            <option value="28">28</option>
+                                            <option value="29">29</option>
+                                            <option value="30">30</option>
+                                            <option value="31">31</option>
+                                        </select>
+                                    </div>
+                                    <div class="field">
+                                        <select name="" id=""
+                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                            <option value="January">January</option>
+                                            <option value="February">February</option>
+                                            <option value="March">March</option>
+                                            <option value="April">April</option>
+                                            <option value="May">May</option>
+                                            <option value="June">June</option>
+                                            <option value="July">July</option>
+                                            <option value="August">August</option>
+                                            <option value="September">September</option>
+                                            <option value="October">October</option>
+                                            <option value="November">November</option>
+                                            <option value="December">December</option>
+                                        </select>
+                                    </div>
+                                    <div class="field">
+                                        <select name="" id=""
+                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                            <option value="2024">2024</option>
+                                            <option value="2025">2025</option>
+                                            <option value="2026">2026</option>
+                                            <option value="2027">2027</option>
+                                            <option value="2028">2028</option>
+                                            <option value="2029">2029</option>
+                                            <option value="2030">2030</option>
+                                            <option value="2031">2031</option>
+                                            <option value="2032">2032</option>
+                                            <option value="2033">2033</option>
+                                            <option value="2034">2034</option>
+                                            <option value="2035">2035</option>
+
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div
+                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-2 Laptop:gap-8 py-4 Laptop:py-6">
+
+                            <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Father’s Name <span
+                                            class="text-Indicates">*</span></h2>
+                                </div>
+                                <div class="field Laptop:w-[65%] w-[60%]">
+                                    <input type="text" name="first_name" id="first_name" autocomplete="off"
+                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                    <label for="" class="label-t">Father’s Name</label>
+                                </div>
+                            </div>
+
+                            <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">NID/CNIC <span
+                                            class="text-Indicates">*</span></h2>
+                                </div>
+                                <div class="field Laptop:w-[65%] w-[60%]">
+                                    <input type="number" name="number" id="number" autocomplete="off"
+                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                    <label for="" class="label-t">NID/CNIC</label>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                        <div
+                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-2 Laptop:gap-8 py-4 Laptop:py-6">
+
+                            <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Martial Status <span
+                                            class="text-Indicates">*</span></h2>
+                                </div>
+                                <div class="field Laptop:w-[65%] w-[60%]">
+                                    <select name="" id=""
+                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                        <option value="Single">Single</option>
+                                        <option value="Married">Married</option>
+                                        <option value="Divorced">Divorced</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div
+                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-2 Laptop:gap-8 py-4 Laptop:py-6">
+
+                            <div class=" flex items-center gap-2 YesNo">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">UAE Residence <span
+                                            class="text-Indicates">*</span></h2>
+                                </div>
+                                <div class="field Laptop:w-[65%] w-[60%]">
+                                    <div class="flex gap-8">
+                                        <select name="" id=""
+                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none">
+                                            <option value="Yes"><span id="yes">Yes</span> </option>
+                                            <option value="No"><span id="no">No</span></option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class=" flex items-center gap-2 YesNo">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Religion <span
+                                            class="text-Indicates">*</span></h2>
+                                </div>
+                                <div class="field Laptop:w-[65%] w-[60%]">
+                                    <div class="flex gap-8">
+                                        <select name="" id=""
+                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none">
+                                            <option value="Islam">Islam</option>
+                                            <option value="Hindu">Hindu</option>
+                                            <option value="Christian">Christian </option>
+                                            <option value="Buddhist">Buddhist</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div id="residence-yes"
+                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-2 Laptop:gap-8 py-4 Laptop:py-6">
+
+                            <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Emirates ID <span
+                                            class="text-Indicates">*</span></h2>
+                                </div>
+                                <div class="field Laptop:w-[65%] w-[60%]">
+                                    <input type="text" name="emiratesid" id="fixedInput" autocomplete="off"
+                                        maxlength="18" class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
+                                        oninput="formatInput(this)" placeholder="784-####-#######-#"
+                                        onclick="autofill()">
+                                    <label for="" class="label-t">Emirates ID </label>
+                                </div>
+                            </div>
+
+
+                            <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Date of Expiry <span
+                                            class="text-Indicates">*</span></h2>
+                                </div>
+
+                                <div
+                                    class="Laptop:w-[65%] w-[60%] grid grid-cols-3 gap-1 Tablet:gap-2 border p-2 Tablet:p-2.5 expiry  rounded date ">
+
+                                    <div class="field ">
+                                        <select name="" id=""
+                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                            <option value="15">15</option>
+                                            <option value="16">16</option>
+                                            <option value="17">17</option>
+                                            <option value="18">18</option>
+                                            <option value="19">19</option>
+                                            <option value="20">20</option>
+                                            <option value="21">21</option>
+                                            <option value="22">22</option>
+                                            <option value="23">23</option>
+                                            <option value="24">24</option>
+                                            <option value="25">25</option>
+                                            <option value="26">26</option>
+                                            <option value="27">27</option>
+                                            <option value="28">28</option>
+                                            <option value="29">29</option>
+                                            <option value="30">30</option>
+                                            <option value="31">31</option>
+                                        </select>
+                                    </div>
+                                    <div class="field">
+                                        <select name="" id=""
+                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                            <option value="January">January</option>
+                                            <option value="February">February</option>
+                                            <option value="March">March</option>
+                                            <option value="April">April</option>
+                                            <option value="May">May</option>
+                                            <option value="June">June</option>
+                                            <option value="July">July</option>
+                                            <option value="August">August</option>
+                                            <option value="September">September</option>
+                                            <option value="October">October</option>
+                                            <option value="November">November</option>
+                                            <option value="December">December</option>
+                                        </select>
+                                    </div>
+                                    <div class="field">
+                                        <select name="" id=""
+                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                            <option value="2024">2024</option>
+                                            <option value="2025">2025</option>
+                                            <option value="2026">2026</option>
+                                            <option value="2027">2027</option>
+                                            <option value="2028">2028</option>
+                                            <option value="2029">2029</option>
+                                            <option value="2030">2030</option>
+                                            <option value="2031">2031</option>
+                                            <option value="2032">2032</option>
+                                            <option value="2033">2033</option>
+                                            <option value="2034">2034</option>
+                                            <option value="2035">2035</option>
+
+                                        </select>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div
+                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-2 Laptop:gap-8 py-4 Laptop:py-6">
+
+
+                        </div>
+
+                        <div class="grid grid-cols-1  border-b gap-4 Laptop:gap-8 py-4 Laptop:py-6">
+
+                            <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[16.8%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Home Country Address
+                                        <span class="text-Indicates">*</span>
+                                    </h2>
+                                </div>
+                                <div class="field Laptop:w-[83.2%] w-[60%]  ">
+                                    <input type="text" name="address" id="address" autocomplete="off"
+                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                    <label for="" class="label-t">Home Country Address</label>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+
+                        <div class="grid grid-cols-2 Laptop:grid-cols-4 gap-2 Laptop:gap-12 mb-2 Laptop:mb-8 mt-4">
+
+                            <!-- Nepal  -->
+
+                            <div>
+                                <label for="stateProvince" class="text-sm Laptop:text-base">State/Province:</label>
+                                <select name="stateProvince" id="stateProvince"
+                                    class="w-full mt-2 px-2 py-2 rounded-md border text-xs">
+                                    <option value="">Select State/Province</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="cityDistrict" class="text-sm Laptop:text-base">City/District:</label>
+                                <select name="cityDistrict" id="cityDistrict"
+                                    class="w-full  mt-2 px-2 py-2 rounded-md border text-xs">
+
+                                    <option value="">Select City/District</option>
+
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="policeStation" class="text-sm Laptop:text-base">Police Station:</label>
+                                <input type="text" name="policeStation" id="policeStation"
+                                    class="w-full mt-2 px-2 py-2  text-xs rounded-md border outline-none">
+                            </div>
+
+                            <div>
+                                <label for="" class="text-sm Laptop:text-base">Post Office (Optional)</label>
+                                <input type="text" name="postCode" id="postCode"
+                                    class="w-full mt-2 px-2 py-2  text-xs rounded-md border outline-none">
+                            </div>
+
+                        </div>
+
+                        <!-- pakistan  -->
+
+                        <!-- <div class="grid grid-cols-2 Laptop:grid-cols-4 gap-2 Laptop:gap-12 mb-2 Laptop:mb-8 mt-4"> 
+          
+                            
+                            <div>
+                                <label for="" class="text-sm Laptop:text-base">State/Province:</label>
+                                <select name="" id="" class="w-full mt-2 px-2 py-2 rounded-md border text-xs"> 
+                                
+                                    <option value="Gilgit-Baltistan">Gilgit-Baltistan</option>
+                                    <option value="Khyber-Pakhtunkhwa">Khyber Pakhtunkhwa</option>
+                                    <option value="Punjab">Punjab</option>
+                                    <option value="Balochistan">Balochistan</option>
+                                    <option value="Islamabad">Islamabad</option>
+                                    <option value="Jammu-and-Kashmir">Jammu and Kashmir</option> 
+                                
+                                </select>
+                            </div>    
+                            
+                            <div>
+                                <label for="" class="text-sm Laptop:text-base">City/District:</label>
+        
+                                <select name="" id="" class="w-full  mt-2 px-2 py-2 rounded-md border text-xs">  
+                                 
+                                    <option value="Bhimber">Bhimber</option>
+                                    <option value="Mirpur">Mirpur</option>
+                                    <option value="Kotli">Kotli</option>
+                                    <option value="Kotli">Kotli</option>
+                                    <option value="Rawalakot">Rawalakot</option>
+                                    <option value="Bagh">Bagh</option>
+                                    <option value="Muzaffarabad">Muzaffarabad</option>
+                                    <option value="Gilgit">Gilgit</option>
+                                    <option value="Skardu-HPO">Skardu HPO</option>
+                                    <option value="Skardu-HPO">Skardu HPO</option>
+                                    <option value="Mardan">Mardan</option>
+                                    <option value="Chitral">Chitral</option>
+                                    <option value="Batkhela-HPO ">Batkhela HPO </option>
+                                    <option value="Saidu-Sharif">Saidu Sharif</option>
+                                    <option value="Mansehra">Mansehra</option>
+                                    <option value="Haripur">Haripur</option>
+                                    <option value="Abbottabad">Abbottabad</option>
+                                    <option value="Sawabi">Sawabi</option>
+                                    <option value="Nowshera">Nowshera</option>
+                                    <option value="Peshawar">Peshawar</option>
+                                    <option value="Charsadda">Charsadda</option>
+                                    <option value="Kohat">Kohat</option>
+                                    <option value="Karak">Karak</option>
+                                    <option value="Bannu">Bannu</option>
+                                    <option value="Dera-Ismail-Khan">Dera Ismail Khan</option>
+                                    <option value="Tank">Tank</option>
+                                    <option value="Bhakkar">Bhakkar</option>
+                                    <option value="Layyah">Layyah</option>
+                                    <option value="Layyah">Layyah</option>
+                                    <option value="Dera-Ghazi-Khan">Dera Ghazi Khan</option>
+                                    <option value="Muzaffargarh">Muzaffargarh</option>
+                                    <option value="Jhang">Jhang</option>
+                                    <option value="T.T-Singh">T.T Singh</option>
+                                    <option value="Faisalabad">Faisalabad</option>
+                                    <option value="Qila-Sheikhupura">Qila Sheikhupura</option>
+                                    <option value="Sargodha">Sargodha</option>
+                                    <option value="Khushab">Khushab</option>
+                                    <option value="Mianwali">Mianwali</option>
+                                    <option value="Attock">Attock</option>
+                                    <option value="Islamabad">Islamabad</option>
+                                    <option value="Rawalpindi">Rawalpindi</option>
+                                    <option value="Wah-Cantt.">Wah Cantt.</option>
+                                    <option value="Murree">Murree</option>  
+                                    <option value="Gujar-Khan">Gujar Khan</option>
+                                    <option value="Talagang">Talagang</option>
+                                    <option value="Chakwal">Chakwal</option>
+                                    <option value="Jhelum">Jhelum</option>
+                                    <option value="Gujrat">Gujrat</option>
+                                    <option value="Mandi-Bahauddin">Mandi Bahauddin</option>
+                                    <option value="Sialkot">Sialkot</option>
+                                    <option value="Narowal">Narowal</option>
+                                    <option value="Gujranwala">Gujranwala</option>
+                                    <option value="Lahore-Cantt">Lahore Cantt</option>
+                                    <option value="Kasur">Kasur</option>
+                                    <option value="Lahore">Lahore</option>
+                                    <option value="Okara">Okara</option>
+                                    <option value="Sahiwal">Sahiwal</option>
+                                    <option value="Souhern-Punjab-Mulan">Souhern Punjab Mulan</option>
+                                    <option value="Khanewal">Khanewal</option>
+                                    <option value="Multan">Multan</option>
+                                    <option value="Bahawalpur">Bahawalpur</option>
+                                    <option value="Vehari">Vehari</option>
+                                    <option value="Bahawal-Nagar">Bahawal Nagar</option>
+                                    <option value="Bahawal-Nagar ">Bahawal Nagar </option>
+                                    <option value="Rahimyar-Khan">Rahimyar Khan</option>
+                                    <option value="Sukkur">Sukkur</option>
+                                    <option value="Hyderabad">Hyderabad</option>
+                                    <option value="Khairpur">Khairpur</option>
+                                    <option value="Nawabshah">Nawabshah</option>
+                                    <option value="Sanghar">Sanghar</option>
+                                    <option value="Mirpur-Khas">Mirpur Khas</option>
+                                    <option value="Karachi-City">Karachi City</option>
+                                    <option value="Karachi">Karachi</option>
+                                    <option value="Karachi-Saddar">Karachi Saddar</option>
+                                    <option value="Alhydri">Alhydri</option>
+                                    <option value="New-Town">New Town</option>
+                                    <option value="Korangi">Korangi</option>
+                                    <option value="New-Town">New Town</option> 
+                                    <option value="Dadu">Dadu</option>
+                                    <option value="Larkana">Larkana</option>
+                                    <option value="Shikarpur">Shikarpur</option>
+                                    <option value="Jacobabad">Jacobabad</option>
+                                    <option value="Sibi">Sibi</option>
+                                    <option value="Balochistan">Balochistan</option>
+                                    <option value="Loralai">Loralai</option>
+                                    <option value="Quetta">Quetta</option>
+                                    <option value="Khuzdar">Khuzdar</option>
+                                    <option value="Turbat">Turbat</option> 
+                                    <option value="Norhern-Punjab">Norhern Punjab</option>   
+        
+                                </select>
+                            </div>  
+        
+                            <div>
+                                <label for="" class="text-sm Laptop:text-base">Police Station:</label>
+                                <input type="text" name="" id="" class="w-full mt-2 px-2 py-2  text-xs rounded-md border outline-none">
+                            </div>  
+        
+                             
+                            <div>
+                                <label for="" class="text-sm Laptop:text-base">Post Office (Optional)</label> 
+                                <input type="text" name="" id="" class="w-full mt-2 px-2 py-2  text-xs rounded-md border outline-none">
+                            </div>   
+                            
+                        </div>     -->
+
+
+                        <div
+                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-2 Laptop:gap-8 py-4 Laptop:py-6">
+
+                            <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-sm font-medium leading-[29px]">Reference No
+                                        (Optional)</h2>
+                                </div>
+                                <div class="field Laptop:w-[65%] w-[60%]">
+                                    <input type="text" name="number" id="number" autocomplete="off"
+                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                    <label for="" class="label-t">Reference No</label>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+
+                        <div
+                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-2 Laptop:gap-8 py-4 Laptop:py-6">
+
+                            <!-- <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Passport Front
+                                        Page<span class="text-Indicates">*</span></h2>
+                                    <img class="mt-2 w-10 Laptop:w-14" src="assets/Images/passport.svg" alt="">
+                                </div>
+                                <div
+                                    class="field Laptop:w-[65%] w-[60%] border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                    <div class="text-center">
+                                        <img class=" w-8 Laptop:w-10 text-center mx-auto mb-2"
+                                            src="assets/Images/Vector.png" alt="">
+
+                                        <p class=" text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
+                                            or <a href="" class="text-Primary-c  underline underline-offset-2">Upload
+                                                File</a></p>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <div class="flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Passport Front Page
+                                        <span class="text-Indicates">*</span>
+                                    </h2>
+                                    <img class="mt-2 w-10 Laptop:w-14" src="data:image/svg+xml,%3csvg%20clip-rule='evenodd'%20fill-rule='evenodd'%20height='512'%20image-rendering='optimizeQuality'%20shape-rendering='geometricPrecision'%20text-rendering='geometricPrecision'%20viewBox='0%200%203000%203000'%20width='512'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3clinearGradient%20id='id0'%20gradientUnits='userSpaceOnUse'%20x1='-48'%20x2='3047.99'%20y1='984'%20y2='2015.99'%3e%3cstop%20offset='0'%20stop-color='%2308469a'/%3e%3cstop%20offset='1'%20stop-color='%2325a4c3'/%3e%3c/linearGradient%3e%3cg%20id='Layer_x0020_1'%3e%3ccircle%20cx='1500'%20cy='1500'%20fill='url(%23id0)'%20r='1500'/%3e%3cpath%20d='m1890%202253c0%2054-43%20100-97%20100h-908c-54%200-97-46-97-100v-1232c0-54%2043-100%2097-100h206l53-200c15-52%2068-85%20120-71l877%20235c52%2014%2082%2069%2068%20122l-319%201189zm-801-301c-27%200-27-40%200-40h500c27%200%2027%2040%200%2040zm-191%20130c-26%200-26-40%200-40h882c26%200%2026%2040%200%2040zm0%20131c-26%200-26-40%200-40h882c26%200%2026%2040%200%2040zm755-714c-47%2032-117%2051-179%2060-10%2062-28%20133-60%20180%20118-28%20211-121%20239-240zm-220%2066c-61%206-127%206-188%200%2010%2056%2042%20182%2094%20182s84-126%2094-182zm-229-6c-62-9-132-28-179-60%2028%20119%20121%20212%20239%20240-32-47-50-118-60-180zm-179-209c47-33%20117-51%20179-60%2010-63%2028-133%2060-180-118%2028-211%20121-239%20240zm220-66c61-6%20127-6%20188%200-10-56-42-182-94-182s-84%20126-94%20182zm229%206c62%209%20132%2027%20179%2060-28-119-121-212-239-240%2032%2047%2050%20117%2060%20180zm101%20204c116-42%20116-97%200-139-28-10-60-18-96-24%206%2061%206%20126%200%20187%2036-6%2068-14%2096-24zm-137-169c-64-7-134-7-198%200-8%2065-8%20134%200%20199%2064%207%20134%207%20198%200%207-65%207-134%200-199zm-239%206c-57%209-183%2042-183%2093%200%2052%20126%2085%20183%2094-6-61-6-126%200-187zm140-269c322%200%20485%20391%20257%20619s-620%2066-620-257c0-200%20163-362%20363-362zm-207-141h661c54%200%2097%2046%2097%20100v1021l280-1045c9-32-8-65-40-74l-876-235c-24-8-61%208-71%2044zm701%201375c11-11%2017-26%2017-43v-1232c0-32-25-60-57-60h-908c-32%200-57%2028-57%2060v1232c0%2032%2025%2060%2057%2060h908c15%200%2030-6%2040-17z'%20fill='%23fff'%20fill-rule='nonzero'/%3e%3c/g%3e%3c/svg%3e" alt="">
+                                </div>
+                                <div id="uploadAreaPassport"
+                                    class="field Laptop:w-[65%] w-[60%] border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                    <div class="text-center">
+                                        <img id="previewImagePassport" class="w-8 Laptop:w-10 text-center mx-auto mb-2"
+                                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAoCAYAAACiu5n/AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAARsSURBVHgB3VpNUuJAFH4d0M2MFnOCwRMo69mQ8qfKlXoC8QTqCcQTqCcwnkBdWSpUYDFrc4PJnGAo3Q2SzPcaGDHpJkkTVPyqIrFDOvny+r33vRcETRnu3d0KCVEVQizzJ4VhCcOlweEONp+3MAzbONayNzY8miIETQHu5WXJWlzcB4lt/LtC2eCHQXAM4g5NAbkTbjca+yFRnV6saIqpEM+NsHtzUxZzc+fYrVK+8MNu17Y3N33KAbkQZj8VluXS5FbVga29k4d/WzQh3Nvb7RRkW/DnQ2x2+PT0rbq2JnjjfTmGY/ydMeeXcY0HuMsuTYiJLJzCsg4sc5bWMuwWVCjUMaeOWAfz2ZNY2pjwwGeZbFlxmNPMnr2+3iIDuPf3nMbOtXMXChXbtjtkAOMlLebnj5Q3FIaeDDKGZBl8Ls+BXZUly6LXuyRDGFkYS7mGZXeuOOTDLyv2zo7R049dx3VLIMerKJbL2fdNHmoqwiwk6OvXFcuytnChKvUtG/XbXNPH/2v3XedBcb0WAp9NGTGW8IhiOqCElINgsjctdeQ2Gtu40dgyNrGy1oc5BYiFhV+YtE7J+dXPQpatJiNySthra1ekSFsIbPuUEUrC7WbzBPLQoZRCgiMypcQwuvOWhTSucawYrrKfUwbECLeazfPBEk6GED7+OmmXVSSVlbOQHlwjGgxL9PycqTh55cPSsnqynPQvyLJa1O16WYPTmLydOtghOzgKUcIPwcPy9oIguE56+GJkMl2qISzvM3p6qpummwSRwkhFGoLkAMROaDzGVlki6YZY5+KpnZIhUpB9udEE0gMF5lI6KOeTPmzNz+/S+5JlJPt0sZhFQ/fn447LCCRhEKspTnDekOzrm9SQHujnFsWDl34+FDej8wltUu92l0xVkyHZUaTzaVaAX76UEUjLFATbY6osD6qswjtM+BSEowncwRdS59ZXNzE52SEyS9WEWHSMFVsvguxy7GCvd02mKBSqmPwiOoxgs0X6hp6Hc65Vc1FfAKUCPxyQtlWkWZVBpJyKVqPxhyKKak6I8o/V1d+UIzQ5dAjjFaW8liaaw5A7HLRi0ixvsm8NWU+zSIpAFApbE/e0PiyEcBRjVSYcC/E/m83vNOtQ5Wy89WDCfnT87/NzhWYcmp5XyYJObseG+9FxpqErGy2Y+So6iFS1m7XO/HBQl41eUa71Xo/NP0qwJIKAq5LcUgWqlxo+avRGkCkwDKPDnsVrHUn/LHYG9DWXYzSDkNpZUR8gVbX7aalY5CIh5uRce6IpcEQzhBF5GYXsu0nC0spBcKiagJt43PbJ0n96L8hXP3otLYXIqxaPppB4AZK51LwGLZ5pYdgzH/hsTfM1H9J1iXdifWmQdjhK0+dBB1VXZWigmLRED7gme1ifA/23jSOrUamlQfqA3ySQQoXNEHxp2cir1fGvWjhQFYs1RGtlz+uDQqZZLvZVB1O/PeRWENooVQQHbhiwivkoSqyDYNrhnzyFQrTp8fFqXDv5HyQ8bpR2LgPCAAAAAElFTkSuQmCC" alt="">
+                                        <p class="text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
+                                            or <a href="#" id="uploadLinkPassport"
+                                                class="text-Primary-c underline underline-offset-2">Upload File</a></p>
+                                    </div>
+                                </div>
+                                <input type="file" id="fileInputPassport" class="hidden" accept="image/*">
+                            </div>
+
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    const uploadAreaPassport = document.getElementById('uploadAreaPassport');
+                                    const uploadLinkPassport = document.getElementById('uploadLinkPassport');
+                                    const fileInputPassport = document.getElementById('fileInputPassport');
+                                    const previewImagePassport = document.getElementById('previewImagePassport');
+
+                                    uploadAreaPassport.addEventListener('click', function () {
+                                        fileInputPassport.click();
+                                    });
+
+                                    uploadLinkPassport.addEventListener('click', function (event) {
+                                        event.preventDefault();
+                                        fileInputPassport.click();
+                                    });
+
+                                    fileInputPassport.addEventListener('change', function () {
+                                        if (fileInputPassport.files.length > 0) {
+                                            const file = fileInputPassport.files[0];
+                                            const reader = new FileReader();
+
+                                            reader.onload = function (e) {
+                                                previewImagePassport.src = e.target.result;
+                                            }
+
+                                            reader.readAsDataURL(file);
+                                        } else {
+                                            previewImagePassport.src = 'assets/Images/Vector.png';
+                                        }
+                                    });
+                                });
+                            </script>
+
+
+
+                            <!-- <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Signature Page
+                                        (Optional)</h2>
+                                    <img class="mt-2 w-10 Laptop:w-14" src="assets/Images/specialpapers.svg" alt="">
+                                </div>
+                                <div
+                                    class="field Laptop:w-[65%] w-[60%] border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                    <div class="text-center">
+                                        <img class=" w-8 Laptop:w-10 text-center mx-auto mb-2"
+                                            src="assets/Images/Vector.png" alt="">
+
+                                        <p class=" text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
+                                            or <a href="" class="text-Primary-c  underline underline-offset-2">Upload
+                                                File</a></p>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <div class="flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Signature Page
+                                        (Optional)</h2>
+                                    <img class="mt-2 w-10 Laptop:w-14" src="/assets/signeture-QK6hred_.svg" alt="">
+                                </div>
+                                <div id="uploadAreaSignature"
+                                    class="field Laptop:w-[65%] w-[60%] border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                    <div class="text-center">
+                                        <img id="previewImageSignature" class="w-8 Laptop:w-10 text-center mx-auto mb-2"
+                                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAoCAYAAACiu5n/AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAARsSURBVHgB3VpNUuJAFH4d0M2MFnOCwRMo69mQ8qfKlXoC8QTqCcQTqCcwnkBdWSpUYDFrc4PJnGAo3Q2SzPcaGDHpJkkTVPyqIrFDOvny+r33vRcETRnu3d0KCVEVQizzJ4VhCcOlweEONp+3MAzbONayNzY8miIETQHu5WXJWlzcB4lt/LtC2eCHQXAM4g5NAbkTbjca+yFRnV6saIqpEM+NsHtzUxZzc+fYrVK+8MNu17Y3N33KAbkQZj8VluXS5FbVga29k4d/WzQh3Nvb7RRkW/DnQ2x2+PT0rbq2JnjjfTmGY/ydMeeXcY0HuMsuTYiJLJzCsg4sc5bWMuwWVCjUMaeOWAfz2ZNY2pjwwGeZbFlxmNPMnr2+3iIDuPf3nMbOtXMXChXbtjtkAOMlLebnj5Q3FIaeDDKGZBl8Ls+BXZUly6LXuyRDGFkYS7mGZXeuOOTDLyv2zo7R049dx3VLIMerKJbL2fdNHmoqwiwk6OvXFcuytnChKvUtG/XbXNPH/2v3XedBcb0WAp9NGTGW8IhiOqCElINgsjctdeQ2Gtu40dgyNrGy1oc5BYiFhV+YtE7J+dXPQpatJiNySthra1ekSFsIbPuUEUrC7WbzBPLQoZRCgiMypcQwuvOWhTSucawYrrKfUwbECLeazfPBEk6GED7+OmmXVSSVlbOQHlwjGgxL9PycqTh55cPSsnqynPQvyLJa1O16WYPTmLydOtghOzgKUcIPwcPy9oIguE56+GJkMl2qISzvM3p6qpummwSRwkhFGoLkAMROaDzGVlki6YZY5+KpnZIhUpB9udEE0gMF5lI6KOeTPmzNz+/S+5JlJPt0sZhFQ/fn447LCCRhEKspTnDekOzrm9SQHujnFsWDl34+FDej8wltUu92l0xVkyHZUaTzaVaAX76UEUjLFATbY6osD6qswjtM+BSEowncwRdS59ZXNzE52SEyS9WEWHSMFVsvguxy7GCvd02mKBSqmPwiOoxgs0X6hp6Hc65Vc1FfAKUCPxyQtlWkWZVBpJyKVqPxhyKKak6I8o/V1d+UIzQ5dAjjFaW8liaaw5A7HLRi0ixvsm8NWU+zSIpAFApbE/e0PiyEcBRjVSYcC/E/m83vNOtQ5Wy89WDCfnT87/NzhWYcmp5XyYJObseG+9FxpqErGy2Y+So6iFS1m7XO/HBQl41eUa71Xo/NP0qwJIKAq5LcUgWqlxo+avRGkCkwDKPDnsVrHUn/LHYG9DWXYzSDkNpZUR8gVbX7aalY5CIh5uRce6IpcEQzhBF5GYXsu0nC0spBcKiagJt43PbJ0n96L8hXP3otLYXIqxaPppB4AZK51LwGLZ5pYdgzH/hsTfM1H9J1iXdifWmQdjhK0+dBB1VXZWigmLRED7gme1ifA/23jSOrUamlQfqA3ySQQoXNEHxp2cir1fGvWjhQFYs1RGtlz+uDQqZZLvZVB1O/PeRWENooVQQHbhiwivkoSqyDYNrhnzyFQrTp8fFqXDv5HyQ8bpR2LgPCAAAAAElFTkSuQmCC" alt="">
+                                        <p class="text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
+                                            or <a href="#" id="uploadLinkSignature"
+                                                class="text-Primary-c underline underline-offset-2">Upload File</a></p>
+                                    </div>
+                                </div>
+                                <input type="file" id="fileInputSignature" class="hidden" accept="image/*">
+                            </div>
+
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    const uploadAreaSignature = document.getElementById('uploadAreaSignature');
+                                    const uploadLinkSignature = document.getElementById('uploadLinkSignature');
+                                    const fileInputSignature = document.getElementById('fileInputSignature');
+                                    const previewImageSignature = document.getElementById('previewImageSignature');
+
+                                    uploadAreaSignature.addEventListener('click', function () {
+                                        fileInputSignature.click();
+                                    });
+
+                                    uploadLinkSignature.addEventListener('click', function (event) {
+                                        event.preventDefault();
+                                        fileInputSignature.click();
+                                    });
+
+                                    fileInputSignature.addEventListener('change', function () {
+                                        if (fileInputSignature.files.length > 0) {
+                                            const file = fileInputSignature.files[0];
+                                            const reader = new FileReader();
+
+                                            reader.onload = function (e) {
+                                                previewImageSignature.src = e.target.result;
+                                            }
+
+                                            reader.readAsDataURL(file);
+                                        } else {
+                                            previewImageSignature.src = 'assets/Images/Vector.png';
+                                        }
+                                    });
+                                });
+                            </script>
+
+
+
+                        </div>
+
+                        <div
+                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2  gap-2 Laptop:gap-8 py-4 Laptop:py-6">
+
+
+                            <!-- <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">NID/CNIC Front</h2>
+                                    <img class="mt-2 w-10 Laptop:w-14" src="assets/Images/idfront.svg" alt="">
+                                </div>
+                                <div
+                                    class="field Laptop:w-[65%] w-[60%] border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                    <div class="text-center">
+                                        <img class=" w-8 Laptop:w-10 text-center mx-auto mb-2"
+                                            src="assets/Images/Vector.png" alt="">
+
+                                        <p class=" text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
+                                            or <a href="" class="text-Primary-c  underline underline-offset-2">Upload
+                                                File</a></p>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <div class="flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">NID/CNIC Front</h2>
+                                    <img class="mt-2 w-10 Laptop:w-14" src="/assets/idfront-CKnaz9TN.svg" alt="">
+                                </div>
+                                <div id="uploadAreaNID"
+                                    class="field Laptop:w-[65%] w-[60%] border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                    <div class="text-center">
+                                        <img id="previewImageNID" class="w-8 Laptop:w-10 text-center mx-auto mb-2"
+                                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAoCAYAAACiu5n/AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAARsSURBVHgB3VpNUuJAFH4d0M2MFnOCwRMo69mQ8qfKlXoC8QTqCcQTqCcwnkBdWSpUYDFrc4PJnGAo3Q2SzPcaGDHpJkkTVPyqIrFDOvny+r33vRcETRnu3d0KCVEVQizzJ4VhCcOlweEONp+3MAzbONayNzY8miIETQHu5WXJWlzcB4lt/LtC2eCHQXAM4g5NAbkTbjca+yFRnV6saIqpEM+NsHtzUxZzc+fYrVK+8MNu17Y3N33KAbkQZj8VluXS5FbVga29k4d/WzQh3Nvb7RRkW/DnQ2x2+PT0rbq2JnjjfTmGY/ydMeeXcY0HuMsuTYiJLJzCsg4sc5bWMuwWVCjUMaeOWAfz2ZNY2pjwwGeZbFlxmNPMnr2+3iIDuPf3nMbOtXMXChXbtjtkAOMlLebnj5Q3FIaeDDKGZBl8Ls+BXZUly6LXuyRDGFkYS7mGZXeuOOTDLyv2zo7R049dx3VLIMerKJbL2fdNHmoqwiwk6OvXFcuytnChKvUtG/XbXNPH/2v3XedBcb0WAp9NGTGW8IhiOqCElINgsjctdeQ2Gtu40dgyNrGy1oc5BYiFhV+YtE7J+dXPQpatJiNySthra1ekSFsIbPuUEUrC7WbzBPLQoZRCgiMypcQwuvOWhTSucawYrrKfUwbECLeazfPBEk6GED7+OmmXVSSVlbOQHlwjGgxL9PycqTh55cPSsnqynPQvyLJa1O16WYPTmLydOtghOzgKUcIPwcPy9oIguE56+GJkMl2qISzvM3p6qpummwSRwkhFGoLkAMROaDzGVlki6YZY5+KpnZIhUpB9udEE0gMF5lI6KOeTPmzNz+/S+5JlJPt0sZhFQ/fn447LCCRhEKspTnDekOzrm9SQHujnFsWDl34+FDej8wltUu92l0xVkyHZUaTzaVaAX76UEUjLFATbY6osD6qswjtM+BSEowncwRdS59ZXNzE52SEyS9WEWHSMFVsvguxy7GCvd02mKBSqmPwiOoxgs0X6hp6Hc65Vc1FfAKUCPxyQtlWkWZVBpJyKVqPxhyKKak6I8o/V1d+UIzQ5dAjjFaW8liaaw5A7HLRi0ixvsm8NWU+zSIpAFApbE/e0PiyEcBRjVSYcC/E/m83vNOtQ5Wy89WDCfnT87/NzhWYcmp5XyYJObseG+9FxpqErGy2Y+So6iFS1m7XO/HBQl41eUa71Xo/NP0qwJIKAq5LcUgWqlxo+avRGkCkwDKPDnsVrHUn/LHYG9DWXYzSDkNpZUR8gVbX7aalY5CIh5uRce6IpcEQzhBF5GYXsu0nC0spBcKiagJt43PbJ0n96L8hXP3otLYXIqxaPppB4AZK51LwGLZ5pYdgzH/hsTfM1H9J1iXdifWmQdjhK0+dBB1VXZWigmLRED7gme1ifA/23jSOrUamlQfqA3ySQQoXNEHxp2cir1fGvWjhQFYs1RGtlz+uDQqZZLvZVB1O/PeRWENooVQQHbhiwivkoSqyDYNrhnzyFQrTp8fFqXDv5HyQ8bpR2LgPCAAAAAElFTkSuQmCC" alt="">
+                                        <p class="text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
+                                            or <a href="#" id="uploadLinkNID"
+                                                class="text-Primary-c underline underline-offset-2">Upload File</a></p>
+                                    </div>
+                                </div>
+                                <input type="file" id="fileInputNID" class="hidden" accept="image/*">
+                            </div>
+
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    const uploadAreaNID = document.getElementById('uploadAreaNID');
+                                    const uploadLinkNID = document.getElementById('uploadLinkNID');
+                                    const fileInputNID = document.getElementById('fileInputNID');
+                                    const previewImageNID = document.getElementById('previewImageNID');
+
+                                    uploadAreaNID.addEventListener('click', function () {
+                                        fileInputNID.click();
+                                    });
+
+                                    uploadLinkNID.addEventListener('click', function (event) {
+                                        event.preventDefault();
+                                        fileInputNID.click();
+                                    });
+
+                                    fileInputNID.addEventListener('change', function () {
+                                        if (fileInputNID.files.length > 0) {
+                                            const file = fileInputNID.files[0];
+                                            const reader = new FileReader();
+
+                                            reader.onload = function (e) {
+                                                previewImageNID.src = e.target.result;
+                                            }
+
+                                            reader.readAsDataURL(file);
+                                        } else {
+                                            previewImageNID.src = 'assets/Images/Vector.png';
+                                        }
+                                    });
+                                });
+                            </script>
+
+
+                            <!-- <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">NID/CNIC Back</h2>
+                                    <img class="mt-2 w-10 Laptop:w-14" src="assets/Images/idback.svg" alt="">
+                                </div>
+                                <div
+                                    class="field Laptop:w-[65%] w-[60%] border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                    <div class="text-center">
+                                        <img class=" w-8 Laptop:w-10 text-center mx-auto mb-2"
+                                            src="assets/Images/Vector.png" alt="">
+
+                                        <p class=" text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
+                                            or <a href="" class="text-Primary-c  underline underline-offset-2">Upload
+                                                File</a></p>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <div class="flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">NID/CNIC Back</h2>
+                                    <img class="mt-2 w-10 Laptop:w-14" src="/assets/idback-DGch3u0R.svg" alt="">
+                                </div>
+                                <div id="uploadAreaNIDBack"
+                                    class="field Laptop:w-[65%] w-[60%] border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                    <div class="text-center">
+                                        <img id="previewImageNIDBack" class="w-8 Laptop:w-10 text-center mx-auto mb-2"
+                                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAoCAYAAACiu5n/AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAARsSURBVHgB3VpNUuJAFH4d0M2MFnOCwRMo69mQ8qfKlXoC8QTqCcQTqCcwnkBdWSpUYDFrc4PJnGAo3Q2SzPcaGDHpJkkTVPyqIrFDOvny+r33vRcETRnu3d0KCVEVQizzJ4VhCcOlweEONp+3MAzbONayNzY8miIETQHu5WXJWlzcB4lt/LtC2eCHQXAM4g5NAbkTbjca+yFRnV6saIqpEM+NsHtzUxZzc+fYrVK+8MNu17Y3N33KAbkQZj8VluXS5FbVga29k4d/WzQh3Nvb7RRkW/DnQ2x2+PT0rbq2JnjjfTmGY/ydMeeXcY0HuMsuTYiJLJzCsg4sc5bWMuwWVCjUMaeOWAfz2ZNY2pjwwGeZbFlxmNPMnr2+3iIDuPf3nMbOtXMXChXbtjtkAOMlLebnj5Q3FIaeDDKGZBl8Ls+BXZUly6LXuyRDGFkYS7mGZXeuOOTDLyv2zo7R049dx3VLIMerKJbL2fdNHmoqwiwk6OvXFcuytnChKvUtG/XbXNPH/2v3XedBcb0WAp9NGTGW8IhiOqCElINgsjctdeQ2Gtu40dgyNrGy1oc5BYiFhV+YtE7J+dXPQpatJiNySthra1ekSFsIbPuUEUrC7WbzBPLQoZRCgiMypcQwuvOWhTSucawYrrKfUwbECLeazfPBEk6GED7+OmmXVSSVlbOQHlwjGgxL9PycqTh55cPSsnqynPQvyLJa1O16WYPTmLydOtghOzgKUcIPwcPy9oIguE56+GJkMl2qISzvM3p6qpummwSRwkhFGoLkAMROaDzGVlki6YZY5+KpnZIhUpB9udEE0gMF5lI6KOeTPmzNz+/S+5JlJPt0sZhFQ/fn447LCCRhEKspTnDekOzrm9SQHujnFsWDl34+FDej8wltUu92l0xVkyHZUaTzaVaAX76UEUjLFATbY6osD6qswjtM+BSEowncwRdS59ZXNzE52SEyS9WEWHSMFVsvguxy7GCvd02mKBSqmPwiOoxgs0X6hp6Hc65Vc1FfAKUCPxyQtlWkWZVBpJyKVqPxhyKKak6I8o/V1d+UIzQ5dAjjFaW8liaaw5A7HLRi0ixvsm8NWU+zSIpAFApbE/e0PiyEcBRjVSYcC/E/m83vNOtQ5Wy89WDCfnT87/NzhWYcmp5XyYJObseG+9FxpqErGy2Y+So6iFS1m7XO/HBQl41eUa71Xo/NP0qwJIKAq5LcUgWqlxo+avRGkCkwDKPDnsVrHUn/LHYG9DWXYzSDkNpZUR8gVbX7aalY5CIh5uRce6IpcEQzhBF5GYXsu0nC0spBcKiagJt43PbJ0n96L8hXP3otLYXIqxaPppB4AZK51LwGLZ5pYdgzH/hsTfM1H9J1iXdifWmQdjhK0+dBB1VXZWigmLRED7gme1ifA/23jSOrUamlQfqA3ySQQoXNEHxp2cir1fGvWjhQFYs1RGtlz+uDQqZZLvZVB1O/PeRWENooVQQHbhiwivkoSqyDYNrhnzyFQrTp8fFqXDv5HyQ8bpR2LgPCAAAAAElFTkSuQmCC" alt="">
+                                        <p class="text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
+                                            or <a href="#" id="uploadLinkNIDBack"
+                                                class="text-Primary-c underline underline-offset-2">Upload File</a></p>
+                                    </div>
+                                </div>
+                                <input type="file" id="fileInputNIDBack" class="hidden" accept="image/*">
+                            </div>
+
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    const uploadAreaNIDBack = document.getElementById('uploadAreaNIDBack');
+                                    const uploadLinkNIDBack = document.getElementById('uploadLinkNIDBack');
+                                    const fileInputNIDBack = document.getElementById('fileInputNIDBack');
+                                    const previewImageNIDBack = document.getElementById('previewImageNIDBack');
+
+                                    uploadAreaNIDBack.addEventListener('click', function () {
+                                        fileInputNIDBack.click();
+                                    });
+
+                                    uploadLinkNIDBack.addEventListener('click', function (event) {
+                                        event.preventDefault();
+                                        fileInputNIDBack.click();
+                                    });
+
+                                    fileInputNIDBack.addEventListener('change', function () {
+                                        if (fileInputNIDBack.files.length > 0) {
+                                            const file = fileInputNIDBack.files[0];
+                                            const reader = new FileReader();
+
+                                            reader.onload = function (e) {
+                                                previewImageNIDBack.src = e.target.result;
+                                            }
+
+                                            reader.readAsDataURL(file);
+                                        } else {
+                                            previewImageNIDBack.src = 'assets/Images/Vector.png';
+                                        }
+                                    });
+                                });
+                            </script>
+
+
+                        </div>
+
+
+
+                        <div class="button text-right Laptop:mt-10 mt-4 pb-4 ">
+                            <input type="button" name="previous"
+                                class="previous Laptop:px-10 Laptop:py-3 px-4 py-2 text-xs Laptop:text-base bg-Black-c text-White-c rounded-2xl leading-5 mr-4 "
+                                value="Back" />
+
+                            <input type="button" name="next"
+                                class="action-button next Laptop:px-6 Laptop:py-3 px-4 py-2 text-xs Laptop:text-base bg-Primary-c text-White-c rounded-2xl leading-5"
+                                value="Save & Continue" />
+                        </div>
+
+                    </fieldset>
+
+                    <!-- Step 3 -->
+                    <fieldset>
+
+                        <div class="grid grid-cols-1  border-b gap-2 Laptop:gap-8 py-4 Laptop:py-6">
+
+                            <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[17%] w-[30%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Submission ID</h2>
+                                </div>
+                                <div class="field Laptop:w-[83%] w-[70%]">
+
+                                    <p class="text-xs Tablet:text-sm">DD897877099045</p>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div
+                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-2 Laptop:gap-8 py-4 Laptop:py-6">
+
+
+                            <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Driving License
+                                        (Home Country) <span class="text-Indicates">*</span></h2>
+                                </div>
+                                <div class="field Laptop:w-[65%] w-[60%]">
+                                    <input type="text" name="text" id="license" autocomplete="off"
+                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                    <label for="" class="label-t">Driving License</label>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Date of Expiry <span
+                                            class="text-Indicates">*</span></h2>
+                                </div>
+                                <div
+                                    class="Laptop:w-[65%] w-[60%] grid grid-cols-3 gap-1 Tablet:gap-2 border p-2 Tablet:p-2.5 expiry  rounded date ">
+
+                                    <div class="field ">
+                                        <select name="" id=""
+                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                            <option value="15">15</option>
+                                            <option value="16">16</option>
+                                            <option value="17">17</option>
+                                            <option value="18">18</option>
+                                            <option value="19">19</option>
+                                            <option value="20">20</option>
+                                            <option value="21">21</option>
+                                            <option value="22">22</option>
+                                            <option value="23">23</option>
+                                            <option value="24">24</option>
+                                            <option value="25">25</option>
+                                            <option value="26">26</option>
+                                            <option value="27">27</option>
+                                            <option value="28">28</option>
+                                            <option value="29">29</option>
+                                            <option value="30">30</option>
+                                            <option value="31">31</option>
+                                        </select>
+                                    </div>
+                                    <div class="field">
+                                        <select name="" id=""
+                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                            <option value="January">January</option>
+                                            <option value="February">February</option>
+                                            <option value="March">March</option>
+                                            <option value="April">April</option>
+                                            <option value="May">May</option>
+                                            <option value="June">June</option>
+                                            <option value="July">July</option>
+                                            <option value="August">August</option>
+                                            <option value="September">September</option>
+                                            <option value="October">October</option>
+                                            <option value="November">November</option>
+                                            <option value="December">December</option>
+                                        </select>
+                                    </div>
+                                    <div class="field">
+                                        <select name="" id=""
+                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                            <option value="2024">2024</option>
+                                            <option value="2025">2025</option>
+                                            <option value="2026">2026</option>
+                                            <option value="2027">2027</option>
+                                            <option value="2028">2028</option>
+                                            <option value="2029">2029</option>
+                                            <option value="2030">2030</option>
+                                            <option value="2031">2031</option>
+                                            <option value="2032">2032</option>
+                                            <option value="2033">2033</option>
+                                            <option value="2034">2034</option>
+                                            <option value="2035">2035</option>
+
+                                        </select>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div
+                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-2 Laptop:gap-8 py-4 Laptop:py-6">
+
+                            <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Do you have UAE
+                                        License <span class="text-Indicates">*</span></h2>
+                                </div>
+                                <div class="field Laptop:w-[65%] w-[60%]">
+                                    <select name="" id=""
+                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-sm font-medium leading-[29px]">UAE Resident Visa No
+                                        (optional)</h2>
+                                </div>
+                                <div class="field Laptop:w-[65%] w-[60%]">
+                                    <input type="text" name="number" id="number" autocomplete="off"
+                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                    <label for="" class="label-t">UAE Resident Visa No</label>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div
+                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-2 Laptop:gap-8 py-4 Laptop:py-6">
+
+
+                            <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-sm font-medium leading-[29px]">UAE License No <span
+                                            class="text-Indicates">*</span></h2>
+                                </div>
+                                <div class="field Laptop:w-[65%] w-[60%]">
+                                    <input type="tel" name="number" id="number" autocomplete="off"
+                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                    <label for="" class="label-t">UAE License No</label>
+                                </div>
+                            </div>
+
+                            <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-sm font-medium leading-[29px]">SIM No (Optional)
+                                        <span class="text-Indicates">*</span>
+                                    </h2>
+                                </div>
+                                <div class="field Laptop:w-[65%] w-[60%]">
+                                    <input type="tel" name="number" id="number" autocomplete="off"
+                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                    <label for="" class="label-t">SIM No</label>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div
+                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b  gap-2 Laptop:gap-8 py-4 Laptop:py-6">
+
+
+                            <!-- <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Driving License
+                                        Front<span class="text-Indicates">*</span></h2>
+                                    <img class="mt-2 w-10 Laptop:w-14" src="assets/Images/license.jpg" alt="">
+                                </div>
+                                <div
+                                    class="field Laptop:w-[65%] w-[60%] border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                    <div class="text-center">
+                                        <img class=" w-8 Laptop:w-10 text-center mx-auto mb-2"
+                                            src="assets/Images/Vector.png" alt="">
+
+                                        <p class=" text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
+                                            or <a href="" class="text-Primary-c  underline underline-offset-2">Upload
+                                                File</a></p>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <div class="flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Driving License
+                                        Front<span class="text-Indicates">*</span></h2>
+                                    <img class="mt-2 w-10 Laptop:w-14" src="data:image/svg+xml,%3csvg%20id='Layer_1'%20height='512'%20viewBox='0%200%20512%20512'%20width='512'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%20data-name='Layer%201'%3e%3clinearGradient%20id='GradientFill_1'%20gradientUnits='userSpaceOnUse'%20x1='256.001'%20x2='256.002'%20y1='512.503'%20y2='.505'%3e%3cstop%20offset='0'%20stop-color='%236c54a3'/%3e%3cstop%20offset='1'%20stop-color='%2300b1d2'/%3e%3c/linearGradient%3e%3cpath%20d='m256%20.505c141.381%200%20256%20114.587%20256%20255.963s-114.619%20256.032-256%20256.032-256-114.656-256-256.032%20114.621-255.963%20256-255.963zm-22.456%20139.537v22.458a22.459%2022.459%200%201%200%2044.918%200v-22.458zm184.956%20225.745v-184.728c0-3.885-4.034-7.169-8.809-7.169h-122.407a33.3%2033.3%200%200%201%20-62.572%200h-122.412c-4.775%200-8.8%203.284-8.8%207.169v184.728c0%203.889%204.028%207.179%208.8%207.179h307.392c4.775%200%208.809-3.29%208.809-7.179zm-241.732-60.511a52.548%2052.548%200%201%200%20-52.547-52.547%2052.609%2052.609%200%200%200%2052.547%2052.547zm-20.82-16.426a41.586%2041.586%200%200%200%2041.058.34v-5.424a20.584%2020.584%200%200%200%20-5.951-14.414l-9.884%2017.123a5.419%205.419%200%200%201%20-9.385%200l-9.886-17.123a20.558%2020.558%200%200%200%20-5.951%2014.414v5.084zm20.531-39.316a10.91%2010.91%200%201%200%20-10.908-10.908%2010.923%2010.923%200%200%200%2010.908%2010.908zm0%2010.831a21.685%2021.685%200%200%201%20-8.18-1.6l8.18%2014.169%208.18-14.169a21.712%2021.712%200%200%201%20-8.18%201.6zm.289-49.352a41.683%2041.683%200%200%200%20-31.429%2069.1%2031.563%2031.563%200%200%201%2015.451-23.483%205.416%205.416%200%200%201%202.512-.735%2021.744%2021.744%200%201%201%2026.351%200%205.313%205.313%200%200%201%202.5.735%2031.546%2031.546%200%200%201%2015.521%2024.088%2041.693%2041.693%200%200%200%20-30.911-69.705zm227.068%20135.98a5.42%205.42%200%200%200%20-5.417-5.418h-274.6a5.418%205.418%200%200%200%200%2010.835h274.6a5.416%205.416%200%200%200%205.417-5.417zm0-47.134a5.42%205.42%200%200%200%20-5.417-5.417h-152.175a5.417%205.417%200%201%200%200%2010.834h152.175a5.413%205.413%200%200%200%205.417-5.417zm0-94.261a5.418%205.418%200%200%200%20-5.417-5.417h-152.175a5.416%205.416%200%201%200%200%2010.832h152.175a5.414%205.414%200%200%200%205.417-5.415zm0%2047.131a5.42%205.42%200%200%200%20-5.417-5.417h-152.175a5.417%205.417%200%200%200%200%2010.834h152.175a5.416%205.416%200%200%200%205.417-5.417zm-147.836-76.181a14.049%2014.049%200%201%200%20-14.048-14.048%2014.066%2014.066%200%200%200%2014.048%2014.048zm0-17.263a3.216%203.216%200%201%200%203.217%203.215%203.218%203.218%200%200%200%20-3.217-3.215z'%20fill='url(%23GradientFill_1)'%20fill-rule='evenodd'/%3e%3c/svg%3e" alt="">
+                                </div>
+                                <div id="uploadAreaLicenseFront"
+                                    class="field Laptop:w-[65%] w-[60%] border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                    <div class="text-center">
+                                        <img id="previewImageLicenseFront"
+                                            class="w-8 Laptop:w-10 text-center mx-auto mb-2"
+                                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAoCAYAAACiu5n/AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAARsSURBVHgB3VpNUuJAFH4d0M2MFnOCwRMo69mQ8qfKlXoC8QTqCcQTqCcwnkBdWSpUYDFrc4PJnGAo3Q2SzPcaGDHpJkkTVPyqIrFDOvny+r33vRcETRnu3d0KCVEVQizzJ4VhCcOlweEONp+3MAzbONayNzY8miIETQHu5WXJWlzcB4lt/LtC2eCHQXAM4g5NAbkTbjca+yFRnV6saIqpEM+NsHtzUxZzc+fYrVK+8MNu17Y3N33KAbkQZj8VluXS5FbVga29k4d/WzQh3Nvb7RRkW/DnQ2x2+PT0rbq2JnjjfTmGY/ydMeeXcY0HuMsuTYiJLJzCsg4sc5bWMuwWVCjUMaeOWAfz2ZNY2pjwwGeZbFlxmNPMnr2+3iIDuPf3nMbOtXMXChXbtjtkAOMlLebnj5Q3FIaeDDKGZBl8Ls+BXZUly6LXuyRDGFkYS7mGZXeuOOTDLyv2zo7R049dx3VLIMerKJbL2fdNHmoqwiwk6OvXFcuytnChKvUtG/XbXNPH/2v3XedBcb0WAp9NGTGW8IhiOqCElINgsjctdeQ2Gtu40dgyNrGy1oc5BYiFhV+YtE7J+dXPQpatJiNySthra1ekSFsIbPuUEUrC7WbzBPLQoZRCgiMypcQwuvOWhTSucawYrrKfUwbECLeazfPBEk6GED7+OmmXVSSVlbOQHlwjGgxL9PycqTh55cPSsnqynPQvyLJa1O16WYPTmLydOtghOzgKUcIPwcPy9oIguE56+GJkMl2qISzvM3p6qpummwSRwkhFGoLkAMROaDzGVlki6YZY5+KpnZIhUpB9udEE0gMF5lI6KOeTPmzNz+/S+5JlJPt0sZhFQ/fn447LCCRhEKspTnDekOzrm9SQHujnFsWDl34+FDej8wltUu92l0xVkyHZUaTzaVaAX76UEUjLFATbY6osD6qswjtM+BSEowncwRdS59ZXNzE52SEyS9WEWHSMFVsvguxy7GCvd02mKBSqmPwiOoxgs0X6hp6Hc65Vc1FfAKUCPxyQtlWkWZVBpJyKVqPxhyKKak6I8o/V1d+UIzQ5dAjjFaW8liaaw5A7HLRi0ixvsm8NWU+zSIpAFApbE/e0PiyEcBRjVSYcC/E/m83vNOtQ5Wy89WDCfnT87/NzhWYcmp5XyYJObseG+9FxpqErGy2Y+So6iFS1m7XO/HBQl41eUa71Xo/NP0qwJIKAq5LcUgWqlxo+avRGkCkwDKPDnsVrHUn/LHYG9DWXYzSDkNpZUR8gVbX7aalY5CIh5uRce6IpcEQzhBF5GYXsu0nC0spBcKiagJt43PbJ0n96L8hXP3otLYXIqxaPppB4AZK51LwGLZ5pYdgzH/hsTfM1H9J1iXdifWmQdjhK0+dBB1VXZWigmLRED7gme1ifA/23jSOrUamlQfqA3ySQQoXNEHxp2cir1fGvWjhQFYs1RGtlz+uDQqZZLvZVB1O/PeRWENooVQQHbhiwivkoSqyDYNrhnzyFQrTp8fFqXDv5HyQ8bpR2LgPCAAAAAElFTkSuQmCC" alt="">
+                                        <p class="text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
+                                            or <a href="#" id="uploadLinkLicenseFront"
+                                                class="text-Primary-c underline underline-offset-2">Upload File</a></p>
+                                    </div>
+                                </div>
+                                <input type="file" id="fileInputLicenseFront" class="hidden" accept="image/*">
+                            </div>
+
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    const uploadAreaLicenseFront = document.getElementById('uploadAreaLicenseFront');
+                                    const uploadLinkLicenseFront = document.getElementById('uploadLinkLicenseFront');
+                                    const fileInputLicenseFront = document.getElementById('fileInputLicenseFront');
+                                    const previewImageLicenseFront = document.getElementById('previewImageLicenseFront');
+
+                                    uploadAreaLicenseFront.addEventListener('click', function () {
+                                        fileInputLicenseFront.click();
+                                    });
+
+                                    uploadLinkLicenseFront.addEventListener('click', function (event) {
+                                        event.preventDefault();
+                                        fileInputLicenseFront.click();
+                                    });
+
+                                    fileInputLicenseFront.addEventListener('change', function () {
+                                        if (fileInputLicenseFront.files.length > 0) {
+                                            const file = fileInputLicenseFront.files[0];
+                                            const reader = new FileReader();
+
+                                            reader.onload = function (e) {
+                                                previewImageLicenseFront.src = e.target.result;
+                                            }
+
+                                            reader.readAsDataURL(file);
+                                        } else {
+                                            previewImageLicenseFront.src = 'assets/Images/Vector.png';
+                                        }
+                                    });
+                                });
+                            </script>
+
+
+                            <!-- <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Driving License
+                                        Back<span class="text-Indicates">*</span></h2>
+                                    <img class="mt-2 w-10 Laptop:w-14" src="assets/Images/license.jpg" alt="">
+                                </div>
+                                <div
+                                    class="field Laptop:w-[65%] w-[60%] border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                    <div class="text-center">
+                                        <img class=" w-8 Laptop:w-10 text-center mx-auto mb-2"
+                                            src="assets/Images/Vector.png" alt="">
+
+                                        <p class=" text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
+                                            or <a href="" class="text-Primary-c  underline underline-offset-2">Upload
+                                                File</a></p>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <div class="flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Driving License
+                                        Back<span class="text-Indicates">*</span></h2>
+                                    <img class="mt-2 w-10 Laptop:w-14" src="data:image/svg+xml,%3csvg%20id='Layer_1'%20height='512'%20viewBox='0%200%20512%20512'%20width='512'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%20data-name='Layer%201'%3e%3clinearGradient%20id='GradientFill_1'%20gradientUnits='userSpaceOnUse'%20x1='256.001'%20x2='256.002'%20y1='512.503'%20y2='.505'%3e%3cstop%20offset='0'%20stop-color='%236c54a3'/%3e%3cstop%20offset='1'%20stop-color='%2300b1d2'/%3e%3c/linearGradient%3e%3cpath%20d='m256%20.505c141.381%200%20256%20114.587%20256%20255.963s-114.619%20256.032-256%20256.032-256-114.656-256-256.032%20114.621-255.963%20256-255.963zm-22.456%20139.537v22.458a22.459%2022.459%200%201%200%2044.918%200v-22.458zm184.956%20225.745v-184.728c0-3.885-4.034-7.169-8.809-7.169h-122.407a33.3%2033.3%200%200%201%20-62.572%200h-122.412c-4.775%200-8.8%203.284-8.8%207.169v184.728c0%203.889%204.028%207.179%208.8%207.179h307.392c4.775%200%208.809-3.29%208.809-7.179zm-241.732-60.511a52.548%2052.548%200%201%200%20-52.547-52.547%2052.609%2052.609%200%200%200%2052.547%2052.547zm-20.82-16.426a41.586%2041.586%200%200%200%2041.058.34v-5.424a20.584%2020.584%200%200%200%20-5.951-14.414l-9.884%2017.123a5.419%205.419%200%200%201%20-9.385%200l-9.886-17.123a20.558%2020.558%200%200%200%20-5.951%2014.414v5.084zm20.531-39.316a10.91%2010.91%200%201%200%20-10.908-10.908%2010.923%2010.923%200%200%200%2010.908%2010.908zm0%2010.831a21.685%2021.685%200%200%201%20-8.18-1.6l8.18%2014.169%208.18-14.169a21.712%2021.712%200%200%201%20-8.18%201.6zm.289-49.352a41.683%2041.683%200%200%200%20-31.429%2069.1%2031.563%2031.563%200%200%201%2015.451-23.483%205.416%205.416%200%200%201%202.512-.735%2021.744%2021.744%200%201%201%2026.351%200%205.313%205.313%200%200%201%202.5.735%2031.546%2031.546%200%200%201%2015.521%2024.088%2041.693%2041.693%200%200%200%20-30.911-69.705zm227.068%20135.98a5.42%205.42%200%200%200%20-5.417-5.418h-274.6a5.418%205.418%200%200%200%200%2010.835h274.6a5.416%205.416%200%200%200%205.417-5.417zm0-47.134a5.42%205.42%200%200%200%20-5.417-5.417h-152.175a5.417%205.417%200%201%200%200%2010.834h152.175a5.413%205.413%200%200%200%205.417-5.417zm0-94.261a5.418%205.418%200%200%200%20-5.417-5.417h-152.175a5.416%205.416%200%201%200%200%2010.832h152.175a5.414%205.414%200%200%200%205.417-5.415zm0%2047.131a5.42%205.42%200%200%200%20-5.417-5.417h-152.175a5.417%205.417%200%200%200%200%2010.834h152.175a5.416%205.416%200%200%200%205.417-5.417zm-147.836-76.181a14.049%2014.049%200%201%200%20-14.048-14.048%2014.066%2014.066%200%200%200%2014.048%2014.048zm0-17.263a3.216%203.216%200%201%200%203.217%203.215%203.218%203.218%200%200%200%20-3.217-3.215z'%20fill='url(%23GradientFill_1)'%20fill-rule='evenodd'/%3e%3c/svg%3e" alt="">
+                                </div>
+                                <div id="uploadAreaLicenseBack"
+                                    class="field Laptop:w-[65%] w-[60%] border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                    <div class="text-center">
+                                        <img id="previewImageLicenseBack"
+                                            class="w-8 Laptop:w-10 text-center mx-auto mb-2"
+                                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAoCAYAAACiu5n/AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAARsSURBVHgB3VpNUuJAFH4d0M2MFnOCwRMo69mQ8qfKlXoC8QTqCcQTqCcwnkBdWSpUYDFrc4PJnGAo3Q2SzPcaGDHpJkkTVPyqIrFDOvny+r33vRcETRnu3d0KCVEVQizzJ4VhCcOlweEONp+3MAzbONayNzY8miIETQHu5WXJWlzcB4lt/LtC2eCHQXAM4g5NAbkTbjca+yFRnV6saIqpEM+NsHtzUxZzc+fYrVK+8MNu17Y3N33KAbkQZj8VluXS5FbVga29k4d/WzQh3Nvb7RRkW/DnQ2x2+PT0rbq2JnjjfTmGY/ydMeeXcY0HuMsuTYiJLJzCsg4sc5bWMuwWVCjUMaeOWAfz2ZNY2pjwwGeZbFlxmNPMnr2+3iIDuPf3nMbOtXMXChXbtjtkAOMlLebnj5Q3FIaeDDKGZBl8Ls+BXZUly6LXuyRDGFkYS7mGZXeuOOTDLyv2zo7R049dx3VLIMerKJbL2fdNHmoqwiwk6OvXFcuytnChKvUtG/XbXNPH/2v3XedBcb0WAp9NGTGW8IhiOqCElINgsjctdeQ2Gtu40dgyNrGy1oc5BYiFhV+YtE7J+dXPQpatJiNySthra1ekSFsIbPuUEUrC7WbzBPLQoZRCgiMypcQwuvOWhTSucawYrrKfUwbECLeazfPBEk6GED7+OmmXVSSVlbOQHlwjGgxL9PycqTh55cPSsnqynPQvyLJa1O16WYPTmLydOtghOzgKUcIPwcPy9oIguE56+GJkMl2qISzvM3p6qpummwSRwkhFGoLkAMROaDzGVlki6YZY5+KpnZIhUpB9udEE0gMF5lI6KOeTPmzNz+/S+5JlJPt0sZhFQ/fn447LCCRhEKspTnDekOzrm9SQHujnFsWDl34+FDej8wltUu92l0xVkyHZUaTzaVaAX76UEUjLFATbY6osD6qswjtM+BSEowncwRdS59ZXNzE52SEyS9WEWHSMFVsvguxy7GCvd02mKBSqmPwiOoxgs0X6hp6Hc65Vc1FfAKUCPxyQtlWkWZVBpJyKVqPxhyKKak6I8o/V1d+UIzQ5dAjjFaW8liaaw5A7HLRi0ixvsm8NWU+zSIpAFApbE/e0PiyEcBRjVSYcC/E/m83vNOtQ5Wy89WDCfnT87/NzhWYcmp5XyYJObseG+9FxpqErGy2Y+So6iFS1m7XO/HBQl41eUa71Xo/NP0qwJIKAq5LcUgWqlxo+avRGkCkwDKPDnsVrHUn/LHYG9DWXYzSDkNpZUR8gVbX7aalY5CIh5uRce6IpcEQzhBF5GYXsu0nC0spBcKiagJt43PbJ0n96L8hXP3otLYXIqxaPppB4AZK51LwGLZ5pYdgzH/hsTfM1H9J1iXdifWmQdjhK0+dBB1VXZWigmLRED7gme1ifA/23jSOrUamlQfqA3ySQQoXNEHxp2cir1fGvWjhQFYs1RGtlz+uDQqZZLvZVB1O/PeRWENooVQQHbhiwivkoSqyDYNrhnzyFQrTp8fFqXDv5HyQ8bpR2LgPCAAAAAElFTkSuQmCC" alt="">
+                                        <p class="text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
+                                            or <a href="#" id="uploadLinkLicenseBack"
+                                                class="text-Primary-c underline underline-offset-2">Upload File</a></p>
+                                    </div>
+                                </div>
+                                <input type="file" id="fileInputLicenseBack" class="hidden" accept="image/*">
+                            </div>
+
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    const uploadAreaLicenseBack = document.getElementById('uploadAreaLicenseBack');
+                                    const uploadLinkLicenseBack = document.getElementById('uploadLinkLicenseBack');
+                                    const fileInputLicenseBack = document.getElementById('fileInputLicenseBack');
+                                    const previewImageLicenseBack = document.getElementById('previewImageLicenseBack');
+
+                                    uploadAreaLicenseBack.addEventListener('click', function () {
+                                        fileInputLicenseBack.click();
+                                    });
+
+                                    uploadLinkLicenseBack.addEventListener('click', function (event) {
+                                        event.preventDefault();
+                                        fileInputLicenseBack.click();
+                                    });
+
+                                    fileInputLicenseBack.addEventListener('change', function () {
+                                        if (fileInputLicenseBack.files.length > 0) {
+                                            const file = fileInputLicenseBack.files[0];
+                                            const reader = new FileReader();
+
+                                            reader.onload = function (e) {
+                                                previewImageLicenseBack.src = e.target.result;
+                                            }
+
+                                            reader.readAsDataURL(file);
+                                        } else {
+                                            previewImageLicenseBack.src = 'assets/Images/Vector.png';
+                                        }
+                                    });
+                                });
+                            </script>
+
+
+
+                        </div>
+
+                        <div
+                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2  gap-2 Laptop:gap-8 py-4 Laptop:py-6">
+
+
+                            <!-- <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">UAE DL Front
+                                        (Optional)</h2>
+                                    <img class="mt-2 w-10 Laptop:w-14" src="assets/Images/license.jpg" alt="">
+                                </div>
+                                <div
+                                    class="field Laptop:w-[65%] w-[60%] border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                    <div class="text-center">
+                                        <img class=" w-8 Laptop:w-10 text-center mx-auto mb-2"
+                                            src="assets/Images/Vector.png" alt="">
+
+                                        <p class=" text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
+                                            or <a href="" class="text-Primary-c  underline underline-offset-2">Upload
+                                                File</a></p>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <div class="flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">UAE DL Front
+                                        (Optional)</h2>
+                                    <img class="mt-2 w-10 Laptop:w-14" src="/assets/license-C1A7Y2w1.jpg" alt="">
+                                </div>
+                                <div id="uploadAreaUAEDLFront"
+                                    class="field Laptop:w-[65%] w-[60%] border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                    <div class="text-center">
+                                        <img id="previewImageUAEDLFront"
+                                            class="w-8 Laptop:w-10 text-center mx-auto mb-2"
+                                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAoCAYAAACiu5n/AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAARsSURBVHgB3VpNUuJAFH4d0M2MFnOCwRMo69mQ8qfKlXoC8QTqCcQTqCcwnkBdWSpUYDFrc4PJnGAo3Q2SzPcaGDHpJkkTVPyqIrFDOvny+r33vRcETRnu3d0KCVEVQizzJ4VhCcOlweEONp+3MAzbONayNzY8miIETQHu5WXJWlzcB4lt/LtC2eCHQXAM4g5NAbkTbjca+yFRnV6saIqpEM+NsHtzUxZzc+fYrVK+8MNu17Y3N33KAbkQZj8VluXS5FbVga29k4d/WzQh3Nvb7RRkW/DnQ2x2+PT0rbq2JnjjfTmGY/ydMeeXcY0HuMsuTYiJLJzCsg4sc5bWMuwWVCjUMaeOWAfz2ZNY2pjwwGeZbFlxmNPMnr2+3iIDuPf3nMbOtXMXChXbtjtkAOMlLebnj5Q3FIaeDDKGZBl8Ls+BXZUly6LXuyRDGFkYS7mGZXeuOOTDLyv2zo7R049dx3VLIMerKJbL2fdNHmoqwiwk6OvXFcuytnChKvUtG/XbXNPH/2v3XedBcb0WAp9NGTGW8IhiOqCElINgsjctdeQ2Gtu40dgyNrGy1oc5BYiFhV+YtE7J+dXPQpatJiNySthra1ekSFsIbPuUEUrC7WbzBPLQoZRCgiMypcQwuvOWhTSucawYrrKfUwbECLeazfPBEk6GED7+OmmXVSSVlbOQHlwjGgxL9PycqTh55cPSsnqynPQvyLJa1O16WYPTmLydOtghOzgKUcIPwcPy9oIguE56+GJkMl2qISzvM3p6qpummwSRwkhFGoLkAMROaDzGVlki6YZY5+KpnZIhUpB9udEE0gMF5lI6KOeTPmzNz+/S+5JlJPt0sZhFQ/fn447LCCRhEKspTnDekOzrm9SQHujnFsWDl34+FDej8wltUu92l0xVkyHZUaTzaVaAX76UEUjLFATbY6osD6qswjtM+BSEowncwRdS59ZXNzE52SEyS9WEWHSMFVsvguxy7GCvd02mKBSqmPwiOoxgs0X6hp6Hc65Vc1FfAKUCPxyQtlWkWZVBpJyKVqPxhyKKak6I8o/V1d+UIzQ5dAjjFaW8liaaw5A7HLRi0ixvsm8NWU+zSIpAFApbE/e0PiyEcBRjVSYcC/E/m83vNOtQ5Wy89WDCfnT87/NzhWYcmp5XyYJObseG+9FxpqErGy2Y+So6iFS1m7XO/HBQl41eUa71Xo/NP0qwJIKAq5LcUgWqlxo+avRGkCkwDKPDnsVrHUn/LHYG9DWXYzSDkNpZUR8gVbX7aalY5CIh5uRce6IpcEQzhBF5GYXsu0nC0spBcKiagJt43PbJ0n96L8hXP3otLYXIqxaPppB4AZK51LwGLZ5pYdgzH/hsTfM1H9J1iXdifWmQdjhK0+dBB1VXZWigmLRED7gme1ifA/23jSOrUamlQfqA3ySQQoXNEHxp2cir1fGvWjhQFYs1RGtlz+uDQqZZLvZVB1O/PeRWENooVQQHbhiwivkoSqyDYNrhnzyFQrTp8fFqXDv5HyQ8bpR2LgPCAAAAAElFTkSuQmCC" alt="">
+                                        <p class="text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
+                                            or <a href="#" id="uploadLinkUAEDLFront"
+                                                class="text-Primary-c underline underline-offset-2">Upload File</a></p>
+                                    </div>
+                                </div>
+                                <input type="file" id="fileInputUAEDLFront" class="hidden" accept="image/*">
+                            </div>
+
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    const uploadAreaUAEDLFront = document.getElementById('uploadAreaUAEDLFront');
+                                    const uploadLinkUAEDLFront = document.getElementById('uploadLinkUAEDLFront');
+                                    const fileInputUAEDLFront = document.getElementById('fileInputUAEDLFront');
+                                    const previewImageUAEDLFront = document.getElementById('previewImageUAEDLFront');
+
+                                    uploadAreaUAEDLFront.addEventListener('click', function () {
+                                        fileInputUAEDLFront.click();
+                                    });
+
+                                    uploadLinkUAEDLFront.addEventListener('click', function (event) {
+                                        event.preventDefault();
+                                        fileInputUAEDLFront.click();
+                                    });
+
+                                    fileInputUAEDLFront.addEventListener('change', function () {
+                                        if (fileInputUAEDLFront.files.length > 0) {
+                                            const file = fileInputUAEDLFront.files[0];
+                                            const reader = new FileReader();
+
+                                            reader.onload = function (e) {
+                                                previewImageUAEDLFront.src = e.target.result;
+                                            }
+
+                                            reader.readAsDataURL(file);
+                                        } else {
+                                            previewImageUAEDLFront.src = 'assets/Images/Vector.png';
+                                        }
+                                    });
+                                });
+                            </script>
+
+
+                            <!-- <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">UAE DL Back
+                                        (Optional)</h2>
+                                    <img class="mt-2 w-10 Laptop:w-14" src="assets/Images/license.jpg" alt="">
+                                </div>
+                                <div
+                                    class="field Laptop:w-[65%] w-[60%] border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                    <div class="text-center">
+                                        <img class=" w-8 Laptop:w-10 text-center mx-auto mb-2"
+                                            src="assets/Images/Vector.png" alt="">
+
+                                        <p class=" text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
+                                            or <a href="" class="text-Primary-c  underline underline-offset-2">Upload
+                                                File</a></p>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <div class="flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">UAE DL Back
+                                        (Optional)</h2>
+                                    <img class="mt-2 w-10 Laptop:w-14" src="/assets/license-C1A7Y2w1.jpg" alt="">
+                                </div>
+                                <div id="uploadAreaUAEDLBack"
+                                    class="field Laptop:w-[65%] w-[60%] border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                    <div class="text-center">
+                                        <img id="previewImageUAEDLBack" class="w-8 Laptop:w-10 text-center mx-auto mb-2"
+                                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAoCAYAAACiu5n/AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAARsSURBVHgB3VpNUuJAFH4d0M2MFnOCwRMo69mQ8qfKlXoC8QTqCcQTqCcwnkBdWSpUYDFrc4PJnGAo3Q2SzPcaGDHpJkkTVPyqIrFDOvny+r33vRcETRnu3d0KCVEVQizzJ4VhCcOlweEONp+3MAzbONayNzY8miIETQHu5WXJWlzcB4lt/LtC2eCHQXAM4g5NAbkTbjca+yFRnV6saIqpEM+NsHtzUxZzc+fYrVK+8MNu17Y3N33KAbkQZj8VluXS5FbVga29k4d/WzQh3Nvb7RRkW/DnQ2x2+PT0rbq2JnjjfTmGY/ydMeeXcY0HuMsuTYiJLJzCsg4sc5bWMuwWVCjUMaeOWAfz2ZNY2pjwwGeZbFlxmNPMnr2+3iIDuPf3nMbOtXMXChXbtjtkAOMlLebnj5Q3FIaeDDKGZBl8Ls+BXZUly6LXuyRDGFkYS7mGZXeuOOTDLyv2zo7R049dx3VLIMerKJbL2fdNHmoqwiwk6OvXFcuytnChKvUtG/XbXNPH/2v3XedBcb0WAp9NGTGW8IhiOqCElINgsjctdeQ2Gtu40dgyNrGy1oc5BYiFhV+YtE7J+dXPQpatJiNySthra1ekSFsIbPuUEUrC7WbzBPLQoZRCgiMypcQwuvOWhTSucawYrrKfUwbECLeazfPBEk6GED7+OmmXVSSVlbOQHlwjGgxL9PycqTh55cPSsnqynPQvyLJa1O16WYPTmLydOtghOzgKUcIPwcPy9oIguE56+GJkMl2qISzvM3p6qpummwSRwkhFGoLkAMROaDzGVlki6YZY5+KpnZIhUpB9udEE0gMF5lI6KOeTPmzNz+/S+5JlJPt0sZhFQ/fn447LCCRhEKspTnDekOzrm9SQHujnFsWDl34+FDej8wltUu92l0xVkyHZUaTzaVaAX76UEUjLFATbY6osD6qswjtM+BSEowncwRdS59ZXNzE52SEyS9WEWHSMFVsvguxy7GCvd02mKBSqmPwiOoxgs0X6hp6Hc65Vc1FfAKUCPxyQtlWkWZVBpJyKVqPxhyKKak6I8o/V1d+UIzQ5dAjjFaW8liaaw5A7HLRi0ixvsm8NWU+zSIpAFApbE/e0PiyEcBRjVSYcC/E/m83vNOtQ5Wy89WDCfnT87/NzhWYcmp5XyYJObseG+9FxpqErGy2Y+So6iFS1m7XO/HBQl41eUa71Xo/NP0qwJIKAq5LcUgWqlxo+avRGkCkwDKPDnsVrHUn/LHYG9DWXYzSDkNpZUR8gVbX7aalY5CIh5uRce6IpcEQzhBF5GYXsu0nC0spBcKiagJt43PbJ0n96L8hXP3otLYXIqxaPppB4AZK51LwGLZ5pYdgzH/hsTfM1H9J1iXdifWmQdjhK0+dBB1VXZWigmLRED7gme1ifA/23jSOrUamlQfqA3ySQQoXNEHxp2cir1fGvWjhQFYs1RGtlz+uDQqZZLvZVB1O/PeRWENooVQQHbhiwivkoSqyDYNrhnzyFQrTp8fFqXDv5HyQ8bpR2LgPCAAAAAElFTkSuQmCC" alt="">
+                                        <p class="text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
+                                            or <a href="#" id="uploadLinkUAEDLBack"
+                                                class="text-Primary-c underline underline-offset-2">Upload File</a></p>
+                                    </div>
+                                </div>
+                                <input type="file" id="fileInputUAEDLBack" class="hidden" accept="image/*">
+                            </div>
+
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    const uploadAreaUAEDLBack = document.getElementById('uploadAreaUAEDLBack');
+                                    const uploadLinkUAEDLBack = document.getElementById('uploadLinkUAEDLBack');
+                                    const fileInputUAEDLBack = document.getElementById('fileInputUAEDLBack');
+                                    const previewImageUAEDLBack = document.getElementById('previewImageUAEDLBack');
+
+                                    uploadAreaUAEDLBack.addEventListener('click', function () {
+                                        fileInputUAEDLBack.click();
+                                    });
+
+                                    uploadLinkUAEDLBack.addEventListener('click', function (event) {
+                                        event.preventDefault();
+                                        fileInputUAEDLBack.click();
+                                    });
+
+                                    fileInputUAEDLBack.addEventListener('change', function () {
+                                        if (fileInputUAEDLBack.files.length > 0) {
+                                            const file = fileInputUAEDLBack.files[0];
+                                            const reader = new FileReader();
+
+                                            reader.onload = function (e) {
+                                                previewImageUAEDLBack.src = e.target.result;
+                                            }
+
+                                            reader.readAsDataURL(file);
+                                        } else {
+                                            previewImageUAEDLBack.src = 'assets/Images/Vector.png';
+                                        }
+                                    });
+                                });
+                            </script>
+
+
+                        </div>
+
+
+
+                        <!-- ----  -->
+
+                        <div class="button text-right Laptop:mt-10 mt-4 pb-4 ">
+                            <input type="button" name="previous"
+                                class="previous Laptop:px-10 Laptop:py-3 px-4 py-2 text-xs Laptop:text-base bg-Black-c text-White-c rounded-2xl leading-5 mr-4 "
+                                value="Back" />
+
+                            <input type="submit" name="next"
+                                class="action-button next Laptop:px-6 Laptop:py-3 px-4 py-2 text-xs Laptop:text-base bg-Primary-c text-White-c rounded-2xl leading-5"
+                                value="Save & Continue" />
+                        </div>
+
+                    </fieldset>
+
+                </form>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="assets/js/main.js"></script>
+
+    <!-- UAE Residence yes or now -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const selectElement = document.querySelector('.YesNo select');
+            const residenceYes = document.getElementById('residence-yes');
+            const residenceNo = document.getElementById('residence-no');
+
+            function toggleResidenceSections() {
+                if (selectElement.value === 'Yes') {
+                    residenceYes.classList.remove('hidden');
+                    residenceNo.classList.add('hidden');
+                } else {
+                    residenceYes.classList.add('hidden');
+                    residenceNo.classList.remove('hidden');
+                }
+            }
+
+            selectElement.addEventListener('change', toggleResidenceSections);
+
+            // Initial state
+            toggleResidenceSections();
+        });
+
+    </script>
+
+    <!-- UAE Residence ID Number formate-->
+    <script>
+        function autofill() {
+            var input = document.getElementById("fixedInput");
+            // Autofill "784" only if the input is empty or the first three characters are not "784"
+            if (input.value.length < 3 || input.value.slice(0, 3) !== '784') {
+                input.value = '784';
+            }
+        }
+
+        function formatInput(input) {
+            // Remove non-numeric characters
+            input.value = input.value.replace(/\D/g, '');
+
+            // Add dashes at fixed positions
+            if (input.value.length > 3) {
+                input.value = input.value.slice(0, 3) + '-' + input.value.slice(3);
+            }
+            if (input.value.length > 8) {
+                input.value = input.value.slice(0, 8) + '-' + input.value.slice(8);
+            }
+            if (input.value.length > 16) {
+                input.value = input.value.slice(0, 16) + '-' + input.value.slice(16);
+            }
+        }
+
+        document.getElementById("fixedInput").addEventListener("keydown", function (e) {
+            var input = document.getElementById("fixedInput");
+            if (e.key === "Backspace" && input.selectionStart <= 3) {
+                e.preventDefault();
+                input.setSelectionRange(0, 3);
+            }
+        });
+    </script>
+
+
+    <!-- Fname , lname basic validatin -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var firstNameInput = document.getElementById("first_name");
+            var lastNameInput = document.getElementById("lname");
+            var motherNameInput = document.getElementById("mother_name");
+            var fatherNameInput = document.getElementById("father_name");
+            var errorContainer = document.getElementById("error-container");
+
+            firstNameInput.addEventListener("input", function (event) {
+                validateInput(event, firstNameInput);
+            });
+
+            lastNameInput.addEventListener("input", function (event) {
+                validateInput(event, lastNameInput);
+            });
+
+            motherNameInput.addEventListener("input", function (event) {
+                validateInput(event, motherNameInput);
+            });
+
+            fatherNameInput.addEventListener("input", function (event) {
+                validateInput(event, fatherNameInput);
+            });
+
+            function validateInput(event, inputField) {
+                var inputValue = event.target.value;
+
+                if (/[\d@#$%^&*()_+=\[\]{}|\\:;'"<>?]/.test(inputValue)) {
+                    showError("Numbers, @ and similar characters are not allowed.", inputField);
+                    inputField.classList.add("error");
+                } else if (inputValue.length < 3) {
+                    showError("Minimum 3 characters are required.", inputField);
+                    inputField.classList.add("error");
+                } else {
+                    clearError(inputField);
+                    inputField.classList.remove("error");
+                }
+            }
+
+            function showError(message, inputField) {
+                clearError(inputField);
+
+                var errorMessage = document.createElement("p");
+                errorMessage.textContent = message;
+                errorMessage.classList.add("error-message");
+
+                inputField.parentNode.insertBefore(errorMessage,
+                    inputField); // Insert error message before the input field
+
+                // Add error class to the input field
+                inputField.classList.add("error");
+            }
+
+            function clearError(inputField) {
+                var sibling = inputField.previousElementSibling;
+                while (sibling) {
+                    if (sibling.classList.contains("error-message")) {
+                        sibling.parentNode.removeChild(sibling); // Remove any existing error messages
+                    }
+                    sibling = sibling.previousElementSibling;
+                }
+
+                // Remove error class from the input field
+                inputField.classList.remove("error");
+            }
+        });
+    </script>
+
+    <!-- For natiliaty, city state show hide  -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const nationalitySelect = document.getElementById('nationality');
+            const stateProvinceSelect = document.getElementById('stateProvince');
+            const cityDistrictSelect = document.getElementById('cityDistrict');
+            const policeStationSelect = document.getElementById('policeStation');
+            const postCodeSelect = document.getElementById('postCode');
+
+
+            const data = {
+                "Bangladesh": {
+                    "Dhaka": {
+                        "cities": {
+                            "Dhaka": {},
+                            "Gazipur": {}
+                        }
+                    },
+                    "Chittagong": {
+                        "cities": {
+                            "Chittagong": {},
+                            "Cox's Bazar": {}
+                        }
+                    }
+                },
+                "Nepal": {
+                    "Biratnagar": {
+                        "cities": {
+                            "Bhojpur": {},
+                            "Dhankuta": {},
+                            "Ilam": {},
+                            "Jhapa": {},
+                            "Khotang": {},
+                            "Morang": {},
+                            "Okhaldhunga": {},
+                            "Panchthar": {},
+                            "Sankhuwasabha": {},
+                            "Solukhumbu": {},
+                            "Sunsari": {},
+                            "Taplejung": {},
+                            "Terhathum": {},
+                            "Udayapur": {}
+                        }
+                    },
+                    "Janakpur": {
+                        "cities": {
+                            "Saptari": {},
+                            "Siraha": {},
+                            "Dhanusa": {},
+                            "Mahottari": {},
+                            "Sarlahi": {},
+                            "Bara": {},
+                            "Rautahat": {}
+                        }
+                    },
+                    "Hetauda": {
+                        "cities": {
+                            "Sindhuli": {},
+                            "Ramechhap": {},
+                            "Dolakha": {},
+                            "Bhaktapur": {},
+                            "Dhading": {},
+                            "Kathmandu": {},
+                            "Kavrepalanchok": {},
+                            "Lalitpur": {},
+                            "Nuwakot": {},
+                            "Rasuwa": {},
+                            "Sindhupalchok": {},
+                            "Chitwan": {},
+                            "Makwanpur": {}
+                        }
+                    },
+                    "Pokhara": {
+                        "cities": {
+                            "Baglung": {},
+                            "Gorkha": {},
+                            "Kaski": {},
+                            "Lamjung": {},
+                            "Manang": {},
+                            "Mustang": {},
+                            "Myagdi": {},
+                            "Nawalpur": {},
+                            "Parbat": {},
+                            "Syangja": {},
+                            "Tanahun": {}
+                        }
+                    },
+                    "Butwal": {
+                        "cities": {
+                            "Kapilvastu": {},
+                            "Parasi": {},
+                            "Rupandehi": {},
+                            "Arghakhanchi": {},
+                            "Gulmi": {},
+                            "Palpa": {},
+                            "Dang": {},
+                            "Pyuthan": {},
+                            "Rolpa": {},
+                            "Eastern Rukum": {},
+                            "Banke": {},
+                            "Bardiya": {}
+                        }
+                    },
+                    "Birendranagar": {
+                        "cities": {
+                            "Western Rukum": {},
+                            "Salyan": {},
+                            "Dolpa": {},
+                            "Humla": {},
+                            "Jumla": {},
+                            "Kalikot": {},
+                            "Mugu": {},
+                            "Surkhet": {},
+                            "Dailekh": {},
+                            "Jajarkot": {}
+                        }
+                    },
+                    "Godawari": {
+                        "cities": {
+                            "Kailali": {},
+                            "Achham": {},
+                            "Doti": {},
+                            "Bajhang": {},
+                            "Bajura": {},
+                            "Kanchanpur": {},
+                            "Dadeldhura": {},
+                            "Baitadi": {},
+                            "Darchula": {}
+                        }
+                    }
+                },
+                "Pakistan": {
+                    "Gilgit-Baltistan": {
+                        "cities": {
+                            "Gilgit": {},
+                            "Skardu": {}
+                        }
+                    },
+                    "Khyber-Pakhtunkhwa": {
+                        "cities": {
+                            "Peshawar": {},
+                            "Mardan": {},
+                            "Chitral": {},
+                            "Batkhela": {},
+                            "Saidu Sharif": {},
+                            "Mansehra": {},
+                            "Haripur": {},
+                            "Abbottabad": {},
+                            "Swabi": {},
+                            "Nowshera": {},
+                            "Charsadda": {},
+                            "Kohat": {},
+                            "Karak": {},
+                            "Bannu": {},
+                            "Dera Ismail Khan": {},
+                            "Tank": {}
+                        }
+                    },
+                    "Punjab": {
+                        "cities": {
+                            "Lahore": {},
+                            "Faisalabad": {},
+                            "Bhakkar": {},
+                            "Layyah": {},
+                            "Dera Ghazi Khan": {},
+                            "Muzaffargarh": {},
+                            "Jhang": {},
+                            "Toba Tek Singh": {},
+                            "Qila Sheikhupura": {},
+                            "Sargodha": {},
+                            "Khushab": {},
+                            "Mianwali": {},
+                            "Attock": {},
+                            "Rawalpindi": {},
+                            "Wah Cantt": {},
+                            "Murree": {},
+                            "Gujar Khan": {},
+                            "Talagang": {},
+                            "Chakwal": {},
+                            "Jhelum": {},
+                            "Gujrat": {},
+                            "Mandi Bahauddin": {},
+                            "Sialkot": {},
+                            "Narowal": {},
+                            "Kasur": {},
+                            "Okara": {},
+                            "Sahiwal": {},
+                            "Multan": {},
+                            "Bahawalpur": {},
+                            "Vehari": {},
+                            "Bahawalnagar": {},
+                            "Rahim Yar Khan": {}
+                        }
+                    },
+                    "Balochistan": {
+                        "cities": {
+                            "Quetta": {},
+                            "Khuzdar": {},
+                            "Turbat": {},
+                            "Sibi": {},
+                            "Dadu": {},
+                            "Larkana": {},
+                            "Shikarpur": {},
+                            "Jacobabad": {}
+                        }
+                    },
+                    "Islamabad": {
+                        "cities": {
+                            "Islamabad": {}
+                        }
+                    },
+                    "Jammu-and-Kashmir": {
+                        "cities": {
+                            "Muzaffarabad": {},
+                            "Mirpur": {},
+                            "Kotli": {},
+                            "Rawalakot": {},
+                            "Bagh": {}
+                        }
+                    }
+                }
+            };
+
+
+            nationalitySelect.addEventListener('change', function () {
+                const selectedNationality = this.value;
+                updateStates(selectedNationality);
+            });
+
+            stateProvinceSelect.addEventListener('change', function () {
+                const selectedState = this.value;
+                const selectedNationality = nationalitySelect.value;
+                updateCities(selectedNationality, selectedState);
+            });
+
+            cityDistrictSelect.addEventListener('change', function () {
+                const selectedCity = this.value;
+                const selectedNationality = nationalitySelect.value;
+                const selectedState = stateProvinceSelect.value;
+                updatePoliceStationsAndPostCodes(selectedNationality, selectedState, selectedCity);
+            });
+
+            function updateStates(nationality) {
+                stateProvinceSelect.innerHTML = '<option value="">Select State/Province</option>';
+                cityDistrictSelect.innerHTML = '<option value="">Select City/District</option>';
+                policeStationSelect.innerHTML = '<option value="">Select Police Station</option>';
+                postCodeSelect.innerHTML = '<option value="">Select Post Code</option>';
+
+                if (nationality && data[nationality]) {
+                    const states = Object.keys(data[nationality]);
+                    states.forEach(state => {
+                        const option = document.createElement('option');
+                        option.value = state;
+                        option.textContent = state;
+                        stateProvinceSelect.appendChild(option);
+                    });
+                }
+            }
+
+            function updateCities(nationality, state) {
+                cityDistrictSelect.innerHTML = '<option value="">Select City/District</option>';
+                policeStationSelect.innerHTML = '<option value="">Select Police Station</option>';
+                postCodeSelect.innerHTML = '<option value="">Select Post Code</option>';
+
+                if (nationality && state && data[nationality] && data[nationality][state] && data[nationality][state].cities) {
+                    const cities = Object.keys(data[nationality][state].cities);
+                    cities.forEach(city => {
+                        const option = document.createElement('option');
+                        option.value = city;
+                        option.textContent = city;
+                        cityDistrictSelect.appendChild(option);
+                    });
+                }
+            }
+
+            function updatePoliceStationsAndPostCodes(nationality, state, city) {
+                policeStationSelect.innerHTML = '<option value="">Select Police Station</option>';
+                postCodeSelect.innerHTML = '<option value="">Select Post Code</option>';
+
+                if (nationality && state && city && data[nationality] && data[nationality][state] && data[nationality][state].cities[city]) {
+                    const policeStations = data[nationality][state].cities[city].policeStations;
+                    const postCodes = data[nationality][state].cities[city].postCodes;
+
+                    policeStations.forEach(station => {
+                        const option = document.createElement('option');
+                        option.value = station;
+                        option.textContent = station;
+                        policeStationSelect.appendChild(option);
+                    });
+
+                    postCodes.forEach(code => {
+                        const option = document.createElement('option');
+                        option.value = code;
+                        option.textContent = code;
+                        postCodeSelect.appendChild(option);
+                    });
+                }
+            }
+        });
+
+    </script>
+
+    <!--  numbers validation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const phoneInput = document.getElementById('phone');
+            const whatsappInput = document.getElementById('whatsappnumberflag');
+            const phoneError = document.getElementById('phone-error');
+            const whatsappError = document.getElementById('whatsappnumberflag-error');
+
+            function validateNumberInput(event) {
+                const input = event.target;
+                const errorElement = document.getElementById(input.id + '-error');
+                const value = input.value;
+                if (/[^0-9]/.test(value)) {
+                    errorElement.textContent = 'Only numbers are allowed.';
+                    input.setCustomValidity('Only numbers are allowed.');
+                } else {
+                    errorElement.textContent = '';
+                    input.setCustomValidity('');
+                }
+            }
+
+            phoneInput.addEventListener('input', validateNumberInput);
+            whatsappInput.addEventListener('input', validateNumberInput);
+
+            phoneInput.addEventListener('invalid', function () {
+                const errorElement = document.getElementById('phone-error');
+                if (phoneInput.value === '') {
+                    errorElement.textContent = 'This field is required.';
+                } else {
+                    errorElement.textContent = 'Only numbers are allowed.';
+                }
+            });
+
+            whatsappInput.addEventListener('invalid', function () {
+                const errorElement = document.getElementById('whatsappnumberflag-error');
+                if (whatsappInput.value === '') {
+                    errorElement.textContent = 'This field is required.';
+                } else {
+                    errorElement.textContent = 'Only numbers are allowed.';
+                }
+            });
+        });
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.3/build/js/intlTelInput.min.js"></script>
+    <script>
+        var phone = window.intlTelInput(document.querySelector("#phone"), {
+            separateDialCode: true,
+            preferredCountries: ["ae"],
+            hiddenInput: "full",
+            utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.js"
+        });
+
+        $("form").submit(function () {
+            var phone_full_number = phone.getNumber(intlTelInputUtils.numberFormat.E164);
+            $("input[name='contact_number'").val(phone_full_number);
+        });
+    </script>
+
+    <script>
+        var whatsappnumb = window.intlTelInput(document.querySelector("#whatsappnumberflag"), {
+            separateDialCode: true,
+            preferredCountries: ["ae"],
+            hiddenInput: "full",
+            utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.js"
+        });
+
+        $("form").submit(function () {
+            var whatsappnumb_phone = whatsappnumb.getNumber(intlTelInputUtils.numberFormat.E164);
+            $("input[name='whatsapp_number'").val(whatsappnumb_phone);
+        });
+    </script>
+
+</body>
+
+</html>
