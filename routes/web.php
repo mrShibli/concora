@@ -106,6 +106,8 @@ Route::prefix('admin')->middleware(['auth', CheckRole::class . ':super_admin,gro
     // Job Applicant Controller Routes
     Route::delete('/applicants/{id}', [ApplicantController::class, 'destroy'])->name('applicant.destroy');
     Route::post('/update-applicant-status/{id}', [ApplicantController::class, 'updateStatus'])->name('updateStatus');
+    Route::get('/record/{id}/next', [ApplicantController::class, 'nextRecord'])->name('record.next');
+    Route::get('/record/{id}/previous', [ApplicantController::class, 'previousRecord'])->name('record.previous');
 
 
     // Interview controller

@@ -271,12 +271,12 @@
 
             <!--  -->
 
-            <div class="previous_next_btn mt-8 flex justify-between">
+            <div class=" mt-8 flex justify-between">
 
-                <a  style="cursor:pointer" onclick="previous()"
+                <a href="{{ route('record.previous', ['id' => $applicant->id]) }}"
                     class="px-2 py-1 Tablet:px-6 Tablet:py-2 Laptop:px-8 Laptop:py-2.5 bg-[#EEE915] text-Black-c font-semibold text-[8px] Tablet:text-xs Laptop:text-sm rounded">Previous</a>
 
-                <a style="cursor:pointer" onclick="next()"
+                <a href="{{ route('record.next', ['id' => $applicant->id]) }}"
                     class="px-2 py-1 Tablet:px-6 Tablet:py-2 Laptop:px-8 Laptop:py-2.5 bg-[#EEE915] text-Black-c font-semibold text-[8px] Tablet:text-xs Laptop:text-sm rounded">Next</a>
 
             </div>

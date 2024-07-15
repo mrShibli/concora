@@ -227,7 +227,7 @@
                 
             </div>
             <div class="mt-4">
-            {{ $applicants->links('vendor.pagination.simple-tailwind') }} 
+                {{ $applicants->links('vendor.pagination.simple-tailwind') }} 
             </div>
 
         </div>

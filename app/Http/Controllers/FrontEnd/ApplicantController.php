@@ -31,6 +31,37 @@ class ApplicantController extends Controller
     
         return view('layouts.admin.job-applicants.index', compact('applicants'));
     }
+
+
+
+    public function nextRecord($id)
+    {
+        $currentRecord = Applicant::findOrFail($id);
+        $applicant = Applicant::where('id', '>', $currentRecord->id)
+                            ->orderBy('id')
+                            ->first();
+
+        if ($applicant) {
+            return view('layouts.admin.job-applicants.view', compact('applicant'));
+        } else {
+            
+            return redirect()->back();
+        }
+    }
+
+    public function previousRecord($id)
+    {
+        $currentRecord = Applicant::findOrFail($id);
+        $applicant = Applicant::where('id', '<', $currentRecord->id)
+                                ->orderBy('id', 'desc')
+                                ->first();
+
+        if ($applicant) {
+            return view('layouts.admin.job-applicants.view', compact('applicant'));
+        } else {
+            return redirect()->back();
+        }
+    }
     
 
     public function indexverified()

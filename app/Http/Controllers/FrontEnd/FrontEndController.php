@@ -21,7 +21,7 @@ class FrontEndController extends Controller
     }
 
     public function rider()
-    { 
+    {
         // session()->flush();
         function generateRandomLetters($length)
         {
@@ -56,7 +56,7 @@ class FrontEndController extends Controller
         
         $pageDescription = 'Conqueror Services LLC Hiring Bike Riders. Age Limit: 21 - 39, Nom Education Required, Any Nationality Can Apply. Salary AED 2300. Total Processing Time 1 Month.';
         $allpositions = JobPosition::all();
-        return view('layouts.frontend.riderform', compact('allpositions','submissionID', 'pageDescription', 'currentStep')); 
+        return view('layouts.frontend.riderform', compact('allpositions','submissionID', 'pageDescription', 'currentStep'));
     }
 
     public function PrivacyPolicy()

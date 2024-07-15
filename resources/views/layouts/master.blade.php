@@ -40,9 +40,9 @@
     <div class="header bg-White-c p-3   Laptop:py-3  shadow-md rounded-b-3xl top-0 right-0 left-0 absolute w-full z-10">
         <div class="container mx-auto flex justify-between items-center ">
             <div class="logo">
-                <a href="index.html" id="logo"><img
+                <a href="/" id="logo"><img
                         class="w-20 Laptop:w-[170px] Laptop:h-[60px] object-contain Tablet:w-[120px]"
-                        src="{{ asset('newAdmin/Image/conqueror-Logo 1.png') }}" alt=""></a>
+                        src="{{ asset('logo.png') }}" alt=""></a>
             </div>
 
             <div class="search-bar w-28 Laptop:w-72">
@@ -117,7 +117,7 @@
                                     src="assets/image/person.png" alt="" class=" w-5 Laptop:w-5 ">Users</a>
                         </li>
                         <li class="hover:bg-Primary-c px-4 pl-6 Laptop:pl-10 mb-2 Laptop:mb-3">
-                            <a href="job-application.html"
+                            <a href="l"
                                 class="flex items-center gap-2 text-Dull-c2 hover:text-White-c text-sm Laptop:text-base py-3 hover:brightness-200"><img
                                     src="assets/image/person.png" alt="" class=" w-5 Laptop:w-5 ">Applicants</a>
                         </li>
