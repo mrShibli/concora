@@ -276,6 +276,12 @@ class FrontEndController extends Controller
     {
         return view('layouts.frontend.rmg-shipment.other-services');
     }
+    
+
+    public function career()
+    {
+        return view('layouts.carrierout');
+    }
 
     public function applyJob()
     {

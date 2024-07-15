@@ -38,11 +38,11 @@
                 <div>
                     <p><a href="{{ route('login') }}">Existing user?</a></p>
                     {{-- <p><a href="#">Forgot username?</a></p> --}}
-                    <div style="margin-top: 18px;">
+                    {{-- <div style="margin-top: 18px;">
                         <p>Having trouble logging in?</p>
                         <p><a href="tel:+97142837636 ">Call:+97142837636 </a></p>
                         <p><a href="mailto:admin@conquerorservices.com">Email:admin@conquerorservices.com </a></p>
-                    </div>
+                    </div> --}}
                 </div>
                 {{-- <p><a href="{{ route('register') }}">New to Portal?</a></p> --}}
             </div>

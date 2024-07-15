@@ -80,6 +80,7 @@
                 </div>
 
                 <div class="flex gap-6 flex-wrap my-6">
+
                     <table class="w-[62%] Tablet:w-[70%]">
 
                         <tr class="border">
@@ -160,6 +161,7 @@
                     </div>
                 </div>
             </div>
+
             <div id="license" id="Dri" style="display: none">
                 <div id="personal" class="top_buttons ">
                     <ul class="flex items-center gap-1 Laptop:gap-2 flex-wrap mb-4 Tablet:mb-10">
@@ -308,7 +310,7 @@
                 <button onclick="Showlin()"
                     class="px-2 py-1 Tablet:px-6 Tablet:py-2 Laptop:px-8 Laptop:py-2.5 bg-[#1EB57D] text-Black-c font-semibold text-[8px] Tablet:text-xs Laptop:text-sm rounded">Driving
                     License</button>
-                <button onclick="Showjob()"
+                <button onclick="#"
                     class="px-2 py-1 Tablet:px-6 Tablet:py-2 Laptop:px-8 Laptop:py-2.5 bg-[#21A3F1]  text-Black-c font-semibold text-[8px] Tablet:text-xs Laptop:text-sm rounded">Job
                     Status</button>
                 <button

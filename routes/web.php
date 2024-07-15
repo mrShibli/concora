@@ -45,6 +45,7 @@ Route::get('/', [FrontEndFrontEndController::class, 'index'])->name('mainindex')
 Route::get('/privacy-policy', [FrontEndFrontEndController::class, 'PrivacyPolicy'])->name('privacy.policy');
 Route::get('/terms-and-conditions', [FrontEndFrontEndController::class, 'TermsandConditions'])->name('terms.and.conditions');
 
+Route::get('career', [FrontEndFrontEndController::class, 'career'])->name('career');
 Route::get('career/jobs/', [FrontEndFrontEndController::class, 'applyJob'])->name('applyJob');
 Route::get('career/jobs/others/dubai/apply', [FrontEndFrontEndController::class, 'applyforOthers'])->name('others.apply');
 Route::get('rider', [FrontEndFrontEndController::class, 'applyforRiders'])->name('rider');

@@ -618,7 +618,7 @@
                                 <a href="" class="text-xs text-Primary-c underline">View Image</a>
                             </div>
                          
-                            <input type="file" name="applicant_image" id="">
+                            <input type="file" name="applicant_image" id="" >
 
                         </div>
                         <img class=" w-[200px] h-[140px] contain object-contain Tablet:w-[230px] Tablet:h-[150px] Laptop:w-[300px] Laptop:h-[186px] rounded"

@@ -14,8 +14,8 @@
 
         <div class="breadcums mb-3 ml-2 Tablet:mt-[-5px]">
             <div class="">
-                <a href="index.html" class="text-xs text-blue-600 hover:underline">Home /</a> <a href="job-application.html"
-                    class="text-xs text-blue-600 hover:underline">Users /</a> <a href="job-application.html"
+                <a href="{{ route('dashboard') }}" class="text-xs text-blue-600 hover:underline">Home /</a> <a href="{{ route('admin.users.index') }}"
+                    class="text-xs text-blue-600 hover:underline">Users /</a> <a href=""
                     class="text-xs text-gray-500 hover:underline">Create</a>
             </div>
         </div>

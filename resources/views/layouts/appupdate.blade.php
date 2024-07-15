@@ -184,7 +184,7 @@
                                             </ul>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('rider.apply') }}">Career
+                                            <a class="nav-link" href="{{ route('career') }}">Career
                                                 <span class="sub-nav-toggler"> </span>
                                             </a>
                                             <!-- <ul class="sub-menu">
@@ -238,7 +238,7 @@
                                     width="39" alt="">
                             </div>
                             <div class="shopping-cart">
-                                <a href="https://conquerorservices.com/login" target="_blacnk"> <img
+                                <a href="{{ route('login') }}" target="_blacnk"> <img
                                         src="{{ asset('assets/img/login-icon.png') }}" width="27"
                                         alt=""> </a>
                             </div>
@@ -302,7 +302,7 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-sm-12 wow fadeInUp animated" data-wow-delay="100ms">
                         <div class="logo">
-                            <img src="{{ asset('assets/img/logo-white.png') }}" width="100" alt="experia-logo">
+                            <img src="{{ asset('assets/img/logo-white.png') }}" width="250" alt="experia-logo">
                         </div>
                         <div class="contact-info">
                             <p><b>Location:</b> City Pharmacy Bld, Port Saeed, Dubai </p>

@@ -81,6 +81,8 @@
         .loading .btn-text {
             display: none;
         }
+
+
     </style>
 
 </head>
@@ -89,8 +91,8 @@
 
     <div class="header bg-White-c p-2  Laptop:py-4  shadow-md rounded-b-3xl top-0 right-0 absolute w-full z-10">
         <div class="container mx-auto">
-            <a href="https://conquerorservices.com/" id="logo"><img class="w-40 Laptop:w-[215px] Tablet:w-[160px]"
-                    src="{{ asset('frontend/imagesupdate/logo.png') }}" alt=""></a>
+            <a href="{{ route('mainindex')}}" id="logo"><img class="w-40 Laptop:w-[215px] Tablet:w-[160px]"
+                    src="{{ asset('assets/img/logo.png') }}" alt=""></a>
         </div>
     </div>
 
@@ -1313,8 +1315,8 @@
                                     <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Submission ID</h2>
                                 </div>
                                 <div class="field Laptop:w-[83%] w-[70%]">
-                                    @if(Session::has('submissionID'))
-                                    <p class="text-xs Tablet:text-sm">{{ $submissionID}}</p>
+                                    @if (Session::has('submissionID'))
+                                        <p class="text-xs Tablet:text-sm">{{ $submissionID }}</p>
                                     @endif
                                 </div>
                             </div>
@@ -1332,7 +1334,7 @@
                                     <input type="text" name="appli_dri_number" id="appli_dri_number"
                                         autocomplete="off"
                                         class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
-                                         value="{{ $hasOldData3 ? $oldData3->appli_dri_number : '' }}" required>
+                                        value="{{ $hasOldData3 ? $oldData3->appli_dri_number : '' }}" required>
                                     <label for="" class="label-t">Driving License</label>
                                 </div>
                             </div>
@@ -1406,8 +1408,12 @@
                                 <div class="field Laptop:w-[65%] w-[60%]">
                                     <select name="have_uae_licence" id=""
                                         class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
-                                        <option {{ $hasOldData3 && $oldData3->have_uae_licence == "Yes" ? 'selected' : '' }} value="Yes">Yes</option>
-                                        <option {{ $hasOldData3 && $oldData3->have_uae_licence == "No" ? 'selected' : '' }} value="No">No</option>
+                                        <option
+                                            {{ $hasOldData3 && $oldData3->have_uae_licence == 'Yes' ? 'selected' : '' }}
+                                            value="Yes">Yes</option>
+                                        <option
+                                            {{ $hasOldData3 && $oldData3->have_uae_licence == 'No' ? 'selected' : '' }}
+                                            value="No">No</option>
                                     </select>
                                 </div>
                             </div>
@@ -1422,7 +1428,7 @@
                                     <input type="text" name="UAE_Resident_Visa_No" id="UAE_Resident_Visa_No"
                                         autocomplete="off"
                                         class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
-                                        value="{{ $hasOldData3 ? $oldData3->UAE_Resident_Visa_No : '' }}"  required>
+                                        value="{{ $hasOldData3 ? $oldData3->UAE_Resident_Visa_No : '' }}" required>
                                     <label for="" class="label-t">UAE Resident Visa No</label>
                                 </div>
                             </div>
@@ -1443,7 +1449,7 @@
                                     <input type="tel" name="UAE_License_No" id="UAE_License_No"
                                         autocomplete="off"
                                         class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
-                                         value="{{ $hasOldData3 ? $oldData3->UAE_License_No : '' }}" required>
+                                        value="{{ $hasOldData3 ? $oldData3->UAE_License_No : '' }}" required>
                                     <label for="" class="label-t">UAE License No</label>
                                 </div>
                             </div>
@@ -1456,7 +1462,7 @@
                                 <div class="field Laptop:w-[65%] w-[60%]">
                                     <input type="tel" name="SIM_No" id="SIM_No" autocomplete="off"
                                         class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
-                                         value="{{ $hasOldData3 ? $oldData3->SIM_No : '' }}" required>
+                                        value="{{ $hasOldData3 ? $oldData3->SIM_No : '' }}" required>
                                     <label for="" class="label-t">SIM No</label>
                                 </div>
                             </div>
@@ -1880,19 +1886,104 @@
 
         const data = {
             "Bangladesh": {
-                "Dhaka": {
+                "Barisal": {
                     "cities": {
-                        "Dhaka": {},
-                        "Gazipur": {}
+                        "Barguna": {},
+                        "Barisal": {},
+                        "Bhola": {},
+                        "Jhalokathi": {},
+                        "Patuakhali": {},
+                        "Pirojpur": {}
                     }
                 },
                 "Chittagong": {
                     "cities": {
+                        "Bandarban": {},
+                        "Brahmanbaria": {},
+                        "Chandpur": {},
                         "Chittagong": {},
-                        "Cox's Bazar": {}
+                        "Cox's Bazar": {},
+                        "Cumilla": {},
+                        "Feni": {},
+                        "Khagrachhari": {},
+                        "Lakshmipur": {},
+                        "Noakhali": {},
+                        "Rangamati": {}
+                    }
+                },
+                "Dhaka": {
+                    "cities": {
+                        "Dhaka": {},
+                        "Faridpur": {},
+                        "Gazipur": {},
+                        "Gopalganj": {},
+                        "Kishoreganj": {},
+                        "Madaripur": {},
+                        "Manikganj": {},
+                        "Munshiganj": {},
+                        "Narayanganj": {},
+                        "Narsingdi": {},
+                        "Rajbari": {},
+                        "Shariatpur": {},
+                        "Tangail": {}
+                    }
+                },
+                "Khulna": {
+                    "cities": {
+                        "Bagerhat": {},
+                        "Chuadanga": {},
+                        "Jashore": {},
+                        "Jhenaidah": {},
+                        "Khulna": {},
+                        "Kushtia": {},
+                        "Magura": {},
+                        "Meherpur": {},
+                        "Narail": {},
+                        "Satkhira": {}
+                    }
+                },
+                "Mymensingh": {
+                    "cities": {
+                        "Jamalpur": {},
+                        "Mymensingh": {},
+                        "Netrokona": {},
+                        "Sherpur": {}
+                    }
+                },
+                "Rajshahi": {
+                    "cities": {
+                        "Bogura": {},
+                        "Joypurhat": {},
+                        "Naogaon": {},
+                        "Natore": {},
+                        "Chapainawabganj": {},
+                        "Pabna": {},
+                        "Rajshahi": {},
+                        "Sirajganj": {}
+                    }
+                },
+                "Rangpur": {
+                    "cities": {
+                        "Dinajpur": {},
+                        "Gaibandha": {},
+                        "Kurigram": {},
+                        "Lalmonirhat": {},
+                        "Nilphamari": {},
+                        "Panchagarh": {},
+                        "Rangpur": {},
+                        "Thakurgaon": {}
+                    }
+                },
+                "Sylhet": {
+                    "cities": {
+                        "Habiganj": {},
+                        "Moulvibazar": {},
+                        "Sunamganj": {},
+                        "Sylhet": {}
                     }
                 }
             },
+
             "Nepal": {
                 "Biratnagar": {
                     "cities": {
@@ -2000,13 +2091,75 @@
                 }
             },
             "Pakistan": {
+                "Azad Jammu and Kashmir": {
+                    "cities": {
+                        "Muzaffarabad": {},
+                        "Mirpur": {},
+                        "Kotli": {},
+                        "Rawalakot": {},
+                        "Bagh": {}
+                    }
+                },
+                "Balochistan": {
+                    "cities": {
+                        "Quetta": {},
+                        "Khuzdar": {},
+                        "Turbat": {},
+                        "Sibi": {},
+                        "Gwadar": {},
+                        "Chaman": {},
+                        "Zhob": {},
+                        "Loralai": {},
+                        "Dera Murad Jamali": {},
+                        "Hub": {},
+                        "Kalat": {},
+                        "Pishin": {},
+                        "Kharan": {},
+                        "Ziarat": {},
+                        "Mastung": {},
+                        "Chaghi": {},
+                        "Awaran": {},
+                        "Barkhan": {},
+                        "Bolan": {},
+                        "Dera Bugti": {},
+                        "Jafarabad": {},
+                        "Jhal Magsi": {},
+                        "Kachhi": {},
+                        "Killa Abdullah": {},
+                        "Killa Saifullah": {},
+                        "Kohlu": {},
+                        "Lasbela": {},
+                        "Lehri": {},
+                        "Musakhel": {},
+                        "Nasirabad": {},
+                        "Nushki": {},
+                        "Panjgur": {},
+                        "Sherani": {},
+                        "Sohbatpur": {},
+                        "Washuk": {},
+                        "Kech": {},
+                        "Harnai": {}
+                    }
+                },
                 "Gilgit-Baltistan": {
                     "cities": {
                         "Gilgit": {},
-                        "Skardu": {}
+                        "Skardu": {},
+                        "Diamer": {},
+                        "Ghanche": {},
+                        "Ghizer": {},
+                        "Hunza": {},
+                        "Nagar": {},
+                        "Shigar": {},
+                        "Kharmang": {}
                     }
                 },
-                "Khyber-Pakhtunkhwa": {
+                "Islamabad Capital Territory": {
+                    "cities": {
+                        "Islamabad": {}
+                    }
+                },
+                "Khyber Pakhtunkhwa": {
                     "cities": {
                         "Peshawar": {},
                         "Mardan": {},
@@ -2023,7 +2176,18 @@
                         "Karak": {},
                         "Bannu": {},
                         "Dera Ismail Khan": {},
-                        "Tank": {}
+                        "Tank": {},
+                        "Hangu": {},
+                        "Kurram": {},
+                        "Lakki Marwat": {},
+                        "Malakand": {},
+                        "Torghar": {},
+                        "Bajaur": {},
+                        "Mohmand": {},
+                        "Orakzai": {},
+                        "Khyber": {},
+                        "South Waziristan": {},
+                        "North Waziristan": {}
                     }
                 },
                 "Punjab": {
@@ -2059,36 +2223,842 @@
                         "Bahawalpur": {},
                         "Vehari": {},
                         "Bahawalnagar": {},
-                        "Rahim Yar Khan": {}
+                        "Rahim Yar Khan": {},
+                        "Chiniot": {},
+                        "Pakpattan": {},
+                        "Hafizabad": {},
+                        "Nankana Sahib": {}
                     }
                 },
-                "Balochistan": {
+                "Sindh": {
                     "cities": {
-                        "Quetta": {},
-                        "Khuzdar": {},
-                        "Turbat": {},
-                        "Sibi": {},
-                        "Dadu": {},
+                        "Karachi": {},
+                        "Hyderabad": {},
+                        "Sukkur": {},
                         "Larkana": {},
+                        "Mirpur Khas": {},
+                        "Nawabshah": {},
+                        "Jacobabad": {},
+                        "Khairpur": {},
+                        "Ghotki": {},
                         "Shikarpur": {},
-                        "Jacobabad": {}
+                        "Dadu": {},
+                        "Umerkot": {},
+                        "Tharparkar": {},
+                        "Kashmore": {},
+                        "Qambar Shahdadkot": {},
+                        "Matiari": {},
+                        "Tando Allahyar": {},
+                        "Tando Muhammad Khan": {},
+                        "Jamshoro": {},
+                        "Sujawal": {},
+                        "Badin": {}
+                    }
+                }
+            },
+
+            "India": {
+                "Andhra Pradesh": {
+                    "districts": {
+                        "Anantapur": {},
+                        "Chittoor": {},
+                        "East Godavari": {},
+                        "Guntur": {},
+                        "Krishna": {},
+                        "Kurnool": {},
+                        "Nellore": {},
+                        "Prakasam": {},
+                        "Srikakulam": {},
+                        "Visakhapatnam": {},
+                        "Vizianagaram": {},
+                        "West Godavari": {},
+                        "YSR Kadapa": {}
                     }
                 },
-                "Islamabad": {
-                    "cities": {
-                        "Islamabad": {}
+                "Arunachal Pradesh": {
+                    "districts": {
+                        "Anjaw": {},
+                        "Changlang": {},
+                        "Dibang Valley": {},
+                        "East Kameng": {},
+                        "East Siang": {},
+                        "Kamle": {},
+                        "Kra Daadi": {},
+                        "Kurung Kumey": {},
+                        "Lepa Rada": {},
+                        "Lohit": {},
+                        "Longding": {},
+                        "Lower Dibang Valley": {},
+                        "Lower Siang": {},
+                        "Lower Subansiri": {},
+                        "Namsai": {},
+                        "Pakke Kessang": {},
+                        "Papum Pare": {},
+                        "Shi Yomi": {},
+                        "Siang": {},
+                        "Tawang": {},
+                        "Tirap": {},
+                        "Upper Siang": {},
+                        "Upper Subansiri": {},
+                        "West Kameng": {},
+                        "West Siang": {}
                     }
                 },
-                "Jammu-and-Kashmir": {
-                    "cities": {
-                        "Muzaffarabad": {},
-                        "Mirpur": {},
-                        "Kotli": {},
-                        "Rawalakot": {},
-                        "Bagh": {}
+                "Assam": {
+                    "districts": {
+                        "Baksa": {},
+                        "Barpeta": {},
+                        "Biswanath": {},
+                        "Bongaigaon": {},
+                        "Cachar": {},
+                        "Charaideo": {},
+                        "Chirang": {},
+                        "Darrang": {},
+                        "Dhemaji": {},
+                        "Dhubri": {},
+                        "Dibrugarh": {},
+                        "Goalpara": {},
+                        "Golaghat": {},
+                        "Hailakandi": {},
+                        "Hojai": {},
+                        "Jorhat": {},
+                        "Kamrup": {},
+                        "Kamrup Metropolitan": {},
+                        "Karbi Anglong": {},
+                        "Karimganj": {},
+                        "Kokrajhar": {},
+                        "Lakhimpur": {},
+                        "Majuli": {},
+                        "Morigaon": {},
+                        "Nagaon": {},
+                        "Nalbari": {},
+                        "Sivasagar": {},
+                        "Sonitpur": {},
+                        "South Salmara-Mankachar": {},
+                        "Tinsukia": {},
+                        "Udalguri": {},
+                        "West Karbi Anglong": {}
+                    }
+                },
+                "Bihar": {
+                    "districts": {
+                        "Araria": {},
+                        "Arwal": {},
+                        "Aurangabad": {},
+                        "Banka": {},
+                        "Begusarai": {},
+                        "Bhagalpur": {},
+                        "Bhojpur": {},
+                        "Buxar": {},
+                        "Darbhanga": {},
+                        "East Champaran": {},
+                        "Gaya": {},
+                        "Gopalganj": {},
+                        "Jamui": {},
+                        "Jehanabad": {},
+                        "Kaimur": {},
+                        "Katihar": {},
+                        "Khagaria": {},
+                        "Kishanganj": {},
+                        "Lakhisarai": {},
+                        "Madhepura": {},
+                        "Madhubani": {},
+                        "Munger": {},
+                        "Muzaffarpur": {},
+                        "Nalanda": {},
+                        "Nawada": {},
+                        "Patna": {},
+                        "Purnia": {},
+                        "Rohtas": {},
+                        "Saharsa": {},
+                        "Samastipur": {},
+                        "Saran": {},
+                        "Sheikhpura": {},
+                        "Sheohar": {},
+                        "Sitamarhi": {},
+                        "Siwan": {},
+                        "Supaul": {},
+                        "Vaishali": {},
+                        "West Champaran": {}
+                    }
+                },
+                "Chhattisgarh": {
+                    "districts": {
+                        "Balod": {},
+                        "Baloda Bazar": {},
+                        "Balrampur": {},
+                        "Bastar": {},
+                        "Bemetara": {},
+                        "Bijapur": {},
+                        "Bilaspur": {},
+                        "Dantewada": {},
+                        "Dhamtari": {},
+                        "Durg": {},
+                        "Gariaband": {},
+                        "Gaurela-Pendra-Marwahi": {},
+                        "Janjgir-Champa": {},
+                        "Jashpur": {},
+                        "Kabirdham": {},
+                        "Kanker": {},
+                        "Kondagaon": {},
+                        "Korba": {},
+                        "Koriya": {},
+                        "Mahasamund": {},
+                        "Mungeli": {},
+                        "Narayanpur": {},
+                        "Raigarh": {},
+                        "Raipur": {},
+                        "Rajnandgaon": {},
+                        "Sukma": {},
+                        "Surajpur": {},
+                        "Surguja": {}
+                    }
+                },
+                "Goa": {
+                    "districts": {
+                        "North Goa": {},
+                        "South Goa": {}
+                    }
+                },
+                "Gujarat": {
+                    "districts": {
+                        "Ahmedabad": {},
+                        "Amreli": {},
+                        "Anand": {},
+                        "Aravalli": {},
+                        "Banaskantha": {},
+                        "Bharuch": {},
+                        "Bhavnagar": {},
+                        "Botad": {},
+                        "Chhota Udaipur": {},
+                        "Dahod": {},
+                        "Dang": {},
+                        "Devbhoomi Dwarka": {},
+                        "Gandhinagar": {},
+                        "Gir Somnath": {},
+                        "Jamnagar": {},
+                        "Junagadh": {},
+                        "Kheda": {},
+                        "Kutch": {},
+                        "Mahisagar": {},
+                        "Mehsana": {},
+                        "Morbi": {},
+                        "Narmada": {},
+                        "Navsari": {},
+                        "Panchmahal": {},
+                        "Patan": {},
+                        "Porbandar": {},
+                        "Rajkot": {},
+                        "Sabarkantha": {},
+                        "Surat": {},
+                        "Surendranagar": {},
+                        "Tapi": {},
+                        "Vadodara": {},
+                        "Valsad": {}
+                    }
+                },
+                "Haryana": {
+                    "districts": {
+                        "Ambala": {},
+                        "Bhiwani": {},
+                        "Charkhi Dadri": {},
+                        "Faridabad": {},
+                        "Fatehabad": {},
+                        "Gurugram": {},
+                        "Hisar": {},
+                        "Jhajjar": {},
+                        "Jind": {},
+                        "Kaithal": {},
+                        "Karnal": {},
+                        "Kurukshetra": {},
+                        "Mahendragarh": {},
+                        "Nuh": {},
+                        "Palwal": {},
+                        "Panchkula": {},
+                        "Panipat": {},
+                        "Rewari": {},
+                        "Rohtak": {},
+                        "Sirsa": {},
+                        "Sonipat": {},
+                        "Yamunanagar": {}
+                    }
+                },
+                "Himachal Pradesh": {
+                    "districts": {
+                        "Bilaspur": {},
+                        "Chamba": {},
+                        "Hamirpur": {},
+                        "Kangra": {},
+                        "Kinnaur": {},
+                        "Kullu": {},
+                        "Lahaul and Spiti": {},
+                        "Mandi": {},
+                        "Shimla": {},
+                        "Sirmaur": {},
+                        "Solan": {},
+                        "Una": {}
+                    }
+                },
+                "Jharkhand": {
+                    "districts": {
+                        "Bokaro": {},
+                        "Chatra": {},
+                        "Deoghar": {},
+                        "Dhanbad": {},
+                        "Dumka": {},
+                        "East Singhbhum": {},
+                        "Garhwa": {},
+                        "Giridih": {},
+                        "Godda": {},
+                        "Gumla": {},
+                        "Hazaribagh": {},
+                        "Jamtara": {},
+                        "Khunti": {},
+                        "Koderma": {},
+                        "Latehar": {},
+                        "Lohardaga": {},
+                        "Pakur": {},
+                        "Palamu": {},
+                        "Ramgarh": {},
+                        "Ranchi": {},
+                        "Sahebganj": {},
+                        "Seraikela Kharsawan": {},
+                        "Simdega": {},
+                        "West Singhbhum": {}
+                    }
+                },
+                "Karnataka": {
+                    "districts": {
+                        "Bagalkot": {},
+                        "Ballari": {},
+                        "Belagavi": {},
+                        "Bengaluru Rural": {},
+                        "Bengaluru Urban": {},
+                        "Bidar": {},
+                        "Chamarajanagar": {},
+                        "Chikballapur": {},
+                        "Chikkamagaluru": {},
+                        "Chitradurga": {},
+                        "Dakshina Kannada": {},
+                        "Davanagere": {},
+                        "Dharwad": {},
+                        "Gadag": {},
+                        "Hassan": {},
+                        "Haveri": {},
+                        "Kalaburagi": {},
+                        "Kodagu": {},
+                        "Kolar": {},
+                        "Koppal": {},
+                        "Mandya": {},
+                        "Mysuru": {},
+                        "Raichur": {},
+                        "Ramanagara": {},
+                        "Shivamogga": {},
+                        "Tumakuru": {},
+                        "Udupi": {},
+                        "Uttara Kannada": {},
+                        "Vijayapura": {},
+                        "Yadgir": {}
+                    }
+                },
+                "Kerala": {
+                    "districts": {
+                        "Alappuzha": {},
+                        "Ernakulam": {},
+                        "Idukki": {},
+                        "Kannur": {},
+                        "Kasaragod": {},
+                        "Kollam": {},
+                        "Kottayam": {},
+                        "Kozhikode": {},
+                        "Malappuram": {},
+                        "Palakkad": {},
+                        "Pathanamthitta": {},
+                        "Thiruvananthapuram": {},
+                        "Thrissur": {},
+                        "Wayanad": {}
+                    }
+                },
+                "Madhya Pradesh": {
+                    "districts": {
+                        "Agar Malwa": {},
+                        "Alirajpur": {},
+                        "Anuppur": {},
+                        "Ashoknagar": {},
+                        "Balaghat": {},
+                        "Barwani": {},
+                        "Betul": {},
+                        "Bhind": {},
+                        "Bhopal": {},
+                        "Burhanpur": {},
+                        "Chhatarpur": {},
+                        "Chhindwara": {},
+                        "Damoh": {},
+                        "Datia": {},
+                        "Dewas": {},
+                        "Dhar": {},
+                        "Dindori": {},
+                        "Guna": {},
+                        "Gwalior": {},
+                        "Harda": {},
+                        "Hoshangabad": {},
+                        "Indore": {},
+                        "Jabalpur": {},
+                        "Jhabua": {},
+                        "Katni": {},
+                        "Khandwa": {},
+                        "Khargone": {},
+                        "Mandla": {},
+                        "Mandsaur": {},
+                        "Morena": {},
+                        "Narsinghpur": {},
+                        "Neemuch": {},
+                        "Niwari": {},
+                        "Panna": {},
+                        "Raisen": {},
+                        "Rajgarh": {},
+                        "Ratlam": {},
+                        "Rewa": {},
+                        "Sagar": {},
+                        "Satna": {},
+                        "Sehore": {},
+                        "Seoni": {},
+                        "Shahdol": {},
+                        "Shajapur": {},
+                        "Sheopur": {},
+                        "Shivpuri": {},
+                        "Sidhi": {},
+                        "Singrauli": {},
+                        "Tikamgarh": {},
+                        "Ujjain": {},
+                        "Umaria": {},
+                        "Vidisha": {}
+                    }
+                },
+                "Maharashtra": {
+                    "districts": {
+                        "Ahmednagar": {},
+                        "Akola": {},
+                        "Amravati": {},
+                        "Aurangabad": {},
+                        "Beed": {},
+                        "Bhandara": {},
+                        "Buldhana": {},
+                        "Chandrapur": {},
+                        "Dhule": {},
+                        "Gadchiroli": {},
+                        "Gondia": {},
+                        "Hingoli": {},
+                        "Jalgaon": {},
+                        "Jalna": {},
+                        "Kolhapur": {},
+                        "Latur": {},
+                        "Mumbai City": {},
+                        "Mumbai Suburban": {},
+                        "Nagpur": {},
+                        "Nanded": {},
+                        "Nandurbar": {},
+                        "Nashik": {},
+                        "Osmanabad": {},
+                        "Palghar": {},
+                        "Parbhani": {},
+                        "Pune": {},
+                        "Raigad": {},
+                        "Ratnagiri": {},
+                        "Sangli": {},
+                        "Satara": {},
+                        "Sindhudurg": {},
+                        "Solapur": {},
+                        "Thane": {},
+                        "Wardha": {},
+                        "Washim": {},
+                        "Yavatmal": {}
+                    }
+                },
+                "Manipur": {
+                    "districts": {
+                        "Bishnupur": {},
+                        "Chandel": {},
+                        "Churachandpur": {},
+                        "Imphal East": {},
+                        "Imphal West": {},
+                        "Jiribam": {},
+                        "Kakching": {},
+                        "Kamjong": {},
+                        "Kangpokpi": {},
+                        "Noney": {},
+                        "Pherzawl": {},
+                        "Senapati": {},
+                        "Tamenglong": {},
+                        "Tengnoupal": {},
+                        "Thoubal": {},
+                        "Ukhrul": {}
+                    }
+                },
+                "Meghalaya": {
+                    "districts": {
+                        "East Garo Hills": {},
+                        "East Jaintia Hills": {},
+                        "East Khasi Hills": {},
+                        "North Garo Hills": {},
+                        "Ri Bhoi": {},
+                        "South Garo Hills": {},
+                        "South West Garo Hills": {},
+                        "South West Khasi Hills": {},
+                        "West Garo Hills": {},
+                        "West Jaintia Hills": {},
+                        "West Khasi Hills": {}
+                    }
+                },
+                "Mizoram": {
+                    "districts": {
+                        "Aizawl": {},
+                        "Champhai": {},
+                        "Hnahthial": {},
+                        "Khawzawl": {},
+                        "Kolasib": {},
+                        "Lawngtlai": {},
+                        "Lunglei": {},
+                        "Mamit": {},
+                        "Saiha": {},
+                        "Saitual": {},
+                        "Serchhip": {}
+                    }
+                },
+                "Nagaland": {
+                    "districts": {
+                        "Dimapur": {},
+                        "Kiphire": {},
+                        "Kohima": {},
+                        "Longleng": {},
+                        "Mokokchung": {},
+                        "Mon": {},
+                        "Noklak": {},
+                        "Peren": {},
+                        "Phek": {},
+                        "Tuensang": {},
+                        "Wokha": {},
+                        "Zunheboto": {}
+                    }
+                },
+                "Odisha": {
+                    "districts": {
+                        "Angul": {},
+                        "Balangir": {},
+                        "Balasore": {},
+                        "Bargarh": {},
+                        "Bhadrak": {},
+                        "Boudh": {},
+                        "Cuttack": {},
+                        "Debagarh": {},
+                        "Dhenkanal": {},
+                        "Gajapati": {},
+                        "Ganjam": {},
+                        "Jagatsinghpur": {},
+                        "Jajpur": {},
+                        "Jharsuguda": {},
+                        "Kalahandi": {},
+                        "Kandhamal": {},
+                        "Kendrapara": {},
+                        "Kendujhar": {},
+                        "Khordha": {},
+                        "Koraput": {},
+                        "Malkangiri": {},
+                        "Mayurbhanj": {},
+                        "Nabarangpur": {},
+                        "Nayagarh": {},
+                        "Nuapada": {},
+                        "Puri": {},
+                        "Rayagada": {},
+                        "Sambalpur": {},
+                        "Subarnapur": {},
+                        "Sundergarh": {}
+                    }
+                },
+                "Punjab": {
+                    "districts": {
+                        "Amritsar": {},
+                        "Barnala": {},
+                        "Bathinda": {},
+                        "Faridkot": {},
+                        "Fatehgarh Sahib": {},
+                        "Fazilka": {},
+                        "Ferozepur": {},
+                        "Gurdaspur": {},
+                        "Hoshiarpur": {},
+                        "Jalandhar": {},
+                        "Kapurthala": {},
+                        "Ludhiana": {},
+                        "Mansa": {},
+                        "Moga": {},
+                        "Pathankot": {},
+                        "Patiala": {},
+                        "Rupnagar": {},
+                        "Sangrur": {},
+                        "Shaheed Bhagat Singh Nagar": {},
+                        "Sri Muktsar Sahib": {},
+                        "Tarn Taran": {}
+                    }
+                },
+                "Rajasthan": {
+                    "districts": {
+                        "Ajmer": {},
+                        "Alwar": {},
+                        "Banswara": {},
+                        "Baran": {},
+                        "Barmer": {},
+                        "Bharatpur": {},
+                        "Bhilwara": {},
+                        "Bikaner": {},
+                        "Bundi": {},
+                        "Chittorgarh": {},
+                        "Churu": {},
+                        "Dausa": {},
+                        "Dholpur": {},
+                        "Dungarpur": {},
+                        "Hanumangarh": {},
+                        "Jaipur": {},
+                        "Jaisalmer": {},
+                        "Jalore": {},
+                        "Jhalawar": {},
+                        "Jhunjhunu": {},
+                        "Jodhpur": {},
+                        "Karauli": {},
+                        "Kota": {},
+                        "Nagaur": {},
+                        "Pali": {},
+                        "Pratapgarh": {},
+                        "Rajsamand": {},
+                        "Sawai Madhopur": {},
+                        "Sikar": {},
+                        "Sirohi": {},
+                        "Sri Ganganagar": {},
+                        "Tonk": {},
+                        "Udaipur": {}
+                    }
+                },
+                "Sikkim": {
+                    "districts": {
+                        "East Sikkim": {},
+                        "North Sikkim": {},
+                        "South Sikkim": {},
+                        "West Sikkim": {}
+                    }
+                },
+                "Tamil Nadu": {
+                    "districts": {
+                        "Ariyalur": {},
+                        "Chengalpattu": {},
+                        "Chennai": {},
+                        "Coimbatore": {},
+                        "Cuddalore": {},
+                        "Dharmapuri": {},
+                        "Dindigul": {},
+                        "Erode": {},
+                        "Kallakurichi": {},
+                        "Kancheepuram": {},
+                        "Karur": {},
+                        "Krishnagiri": {},
+                        "Madurai": {},
+                        "Mayiladuthurai": {},
+                        "Nagapattinam": {},
+                        "Namakkal": {},
+                        "Nilgiris": {},
+                        "Perambalur": {},
+                        "Pudukkottai": {},
+                        "Ramanathapuram": {},
+                        "Ranipet": {},
+                        "Salem": {},
+                        "Sivaganga": {},
+                        "Tenkasi": {},
+                        "Thanjavur": {},
+                        "Theni": {},
+                        "Thoothukudi": {},
+                        "Tiruchirappalli": {},
+                        "Tirunelveli": {},
+                        "Tirupattur": {},
+                        "Tiruppur": {},
+                        "Tiruvallur": {},
+                        "Tiruvannamalai": {},
+                        "Tiruvarur": {},
+                        "Vellore": {},
+                        "Viluppuram": {},
+                        "Virudhunagar": {}
+                    }
+                },
+                "Telangana": {
+                    "districts": {
+                        "Adilabad": {},
+                        "Bhadradri Kothagudem": {},
+                        "Hyderabad": {},
+                        "Jagtial": {},
+                        "Jangaon": {},
+                        "Jayashankar Bhupalpally": {},
+                        "Jogulamba Gadwal": {},
+                        "Kamareddy": {},
+                        "Karimnagar": {},
+                        "Khammam": {},
+                        "Komaram Bheem Asifabad": {},
+                        "Mahabubabad": {},
+                        "Mahbubnagar": {},
+                        "Mancherial": {},
+                        "Medak": {},
+                        "Medchal-Malkajgiri": {},
+                        "Mulugu": {},
+                        "Nagarkurnool": {},
+                        "Nalgonda": {},
+                        "Narayanpet": {},
+                        "Nirmal": {},
+                        "Nizamabad": {},
+                        "Peddapalli": {},
+                        "Rajanna Sircilla": {},
+                        "Ranga Reddy": {},
+                        "Sangareddy": {},
+                        "Siddipet": {},
+                        "Suryapet": {},
+                        "Vikarabad": {},
+                        "Wanaparthy": {},
+                        "Warangal (Rural)": {},
+                        "Warangal (Urban)": {},
+                        "Yadadri Bhuvanagiri": {}
+                    }
+                },
+                "Tripura": {
+                    "districts": {
+                        "Dhalai": {},
+                        "Gomati": {},
+                        "Khowai": {},
+                        "North Tripura": {},
+                        "Sepahijala": {},
+                        "South Tripura": {},
+                        "Unakoti": {},
+                        "West Tripura": {}
+                    }
+                },
+                "Uttar Pradesh": {
+                    "districts": {
+                        "Agra": {},
+                        "Aligarh": {},
+                        "Ambedkar Nagar": {},
+                        "Amethi": {},
+                        "Amroha": {},
+                        "Auraiya": {},
+                        "Ayodhya": {},
+                        "Azamgarh": {},
+                        "Badaun": {},
+                        "Baghpat": {},
+                        "Bahraich": {},
+                        "Ballia": {},
+                        "Balrampur": {},
+                        "Banda": {},
+                        "Barabanki": {},
+                        "Bareilly": {},
+                        "Basti": {},
+                        "Bhadohi": {},
+                        "Bijnor": {},
+                        "Bulandshahr": {},
+                        "Chandauli": {},
+                        "Chitrakoot": {},
+                        "Deoria": {},
+                        "Etah": {},
+                        "Etawah": {},
+                        "Farrukhabad": {},
+                        "Fatehpur": {},
+                        "Firozabad": {},
+                        "Gautam Buddh Nagar": {},
+                        "Ghaziabad": {},
+                        "Ghazipur": {},
+                        "Gonda": {},
+                        "Gorakhpur": {},
+                        "Hamirpur": {},
+                        "Hapur": {},
+                        "Hardoi": {},
+                        "Hathras": {},
+                        "Jalaun": {},
+                        "Jaunpur": {},
+                        "Jhansi": {},
+                        "Kannauj": {},
+                        "Kanpur Dehat": {},
+                        "Kanpur Nagar": {},
+                        "Kasganj": {},
+                        "Kaushambi": {},
+                        "Kheri": {},
+                        "Kushinagar": {},
+                        "Lalitpur": {},
+                        "Lucknow": {},
+                        "Maharajganj": {},
+                        "Mahoba": {},
+                        "Mainpuri": {},
+                        "Mathura": {},
+                        "Mau": {},
+                        "Meerut": {},
+                        "Mirzapur": {},
+                        "Moradabad": {},
+                        "Muzaffarnagar": {},
+                        "Pilibhit": {},
+                        "Pratapgarh": {},
+                        "Rae Bareli": {},
+                        "Rampur": {},
+                        "Saharanpur": {},
+                        "Sambhal": {},
+                        "Sant Kabir Nagar": {},
+                        "Shahjahanpur": {},
+                        "Shamli": {},
+                        "Shrawasti": {},
+                        "Siddharthnagar": {},
+                        "Sitapur": {},
+                        "Sonbhadra": {},
+                        "Sultanpur": {},
+                        "Unnao": {},
+                        "Varanasi": {}
+                    }
+                },
+                "Uttarakhand": {
+                    "districts": {
+                        "Almora": {},
+                        "Bageshwar": {},
+                        "Chamoli": {},
+                        "Champawat": {},
+                        "Dehradun": {},
+                        "Haridwar": {},
+                        "Nainital": {},
+                        "Pauri Garhwal": {},
+                        "Pithoragarh": {},
+                        "Rudraprayag": {},
+                        "Tehri Garhwal": {},
+                        "Udham Singh Nagar": {},
+                        "Uttarkashi": {}
+                    }
+                },
+                "West Bengal": {
+                    "districts": {
+                        "Alipurduar": {},
+                        "Bankura": {},
+                        "Birbhum": {},
+                        "Cooch Behar": {},
+                        "Dakshin Dinajpur": {},
+                        "Darjeeling": {},
+                        "Hooghly": {},
+                        "Howrah": {},
+                        "Jalpaiguri": {},
+                        "Jhargram": {},
+                        "Kalimpong": {},
+                        "Kolkata": {},
+                        "Malda": {},
+                        "Murshidabad": {},
+                        "Nadia": {},
+                        "North 24 Parganas": {},
+                        "Paschim Bardhaman": {},
+                        "Paschim Medinipur": {},
+                        "Purba Bardhaman": {},
+                        "Purba Medinipur": {},
+                        "Purulia": {},
+                        "South 24 Parganas": {},
+                        "Uttar Dinajpur": {}
                     }
                 }
             }
+
         };
 
 

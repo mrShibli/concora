@@ -164,8 +164,6 @@
                         <th class="border text-xs Tablet:text-sm Laptop:text-base p-1 Tablet:p-2 bg-Primary-c text-White-c">
                             Submission Date</th>
                         <th class="border text-xs Tablet:text-sm Laptop:text-base p-1 Tablet:p-2 bg-Primary-c text-White-c">
-                            Status</th>
-                        <th class="border text-xs Tablet:text-sm Laptop:text-base p-1 Tablet:p-2 bg-Primary-c text-White-c">
                             Action</th>
                     </tr>
 
@@ -191,7 +189,6 @@
                                 <td>{{ $applicant->contact_number }}</td>
                                 {{-- <td>{{ $applicant->email }}</td> --}}
                                 <td>{{ $applicant->created_at->format('F d, Y') }}</td>
-                                <td>{{ $applicant->applicant_status == 'new_entry' ? 'New eantry' : '' }}</td>
                                 <td class="flex gap-2">
                                     <!-- View data link -->
                                     <a href="{{ route('applicants.show', ['id' => $applicant->id]) }}" class="btn p-0">

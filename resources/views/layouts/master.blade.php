@@ -40,9 +40,9 @@
     <div class="header bg-White-c p-3   Laptop:py-3  shadow-md rounded-b-3xl top-0 right-0 left-0 absolute w-full z-10">
         <div class="container mx-auto flex justify-between items-center ">
             <div class="logo">
-                <a href="/" id="logo"><img
+                <a href="{{ route('dashboard') }}" id="logo"><img
                         class="w-20 Laptop:w-[170px] Laptop:h-[60px] object-contain Tablet:w-[120px]"
-                        src="{{ asset('logo.png') }}" alt=""></a>
+                        src="{{ asset('assets/img/logo.png') }}" alt=""></a>
             </div>
 
             <div class="search-bar w-28 Laptop:w-72">
@@ -71,10 +71,23 @@
                                 <li><a href=""
                                         class="text-xs Tablet:text-sm  font-medium flex items-center gap-2 Tablet:gap-3 mb-3"><i
                                             class="fas fa-gear text-xs Tablet:text-sm"></i> Account Settings</a></li>
-                                <li><a href=""
+                                <li>
+                                    {{-- <a href=""
                                         class="text-xs Tablet:text-sm  font-medium flex items-center gap-2 Tablet:gap-3"><i
                                             class="fa-solid fa-arrow-right-from-bracket text-xs Tablet:text-sm"></i> Log
-                                        Out</a></li>
+                                        Out</a> --}}
+
+                                        <form action="{{ route('logout') }}" method="POST">
+                                            @csrf
+                                            <button type="submit"
+                                                class="text-xs Tablet:text-sm  font-medium flex items-center gap-2 Tablet:gap-3"><i
+                                                    class="fa-solid fa-arrow-right-from-bracket text-xs Tablet:text-sm"></i>
+                                                Log
+                                                Out</button>
+                                        </form>
+                                </li>
+
+                               
 
                             </ul>
                         </li>
@@ -106,13 +119,13 @@
                                     class=" w-5 Laptop:w-6 h-auto">Dashboard</a>
                         </li>
                         <li class="hover:bg-Primary-c px-4 pl-6 Laptop:pl-10 mb-2 Laptop:mb-3">
-                            <a href=""
+                            <a href="{{ route('dashboard') }}"
                                 class="flex items-center gap-2 text-Dull-c2 hover:text-White-c text-sm Laptop:text-base py-3 hover:brightness-200"><img
                                     src="assets/image/space_dashboard (1).png" alt=""
                                     class=" w-5 Laptop:w-5 ">Job Board</a>
                         </li>
                         <li class="hover:bg-Primary-c px-4 pl-6 Laptop:pl-10 mb-2 Laptop:mb-3">
-                            <a href="{{ route('admin.users.create') }}"
+                            <a href="{{ route('admin.users.index') }}"
                                 class="flex items-center gap-2 text-Dull-c2 hover:text-White-c text-sm Laptop:text-base py-3 hover:brightness-200"><img
                                     src="assets/image/person.png" alt="" class=" w-5 Laptop:w-5 ">Users</a>
                         </li>
@@ -134,22 +147,16 @@
                                     class=" w-5 Laptop:w-5 ">Slider Settings</a>
                         </li>
                         <li class="hover:bg-Primary-c px-4 pl-6 Laptop:pl-10 mb-2 Laptop:mb-3">
-                            <a href=""
+                            <a href="{{ route('admin.contact') }}"
                                 class="flex items-center gap-2 text-Dull-c2 hover:text-White-c text-sm Laptop:text-base py-3 hover:brightness-200"><img
                                     src="assets/image/contact_page.png" alt=""
                                     class=" w-5 Laptop:w-5 ">Contacts</a>
                         </li>
                         <li class="hover:bg-Primary-c px-4 pl-6 Laptop:pl-10 mb-2 Laptop:mb-3">
-                            <a href=""
+                            <a href="#"
                                 class="flex items-center gap-2 text-Dull-c2 hover:text-White-c text-sm Laptop:text-base py-3 hover:brightness-200"><img
                                     src="assets/image/format_quote.png" alt=""
                                     class=" w-5 Laptop:w-5 ">Qautations</a>
-                        </li>
-                        <li class="hover:bg-Primary-c px-4 pl-6 Laptop:pl-10 mb-2 Laptop:mb-3">
-                            <a href="{{ route('aggetn.create') }}"
-                                class="flex items-center gap-2 text-Dull-c2 hover:text-White-c text-sm Laptop:text-base py-3 hover:brightness-200"><img
-                                    src="assets/image/format_quote.png" alt="" class=" w-5 Laptop:w-5 ">Agent
-                                Registration</a>
                         </li>
                     </ul>
                 </div>

@@ -35,15 +35,17 @@
 
         <div class="breadcums mb-3 ml-2 Tablet:mt-[-5px]">
             <div class="">
-                <a href="index.html" class="text-xs text-blue-600 hover:underline">Home /</a> <a href="job-application.html"
-                    class="text-xs text-blue-600 hover:underline">Users /</a> <a href="job-application.html"
+                <a href="{{ route('dashboard') }}" class="text-xs text-blue-600 hover:underline">Home /</a> <a href="{{ route('admin.users.index') }}"
+                    class="text-xs text-blue-600 hover:underline">Users /</a> <a href=""
                     class="text-xs text-gray-500 hover:underline">Create</a>
             </div>
         </div> 
 
-        <div class="right-side m-4 Laptop:m-4 pt-20 ml-4">
+        <div class="right-side m-4 Laptop:m-4 ml-4">
             <form method="POST" action="{{ route('admin.users.store') }}" enctype="multipart/form-data"
                 class=" bg-White-c p-3 py-4 pb-8 Tablet:p-6 Laptop:p-8 Laptop:py-10  shadow-sm rounded-xl  ">
+                <h2 class="text-base Tablet:text-xl Laptop:text-2xl font-bold text-Primary-c text-center mb-4 Tablet:mb-10">
+                    User Registration Form</h2>
                 <div id="basic_info">
                     <div class="grid grid-cols-1 Laptop:grid-cols-2 Laptop:gap-12 mb-2 Laptop:mb-8">
                         <div>
@@ -82,7 +84,7 @@
                         </div>
                         <div>
                             <label for="contact_number" class="text-sm Laptop:text-base">Contact Number <span style="color:red"> *</span> </label>
-                            <input type="number" id="contact_number" name="contact_number" placeholder="Your Contact Number" class="w-full bg-Low-dull-c mt-2 px-4 py-2 rounded-sm text-xs">
+                            <input type="tel" id="contact_number" name="contact_number" placeholder="Your Contact Number" class="w-full bg-Low-dull-c mt-2 px-4 py-2 rounded-sm text-xs">
                             @error('contact_number')<p style="color:red;" > {{$message}}  </p> @enderror
                         </div>
                     </div>
@@ -90,7 +92,7 @@
                     <div class="grid grid-cols-1 Laptop:grid-cols-2 Laptop:gap-12 mb-2 Laptop:mb-8">
                         <div>
                             <label for="whatsapp_number" class="text-sm Laptop:text-base">WhatsApp Number</label>
-                            <input type="number" id="whatsapp_number" name="whatsapp_number" placeholder="Your WhatsApp Number"  class="w-full bg-Low-dull-c mt-2 px-4 py-2 rounded-sm text-xs">
+                            <input type="tel" id="whatsapp_number" name="whatsapp_number" placeholder="Your WhatsApp Number"  class="w-full bg-Low-dull-c mt-2 px-4 py-2 rounded-sm text-xs">
                             @error('whatsapp_number')<p style="color:red;" > {{$message}}  </p> @enderror
                         </div>
                     </div>
