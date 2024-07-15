@@ -116,11 +116,11 @@
                                 class="flex items-center gap-2 text-Dull-c2 hover:text-White-c text-sm Laptop:text-base py-3 hover:brightness-200"><img
                                     src="assets/image/person.png" alt="" class=" w-5 Laptop:w-5 ">Users</a>
                         </li>
-                        <li class="hover:bg-Primary-c px-4 pl-6 Laptop:pl-10 mb-2 Laptop:mb-3">
+                        {{-- <li class="hover:bg-Primary-c px-4 pl-6 Laptop:pl-10 mb-2 Laptop:mb-3">
                             <a href="l"
                                 class="flex items-center gap-2 text-Dull-c2 hover:text-White-c text-sm Laptop:text-base py-3 hover:brightness-200"><img
                                     src="assets/image/person.png" alt="" class=" w-5 Laptop:w-5 ">Applicants</a>
-                        </li>
+                        </li> --}}
                         <li class="hover:bg-Primary-c px-4 pl-6 Laptop:pl-10 mb-2 Laptop:mb-3">
                             <a href=""
                                 class="flex items-center gap-2 text-Dull-c2 hover:text-White-c text-sm Laptop:text-base py-3 hover:brightness-200"><img

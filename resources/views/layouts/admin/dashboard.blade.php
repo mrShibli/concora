@@ -43,17 +43,17 @@
 
           <div class="flex items-center gap-0 Laptop:gap-4">
             <a href="#" id="menu-bar" class="fas fa-align-left text-white-c text-[18px] ml-1  Tablet:hidden"></a>
-            <a href="index.html" id="logo" class="text-white-c"> <img
+            <a href="/admin" id="logo" class="text-white-c"> <img
                 class=" ml-2 Tablet:ml-4 h-8 Tablet:h-16 Laptop:h-20 w-full object-contain" src="{{ asset('logo.png') }}"
                 alt=""></a>
+
                 <nav class="navbar flex items-center gap-6">
-                  <button id="HomeButton" type="button" class="text-white-c text-sm Tablet:text-base font-medium">Home</button>
-                  <button id="DashboardButton" type="button" class="text-white-c text-sm Tablet:text-base font-medium menuactive">Dashboard</button>
+                  <button id="HomeButton" type="button" class="text-white-c text-sm Tablet:text-base font-medium menuactive">Home</button>
+                  <button id="DashboardButton" type="button" class="text-white-c text-sm Tablet:text-base font-medium">Dashboard</button>
                   <button id="AdministrationButton" type="button" class="text-white-c text-sm Tablet:text-base font-medium">Administration</button>
                   <button id="ServicesButton" type="button" class="text-white-c text-sm Tablet:text-base font-medium">Services</button>
                   <button id="PaymentButton" type="button" class="text-white-c text-sm Tablet:text-base font-medium">Payment</button>
                 </nav>
-
                 
           </div>
 
@@ -173,8 +173,8 @@
 
                   </ul>
                 </li>
-                <li class="item menu-item relative cursor-pointer"> <img
-                    class=" w-8 h-8 Tablet:w-8 Tablet:h-8 Laptop:w-10 Laptop:h-10 " src="assets/image/profile (3).png"
+                <li class="item menu-item relative cursor-pointer"> <img style="width: 70px;"
+                    class=" w-8 h-8 Tablet:w-8 Tablet:h-8 Laptop:w-10 Laptop:h-10 " src="{{ asset('newAdmin/image/user.png') }}"
                     alt="">
                   <ul
                     class="submenu absolute top-full p-4 right-0  bg-white-c rounded shadow-xl w-40 Tablet:w-48 hidden">
@@ -184,10 +184,15 @@
                     <li><a href=""
                         class="text-xs Tablet:text-sm Laptop:text-base font-medium flex items-center gap-2 Tablet:gap-3 mb-3"><i
                           class="fas fa-gear text-xs Tablet:text-sm Laptop:text-base"></i> Account Settings</a></li>
-                    <li><a href=""
+                    <li>
+                      <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit"
                         class="text-xs Tablet:text-sm Laptop:text-base font-medium flex items-center gap-2 Tablet:gap-3"><i
                           class="fa-solid fa-arrow-right-from-bracket text-xs Tablet:text-sm Laptop:text-base"></i> Log
-                        Out</a></li>
+                        Out</button>
+                      </form>
+                      </li>
                   </ul>
                 </li>
               </ul>
@@ -202,7 +207,7 @@
 
     <!-- --------------- -->
 
-    <div class="container mx-auto" id="DashboardView">
+      <div class="container mx-auto" id="DashboardView">
 
       <div class="box-container py-4  Tablet:pt-8 p-2 Laptop:p-0">
 
@@ -390,9 +395,9 @@
       </div>
 
     </div>
-{{-- 
+
     <div class="container mx-auto" id="AdministrationView"> 
-      AdministrationView
+     
       <div class="box-container py-4  Tablet:pt-8 p-2 Laptop:p-0">
 
         <div class="box bg-white-c p-4 Tablet:p-6 rounded-xl mb-6">
@@ -582,12 +587,378 @@
 
 
     <div class="container mx-auto" id="ServicesView">
-      ServicesView
+      <div class="box-container py-4  Tablet:pt-8 p-2 Laptop:p-0">
+
+        <div class="box bg-white-c p-4 Tablet:p-6 rounded-xl mb-6">
+          <h4 class="text-base mb-4">Recent Activities</h4>
+          <div class="grid grid-cols-2 Tablet:grid-cols-3 Laptop:grid-cols-4 gap-2 Tablet:gap-3 Laptop:gap-4">
+
+            <a href="{{ route('applicants.index') }}">
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">3</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">New Entry Application</p>
+            </div>
+          </a>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">5</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Invite for Interview</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">2</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Payment Received for Visa</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">1</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Visa Processed</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">2</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Entry Visa Issued</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">1</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Medical Test Application</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">3</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">EID Application</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">4</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">RTA File Opne</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">3</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Resident Visa Issued</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">4</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">EID Received</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">9</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Bike Issued</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">12</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Duty Joined</p>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="box bg-white-c p-4 Tablet:p-6 rounded-xl mb-6">
+          <h4 class="text-base mb-4">Pending Activities</h4>
+          <div class="grid grid-cols-2 Tablet:grid-cols-3 Laptop:grid-cols-4  gap-2 Tablet:gap-3 Laptop:gap-4 ">
+
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">4</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Edit/Update Approval</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">2</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Credit Req Approval</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">1</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Service Req Approval</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">6</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Email Verification</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">2</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Receive Payment</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">2</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Receive Payment</p>
+            </div>
+
+
+
+          </div>
+
+        </div>
+
+
+        <div class="box bg-white-c p-4 Tablet:p-6 rounded-xl mb-6">
+          <h4 class="text-base mb-4">Quick Actions</h4>
+          <div class="grid grid-cols-2 Tablet:grid-cols-3 Laptop:grid-cols-4 gap-2 Tablet:gap-3 Laptop:gap-4">
+
+
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">2</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Pakistan</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">7</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Nepal</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">10</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">India</p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
     </div>
 
     <div class="container mx-auto" id="PaymentView">
-      PaymentView
-    </div> --}}
+      <div class="box-container py-4  Tablet:pt-8 p-2 Laptop:p-0">
+
+        <div class="box bg-white-c p-4 Tablet:p-6 rounded-xl mb-6">
+          <h4 class="text-base mb-4">Recent Activities</h4>
+          <div class="grid grid-cols-2 Tablet:grid-cols-3 Laptop:grid-cols-4 gap-2 Tablet:gap-3 Laptop:gap-4">
+
+            <a href="{{ route('applicants.index') }}">
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">3</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">New Entry Application</p>
+            </div>
+          </a>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">5</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Invite for Interview</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">2</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Payment Received for Visa</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">1</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Visa Processed</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">2</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Entry Visa Issued</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">1</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Medical Test Application</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">3</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">EID Application</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">4</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">RTA File Opne</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">3</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Resident Visa Issued</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">4</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">EID Received</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">9</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Bike Issued</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">12</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Duty Joined</p>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="box bg-white-c p-4 Tablet:p-6 rounded-xl mb-6">
+          <h4 class="text-base mb-4">Pending Activities</h4>
+          <div class="grid grid-cols-2 Tablet:grid-cols-3 Laptop:grid-cols-4  gap-2 Tablet:gap-3 Laptop:gap-4 ">
+
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">4</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Edit/Update Approval</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">2</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Credit Req Approval</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">1</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Service Req Approval</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">6</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Email Verification</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">2</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Receive Payment</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">2</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Receive Payment</p>
+            </div>
+
+
+
+          </div>
+
+        </div>
+
+
+        <div class="box bg-white-c p-4 Tablet:p-6 rounded-xl mb-6">
+          <h4 class="text-base mb-4">Quick Actions</h4>
+          <div class="grid grid-cols-2 Tablet:grid-cols-3 Laptop:grid-cols-4 gap-2 Tablet:gap-3 Laptop:gap-4">
+
+
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">2</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Pakistan</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">7</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">Nepal</p>
+            </div>
+            <div class="border border-gray-300 rounded-xl p-2 px-4">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-black-c text-sm Tablet:text-base">10</h2>
+                <i class="fas fa-chevron-right"></i>
+              </div>
+              <p class="text-xs Tablet:text-sm text-black-c">India</p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
 
   </div>
 
@@ -597,41 +968,37 @@
 
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-    const buttons = document.querySelectorAll('.navbar button');
-    const views = document.querySelectorAll('.container.view');
-
-    function showView(viewId) {
-      views.forEach(view => {
-        if (view.id === viewId) {
-          view.classList.add('active');
-        } else {
-          view.classList.remove('active');
-        }
-      });
-    }
-
-    function setActiveButton(button) {
-      buttons.forEach(btn => {
-        if (btn === button) {
-          btn.classList.add('menuactive');
-        } else {
-          btn.classList.remove('menuactive');
-        }
-      });
-    }
-
-    buttons.forEach(button => {
-      button.addEventListener('click', function() {
-        const viewId = button.id.replace('Button', 'View');
-        showView(viewId);
-        setActiveButton(button);
-      });
-    });
-
-    showView('DashboardView');
+    
+  document.getElementById('HomeButton').addEventListener('click', function() {
+    showView('DashboardView', 'HomeButton');
+  });
+  document.getElementById('DashboardButton').addEventListener('click', function() {
+    showView('DashboardView', 'DashboardButton');
+  });
+  document.getElementById('AdministrationButton').addEventListener('click', function() {
+    showView('AdministrationView', 'AdministrationButton');
+  });
+  document.getElementById('ServicesButton').addEventListener('click', function() {
+    showView('ServicesView', 'ServicesButton');
+  });
+  document.getElementById('PaymentButton').addEventListener('click', function() {
+    showView('PaymentView', 'PaymentButton');
   });
 
+  function showView(viewId, buttonId) {
+    const views = ['DashboardView', 'AdministrationView', 'ServicesView', 'PaymentView'];
+    const buttons = ['HomeButton', 'DashboardButton', 'AdministrationButton', 'ServicesButton', 'PaymentButton'];
+    
+    views.forEach(function(view) {
+      document.getElementById(view).style.display = view === viewId ? 'block' : 'none';
+    });
+    
+    buttons.forEach(function(button) {
+      document.getElementById(button).classList.remove('menuactive');
+    });
+    
+    document.getElementById(buttonId).classList.add('menuactive');
+  }
   </script>
 </body>
 

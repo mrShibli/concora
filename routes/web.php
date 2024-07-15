@@ -38,7 +38,7 @@ Auth::routes();
 
 Route::post('/logout', [DashboardController::class, 'logout'])->name('logout');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware(['auth', CheckRole::class . ':super_admin,group_admin,admin']);
 
 Route::get('/', [FrontEndFrontEndController::class, 'index'])->name('mainindex');
 

@@ -107,6 +107,9 @@
         border: 1px solid black;
         padding: 5px;
     }
+    td.flex.gap-2 {
+    border: none;
+}
  </style>
     <div class="right-side m-4 Laptop:m-4 pt-20 Laptop:pt-[5.4rem] ml-4 Tablet:ml-[205px] Laptop:ml-[235px]">
         @if (Auth::user()->role == 'user')
