@@ -55,6 +55,7 @@
             background: #000000ab;
             opacity: 0;
             transform: scale(0);
+            left:0;
         }
 
         .error.active {
@@ -106,6 +107,7 @@
 
             .error-info {
                 margin: 20px;
+                
             }
 
         }

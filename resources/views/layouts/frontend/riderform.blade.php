@@ -81,8 +81,6 @@
         .loading .btn-text {
             display: none;
         }
-
-
     </style>
 
 </head>
@@ -91,7 +89,7 @@
 
     <div class="header bg-White-c p-2  Laptop:py-4  shadow-md rounded-b-3xl top-0 right-0 absolute w-full z-10">
         <div class="container mx-auto">
-            <a href="{{ route('mainindex')}}" id="logo"><img class="w-40 Laptop:w-[215px] Tablet:w-[160px]"
+            <a href="{{ route('mainindex') }}" id="logo"><img class="w-40 Laptop:w-[215px] Tablet:w-[160px]"
                     src="{{ asset('assets/img/logo.png') }}" alt=""></a>
         </div>
     </div>
@@ -212,11 +210,12 @@
                                 <div class="field Laptop:w-[65%] w-[60%] fnamearea">
                                     <input type="text" name="firstname" id="firstname" autocomplete="off"
                                         class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('firstname') ? 'error' : '' }} "
-                                        value="{{ $hasOldData1 ? $oldData1->firstname : '' }}" required>
+                                        value="{{ $hasOldData1 ? $oldData1->firstname : '' }}" placeholder="First Name"
+                                        required>
                                     @error('firstname')
                                         <p class="erromessage">{{ $message }}</p>
                                     @enderror
-                                    <label for="" class="label-t">First Name</label>
+                                    <!--<label for="" class="label-t">First Name</label>-->
                                 </div>
                             </div>
 
@@ -229,11 +228,11 @@
                                     <input type="text" name="lastname" id="lastname"
                                         value="{{ $hasOldData1 ? $oldData1->lastname : '' }}" autocomplete="off"
                                         class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('lastname') ? 'error' : '' }}"
-                                        required>
+                                        placeholder ="Last Name" required>
                                     @error('lastname')
                                         <p class="erromessage">{{ $message }}</p>
                                     @enderror
-                                    <label for="" class="label-t">Last Name</label>
+                                    <!--<label for="" class="label-t">Last Name</label>-->
                                 </div>
                             </div>
 
@@ -252,8 +251,8 @@
                                         value="{{ $hasOldData1 ? $oldData1->mother_name : '' }}" id="mother_name"
                                         autocomplete="off"
                                         class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('mother_name') ? 'error' : '' }}"
-                                        required>
-                                    <label for="" class="label-t">Mother Name</label>
+                                        placeholder="Mother Name" required>
+                                    <!--<label for="" class="label-t">Mother Name</label>-->
                                     @error('mother_name')
                                         <p class="erromessage">{{ $message }}</p>
                                     @enderror
@@ -329,7 +328,7 @@
                                     @error('email')
                                         <p class="erromessage">{{ $message }}</p>
                                     @enderror
-                                    {{-- <label for="" class="label-t">Email Address</label> --}}
+                                    <!--<label for="" class="label-t">Email Address</label>-->
                                 </div>
                             </div>
 
@@ -349,21 +348,33 @@
                                     <select name="nationality" id="nationality"
                                         class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
                                         <option value="">Select Nationality</option>
-                                        <option
-                                            {{ $hasOldData1 && $oldData1->nationality == 'Bangladesh' ? 'selected' : '' }}
-                                            value="Bangladesh">Bangladesh</option>
-                                        <option
-                                            {{ $hasOldData1 && $oldData1->nationality == 'Nepal' ? 'selected' : '' }}
-                                            value="Nepal">Nepal</option>
-                                        <option
-                                            {{ $hasOldData1 && $oldData1->nationality == 'Srilanka' ? 'selected' : '' }}
-                                            value="Srilanka">Srilanka</option>
+
                                         <option
                                             {{ $hasOldData1 && $oldData1->nationality == 'Pakistan' ? 'selected' : '' }}
                                             value="Pakistan">Pakistan</option>
+
+                                        <option
+                                            {{ $hasOldData1 && $oldData1->nationality == 'Nepal' ? 'selected' : '' }}
+                                            value="Nepal">Nepal</option>
+
                                         <option
                                             {{ $hasOldData1 && $oldData1->nationality == 'India' ? 'selected' : '' }}
                                             value="India">India</option>
+
+                                        <option
+                                            {{ $hasOldData1 && $oldData1->nationality == 'Sri Lanka' ? 'selected' : '' }}
+                                            value="Sri Lanka">Sri Lanka</option>
+
+                                        <option
+                                            {{ $hasOldData1 && $oldData1->nationality == 'Philippine' ? 'selected' : '' }}
+                                            value="Philippine">Philippine</option>
+
+                                        <option
+                                            {{ $hasOldData1 && $oldData1->nationality == 'Bangladesh' ? 'selected' : '' }}
+                                            value="Bangladesh">Bangladesh</option>
+
+
+
                                     </select>
 
                                     @error('nationality')
@@ -423,7 +434,6 @@
                             <div class=" flex items-center gap-2">
                                 <div class="Laptop:w-[35%] w-[40%]">
                                     <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">WhatsApp Number
-                                        (Optional)
                                     </h2>
                                 </div>
                                 <div class="field Laptop:w-[65%] w-[60%]">
@@ -1885,211 +1895,6 @@
         const oldCity = @json($oldCity);
 
         const data = {
-            "Bangladesh": {
-                "Barisal": {
-                    "cities": {
-                        "Barguna": {},
-                        "Barisal": {},
-                        "Bhola": {},
-                        "Jhalokathi": {},
-                        "Patuakhali": {},
-                        "Pirojpur": {}
-                    }
-                },
-                "Chittagong": {
-                    "cities": {
-                        "Bandarban": {},
-                        "Brahmanbaria": {},
-                        "Chandpur": {},
-                        "Chittagong": {},
-                        "Cox's Bazar": {},
-                        "Cumilla": {},
-                        "Feni": {},
-                        "Khagrachhari": {},
-                        "Lakshmipur": {},
-                        "Noakhali": {},
-                        "Rangamati": {}
-                    }
-                },
-                "Dhaka": {
-                    "cities": {
-                        "Dhaka": {},
-                        "Faridpur": {},
-                        "Gazipur": {},
-                        "Gopalganj": {},
-                        "Kishoreganj": {},
-                        "Madaripur": {},
-                        "Manikganj": {},
-                        "Munshiganj": {},
-                        "Narayanganj": {},
-                        "Narsingdi": {},
-                        "Rajbari": {},
-                        "Shariatpur": {},
-                        "Tangail": {}
-                    }
-                },
-                "Khulna": {
-                    "cities": {
-                        "Bagerhat": {},
-                        "Chuadanga": {},
-                        "Jashore": {},
-                        "Jhenaidah": {},
-                        "Khulna": {},
-                        "Kushtia": {},
-                        "Magura": {},
-                        "Meherpur": {},
-                        "Narail": {},
-                        "Satkhira": {}
-                    }
-                },
-                "Mymensingh": {
-                    "cities": {
-                        "Jamalpur": {},
-                        "Mymensingh": {},
-                        "Netrokona": {},
-                        "Sherpur": {}
-                    }
-                },
-                "Rajshahi": {
-                    "cities": {
-                        "Bogura": {},
-                        "Joypurhat": {},
-                        "Naogaon": {},
-                        "Natore": {},
-                        "Chapainawabganj": {},
-                        "Pabna": {},
-                        "Rajshahi": {},
-                        "Sirajganj": {}
-                    }
-                },
-                "Rangpur": {
-                    "cities": {
-                        "Dinajpur": {},
-                        "Gaibandha": {},
-                        "Kurigram": {},
-                        "Lalmonirhat": {},
-                        "Nilphamari": {},
-                        "Panchagarh": {},
-                        "Rangpur": {},
-                        "Thakurgaon": {}
-                    }
-                },
-                "Sylhet": {
-                    "cities": {
-                        "Habiganj": {},
-                        "Moulvibazar": {},
-                        "Sunamganj": {},
-                        "Sylhet": {}
-                    }
-                }
-            },
-
-            "Nepal": {
-                "Biratnagar": {
-                    "cities": {
-                        "Bhojpur": {},
-                        "Dhankuta": {},
-                        "Ilam": {},
-                        "Jhapa": {},
-                        "Khotang": {},
-                        "Morang": {},
-                        "Okhaldhunga": {},
-                        "Panchthar": {},
-                        "Sankhuwasabha": {},
-                        "Solukhumbu": {},
-                        "Sunsari": {},
-                        "Taplejung": {},
-                        "Terhathum": {},
-                        "Udayapur": {}
-                    }
-                },
-                "Janakpur": {
-                    "cities": {
-                        "Saptari": {},
-                        "Siraha": {},
-                        "Dhanusa": {},
-                        "Mahottari": {},
-                        "Sarlahi": {},
-                        "Bara": {},
-                        "Rautahat": {}
-                    }
-                },
-                "Hetauda": {
-                    "cities": {
-                        "Sindhuli": {},
-                        "Ramechhap": {},
-                        "Dolakha": {},
-                        "Bhaktapur": {},
-                        "Dhading": {},
-                        "Kathmandu": {},
-                        "Kavrepalanchok": {},
-                        "Lalitpur": {},
-                        "Nuwakot": {},
-                        "Rasuwa": {},
-                        "Sindhupalchok": {},
-                        "Chitwan": {},
-                        "Makwanpur": {}
-                    }
-                },
-                "Pokhara": {
-                    "cities": {
-                        "Baglung": {},
-                        "Gorkha": {},
-                        "Kaski": {},
-                        "Lamjung": {},
-                        "Manang": {},
-                        "Mustang": {},
-                        "Myagdi": {},
-                        "Nawalpur": {},
-                        "Parbat": {},
-                        "Syangja": {},
-                        "Tanahun": {}
-                    }
-                },
-                "Butwal": {
-                    "cities": {
-                        "Kapilvastu": {},
-                        "Parasi": {},
-                        "Rupandehi": {},
-                        "Arghakhanchi": {},
-                        "Gulmi": {},
-                        "Palpa": {},
-                        "Dang": {},
-                        "Pyuthan": {},
-                        "Rolpa": {},
-                        "Eastern Rukum": {},
-                        "Banke": {},
-                        "Bardiya": {}
-                    }
-                },
-                "Birendranagar": {
-                    "cities": {
-                        "Western Rukum": {},
-                        "Salyan": {},
-                        "Dolpa": {},
-                        "Humla": {},
-                        "Jumla": {},
-                        "Kalikot": {},
-                        "Mugu": {},
-                        "Surkhet": {},
-                        "Dailekh": {},
-                        "Jajarkot": {}
-                    }
-                },
-                "Godawari": {
-                    "cities": {
-                        "Kailali": {},
-                        "Achham": {},
-                        "Doti": {},
-                        "Bajhang": {},
-                        "Bajura": {},
-                        "Kanchanpur": {},
-                        "Dadeldhura": {},
-                        "Baitadi": {},
-                        "Darchula": {}
-                    }
-                }
-            },
             "Pakistan": {
                 "Azad Jammu and Kashmir": {
                     "cities": {
@@ -2256,7 +2061,112 @@
                     }
                 }
             },
-
+            "Nepal": {
+                "Biratnagar": {
+                    "cities": {
+                        "Bhojpur": {},
+                        "Dhankuta": {},
+                        "Ilam": {},
+                        "Jhapa": {},
+                        "Khotang": {},
+                        "Morang": {},
+                        "Okhaldhunga": {},
+                        "Panchthar": {},
+                        "Sankhuwasabha": {},
+                        "Solukhumbu": {},
+                        "Sunsari": {},
+                        "Taplejung": {},
+                        "Terhathum": {},
+                        "Udayapur": {}
+                    }
+                },
+                "Janakpur": {
+                    "cities": {
+                        "Saptari": {},
+                        "Siraha": {},
+                        "Dhanusa": {},
+                        "Mahottari": {},
+                        "Sarlahi": {},
+                        "Bara": {},
+                        "Rautahat": {}
+                    }
+                },
+                "Hetauda": {
+                    "cities": {
+                        "Sindhuli": {},
+                        "Ramechhap": {},
+                        "Dolakha": {},
+                        "Bhaktapur": {},
+                        "Dhading": {},
+                        "Kathmandu": {},
+                        "Kavrepalanchok": {},
+                        "Lalitpur": {},
+                        "Nuwakot": {},
+                        "Rasuwa": {},
+                        "Sindhupalchok": {},
+                        "Chitwan": {},
+                        "Makwanpur": {}
+                    }
+                },
+                "Pokhara": {
+                    "cities": {
+                        "Baglung": {},
+                        "Gorkha": {},
+                        "Kaski": {},
+                        "Lamjung": {},
+                        "Manang": {},
+                        "Mustang": {},
+                        "Myagdi": {},
+                        "Nawalpur": {},
+                        "Parbat": {},
+                        "Syangja": {},
+                        "Tanahun": {}
+                    }
+                },
+                "Butwal": {
+                    "cities": {
+                        "Kapilvastu": {},
+                        "Parasi": {},
+                        "Rupandehi": {},
+                        "Arghakhanchi": {},
+                        "Gulmi": {},
+                        "Palpa": {},
+                        "Dang": {},
+                        "Pyuthan": {},
+                        "Rolpa": {},
+                        "Eastern Rukum": {},
+                        "Banke": {},
+                        "Bardiya": {}
+                    }
+                },
+                "Birendranagar": {
+                    "cities": {
+                        "Western Rukum": {},
+                        "Salyan": {},
+                        "Dolpa": {},
+                        "Humla": {},
+                        "Jumla": {},
+                        "Kalikot": {},
+                        "Mugu": {},
+                        "Surkhet": {},
+                        "Dailekh": {},
+                        "Jajarkot": {}
+                    }
+                },
+                "Godawari": {
+                    "cities": {
+                        "Kailali": {},
+                        "Achham": {},
+                        "Doti": {},
+                        "Bajhang": {},
+                        "Bajura": {},
+                        "Kanchanpur": {},
+                        "Dadeldhura": {},
+                        "Baitadi": {},
+                        "Darchula": {}
+                    }
+                }
+            },
             "India": {
                 "Andhra Pradesh": {
                     "districts": {
@@ -3057,8 +2967,340 @@
                         "Uttar Dinajpur": {}
                     }
                 }
-            }
+            },
 
+            "Sri Lanka": {
+                "Western": {
+                    "cities": {
+                        "Colombo": {},
+                        "Gampaha": {},
+                        "Kalutara": {}
+                    }
+                },
+                "Central": {
+                    "cities": {
+                        "Kandy": {},
+                        "Matale": {},
+                        "Nuwara Eliya": {}
+                    }
+                },
+                "Southern": {
+                    "cities": {
+                        "Galle": {},
+                        "Matara": {},
+                        "Hambantota": {}
+                    }
+                },
+                "Northern": {
+                    "cities": {
+                        "Jaffna": {},
+                        "Kilinochchi": {},
+                        "Mannar": {},
+                        "Vavuniya": {},
+                        "Mullaitivu": {}
+                    }
+                },
+                "Eastern": {
+                    "cities": {
+                        "Trincomalee": {},
+                        "Batticaloa": {},
+                        "Ampara": {}
+                    }
+                },
+                "North Western": {
+                    "cities": {
+                        "Kurunegala": {},
+                        "Puttalam": {}
+                    }
+                },
+                "North Central": {
+                    "cities": {
+                        "Anuradhapura": {},
+                        "Polonnaruwa": {}
+                    }
+                },
+                "Uva": {
+                    "cities": {
+                        "Badulla": {},
+                        "Monaragala": {}
+                    }
+                },
+                "Sabaragamuwa": {
+                    "cities": {
+                        "Ratnapura": {},
+                        "Kegalle": {}
+                    }
+                }
+            },
+
+            "Philippines": {
+                "Ilocos Region": {
+                    "cities": {
+                        "Ilocos Norte": {},
+                        "Ilocos Sur": {},
+                        "La Union": {},
+                        "Pangasinan": {}
+                    }
+                },
+                "Cagayan Valley": {
+                    "cities": {
+                        "Batanes": {},
+                        "Cagayan": {},
+                        "Isabela": {},
+                        "Nueva Vizcaya": {},
+                        "Quirino": {}
+                    }
+                },
+                "Central Luzon": {
+                    "cities": {
+                        "Aurora": {},
+                        "Bataan": {},
+                        "Bulacan": {},
+                        "Nueva Ecija": {},
+                        "Pampanga": {},
+                        "Tarlac": {},
+                        "Zambales": {}
+                    }
+                },
+                "CALABARZON": {
+                    "cities": {
+                        "Cavite": {},
+                        "Laguna": {},
+                        "Batangas": {},
+                        "Rizal": {},
+                        "Quezon": {}
+                    }
+                },
+                "MIMAROPA": {
+                    "cities": {
+                        "Marinduque": {},
+                        "Occidental Mindoro": {},
+                        "Oriental Mindoro": {},
+                        "Palawan": {},
+                        "Romblon": {}
+                    }
+                },
+                "Bicol Region": {
+                    "cities": {
+                        "Albay": {},
+                        "Camarines Norte": {},
+                        "Camarines Sur": {},
+                        "Catanduanes": {},
+                        "Masbate": {},
+                        "Sorsogon": {}
+                    }
+                },
+                "Western Visayas": {
+                    "cities": {
+                        "Aklan": {},
+                        "Antique": {},
+                        "Capiz": {},
+                        "Guimaras": {},
+                        "Iloilo": {},
+                        "Negros Occidental": {}
+                    }
+                },
+                "Central Visayas": {
+                    "cities": {
+                        "Bohol": {},
+                        "Cebu": {},
+                        "Negros Oriental": {},
+                        "Siquijor": {}
+                    }
+                },
+                "Eastern Visayas": {
+                    "cities": {
+                        "Biliran": {},
+                        "Eastern Samar": {},
+                        "Leyte": {},
+                        "Northern Samar": {},
+                        "Samar": {},
+                        "Southern Leyte": {}
+                    }
+                },
+                "Zamboanga Peninsula": {
+                    "cities": {
+                        "Zamboanga del Norte": {},
+                        "Zamboanga del Sur": {},
+                        "Zamboanga Sibugay": {}
+                    }
+                },
+                "Northern Mindanao": {
+                    "cities": {
+                        "Bukidnon": {},
+                        "Camiguin": {},
+                        "Lanao del Norte": {},
+                        "Misamis Occidental": {},
+                        "Misamis Oriental": {}
+                    }
+                },
+                "Davao Region": {
+                    "cities": {
+                        "Davao de Oro": {},
+                        "Davao del Norte": {},
+                        "Davao del Sur": {},
+                        "Davao Occidental": {},
+                        "Davao Oriental": {}
+                    }
+                },
+                "SOCCSKSARGEN": {
+                    "cities": {
+                        "Cotabato": {},
+                        "Sarangani": {},
+                        "South Cotabato": {},
+                        "Sultan Kudarat": {}
+                    }
+                },
+                "Caraga": {
+                    "cities": {
+                        "Agusan del Norte": {},
+                        "Agusan del Sur": {},
+                        "Dinagat Islands": {},
+                        "Surigao del Norte": {},
+                        "Surigao del Sur": {}
+                    }
+                },
+                "BARMM": {
+                    "cities": {
+                        "Basilan": {},
+                        "Lanao del Sur": {},
+                        "Maguindanao del Norte": {},
+                        "Maguindanao del Sur": {},
+                        "Sulu": {},
+                        "Tawi-Tawi": {}
+                    }
+                },
+                "Cordillera Administrative Region": {
+                    "cities": {
+                        "Abra": {},
+                        "Apayao": {},
+                        "Benguet": {},
+                        "Ifugao": {},
+                        "Kalinga": {},
+                        "Mountain Province": {}
+                    }
+                },
+                "National Capital Region": {
+                    "cities": {
+                        "Caloocan": {},
+                        "Las Piñas": {},
+                        "Makati": {},
+                        "Malabon": {},
+                        "Mandaluyong": {},
+                        "Manila": {},
+                        "Marikina": {},
+                        "Muntinlupa": {},
+                        "Navotas": {},
+                        "Parañaque": {},
+                        "Pasay": {},
+                        "Pasig": {},
+                        "Pateros": {},
+                        "Quezon City": {},
+                        "San Juan": {},
+                        "Taguig": {},
+                        "Valenzuela": {}
+                    }
+                }
+            },
+
+            "Bangladesh": {
+                "Barisal": {
+                    "cities": {
+                        "Barguna": {},
+                        "Barisal": {},
+                        "Bhola": {},
+                        "Jhalokathi": {},
+                        "Patuakhali": {},
+                        "Pirojpur": {}
+                    }
+                },
+                "Chittagong": {
+                    "cities": {
+                        "Bandarban": {},
+                        "Brahmanbaria": {},
+                        "Chandpur": {},
+                        "Chittagong": {},
+                        "Cox's Bazar": {},
+                        "Cumilla": {},
+                        "Feni": {},
+                        "Khagrachhari": {},
+                        "Lakshmipur": {},
+                        "Noakhali": {},
+                        "Rangamati": {}
+                    }
+                },
+                "Dhaka": {
+                    "cities": {
+                        "Dhaka": {},
+                        "Faridpur": {},
+                        "Gazipur": {},
+                        "Gopalganj": {},
+                        "Kishoreganj": {},
+                        "Madaripur": {},
+                        "Manikganj": {},
+                        "Munshiganj": {},
+                        "Narayanganj": {},
+                        "Narsingdi": {},
+                        "Rajbari": {},
+                        "Shariatpur": {},
+                        "Tangail": {}
+                    }
+                },
+                "Khulna": {
+                    "cities": {
+                        "Bagerhat": {},
+                        "Chuadanga": {},
+                        "Jashore": {},
+                        "Jhenaidah": {},
+                        "Khulna": {},
+                        "Kushtia": {},
+                        "Magura": {},
+                        "Meherpur": {},
+                        "Narail": {},
+                        "Satkhira": {}
+                    }
+                },
+                "Mymensingh": {
+                    "cities": {
+                        "Jamalpur": {},
+                        "Mymensingh": {},
+                        "Netrokona": {},
+                        "Sherpur": {}
+                    }
+                },
+                "Rajshahi": {
+                    "cities": {
+                        "Bogura": {},
+                        "Joypurhat": {},
+                        "Naogaon": {},
+                        "Natore": {},
+                        "Chapainawabganj": {},
+                        "Pabna": {},
+                        "Rajshahi": {},
+                        "Sirajganj": {}
+                    }
+                },
+                "Rangpur": {
+                    "cities": {
+                        "Dinajpur": {},
+                        "Gaibandha": {},
+                        "Kurigram": {},
+                        "Lalmonirhat": {},
+                        "Nilphamari": {},
+                        "Panchagarh": {},
+                        "Rangpur": {},
+                        "Thakurgaon": {}
+                    }
+                },
+                "Sylhet": {
+                    "cities": {
+                        "Habiganj": {},
+                        "Moulvibazar": {},
+                        "Sunamganj": {},
+                        "Sylhet": {}
+                    }
+                }
+            }
         };
 
 

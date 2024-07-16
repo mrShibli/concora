@@ -236,7 +236,7 @@
                         <a href="{{ route('applicants.index') }}">
                             <div class="border border-gray-300 rounded-xl p-2 px-4">
                                 <div class="flex items-center justify-between mb-4">
-                                    <h2 class="text-black-c text-sm Tablet:text-base">3</h2>
+                                    <h2 class="text-black-c text-sm Tablet:text-base">{{ $JobApplicant }}</h2>
                                     <i class="fas fa-chevron-right"></i>
                                 </div>
                                 <p class="text-xs Tablet:text-sm text-black-c">New Entry Application</p>
