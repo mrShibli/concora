@@ -116,7 +116,7 @@
                                     <td>{{ $applicant->nationality }}</td>
                                     <td>{{ $applicant->position->title ?? 'Position Not Found' }}</td>
                                     <td>{{ $applicant->contact_number }}</td>
-                                    <td class="emailstatus"> @if ($applicant->otp_verified == 0)
+                                    <td class="emailstatus">  @if ($applicant->otp_verified == 0)
                                         <img src="{{ asset('email-not-verified.svg') }}" width="25">
                                     @endif
     
@@ -128,7 +128,7 @@
                                     <td style="display: none;">{{ $applicant->submissionid }}</td>
                                     <td style="display: none;">{{ $applicant->reference }}</td>
                                     <td>
-                                        <a href="{{ route('applicants.show', ['id' => $applicant->id]) }}">
+                                        <a href="{{ route('applicants.paymentHistory', ['id' => $applicant->id]) }}">
                                             View
                                         </a>
 

@@ -1,26 +1,27 @@
 <?php
 
+use App\Models\Applicant;
 use App\Http\Middleware\Role;
 use App\Http\Middleware\CheckRole;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\EntryManager;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AggentCreate;
 use App\Http\Controllers\GetQuotation;
 use App\Http\Controllers\ContactContoller;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FrontDeskController;
+use App\Http\Controllers\InterviewController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\JobBoardController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\AggentCreate;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\FrotnEnd\FrontEndController;
 use App\Http\Controllers\FrontEnd\ApplicantController;
 use App\Http\Controllers\NewsletterSubscribeController;
 use App\Http\Controllers\FrontEnd\FrontEndController as FrontEndFrontEndController;
-use App\Http\Controllers\InterviewController;
-use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -194,6 +195,9 @@ Route::prefix('admin')->middleware(['auth', CheckRole::class . ':super_admin,gro
     Route::get('/applicants/notverified', [ApplicantController::class, 'notverified'])->name('applicants.notverified');
     Route::get('/applicants/invited', [ApplicantController::class, 'invited'])->name('applicants.invited');
     Route::get('/applicants/hired', [ApplicantController::class, 'hired'])->name('applicants.hired');
+    Route::get('/applicants/dues-payment', [ApplicantController::class, 'duesPayment'])->name('applicants.duesPayment');
+    Route::get('/applicants/dues-payment/payment-history/{id}', [ApplicantController::class, 'paymentHistory'])->name('applicants.paymentHistory');
+    Route::get('/applicants/dues-payment/payment-view/{id}', [ApplicantController::class, 'paymentView'])->name('applicants.paymentView');
 
     Route::get('/applicants/edit/{id}', [ApplicantController::class, 'editappli'])->name('applicants.editappli');
     Route::post('/applicants/update/{id}', [ApplicantController::class, 'update'])->name('applicants.update');
@@ -205,3 +209,13 @@ Route::prefix('admin')->middleware(['auth', CheckRole::class . ':super_admin,gro
 
 //Front End Newsletter Subscriber Route
 Route::post('/store/newsletter', [NewsletterSubscribeController::class, 'store'])->name('store.newsletter');
+
+
+Route::get('/minimal', function () {
+
+    $applicants = Applicant::where('applicant_status', 'new_entry')
+            ->orderBy('created_at', 'desc')
+            ->paginate(20); 
+    return view('minimal', compact('applicants'));
+});
+

@@ -555,7 +555,7 @@
                                     </h2>
                                 </div>
                                 <div class="field Laptop:w-[65%] w-[60%]">
-                                    <input type="number" name="passportno" id="passportno" autocomplete="off"
+                                    <input type="text" name="passportno" id="passportno" autocomplete="off"
                                         class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
                                         value="{{ $hasOldData2 && isset($oldData2->passportno) ? $oldData2->passportno : '' }}"
                                         required>
@@ -637,7 +637,7 @@
                                                         ? $oldData2->passport_doe_year
                                                         : '';
                                             @endphp
-                                            @for ($year = 2000; $year <= 2030; $year++)
+                                            @for ($year = 2022; $year <= 2099; $year++)
                                                 <option value="{{ $year }}"
                                                     {{ $year == $selectedYear ? 'selected' : '' }}>{{ $year }}
                                                 </option>
@@ -736,11 +736,11 @@
                                         <select name="uaeresident" id="uaeresident"
                                             class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none">
                                             <option
-                                                {{ $hasOldData2 && $oldData2->uaeresident == 'Yes' ? 'selected' : '' }}
-                                                value="Yes"><span id="yes">Yes</span> </option>
-                                            <option
                                                 {{ $hasOldData2 && $oldData2->uaeresident == 'No' ? 'selected' : '' }}
                                                 value="No"><span id="no">No</span></option>
+                                            <option
+                                                {{ $hasOldData2 && $oldData2->uaeresident == 'Yes' ? 'selected' : '' }}
+                                                value="Yes"><span id="yes">Yes</span> </option>
                                         </select>
                                     </div>
 
@@ -1388,7 +1388,7 @@
                                         <select name="drving_lic_expiry_yeare" id="drving_lic_expiry_year"
                                             class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none" required>
                                             <option value="">Year</option>
-                                            @for ($year = 2000; $year <= 2030; $year++)
+                                            @for ($year = 2019; $year <= 2050; $year++)
                                                 <option value="{{ $year }}"
                                                     {{ $hasOldData3 && $oldData3->drving_lic_expiry_year == $year ? 'selected' : '' }}>
                                                     {{ $year }}</option>

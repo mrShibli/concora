@@ -260,7 +260,7 @@ class DashboardController extends Controller
         $JobApplicantInvited = Applicant::where('applicant_status', 'invited')->count();
         $JobApplicantHired = Applicant::where('applicant_status', 'hired')->count();
 
-        $applicants = Applicant::orderBy('created_at', 'desc')->take(25)->get();
+        $applicants = Applicant::orderBy('created_at', 'desc')->get();
         return view('layouts.admin.dashboard', compact('JobApplicant', 'quotation', 'jobpositions', 'contactscount', 'applicants', 'JobApplicantOtpVerified', 'JobApplicantOtpNotVerified', 'JobApplicantInvited', 'JobApplicantHired'));
     }
 

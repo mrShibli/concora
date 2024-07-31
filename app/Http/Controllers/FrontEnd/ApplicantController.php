@@ -78,7 +78,7 @@ class ApplicantController extends Controller
         $applicants = Applicant::where('otp_verified', 0)
             ->orderBy('created_at', 'desc')
             ->get();
-        return view('layouts.admin.job-applicants.indexnotverified', compact('applicants'));
+        return view('layouts.admin.job-applicants.index', compact('applicants'));
     }
 
     public function invited()
@@ -95,6 +95,29 @@ class ApplicantController extends Controller
             ->orderBy('created_at', 'desc')
             ->get();
         return view('layouts.admin.job-applicants.indexhired', compact('applicants'));
+    }
+
+    public function duesPayment()
+    {
+        $applicants = Applicant::where('balance', '<', 6000)
+            ->orderBy('created_at', 'desc')
+            ->get();
+        return view('layouts.admin.job-applicants.indexDues', compact('applicants'));
+    }
+
+    
+    public function paymentHistory(Applicant $id)
+    {
+        $applicant = $applicant = $id;
+       // return $applicant;
+        return view('layouts.admin.job-applicants.ViewDueHistory', compact('applicant'));
+    }
+
+    public function paymentView(Applicant $id)
+    {
+        $applicant = $applicant = $id;
+       // return $applicant;
+        return view('layouts.admin.job-applicants.paumentView', compact('applicant'));
     }
 
 

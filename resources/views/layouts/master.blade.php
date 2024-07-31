@@ -8,7 +8,7 @@
     <title>CONQUEROR Admin</title>
 
     <!-- plugins:css -->
-    <link rel="stylesheet" href="{{ asset('vendors/feather/feather.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('vendors/feather/feather.css') }}">
     <link rel="stylesheet" href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('vendors/css/vendor.bundle.base.css') }}">
     <!-- endinject -->
@@ -16,9 +16,10 @@
     <link rel="stylesheet" href="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
     <link rel="stylesheet" href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('js/select.dataTables.min.css') }}">
-    <!-- End plugin css for this page -->
+    <link rel="stylesheet" href="//cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+    <!-- End plugin css for this page --> --}}
     <link rel="stylesheet" href="{{ asset('newAdmin/css/main.css') }}">
-    <!-- endinject -->
+    {{-- <!-- endinject -->
     <link rel="shortcut icon" href="{{ asset('frontend/images/favicon.png') }}" />
 
 
@@ -29,8 +30,23 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.css">
 
     <!-- SweetAlert2 JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script> --}}
+    <style>
+        .container {
+            max-width: 1380px;
+        }
 
+        .emailstatus {
+            display: inline-flex;
+            align-items: center;
+            border:
+                none;
+        }
+
+        .emailstatus img {
+            margin-right: 3px;
+        }
+    </style>
     @yield('styles')
 
 </head>
@@ -42,13 +58,13 @@
             <div class="logo">
                 <a href="{{ route('dashboard') }}" id="logo"><img
                         class="w-20 Laptop:w-[170px] Laptop:h-[60px] object-contain Tablet:w-[120px]"
-                        src="{{ asset('assets/img/logo.png') }}" alt=""></a>
+                        src="{{ asset('assets/img/dashboardlogo.png') }}" alt=""></a>
             </div>
 
-            <div class="search-bar w-28 Laptop:w-72">
+            {{-- <div class="search-bar w-28 Laptop:w-72">
                 <input type="search" name="search" placeholder="search..." id=""
                     class=" p-1 Laptop:p-2.5 bg-gray-100 rounded text-[10px] Laptop:text-xs  w-full focus:border-[#0000ff17]">
-            </div>
+            </div> --}}
 
             <div class="admin flex gap-2 Laptop:gap-12 Tablet:gap-8 items-center">
                 <div class="notification-bar">
@@ -77,17 +93,17 @@
                                             class="fa-solid fa-arrow-right-from-bracket text-xs Tablet:text-sm"></i> Log
                                         Out</a> --}}
 
-                                        <form action="{{ route('logout') }}" method="POST">
-                                            @csrf
-                                            <button type="submit"
-                                                class="text-xs Tablet:text-sm  font-medium flex items-center gap-2 Tablet:gap-3"><i
-                                                    class="fa-solid fa-arrow-right-from-bracket text-xs Tablet:text-sm"></i>
-                                                Log
-                                                Out</button>
-                                        </form>
+                                    <form action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                        <button type="submit"
+                                            class="text-xs Tablet:text-sm  font-medium flex items-center gap-2 Tablet:gap-3"><i
+                                                class="fa-solid fa-arrow-right-from-bracket text-xs Tablet:text-sm"></i>
+                                            Log
+                                            Out</button>
+                                    </form>
                                 </li>
 
-                               
+
 
                             </ul>
                         </li>
@@ -143,8 +159,8 @@
                         <li class="hover:bg-Primary-c px-4 pl-6 Laptop:pl-10 mb-2 Laptop:mb-3">
                             <a href=""
                                 class="flex items-center gap-2 text-Dull-c2 hover:text-White-c text-sm Laptop:text-base py-3 hover:brightness-200"><img
-                                    src="assets/image/settings (2).png" alt=""
-                                    class=" w-5 Laptop:w-5 ">Slider Settings</a>
+                                    src="assets/image/settings (2).png" alt="" class=" w-5 Laptop:w-5 ">Slider
+                                Settings</a>
                         </li>
                         <li class="hover:bg-Primary-c px-4 pl-6 Laptop:pl-10 mb-2 Laptop:mb-3">
                             <a href="{{ route('admin.contact') }}"
@@ -171,7 +187,7 @@
 
     </div>
 
-    <!-- plugins:js -->
+    {{-- <!-- plugins:js -->
     <script src="{{ asset('vendors/js/vendor.bundle.base.js') }}"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
@@ -196,9 +212,11 @@
     {{-- <script src="https://cdn.datatables.net/2.0.1/js/dataTables.js"></script> --}}
 
 
-    <script src="https://cdn.tiny.cloud/1/8fai9pbxzi4qrv4ijrbj7cmdep8quwby2p1yo0li32n829jj/tinymce/5/tinymce.min.js"
-        referrerpolicy="origin"></script>
-    <script src="{{ asset('js/tinymce_init.js') }}"></script>
+    {{-- <script src="https://cdn.tiny.cloud/1/8fai9pbxzi4qrv4ijrbj7cmdep8quwby2p1yo0li32n829jj/tinymce/5/tinymce.min.js"
+        referrerpolicy="origin"></script> 
+
+    <script src="{{ asset('js/tinymce_init.js') }}"></script> --}}
+
     @yield('script')
 
 </body>

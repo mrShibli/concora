@@ -466,19 +466,20 @@
                     License Information</a>
             </div>
 
-            <form action="{{route('applicants.update',['id'=>$applicant->id])}}" method="post" id="Basic">
+            <form action="{{ route('applicants.update', ['id' => $applicant->id]) }}" method="post" id="Basic">
                 @csrf
-              
+
                 <div class="grid grid-cols-1 Laptop:grid-cols-2  Laptop:gap-24 mb-2 Laptop:mb-8">
 
                     <div>
                         <label for="" class="text-sm Laptop:text-base">Job Position</label>
-                       
-                            <select name="position_id" class="w-full h-[12px] mt-3" id="" style="height:20px">
-                                @foreach($jobs_position as $position)
-                                <option value="{{$position->id }}" @if($applicant->position->id == $position->id) selected @endif > {{ $position->title }} </option>
-                                @endforeach
-                            </select>
+
+                        <select name="position_id" class="w-full h-[12px] mt-3" id="" style="height:20px">
+                            @foreach ($jobs_position as $position)
+                                <option value="{{ $position->id }}" @if ($applicant->position->id == $position->id) selected @endif>
+                                    {{ $position->title }} </option>
+                            @endforeach
+                        </select>
                     </div>
                     <div>
                         <label for="" class="text-sm Laptop:text-base">First Name</label>
@@ -491,11 +492,11 @@
                 <div class="grid grid-cols-1 Laptop:grid-cols-2  Laptop:gap-24 mb-2 Laptop:mb-8">
 
                     <!-- <div>
-                        <label for="" class="text-sm Laptop:text-base">Job Type</label>
-                        <input type="text" name=""
-                            class="w-full bg-Low-dull-c mt-2 px-2 Tablet:px-3 py-2 Laptop:py-2.5 rounded-sm text-xs"
-                            value="{{ $applicant->first_name }}">
-                    </div> -->
+                                    <label for="" class="text-sm Laptop:text-base">Job Type</label>
+                                    <input type="text" name=""
+                                        class="w-full bg-Low-dull-c mt-2 px-2 Tablet:px-3 py-2 Laptop:py-2.5 rounded-sm text-xs"
+                                        value="{{ $applicant->first_name }}">
+                                </div> -->
                     <div>
                         <label for="" class="text-sm Laptop:text-base">Last Name</label>
                         <input type="text" name="last_name"
@@ -503,7 +504,7 @@
                             value="{{ $applicant->last_name }}">
                     </div>
 
-                      <div>
+                    <div>
                         <label for="" class="text-sm Laptop:text-base">Nationality</label>
                         <input type="text" name="nationality"
                             class="w-full bg-Low-dull-c mt-2 px-2 Tablet:px-3 py-2 Laptop:py-2.5 rounded-sm text-xs"
@@ -514,21 +515,21 @@
 
                 <div class="grid grid-cols-1 Laptop:grid-cols-2  Laptop:gap-24 mb-2 Laptop:mb-8">
 
-                  
+
                     <div>
                         <label for="" class="text-sm Laptop:text-base">Mother Name</label>
                         <input type="text" name="mother_name"
                             class="w-full bg-Low-dull-c mt-2 px-2 Tablet:px-3 py-2 Laptop:py-2.5 rounded-sm text-xs"
                             value="{{ $applicant->mother_name }}">
                     </div>
-                     <div>
+                    <div>
                         <label for="" class="text-sm Laptop:text-base">UAE Residence</label>
                         <input type="text" name="uaeresident"
                             class="w-full bg-Low-dull-c mt-2 px-2 Tablet:px-3 py-2 Laptop:py-2.5 rounded-sm text-xs"
                             value="{{ $applicant->uaeresident == '1' ? 'Yes' : 'No' }}">
                     </div>
                 </div>
-                
+
                 <div class="text-right mt-5">
                     <button type="submit"
                         class="px-10 py-3 Laptop:text-sm text-base font-medium leading-5 tracking-wide bg-Primary-c text-White-c rounded-full font-roboto">Save
@@ -536,8 +537,10 @@
                 </div>
             </form>
 
-            <form action="{{route('applicants.update',['id'=>$applicant->id])}}" enctype='multipart/form-data' method="POST" id="Cnic" class="grid grid-cols-1 Laptop:grid-cols-2  Laptop:gap-16 mb-2 Laptop:mb-16 " style="display: none">
-            @csrf
+            <form action="{{ route('applicants.update', ['id' => $applicant->id]) }}" enctype='multipart/form-data'
+                method="POST" id="Cnic" class="grid grid-cols-1 Laptop:grid-cols-2  Laptop:gap-16 mb-2 Laptop:mb-16 "
+                style="display: none">
+                @csrf
                 <div class=" nid-img bg-cover bg-center bg-no-repeat shadow-xl p-4 px-8 rounded-xl">
                     <div class="flex items-center justify-between mb-4">
                         <div>
@@ -554,8 +557,8 @@
                         <div>
                             <h2 class="text-sm Laptop:text-base text-Black-c ">Current CNIC Back</h2>
                             <a href="" class="text-xs text-Primary-c underline">View CNIC</a>
-                        </div> 
-                        <input type="file" name="nid_cnic_back" >
+                        </div>
+                        <input type="file" name="nid_cnic_back">
                     </div>
                     <img class=" w-[200px] h-[140px] contain object-contain Tablet:w-[230px] Tablet:h-[150px] Laptop:w-[300px] Laptop:h-[186px] rounded"
                         src="{{ asset('applicants/' . $applicant->nid_cnic_back) }}" alt="">
@@ -566,19 +569,23 @@
                         class="px-10 py-3 Laptop:text-sm text-base font-medium leading-5 tracking-wide bg-Primary-c text-White-c rounded-full font-roboto">Save
                         & Continue</button>
                 </div>
-            </form> 
+            </form>
 
-            <form action="{{route('applicants.update',['id'=>$applicant->id])}}" method="POST" id="Contact" style="display: none">
-                @csrf 
+            <form action="{{ route('applicants.update', ['id' => $applicant->id]) }}" method="POST" id="Contact"
+                style="display: none">
+                @csrf
                 <div class="grid grid-cols-1 Laptop:grid-cols-2  Laptop:gap-24 mb-2 Laptop:mb-8">
 
                     <div>
                         <label for="" class="text-sm Laptop:text-base">Date of Birth</label>
-                        <input type="text" name="date_of_birth" class="w-full bg-Low-dull-c mt-2 px-2 Tablet:px-3 py-2 Laptop:py-2.5 rounded-sm text-xs" value="{{ $applicant->date_of_birth }}">
+                        <input type="text" name="date_of_birth"
+                            class="w-full bg-Low-dull-c mt-2 px-2 Tablet:px-3 py-2 Laptop:py-2.5 rounded-sm text-xs"
+                            value="{{ $applicant->date_of_birth }}">
                     </div>
                     <div>
                         <label for="" class="text-sm Laptop:text-base">Contact Number</label>
-                        <input type="tel" name="contact_number" class="w-full bg-Low-dull-c mt-2 px-2 Tablet:px-3 py-2 Laptop:py-2.5 rounded-sm text-xs"
+                        <input type="tel" name="contact_number"
+                            class="w-full bg-Low-dull-c mt-2 px-2 Tablet:px-3 py-2 Laptop:py-2.5 rounded-sm text-xs"
                             value="{{ $applicant->contact_number }}">
                     </div>
 
@@ -591,6 +598,57 @@
                         <input type="email" name="email"
                             class="w-full bg-Low-dull-c mt-2 px-2 Tablet:px-3 py-2 Laptop:py-2.5 rounded-sm text-xs"
                             value="{{ $applicant->email }}">
+
+                        <div class="form-group mt10">
+
+                            @if ($applicant->otp_verified == 0)
+                                <a href="{{ route('applicants.verifyemailadmin', ['id' => $applicant->id]) }}"
+                                    class="btn btn-danger rounded verifyemailbtn">Verify Email</a>
+
+                                @if (Session::has('otpstatus'))
+                                    <div class="mt-2 verifyarea">
+                                        <div class="message"></div>
+                                        <input type="number" class="form-control" id="verifemailmanual"
+                                            name="verifemailmanual" placeholder="Enter OTP here">
+                                        <a class="btn btn-success rounded mt-2 verifyemailbtnsubmit"
+                                            id="verifynowbutton">Verify Now</a>
+                                    </div>
+                                @endif
+                            @else
+                                <a href="" class="btn btn-success rounded disabled verifyemailbtnsubmit">Email
+                                    Verified</a>
+                            @endif
+
+                            <style>
+                                .verifyemailbtn {
+                                    background: #FF4647;
+                                    color: #fff;
+                                    padding: 10px;
+                                    font-size: 0.9rem;
+                                    margin-top: 10px;
+                                }
+
+                                .verifyemailbtnsubmit {
+                                    background: #048c38;
+                                    color: #fff;
+                                    padding: 10px;
+                                    font-size: 0.9rem;
+                                    margin-top: 10px;
+                                }
+
+                                .mt10 {
+                                    margin-top: 10px;
+                                }
+
+                                input#verifemailmanual {
+                                    padding: 6px 10px;
+                                    margin-top: 10px;
+                                    font-size: 0.9rem;
+                                }
+                            </style>
+
+                        </div>
+
                     </div>
                     <div>
                         <label for="" class="text-sm Laptop:text-base">WhatsApp Number </label>
@@ -607,7 +665,8 @@
                 </div>
             </form>
 
-            <form action="{{route('applicants.update',['id'=>$applicant->id])}}" method="POST" id="Pass" enctype='multipart/form-data' style="display: none">
+            <form action="{{ route('applicants.update', ['id' => $applicant->id]) }}" method="POST" id="Pass"
+                enctype='multipart/form-data' style="display: none">
                 @csrf
                 <div class="grid grid-cols-1 Laptop:grid-cols-2  Laptop:gap-16 mb-2 Laptop:mb-16 ">
 
@@ -617,8 +676,8 @@
                                 <h2 class="text-sm Laptop:text-base text-Black-c ">Current Image</h2>
                                 <a href="" class="text-xs text-Primary-c underline">View Image</a>
                             </div>
-                         
-                            <input type="file" name="applicant_image" id="" >
+
+                            <input type="file" name="applicant_image" id="">
 
                         </div>
                         <img class=" w-[200px] h-[140px] contain object-contain Tablet:w-[230px] Tablet:h-[150px] Laptop:w-[300px] Laptop:h-[186px] rounded"
@@ -631,7 +690,7 @@
                                 <h2 class="text-sm Laptop:text-base text-Black-c ">Current Passport</h2>
                                 <a href="" class="text-xs text-Primary-c underline">View Passport</a>
                             </div>
-                           <input type="file" name="applicant_passport" id="">
+                            <input type="file" name="applicant_passport" id="">
                         </div>
                         <img class=" w-[200px] h-[140px] contain object-contain Tablet:w-[230px] Tablet:h-[150px] Laptop:w-[300px] Laptop:h-[186px] rounded"
                             src="{{ asset('applicants/' . $applicant->applicant_passport) }}" alt="">
@@ -645,7 +704,7 @@
                         <label for="" class="text-sm Laptop:text-base">Passport Number </label>
                         <input type="text" name="passportno"
                             class="w-full bg-Low-dull-c mt-2 px-2 Tablet:px-3 py-2 Laptop:py-2.5 rounded-sm text-xs"
-                            value="{{ $applicant->passportno}}">
+                            value="{{ $applicant->passportno }}">
                     </div>
                     <div>
                         <label for="" class="text-sm Laptop:text-base">Date of Expiry</label>
@@ -662,7 +721,8 @@
                 </div>
             </form>
 
-            <form action="{{route('applicants.update',['id'=>$applicant->id])}}" enctype='multipart/form-data' method="POST" id="Dri" style="display: none"> 
+            <form action="{{ route('applicants.update', ['id' => $applicant->id]) }}" enctype='multipart/form-data'
+                method="POST" id="Dri" style="display: none">
                 @csrf
                 <div class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2  Laptop:gap-16 mb-6 Laptop:mb-12 ">
 
@@ -670,8 +730,9 @@
                         <div class="flex items-center justify-between mb-4">
                             <div>
                                 <h2 class="text-sm Laptop:text-base text-Black-c ">Driving License Front</h2>
-                                <a href="{{ asset('applicants/' . $applicant->appli_dri_lisence_frontpart) }}" class="text-xs text-Primary-c underline">View Image</a>
-                            </div> 
+                                <a href="{{ asset('applicants/' . $applicant->appli_dri_lisence_frontpart) }}"
+                                    class="text-xs text-Primary-c underline">View Image</a>
+                            </div>
                             <input type="file" name="appli_dri_lisence_frontpart" id="">
                         </div>
                         <img class=" w-[200px] h-[140px] contain object-contain Tablet:w-[230px] Tablet:h-[150px] Laptop:w-[300px] Laptop:h-[186px] rounded"
@@ -682,7 +743,8 @@
                         <div class="flex items-center justify-between mb-4">
                             <div>
                                 <h2 class="text-sm Laptop:text-base text-Black-c ">Driving License Back</h2>
-                                <a href="{{ asset('applicants/' . $applicant->appli_dri_lisence_backpart) }}" class="text-xs text-Primary-c underline">View Passport</a>
+                                <a href="{{ asset('applicants/' . $applicant->appli_dri_lisence_backpart) }}"
+                                    class="text-xs text-Primary-c underline">View Passport</a>
                             </div>
                             <input type="file" name="appli_dri_lisence_backpart" id="">
                         </div>
@@ -709,9 +771,10 @@
                         <div class="flex items-center justify-between mb-4">
                             <div>
                                 <h2 class="text-sm Laptop:text-base text-Black-c ">Special Document</h2>
-                                <a href="{{ asset('applicants/' . $applicant->specialpage) }}" class="text-xs text-Primary-c underline">View Image</a>
+                                <a href="{{ asset('applicants/' . $applicant->specialpage) }}"
+                                    class="text-xs text-Primary-c underline">View Image</a>
                             </div>
-                             <input type="file" name="specialpage" id="">
+                            <input type="file" name="specialpage" id="">
                         </div>
                         <img class=" w-[200px] h-[140px] contain object-contain Tablet:w-[230px] Tablet:h-[150px] Laptop:w-[300px] Laptop:h-[186px] rounded"
                             src="{{ asset('applicants/' . $applicant->specialpage) }}" alt="">
@@ -727,7 +790,7 @@
                         <label for="" class="text-sm Laptop:text-base">Referral Number</label>
                         <input type="text" name="reference"
                             class="w-full bg-Low-dull-c mt-2 px-2 Tablet:px-3 py-2 Laptop:py-2.5 rounded-sm text-xs"
-                            value="{{$applicant->reference}}">
+                            value="{{ $applicant->reference }}">
                     </div>
 
                 </div>
