@@ -40,7 +40,6 @@
             color: red;
             cursor: pointer;
         }
-
     </style>
 @endsection
 
@@ -301,14 +300,14 @@
                             class="relative px-2 py-1 Tablet:px-6 Tablet:py-2 Laptop:px-8 Laptop:py-2.5 bg-[#EEE915] text-Black-c font-semibold text-[8px] Tablet:text-xs Laptop:text-sm rounded">Invite
                             Interview <i class="fas fa-caret-down"></i> </a>
                         <ul class="absolute dropdown top-full  Tablet:pt-2 pb-2 rounded-b w-full left-0 bg-[#EEE915]">
+                            <li id="videoInterviewbtn"><a href="#"
+                                    class=" px-2 py-1 Tablet:px-6 Tablet:py-2 Laptop:px-8 Laptop:py-2.5  text-Black-c font-semibold text-[8px] Tablet:text-xs  rounded ">Video</a>
+                            </li>
                             <li id="personInterviewbutton"><a href="#"
                                     class=" px-2 py-1 Tablet:px-6 Tablet:py-2 Laptop:px-8 Laptop:py-2.5  text-Black-c font-semibold text-[8px] Tablet:text-xs  rounded ">In
                                     Person</a></li>
                             <li id="onineInterviewbtn"><a href="#"
                                     class=" px-2 py-1 Tablet:px-6 Tablet:py-2 Laptop:px-8 Laptop:py-2.5  text-Black-c font-semibold text-[8px] Tablet:text-xs  rounded ">Online</a>
-                            </li>
-                            <li id="videoInterviewbtn"><a href="#"
-                                    class=" px-2 py-1 Tablet:px-6 Tablet:py-2 Laptop:px-8 Laptop:py-2.5  text-Black-c font-semibold text-[8px] Tablet:text-xs  rounded ">Video</a>
                             </li>
                         </ul>
                     </li>
@@ -362,11 +361,13 @@
                             <td class="border p-1.5 pl-2 text-xs Laptop:text-sm emailstatus"> {{ $applicant->email }}
 
                                 @if ($applicant->otp_verified == 0)
-                                    <img src="{{ asset('email-not-verified.svg') }}" width="25" style="margin-left: 5px;">
+                                    <img src="{{ asset('email-not-verified.svg') }}" width="25"
+                                        style="margin-left: 5px;">
                                 @endif
 
                                 @if ($applicant->otp_verified == 1)
-                                    <img src="{{ asset('email-verified.svg') }}" width="25" style="margin-left: 5px;">
+                                    <img src="{{ asset('email-verified.svg') }}" width="25"
+                                        style="margin-left: 5px;">
                                 @endif
 
                             </td>
@@ -510,7 +511,9 @@
 
                         <tr class="border">
                             <td class="border p-1.5 pl-2 text-xs Laptop:text-sm">Reference No</td>
-                            <td class="border p-1.5 pl-2 text-xs Laptop:text-sm">{{ in_array($applicant->reference, ['PK2024S7', 'KP2024P3', 'MS2024K8', 'MN2024U5', 'SZ2024A9', 'WK1978SI41']) ? $applicant->reference : 'No' }}</td>
+                            <td class="border p-1.5 pl-2 text-xs Laptop:text-sm">
+                                {{ in_array($applicant->reference, ['PK2024S7', 'KP2024P3', 'MS2024K8', 'MN2024U5', 'SZ2024A9', 'WK1978SI41']) ? $applicant->reference : 'No' }}
+                            </td>
                         </tr>
 
                     </table>

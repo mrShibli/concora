@@ -57,8 +57,8 @@
                                 src="{{ asset('dashboardlogo.png') }}" alt=""></a>
 
                         <nav class="navbar flex items-center gap-6">
-                            <a href="{{ route('mainindex') }}" type="button"
-                                class="text-white-c text-sm Tablet:text-base font-medium">Home</a>
+                            {{-- <a href="{{ route('mainindex') }}" type="button"
+                                class="text-white-c text-sm Tablet:text-base font-medium">Home</a> --}}
                             <a href="#" id="DashboardButton" type="button"
                                 class="text-white-c text-sm Tablet:text-base font-medium">Dashboard</a>
                             <a href="#" id="AdministrationButton" type="button"
@@ -539,7 +539,7 @@
                             <a href="{{ route('applicants.duesPayment') }}">
                                 <div class="border border-gray-300 rounded-xl p-2 px-4">
                                     <div class="flex items-center justify-between mb-4">
-                                        <h2 class="text-black-c text-sm Tablet:text-base">3</h2>
+                                        <h2 class="text-black-c text-sm Tablet:text-base">{{ $JobApplicant }}</h2>
                                         <i class="fas fa-chevron-right"></i>
                                     </div>
                                     <p class="text-xs Tablet:text-sm text-black-c">Dues Payment</p>

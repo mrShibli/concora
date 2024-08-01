@@ -1416,7 +1416,7 @@
                                         License <span class="text-Indicates">*</span></h2>
                                 </div>
                                 <div class="field Laptop:w-[65%] w-[60%]">
-                                    <select name="have_uae_licence" id=""
+                                    <select name="have_uae_licence" id="have_uae_licence_id"
                                         class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
                                         <option
                                             {{ $hasOldData3 && $oldData3->have_uae_licence == 'Yes' ? 'selected' : '' }}
@@ -1449,8 +1449,7 @@
                         <div
                             class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-2 Laptop:gap-8 py-4 Laptop:py-6">
 
-
-                            <div class=" flex items-center gap-2">
+                            <div class=" flex items-center gap-2" id="uae_licence_no_area" style="display: none;">
                                 <div class="Laptop:w-[35%] w-[40%]">
                                     <h2 class="text-sm Laptop:text-sm font-medium leading-[29px]">UAE License No <span
                                             class="text-Indicates">*</span></h2>
@@ -1459,7 +1458,7 @@
                                     <input type="tel" name="UAE_License_No" id="UAE_License_No"
                                         autocomplete="off"
                                         class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
-                                        value="{{ $hasOldData3 ? $oldData3->UAE_License_No : '' }}" required>
+                                        value="{{ $hasOldData3 ? $oldData3->UAE_License_No : '' }}">
                                     <label for="" class="label-t">UAE License No</label>
                                 </div>
                             </div>
@@ -3790,6 +3789,23 @@
         thirdStep.find('span').addClass('bg-White-c');
         thirdStep.find('a').removeClass('p-1 Laptop:py-1.5 Laptop:px-4  bg-[#e0b228] text-White-c rounded-md');
     });
+</script>
+
+<script>
+    document.getElementById('have_uae_licence_id').addEventListener('change', function() {
+        var uaeLicenceNoArea = document.getElementById('uae_licence_no_area');
+        var uaeLicenseNoInput = document.getElementById('UAE_License_No');
+        if (this.value === 'Yes') {
+            uaeLicenceNoArea.style.display = 'block';
+            uaeLicenseNoInput.setAttribute('required', 'required');
+        } else {
+            uaeLicenceNoArea.style.display = 'none';
+            uaeLicenseNoInput.removeAttribute('required');
+        }
+    });
+
+    // Trigger change event to set initial state based on the selected option
+    document.getElementById('have_uae_licence_id').dispatchEvent(new Event('change'));
 </script>
 
 </html>

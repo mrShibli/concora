@@ -432,7 +432,7 @@ class ApplicantController extends Controller
             'drving_lic_expiry_year' => 'required|integer|min:' . date('Y') . '|max:' . (date('Y') + 20),
             'have_uae_licence' => 'required|string',
             'UAE_Resident_Visa_No' => 'nullable|string|max:255',
-            'UAE_License_No' => 'required|string|max:255',
+            'UAE_License_No' => 'nullable|string|max:255',
             'SIM_No' => 'nullable|string|max:255',
             'appli_dri_lisence_frontpart' => 'required|file|mimes:jpg,png,jpeg,webp|max:2048',
             'appli_dri_lisence_backpart' => 'required|file|mimes:jpg,png,jpeg,webp|max:2048',

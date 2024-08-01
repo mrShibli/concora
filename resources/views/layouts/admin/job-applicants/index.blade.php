@@ -43,7 +43,6 @@
         table.dataTable thead .sorting:first-child {
             padding-right: 12px !important;
         }
-
     </style>
 @endsection
 
@@ -116,13 +115,15 @@
                                     <td>{{ $applicant->nationality }}</td>
                                     <td>{{ $applicant->position->title ?? 'Position Not Found' }}</td>
                                     <td>{{ $applicant->contact_number }}</td>
-                                    <td class="emailstatus"> @if ($applicant->otp_verified == 0)
-                                        <img src="{{ asset('email-not-verified.svg') }}" width="25">
-                                    @endif
-    
-                                    @if ($applicant->otp_verified == 1)
-                                        <img src="{{ asset('email-verified.svg') }}" width="25">
-                                    @endif {{ $applicant->email }}</td>
+                                    <td class="emailstatus">
+                                        @if ($applicant->otp_verified == 0)
+                                            <img src="{{ asset('email-not-verified.svg') }}" width="25">
+                                        @endif
+
+                                        @if ($applicant->otp_verified == 1)
+                                            <img src="{{ asset('email-verified.svg') }}" width="25">
+                                        @endif {{ $applicant->email }}
+                                    </td>
                                     <td>{{ $applicant->created_at->format('F d, Y') }}</td>
                                     <td style="display: none;">{{ $applicant->passportno }}</td>
                                     <td style="display: none;">{{ $applicant->submissionid }}</td>
@@ -131,6 +132,17 @@
                                         <a href="{{ route('applicants.show', ['id' => $applicant->id]) }}">
                                             View
                                         </a>
+                                        {{-- @if (in_array(Auth::user()->role, ['super_admin']))
+                                            <form action="{{ route('applicant.destroy', ['id' => $applicant->id]) }}"
+                                                method="POST" style="display: inline;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn p-0"
+                                                    onclick="return confirm('Are you sure you want to delete this item?')">
+                                                    <img src="{{ asset('delete.svg') }}" style="width: 27px !important;">
+                                                </button>
+                                            </form>
+                                        @endif --}}
 
                                     </td>
                                 </tr>

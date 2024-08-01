@@ -77,7 +77,7 @@
                             <a href=""
                                 class="flex gap-1 Laptop:gap-2 items-center text-[11px] Tablet:text-sm Laptop:text-base"><img
                                     class=" h-6 w-6 Laptop:h-10  Laptop:w-10 rounded-full"
-                                    src="{{ asset('newAdmin/image/user.png') }}" alt=""> Admirra John</a> <i
+                                    src="{{ asset('newAdmin/image/user.png') }}" alt=""> {{ Auth::user()->name }} </a> <i
                                 class="fas fa-caret-down text-xs Tablet:text-base"></i>
 
                             <ul class="bg-White-c shadow-xl rounded pl-2 pb-4 px-4 pt-4 absolute top-full submenu ">
