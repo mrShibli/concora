@@ -3,6 +3,11 @@
 @section('styles')
     <link rel="stylesheet" href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <style>
+        .Laptop\:p-8 {
+            padding: 1.5rem;
+            height: 100vh;
+        }
+
         table#example {
             font-size: 15px;
         }
@@ -43,7 +48,6 @@
         table.dataTable thead .sorting:first-child {
             padding-right: 12px !important;
         }
-
     </style>
 @endsection
 
@@ -118,19 +122,21 @@
                                     <td>{{ $applicant->nationality }}</td>
                                     <td>{{ $applicant->position->title ?? 'Position Not Found' }}</td>
                                     <td>{{ $applicant->contact_number }}</td>
-                                    <td class="emailstatus">  @if ($applicant->otp_verified == 0)
-                                        <img src="{{ asset('email-not-verified.svg') }}" width="25">
-                                    @endif
-    
-                                    @if ($applicant->otp_verified == 1)
-                                        <img src="{{ asset('email-verified.svg') }}" width="25">
-                                    @endif {{ $applicant->email }}</td>
+                                    <td class="emailstatus">
+                                        @if ($applicant->otp_verified == 0)
+                                            <img src="{{ asset('email-not-verified.svg') }}" width="25">
+                                        @endif
+
+                                        @if ($applicant->otp_verified == 1)
+                                            <img src="{{ asset('email-verified.svg') }}" width="25">
+                                        @endif {{ $applicant->email }}
+                                    </td>
                                     <td>{{ $applicant->created_at->format('F d, Y') }}</td>
                                     <td style="display: none;">{{ $applicant->passportno }}</td>
                                     <td style="display: none;">{{ $applicant->submissionid }}</td>
                                     <td style="display: none;">{{ $applicant->reference }}</td>
                                     <td>
-                                        <a href="{{ route('applicants.paymentHistory', ['id' => $applicant->id]) }}">
+                                        <a href="{{ route('applicants.paymentHistoryRCV', ['id' => $applicant->id]) }}">
                                             View
                                         </a>
 

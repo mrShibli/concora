@@ -19,6 +19,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.3/build/css/intlTelInput.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
         .error-message {
@@ -83,9 +84,1433 @@
         }
     </style>
 
+    {{-- <style>
+        .ar-main-wrapper {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            height: 100%;
+            width: 100vw;
+            background: #000000b1;
+            overflow-y: auto;
+            z-index: 100000;
+            /* opacity: 0;
+            transform: scale(0); */
+        }
+
+        .ar-main-wrapper.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .ar-main-wrapper .close {
+            /* position: absolute;
+            position: fixed;
+            top: 10px;
+            right: 10px; */
+            cursor: pointer;
+            padding: 5px 10px;
+            background: #fff;
+            color: red;
+            border-radius: 3px;
+            text-align: right;
+        }
+
+        .ar-main-wrapper .agreement {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+        }
+
+        .ar-main-wrapper .agreement .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 20px 0;
+            margin-bottom: 30px;
+        }
+
+        .agreement .header .language {
+            margin-bottom: 20px;
+        }
+
+        .agreement .header .logo {
+            width: 180px;
+        }
+
+        @media(max-width:750px) {
+            .agreement .header .logo {
+                width: 140px;
+            }
+
+            .agreement .header .language ul li {
+                font-size: 14px;
+            }
+
+        }
+
+
+
+        .agreement .header .language ul li {
+            position: relative;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .agreement .header .language ul li ul {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            display: none;
+        }
+
+        .agreement .header .language ul li:hover ul {
+            display: initial;
+        }
+
+
+
+        .agreement .box-container {
+            margin-bottom: 20px;
+        }
+
+        .agreement table tr {
+            border: 1px solid #bcbcbc;
+            padding: 10px;
+        }
+
+        .agreement table tr>td {
+            padding: 10px;
+        }
+
+        .agreement table h2 {
+            text-align: center;
+            font-size: 15px;
+            color: #000;
+            line-height: 1.4em;
+            font-weight: 600;
+        }
+
+        .agreement table h4 {
+            text-align: left;
+            font-size: 15px;
+            color: #111;
+            line-height: 1.4em;
+            font-weight: 600;
+        }
+
+        .agreement .arabic table h4 {
+            text-align: right;
+            font-size: 15px;
+            color: #111;
+            line-height: 1.4em;
+            font-weight: 600;
+        }
+
+        .agreement table p {
+            font-size: 14px;
+            color: #3e3e3e;
+            line-height: 1.4em;
+        }
+
+
+        .agreement .arabic table p {
+            text-align: right;
+            font-size: 14px;
+            color: #3e3e3e;
+            line-height: 1.4em;
+        }
+
+        .agreement table span {
+            margin-right: 8px;
+            font-weight: 600;
+        }
+
+        .pp p {
+            margin-bottom: 10px;
+        }
+
+        .terms-of-appoinment li {
+            list-style: lower-roman;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #3e3e3e;
+            line-height: 1.4em;
+        }
+
+
+
+        .applicant-rider p {
+            margin-bottom: 10px;
+        }
+
+
+        @media(max-width:768px) {
+            .agreement {
+                margin: 20px;
+
+            }
+
+        }
+    </style> --}}
+
+    <style>
+        .ar-main-wrapper {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            height: 100%;
+            width: 100vw;
+            background: #000000b1;
+            overflow-y: scroll;
+            z-index: 100000;
+            opacity: 0;
+            transform: scale(0);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .ar-main-wrapper.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* .ar-main-wrapper .close {
+            cursor: pointer;
+            padding: 5px 10px;
+            background: #fff;
+            color: red;
+            border-radius: 3px;
+            text-align: right;
+        } */
+
+        .ar-main-wrapper .agreement {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+            /* Added scrollbar width */
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            /* Scrollbar track color */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            /* Scrollbar thumb color */
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+            /* Scrollbar thumb hover color */
+        }
+
+        .ar-main-wrapper .agreement .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0px 0;
+            margin-bottom: 0px;
+        }
+
+        .agreement .header .language {
+            margin-bottom: 20px;
+        }
+
+        .agreement .header .logo {
+            width: 180px;
+        }
+
+        @media(max-width:750px) {
+            .agreement .header .logo {
+                width: 140px;
+            }
+
+            .agreement .header .language ul li {
+                font-size: 14px;
+            }
+        }
+
+        .agreement .header .language ul li {
+            position: relative;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .agreement .header .language ul li ul {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            display: none;
+        }
+
+        .agreement .header .language ul li:hover ul {
+            display: initial;
+        }
+
+        .agreement .box-container {
+            margin-bottom: 20px;
+        }
+
+        .agreement table tr {
+            border: 1px solid #bcbcbc;
+            padding: 10px;
+        }
+
+        .agreement table tr>td {
+            padding: 10px;
+        }
+
+        .agreement table h2 {
+            text-align: center;
+            font-size: 15px;
+            color: #000;
+            line-height: 1.4em;
+            font-weight: 600;
+        }
+
+        .agreement table h4 {
+            text-align: left;
+            font-size: 15px;
+            color: #111;
+            line-height: 1.4em;
+            font-weight: 600;
+        }
+
+        .agreement .arabic table h4 {
+            text-align: right;
+            font-size: 15px;
+            color: #111;
+            line-height: 1.4em;
+            font-weight: 600;
+        }
+
+        .agreement table p {
+            font-size: 14px;
+            color: #3e3e3e;
+            line-height: 1.4em;
+        }
+
+        .agreement .arabic table p {
+            text-align: right;
+            font-size: 14px;
+            color: #3e3e3e;
+            line-height: 1.4em;
+        }
+
+        .agreement table span {
+            margin-right: 8px;
+            font-weight: 600;
+        }
+
+        .pp p {
+            margin-bottom: 10px;
+        }
+
+        .terms-of-appoinment li {
+            list-style: lower-roman;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #3e3e3e;
+            line-height: 1.4em;
+        }
+
+        .applicant-rider p {
+            margin-bottom: 10px;
+        }
+
+        @media(max-width:768px) {
+            .agreement {
+                margin: 20px;
+            }
+        }
+
+        .language-link.selected {
+            font-weight: bold;
+            color: blue;
+            /* Customize this style as needed */
+        }
+
+        .language select {
+            padding: 5px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        .acceptbutton {
+            padding: 8px 22px;
+            background-color: #000;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        /* #f3Button {
+            margin-top: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        } */
+    </style>
+
+
 </head>
 
 <body>
+
+    <div class="ar-main-wrapper">
+
+        <div class="agreement">
+            {{-- <div class=""><i class="fas fa-times"></i></div> --}}
+            <div class="header">
+                <div class="logo"><img src="assets/Images/logo.png" alt=""></div>
+                <div class="language">
+                    <select id="language-select">
+                        <option value="english" selected>English</option>
+                        <option value="arabic">Arabic</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="english " id="english-section">
+
+                <div class="box-container">
+
+                    <table>
+                        <tr>
+                            <td>
+                                <h2 class="mb-2">Food Delivery Rider Employment Agreement
+                                    <br> (Non-Circumvention Non-Discloser)
+                                </h2>
+                                <p>This agreement lays down the terms of employment, agreed upon by the employer
+                                    and employee. Whether stated explicitly in the agreement or not, both the
+                                    employee and the employer have the duty of mutual confidence and trust, and to
+                                    make only lawful and reasonable demands on each other</p>
+                                <p>Employment Agreement is made and entered into on current Date, Month and
+                                    Year by and between:</p>
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h4>Between</h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h4>“FZ-LLC SERVICES CONQUEROR“</h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <p>a company duly constituted and existing under the laws of United Arab Emirates
+                                    having its office at City Pharmacy Building, Suite-M02, Al Khubasi, Port Saeed,
+                                    Dubai, U.A.E, in his quality of Conqueror Aspiration LLC, U.A.E (hereinafter
+                                    referred
+                                    to as “CONQUEROR” as FIRST PARTY”.)</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h2>And</h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>The ‘’Applicant” (Rider) an Individual who agrees the below Terms and Conditions
+                                    herein;</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="applicant-rider">
+                                    <p><b>Contact Number:</b> <span> as per application</span></p>
+                                    <p><b>Address Email:</b> <span> as per application</span></p>
+                                    <p><b>File Number: </b> <span>CSL/uae/riders/2024/04</span></p>
+                                    <p><b>Contract Type: </b> <span>Job Agreement for Food Delivery</span></p>
+                                    <p><b>Nationality:</b> <span>Nationality Employee</span></p>
+                                    <p><b>Name of Employer:</b> <span> noon/ talabat/ Deliveroo/ Aramex/ KFC
+                                            /McDonald’s/ Any
+                                            other Food Delivery Co.</span></p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>The Company and the Employee are collectively referred to as the “Parties” and
+                                    individually as a “Party” </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Subject of Agreement: <b>Bike Rider Jobs Agreement Services from Pakistan,
+                                        Nepal, India, Sri Lanka and Bangladesh, Memo No.:CAL/uae/riders/2024/04</b></p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h4>WHEREAS</h4>
+                                <P>CONQUEROR is in the business of providing operations and management services
+                                    for Bike Riders Hiring and Placement for Food Delivery Services, including new build
+                                    Contract with noon, McDonald’s, Deliveroo, talabat or any other Food Delivery
+                                    Company in U.A.E; and</P>
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <p>AND The APPLICANT (Rider) agrees to perform the duties assigned by Conqueror
+                                    Services or its clients diligently and to the best of their abilities works relating
+                                    to the
+                                    Bike Riders Hiring from mentioned Home Country or Inside of UAE. </p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <p>IN CONSIDERATION of the mutual covenants contained in this Agreement, the
+                                    parties agree as follows: </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Now therefore in consideration of the above premises, the parties agreed to record
+                                    the terms and conditions of the Job Agreement as under:
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h2>AGREED TERMS</h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h2>DEFINITIONS AND INTEERPRETATION</h2>
+                            </td>
+                        </tr>
+
+                        <tr class="pp">
+                            <td>
+                                <p> <span>1.1</span> <b>DEFINITIONS:</b> The definitions and rules of interpretation in
+                                    this clause
+                                    1, the Employment Contract Details, and Salary Details apply in this
+                                    Employment Contract.</p>
+
+                                <p> <span>1.2</span> <b>Regulations:</b> means all applicable acts, laws, regulations,
+                                    ordinances,
+                                    rules, by-laws, guidelines, policies, directions, regulatory Instruments
+                                    promulgated by the Authority (which may be amended from time to time).
+                                </p>
+                                <p> <span>1.3</span> <b>Regulatory Instrument:</b> means any law, regulation, rule,
+                                    code, decree,
+                                    decision, direction, notice, policies, procedures or by laws issued by the
+                                    Authority or a Competent Authority.
+                                </p>
+                                <p><b>“UAE Labour Law” means (Federal Decree law No. 33 of 2021)
+                                        (“New Law”), Federal Law Number 8 0f 1980, as amended,
+                                        extended, or re-enacted from time to time and any ministerial
+                                        orders, decrees, resolutions, directions or regulations issued by
+                                        the Ministry of Human Resource and Emiratisation (‘MOHRE’)
+                                    </b></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h2>ARTICLE - 2</h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h2>TERMS OF APPOINTMENT</h2>
+                            </td>
+                        </tr>
+                        <tr class="terms-of-appoinment">
+                            <td>
+                                <li>The Employee shall work for the Company in the employment position
+                                    for a fixed term of two (2) years commencing on the Start Date.</li>
+                                <li>The Employee shall carry out duties and perform functions customarily
+                                    performed by an employee of a similar designation, which include, but
+                                    not limited to the Basic Job Description. </li>
+                                <li>The Parties agree that any amendment to the terms of this Employment
+                                    Contract must be mutually agreed upon in writing by the Parties. </li>
+                                <li>The Company undertakes to notify the Authority of any change to the
+                                    terms of employment in relation to the employee’s Employment Position,
+                                    responsibilities, Basic Salary, allowance, and other benefits. </li>
+                                <li>After the end of the two (2) years fixed term contract, the Company may
+                                    extend or renew the Employee’s contract term. If the Employee continues
+                                    in the Employment position after two (2) years, then it is deemed a
+                                    continuation of the employment contract.
+                                </li>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4>3.2 Responsibilities and Obligations of the Applicant</h4>
+                            </td>
+                        </tr>
+                        <tr class="pp">
+                            <td>
+                                <p><span>3.3.1</span> In all corresponding and other dealings with the Bike Riders, the
+                                    JOB
+                                    APPLICANT will clearly indicate that they are acting as the JOB
+                                    APPLICANT of the Vendors.
+                                </p>
+                                <p><span>3.3.2</span> The JOB APPLICANT shall be responsible and obligations to
+                                    CONQUEROR
+                                    under the Contracts are in accordance and in compliance with all the
+                                    Applicable laws of U.A.E & UK.
+                                </p>
+                                <p><span>3.3.3 </span>The JOB APPLICANT shall inform CONQUEROR any and all circumstances
+                                    that might have influence on the Client’s Work and the Contracts
+                                    (regulations concerning customs, local conditions, etc.) and will provide
+                                    timely information and recommendations to remove obstacles and
+                                    difficulties, which might result from situation at that time in order to
+                                    protect CONQUEROR’s and/or its shareholder’s (s) interest to procure and
+                                    also execute the Contracts.</p>
+
+                                <p><span>3.3.4</span> The JOB APPLICANT shall not incur any liability on behalf of
+                                    CONQUEROR
+                                    nor in any way make any promises, representation or warranty on behalf
+                                    of CONQUEROR which is binding on CONQUEROR, without express
+                                    written authorization by CONQUEROR in that respect. Any such liability incurred by
+                                    any act of the JOB APPLICANT without express written
+                                    authorization of CONQUEROR resulting in any claim, loss, damage or any
+                                    adverse consequence to CONQUEROR shall be indemnified by the JOB
+                                    APPLICANT to CONQUEROR (including legal Commission and expenses)
+                                    without prejudice to any other rights available to CONQUEROR under
+                                    Law.
+                                </p>
+                                <p><span>3.3.5</span> The JOB APPLICANT shall not undertake any illegal act on behalf of
+                                    CONQUEROR. CONQUEROR shall not be responsible for any act(s) of the
+                                    JOB APPLICANT for which the JOB APPLICANT has not been specifically
+                                    authorized by CONQUEROR and/or its shareholder (s). JOB APPLICANT
+                                    shall fully indemnify CONQUEROR of the consequences (including legal
+                                    Commission and expenses) for any act or omission of JOB APPLICANT
+                                    which is unauthorized or unlawful and not in accordance with the
+                                    Applicable Laws. Any such act or omission of the JOB APPLICANT would
+                                    be a breach of this Agreement and shall be deemed to be such an act or
+                                    omission for which JOB APPLICANT is responsible, if done or omitted to
+                                    be done:</p>
+                                <p><span>(a) </span> by anybody corporate or unincorporated (whether constituted at the
+                                    date of this Agreement or not) which is controlled wholly or mainly
+                                    or directly or indirectly in any manner by JOB APPLICANT or by any
+                                    person or persons who controls or control or by any such body which
+                                    itself controls wholly or mainly or directly or indirectly in any manner
+                                    the JOB APPLICANT; or
+                                </p>
+                                <p><span>(b)</span> which is controlled wholly or mainly or directly or indirectly by a
+                                    person or persons and / or bodies corporate and / or unincorporated
+                                    who or which controls or control wholly or mainly or directly or
+                                    indirectly the JOB APPLICANT; or</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h2>TERMINATION</h2>
+                            </td>
+                        </tr>
+                        <tr class="pp">
+                            <td>
+                                <p><span>1.</span> This Employment Contract may be terminated as follow.
+                                </p>
+                                <p><span>2.</span> During or upon immediate expiry of the Probation Period by either
+                                    Party, with
+                                    14 day’s notice period
+                                </p>
+                                <p><span>3.</span>. By mutual consent of the Parties, with 30 day’s notice provided that
+                                    the Employee’s consent is recorded in writing; or</p>
+                                <p><span>4.</span>By either party for a legitimate reason, provided that the termination
+                                    notice
+                                    is in writing and is issued in accordance with the notice period.</p>
+                                <p><span>5.</span>If either party fails to serve written notice upon the other party for
+                                    the notice
+                                    period in accordance with clause 6, or reduces the notice period, the
+                                    terminating party shall pay the other Party a compensation in lieu of notice
+                                    (a notice of compensation). Notice Compensation shall be equal to the
+                                    Employee’s most recent total remuneration for the duration of the Notice
+                                    Period or the reduction of the Notice Period.</p>
+                                <p><span>6.</span>The Company can terminate this Employment contract with immediate
+                                    effect,
+                                    without notice and without the obligation of the end of service benefits (other
+                                    than in respect of amounts accrued as Total remuneration due at the date of
+                                    termination) if the Employee commits any of the offence stipulated under the
+                                    UAE Labour Law.</p>
+                                <p><span>7.</span>In the event of any breach of the terms and conditions of this
+                                    Agreement by
+                                    the JOB APPLICANT, CONQUEROR shall give notice to the JOB APPLICANT in
+                                    writing to rectify the breach and if such breach is not rectified or remedied
+                                    within a period of 7 days from the receipt of such notice, then in that event, on
+                                    the expiry of the period of 15 days, the Agreement shall automatically
+                                    stand terminated and CONQUEROR shall not be liable to make any payments
+                                    to the JOB APPLICANT.</p>
+                                <p><span>8. </span> The Agreement can also be terminated by Employer if the Employee is
+                                    found
+                                    guilty of any conduct which is prejudicial to Employer’s interest.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h2>TICKET TRAVEL</h2>
+                            </td>
+                        </tr>
+                        <tr class="pp">
+                            <td>
+                                <p><span>1.</span>In circumstances where the Employee is recruited by the Company from
+                                    outside of the UAE, the Company shall bear the cost of the Employee’s air
+                                    ticket from th Employee as point of origin to the Emirate of Dubai, or such
+                                    other airport in UAE as mutually agreed between the parties in order for the
+                                    Employee to commence employment. </p>
+                                <p><span>2. </span>If the Employee, whether recruited from outside of the UAE or within
+                                    the
+                                    UAE, upon termination of this Employment Contract does not take up
+                                    subsequent employment elsewhere in the UAE, the Company shall bear the
+                                    cost of the Employee’s travel ticket to their place of origin. </p>
+                                <p><span>3</span> In the event that this Employment Contract is terminated for reasons
+                                    provided under Article 120 of the UAE Labour Law, the Employee shall pay
+                                    for their own repatriation expenses. </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h2>DEATH AND BURIAL</h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>In the event of the Employee’s death during the period of employment with the
+                                    Company, the Company shall:</p>
+                            </td>
+                        </tr>
+
+                        <tr class="pp">
+                            <td>
+                                <p><span>1.</span>bear the cost of transporting the Employee’s body and personal luggage
+                                    to
+                                    their home country as soon as reasonably practicable following the release of
+                                    the body by the relevant authorities for repatriation and burial; </p>
+                                <p><span>2.</span>provide the Employee’s appointed beneficiaries with the Employee’s
+                                    accruals,
+                                    in accordance with the UAE Labour Law.</p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h2>ARTICLE - 3</h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4 class="mb-2">CONFIDENTIALITY AND INTELLECTUAL PROPERTY RIGHTS </h4>
+                                <p><b>The APPLICANT shall use the information supplied by the First party
+                                        (“Confidential Information”), solely for the purpose specified in this
+                                        Agreement and as per CONQUEROR requirements under the Employment
+                                        Contract.</b></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>The Confidential Information provided by CONQUEROR, shall remain sole property
+                                    of CONQUEROR and shall not be used, duplicated or reproduced by the JOB
+                                    APPLICANT in any manner whatsoever. The JOB APPLICANT shall be obliged to
+                                    return all the Confidential Information as and when these are called for by
+                                    CONQUEROR.
+                                </p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <p>The JOB APPLICANT, on its own behalf of its employees undertake that it will hold
+                                    in trust and confidence all Confidential Information disclosed during the Term of
+                                    this
+                                    Agreement and shall not transmit / copy / reproduce / modify any of the information
+                                    as aforesaid provided / supplied by CONQUEROR and/or its shareholder (s) for any
+                                    purpose whatsoever, except as specifically authorized by CONQUEROR and/or its
+                                    shareholder (s) in writing.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>The disclosure of Confidential Information by CONQUEROR and/or its shareholder
+                                    (s) pursuant to this Agreement shall not be construed as conveying any intellectual
+                                    Property Rights of CONQUEROR and/or its shareholder (s) to the JOB APPLICANT.
+                                    All intellectual Property Rights in or relating to any information provided to the
+                                    JOB
+                                    APPLICANT by CONQUEROR and/or its shareholder (s) shall remain the sole
+                                    property of CONQUEROR and/or its shareholder (s).</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>The JOB APPLICANT shall be liable for any direct, indirect or consequential loss or
+                                    damage, caused to CONQUEROR for any unauthorized disclosure or use of the
+                                    Confidential Information or any infringement of any Intellectual Property Rights of
+                                    CONQUEROR and/or its shareholder (s).
+                                </p>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>
+                                <h2> ARTICLE - 4 </h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4>RELATIONSHIP BETWEEN PARTIES</h4>
+                            </td>
+                        </tr>
+                        <tr class="pp">
+                            <td>
+                                <p> <span>8.1</span>It is hereby expressly agreed by and between the Parties that
+                                    nothing
+                                    contained herein shall be deemed to constitute a partnership or joint venture
+                                    between the different Vendor Parties. No provisions shall construe the JOB
+                                    APPLICANT as the legal representative of CONQUEROR, nor shall be JOB
+                                    APPLICANT have the right or authority to assume, create or incur any liability
+                                    or any obligation of any kind, express or implied, against, or in the name of,
+                                    or on behalf of CONQUEROR unless specifically authorized by CONQUEROR.</p>
+                                <p><span>8.2</span> No person employed by either Party for the performance of its
+                                    obligations
+                                    under the Agreement shall be deemed to be an employee of the other Party
+                                    shall be responsible for the payment of all salaries, employment benefits, etc.
+                                    with respect to all persons who are engaged by it for the performance of any
+                                    obligations under this Agreement and such person shall not be entitled to any
+                                    salary benefit or any other claim whatsoever from or against the other Party.
+                                    The JOB APPLICANT shall indemnify CONQUEROR and/or its shareholder (s)
+                                    against any such claims made by any such person or any third Party.
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h2>ARTICLE - 5</h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4>NOTICES</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Any notice, demand or other communication to be served under this Agreement
+                                    may be served upon either Party hereto by Registered E-Mail or posting by
+                                    registered post acknowledgement due to courier or delivering the same or sending
+                                    the same by facsimile transmission to the Party (when so served by facsimile
+                                    transmission, such notice, demand or other communication shall be followed by a
+                                    copy thereof by registered post acknowledgement due or courier, immediately
+                                    thereafter) to be served at its address or facsimile number shown below :</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4>Force Majeure:</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>The Conqueror Services shall not be liable for any loss or damage of any description
+                                    what so ever arising from the failure or delay in approval of any application due to
+                                    the occurrence of an event of force majeure, which term shall include but is not
+                                    limited to legislative and regulatory acts of government, armed conflict, civil
+                                    insurrection, strike, lockout, earthquake, typhoon, tidal wave, COVID 19 and acts of
+                                    God.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h2>Terms of Contract:</h2>
+                            </td>
+                        </tr>
+                        <tr class="pp">
+                            <td>
+                                <p><span>A.</span>The Applicant acknowledge that they will bear the sole responsibility
+                                    for any losses incurred towards them, the project and Conqueror
+                                    Services, if the Vendot Contract is a failure or ceased due to their
+                                    negligence or non-cooperation during any stages of the Employment
+                                    Contract period which can be of the following reasons but not limited
+                                    to; Late Login, Late Delivery, Food waste, Packing Damages, Lack of
+                                    Communication with the Receiver, Non- Cooperation/response to the
+                                    Agents and/or Government bodies etc.</p>
+                                <p><span>B.</span>Conqueror Services can claim applicable penalty, fines, legal actions
+                                    for any misbehavior, losses encountered due to the Rider’s Absence,
+                                    delay, negligence, damages with or without a prior notice issued.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4>Governing Law:
+                                </h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>This agreement and negotiations between the parties in connection with it and all
+                                    disputes or claims (including non - contractual disputes or claims) arising out of
+                                    or
+                                    in connection with them or their subject matter or formation shall be governed by
+                                    and construed in accordance with the law of United Arab Emirates and United
+                                    Kingdom </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4>Disclaimer:
+                                </h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>I/we hereby affix my signature on all the pages having thoroughly understood above
+                                    terms and conditions in sound mind and consciousness, without any influence or
+                                    oppression from anyone.
+                                </p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <p class="text-center"><b>By clicking "I Accept" below, the Rider acknowledges that they
+                                        have read, understood, and agree to be bound by the terms and conditions of this
+                                        Agreement</b></p>
+                            </td>
+                        </tr>
+
+                    </table>
+
+
+                </div>
+
+
+
+
+            </div>
+
+
+            <div class="arabic" id="arabic-section" style="display:none;">
+
+                <div class="box-container">
+
+                    <table>
+                        <tr>
+                            <td>
+                                <h2 class="mb-2">اتفاقية توظيف راكب توصيل الطعام
+                                    <br>(عدم التحايل وعدم اإلفصاح)
+                                </h2>
+                                <p>تحدد هذه االتفاقية شروط التوظيف المتفق عليها بين صاحب العمل
+                                    والموظف. سواء تم النص صراحة في االتفاقية أم ال، فإن على كل
+                                    من الموظف وصاحب العمل واجب الثقة المتبادلة، وتقديم مطالب
+                                    قانونية ومعقولة فقط لبعضهما البعض. </p>
+                                <p>تم إبرام هذه االتفاقية وإبرامها في التاريخ والشهر والسنة الحاليين
+                                    بين: </p>
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h4>بين كل من:</h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h4>كونكورور اسبيريشن ش.ذ.م.م-منطقة حرة</h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <p>شركة تم تأسيسها وقائمة حسب األصول بموجب قوانين دولة
+                                    اإلمارات العربية المتحدة ويقع مكتبها في مبنى صيدلية المدينة،
+                                    جناح 02M، الخبازي، بور سعيد، دبي، اإلمارات العربية المتحدة،
+                                    بصفته شركة LLC Services Conqueror، اإلمارات العربية
+                                    المتحدة (يشار إليها فيما يلي باسم " الفاتح "كطرف أول".)</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h2>--و--</h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>"مقدم الطلب" )الراكب( هو الفرد الذي يوافق على الشروط
+                                    واألحكام الواردة أدناه؛ </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="applicant-rider">
+                                    <p><b>:االتصال رقم</b> <span>لب ح</span></p>
+                                    <p><b>حسب الطلب</b> <span>عنوان البريد اإللكتروني:</span></p>
+                                    <p><b>CAL/uae/riders/2024/04 </b> <span> :الملف رق</span></p>
+                                    <p><b>الطعام لتوصيل عمل ا</b> <span>:العقد ن</span></p>
+                                    <p><b>جنسية الموظف</b> <span>الجنسية: </span></p>
+                                    <p><b>نون/طلبات/دليفرو/أرامكس/كنتاكي/ماكدونالدز/أي شركة توصيل
+                                            .طعام أخرى</b> <span> سم صاحب العمل:</span></p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>يُشار إلى الشركة والموظف بشكل جماعي باسم "الطرفين"
+                                    ."وبشكل فردي باسم "الطرف</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>موضوع االتفاقية: <b>خدمات اتفاقية وظائف سائق الدراجة من
+                                        باكستان ونيبال والهند وسريالنكا وبنغالديش، رقم المذكرة:
+                                        CAL/uae/riders/2024/04</b></p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h4>بينما</h4>
+                                <P>تعمل شركة CONQUEROR في مجال توفير خدمات العمليات واإلدارة
+                                    لتوظيف راكبي الدراجات وتوظيفهم لخدمات توصيل الطعام، بما في
+                                    ذلك عقد البناء الجديد مع نون، أو ماكدونالدز، أو ديليفرو، أو طلبات أو
+                                    أي شركة أخرى لتوصيل الطعام في اإلمارات العربية المتحدة؛ و</P>
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <p>ويوافق مقدم الطلب )الراكب( على أداء الواجبات التي تحددها
+                                    شركة Services Conqueror أو عمالئها بجد وبأفضل ما لديهم من
+                                    قدرات فيما يتعلق باألعمال المتعلقة بتوظيف راكبي الدراجات من
+                                    البلد األصلي المذكور أو داخل دولة اإلمارات العربية المتحدة. </p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <p>لذا وافق الطرفان على ما يلي بموجب التعهدات المشتركة الواردة
+                                    في هذه االتفاقية: </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>واآلن، وبالنظر إلى المقدمات المذكورة أعاله، اتفق الطرفان على
+                                    تسجيل شروط وأحكام اتفاقية الوظيفة على النحو التالي:
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h2>الشروط المتفق عليها</h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h2>تفسير التعاريف </h2>
+                            </td>
+                        </tr>
+
+                        <tr class="pp">
+                            <td>
+                                <p> <span>1.1</span> <b>تعريفات:</b> تنطبق التعريفات وقواعد التفسير الواردة في هذاالبند
+                                    ،1 وتفاصيل عقد العمل، وتفاصيل الراتب في عقد العمل هذا.</p>
+
+                                <p> <span>1.2</span> <b></b>ُقصد به جميع القوانين والقوانين واللوائح والمراسيم والقواعد
+                                    واللوائح والمبادئ التوجيهية والسياسات والتوجيهات واألدوات
+                                    التنظيمية المعمول بها والتي تصدرها الهيئة )والتي قد يتم تعديلها
+                                    .(من وقت آلخر
+                                </p>
+                                <p> <span>1.3</span> <b> األداة التنظيمية:</b> تعني أي قانون أو الئحة أو قاعدة أو مدونة
+                                    أو 1.3
+                                    مرسوم أو قرار أو توجيه أو إشعار أو سياسات أو إجراءات أو بموجب
+                                    .قوانين صادرة عن الهيئة أو السلطة المختصة</p>
+                                <p><b>قانون العمل اإلماراتي" يعني )مرسوم بقانون اتحادي رقم 33 "
+                                        لسنة 2021( )"القانون الجديد"(، القانون االتحادي رقم 8 0 لسنة
+                                        ،1980 بصيغته المعدلة أو الممددة أو المعاد سنها من وقت آلخر
+                                        وأي أوامر أو مراسيم وزارية القرارات أو التوجيهات أو اللوائح الصادرة
+                                        ('MOHRE ('عن وزارة الموارد البشرية والتوطين</b></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h2>المادة – 2</h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h2>عيين ش</h2>
+                            </td>
+                        </tr>
+                        <tr class="terms-of-appoinment">
+                            <td>
+                                <li>نا. يجب أن يعمل الموظف لدى الشركة في منصب وظيفي لمدة
+                                    .محددة مدتها سنتان )2( تبدأ من تاريخ البدء</li>
+                                <li>ثانيا. يجب على الموظف تنفيذ الواجبات وأداء المهام التي يؤديها
+                                    عادة موظف ذو تسمية مماثلة، والتي تشمل، على سبيل المثال
+                                    .ال الحصر، الوصف الوظيفي األساسي </li>
+                                <li>ثالثا. يتفق الطرفان على أن أي تعديل على شروط عقد العمل هذا
+                                    .يجب أن يتم االتفاق عليه كتابيًا بين الطرفين </li>
+                                <li>رابعا. تتعهد الشركة بإخطار الهيئة بأي تغيير في شروط التوظيف
+                                    فيما يتعلق بالمنصب الوظيفي للموظف ومسؤولياته وراتبه
+                                    .األساسي والبدالت والمزايا األخرى</li>
+                                <li>v. بعد انتهاء العقد محدد المدة لمدة سنتين )2(، يجوز للشركة تمديد
+                                    أو تجديد مدة عقد الموظف. إذا استمر الموظف في الوظيفة بعد
+                                    سنتين )2(، فيعتبر ذلك استمرارًا لعقد العمل.
+                                </li>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4>مسؤوليات والتزامات الوكالة 3.2</h4>
+                            </td>
+                        </tr>
+                        <tr class="pp">
+                            <td>
+                                <p><span>3.3.1</span>في جميع المعامالت المقابلة وغيرها من التعامالت مع
+                                    راكبي الدراجة، سيشير مقدم الطلب بوضوح إلى أنه يعمل بصفته
+                                    .مقدم طلب الوظيفة للبائعين</p>
+                                <p><span>3.3.2</span>يجب أن يكون مقدم الطلب مسؤواوتكون التزاماته تجاه الفاتح بموجب
+                                    العقود متوافقة ومتوافقة مع جميع القوانين المعمول
+                                    .بها في دولة اإلمارات العربية المتحدة والمملكة المتحدة</p>
+                                <p><span>3.3.3 </span> يجب على مقدم الطلب إبالغ الفاتح بأي وجميع الظروف
+                                    التي قد يكون لها تأثير على عمل العميل والعقود )اللوائح المتعلقة
+                                    بالجمارك، والظروف المحلية، وما إلى ذلك( وسيقدم المعلومات
+                                    والتوصيات في الوقت المناسب إلزالة العقبات والصعوبات التي قد
+                                    نتيجة للوضع في ذلك الوقت من أجل حماية مصلحة الفاتح و/أو
+                                    .مساهميه في شراء العقود وتنفيذها أي ًضا</p>
+
+                                <p><span>3.3.4</span>ال يتحمل المتقدم للوظيفة أي مسؤولية نيابة عن الفاتح وال
+                                    يقدم بأي شكل من األشكال أي وعود أو إقرارات أو ضمانات نيابة
+                                    عن الفاتح، وهو ما يكون ملز ًما للغزاة، دون الحصول على إذن كتابي
+                                    صريح من الفاتح في هذا الصدد. أي مسؤولية من هذا القبيل يتم
+                                    تكبدها نتيجة ألي تصرف يقوم به مقدم الطلب دون الحصول علىإذن كتابي صريح من الفاتح مما
+                                    يؤدي إلى أي مطالبة أو خسارة أو
+                                    ضرر أو أي نتيجة سلبية على الفاتح يجب أن يتم تعويضها من قبل
+                                    مقدم الطلب إلى الفاتح )بما في ذلك العمولة القانونية والنفقات
+                                    دون اإلخالل بما يلي: أي حقوق أخرى متاحة لشركة
+                                    .بموجب القانون CONQUEROR</p>
+                                <p><span>3.3.5</span> ال يجوز للمتقدم للوظيفة القيام بأي عمل غير قانوني نيابة عن
+                                    الفاتح. لن يكون الفاتح مسؤوالً عن أي فعل أفعال لمقدم الطلب لم
+                                    يتم تفويض مقدم الطلب على وجه التحديد من قبل الفاتح و/أو
+                                    المساهم المساهمين فيه. يجب على مقدم الطلب أن يعوض
+                                    الفاتح بالكامل عن العواقب بما في ذلك العمولة القانونية والنفقات(
+                                    ألي فعل أو إغفال من جانب مقدم الطلب وهو غير مصرح به أو غير
+                                    قانوني وال يتوافق مع القوانين المعمول بها. أي فعل أو إغفال من
+                                    جانب مقدم الطلب للوظيفة سيكون بمثابة خرق لهذه االتفاقية،
+                                    مقدم الطلب مسؤوالً ويعتبر بمثابة فعل أو إغفال يكون عنه، إذا تم
+                                    القيام به أو إغفاله: </p>
+                                <p><span>(أ) </span> )أ من قبل أي شخص اعتباري أو غير مؤسس سواء تم تأسيسه
+                                    في تاريخ هذه االتفاقية أم ال والذي يتم التحكم فيه كليًا أو بشكل
+                                    رئيسي أو بشكل مباشر أو غير مباشر بأي شكل من األشكال
+                                    بواسطة مقدم الطلب أو بواسطة أي شخص أو أشخاص يتحكمون أو
+                                    يتحكمون أو بواسطة أي من هؤالء الهيئة التي تسيطر بنفسها
+                                    بشكل كلي أو رئيسي أو بشكل مباشر أو غير مباشر بأي شكل من
+                                    األشكال على المتقدم للوظيفة؛ أو
+                                </p>
+                                <p><span>(ب)</span>)( التي يتم التحكم فيها كليًا أو بشكل رئيسي أو بشكل مباشر أو
+                                    غير مباشر من قبل شخص أو أشخاص و/أو هيئات اعتبارية و/أو غير
+                                    مدمجة والتي أو التي تسيطر أو تسيطر بشكل كلي أو رئيسي أو
+                                    بشكل مباشر أو غير مباشر على مقدم الطلب؛ أو</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h2>نهاية</h2>
+                            </td>
+                        </tr>
+                        <tr class="pp">
+                            <td>
+                                <p><span>1.</span> يجوز إنهاء عقد العمل هذا على النحو التالي.</p>
+                                <p><span>2.</span> أثناء أو عند انتهاء فترة االختبار فورًا من قبل أي من الطرفين، معفترة
+                                    إشعار مدتها 14 يو ًما</p>
+                                <p><span>3.</span>بموافقة الطرفين المتبادلة، مع إشعار مدته 30 يو ًما بشرطتسجيل موافقة
+                                    الموظف كتابيًا؛ أو</p>
+                                <p><span>4.</span>من قبل أي من الطرفين لسبب مشروع، بشرط أن يكون إشعار.
+                                    .اإلنهاء كتابيًا وصادًرا وف ًقا لفترة اإلخطار</p>
+                                <p><span>5.</span> إذا فشل أي من الطرفين في تقديم إشعار كتابي إلى الطرف
+                                    اآلخر لفترة اإلشعار وف ًق ،6 أو قام بتخفيض فترة اإلشعار، يجب ا للبند
+                                    على الطرف الذي أنهى العقد أن يدفع للطرف اآلخر تعوي ًضا بدالً من
+                                    ً
+                                    اإلشعار إشعار التعويض . يجب أن يكون تعويض اإلشعار مساويا
+                                    ألحدث أجر إجمالي للموظف طوال مدة فترة اإلشعار أو تخفيض فترة
+                                    اإلشعار.</p>
+                                <p><span>6.</span> يمكن للشركة إنهاء عقد العمل هذا بأثر فوري، دون إشعار ودون
+                                    االلتزام بمكافأة نهاية الخدمة )بخالف المبالغ المستحقة كإجمالي
+                                    المكافأة المستحقة في تاريخ اإلنهاء إذا ارتكب الموظف أيًا من
+                                    الجريمة المنصوص عليها في قانون العمل اإلماراتي.</p>
+                                <p><span>7.</span>5 يو ًما، سيتم إنهاء االتفاقية تلقائيًا ولن يكون الفاتح مسؤوالً عن
+                                    سداد أي مدفوعات إلى مقدم الطلب. في حالة حدوث أي خرق لشروط وأحكام هذه االتفاقية من
+                                    قبل
+                                    مقدم الطلب، يجب على الفاتح تقديم إشعار كتابي إلى مقدم الطلب
+                                    لتصحيح االنتهاك وإذا لم يتم تصحيح هذا الخرق أو معالجته خالل فترة
+                                    7 أيام. من استالم هذا اإلشعار، وفي هذه الحالة، عند انتهاء فترة</p>
+                                <p><span>8. </span> يمكن أي ًضا لصاحب العمل إنهاء االتفاقية إذا ثبت أن الموظف مذنب
+                                    بارتكاب أي سلوك يضر بمصلحة صاحب العمل.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h2>تذكرة السفر</h2>
+                            </td>
+                        </tr>
+                        <tr class="pp">
+                            <td>
+                                <p><span>1.</span> في الظروف التي يتم فيها تعيين الموظف من قبل الشركة من
+                                    خارج دولة اإلمارات العربية المتحدة، تتحمل الشركة تكلفة تذكرة
+                                    سفر الموظف من الموظف كنقطة انطالق إلى إمارة دبي، أو أي
+                                    مطار آخر في دولة اإلمارات العربية المتحدة بشكل متبادل. يتم
+                                    االتفاق عليه بين الطرفين حتى يبدأ الموظف العمل. </p>
+                                <p><span>2. </span> 2 إذا كان الموظف، سواء تم تعيينه من خارج دولة اإلمارات العربية
+                                    المتحدة أو داخل دولة اإلمارات العربية المتحدة، عند انتهاء عقد
+                                    العمل هذا، لم يتولى وظيفة الحقة في أي مكان آخر في دولة
+                                    اإلمارات العربية المتحدة، فإن الشركة تتحمل تكلفة تذكرة سفر
+                                    الموظف إلى مكان عمله. أصل.</p>
+                                <p><span>3</span> في حالة إنهاء عقد العمل هذا لألسباب المنصوص عليها في
+                                    المادة 120 من قانون العمل اإلماراتي، يجب على الموظف دفع
+                                    نفقات إعادته إلى وطنه. </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h2>الموتوالدفن</h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>في حالة وفاة الموظف خالل فترة عمله في الشركة، يجب على
+                                    الشركة:</p>
+                            </td>
+                        </tr>
+
+                        <tr class="pp">
+                            <td>
+                                <p><span>1.</span>تحمل تكلفة نقل جثمان الموظف وأمتعته الشخصية إلى وطنه
+                                    في أقرب وقت ممكن عمليًا بعد إطالق سراح الجثة من قبل
+                                    السلطات المختصة إلعادتها إلى الوطن ودفنها؛</p>
+
+                                <p><span>2.</span>تزويد المستحقين المعينين من قبل الموظف بمستحقات الموظف، وفقالقانون
+                                    العمل اإلماراتي.</p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h2>المادة – 3</h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4 class="mb-2">السرية وحقوق الملكية الفكرية </h4>
+                                <p><b>يجب على مقدم الطلب استخدام المعلومات المقدمة من الطرف
+                                        األول "المعلومات السرية"، فقط للغرض المحدد في هذه االتفاقية
+                                        .ووف ًقا لمتطلبات الفاتح بموجب عقد العمل</b></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>ظل المعلومات السرية المقدمة من شركة CONQUEROR ملكية
+                                    خاصة لشركة CONQUEROR وال يجوز للمتقدم للوظيفة استخدامها
+                                    أو تكرارها أو إعادة إنتاجها بأي طريقة كانت. يجب على مقدم الطلب
+                                    أن يعيد جميع المعلومات السرية عندما يطلبها CONQUEROR.</p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <p>يتعهد مقدم الطلب، نيابة عن موظفيه، بأنه سيحتفظ بثقة تامة
+                                    بجميع المعلومات السرية التي تم الكشف عنها خالل مدة هذه
+                                    االتفاقية وال يجوز له نقل / نسخ / إعادة إنتاج / تعديل أي من
+                                    المعلومات كما هو مذكور أعاله والمقدمة / المقدمة من قبل شركة
+                                    CONQUEROR و/أو المساهمين )المساهمين( فيها ألي غرض كان،
+                                    باستثناء ما يسمح به تحدي ًدا شركة CONQUEROR و/أو المساهمين
+                                    )المساهمون( فيها كتابيًا.)</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>ال يجوز تفسير الكشف عن المعلومات السرية من قبل شركة
+                                    CONQUEROR و/أو المساهمين )المساهمين( فيها بموجب هذه
+                                    االتفاقية على أنه ينقل أي حقوق ملكية فكرية خاصة بشركة
+                                    CONQUEROR و/أو المساهمين )المساهمين( فيها إلى الوكالة.
+                                    تظل جميع حقوق الملكية الفكرية في أو المتعلقة بأي معلومات
+                                    مقدمة إلى الوكالة من قبل شركة الفاتح و/أو المساهمين
+                                    )المساهمين( فيها مل ًكا وحي ًدا لشركة الفاتح و/أو المساهمين فيها.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>تكون الوكالة مسؤولة عن أي خسارة أو ضرر مباشر أو غير مباشر أو
+                                    تبعي، يحدث لشركة الفاتح بسبب أي كشف أو استخدام غير مصرح
+                                    به للمعلومات السرية أو أي انتهاك ألي حقوق ملكية فكرية لشركة
+                                    الفاتح و/أو المساهمين )المساهمين( فيها.</p>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>
+                                <h2>المادة – 4 </h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4>العالقة بين األطراف</h4>
+                            </td>
+                        </tr>
+                        <tr class="pp">
+                            <td>
+                                <p> <span>8.1</span>بموجب هذا يتم االتفاق صراح ًة بين الطرفين على أنه ال يوجد
+                                    أي شيء وارد في هذه الوثيقة يعتبر بمثابة شراكة أو مشروع
+                                    مشترك بين األطراف الموردة المختلفة. ال يجوز أن تفسر أي أحكام
+                                    مقدم الطلب على الوظيفة على أنه الممثل القانوني لشركة
+                                    الفاتح، وال يجوز أن يكون لمقدم الوظيفة الحق أو السلطة في
+                                    تحمل أو إنشاء أو تحمل أي مسؤولية أو التزام من أي نوع، صري ًحا
+                                    ما لم CONQUEROR أو ضمنيًا، ضد أو باسم ، أو بالنيابة عن شركة
+                                    .CONQUEROR يتم الحصول على تصريح محدد من شركة</p>
+                                <p><span>8.2</span> ال يعتبر أي شخص يستخدمه أي من الطرفين ألداء التزاماته
+                                    بموجب االتفاقية موظ ًفا لدى الطرف اآلخر، ويكون مسؤوالً عن دفع
+                                    جميع الرواتب ومزايا التوظيف وما إلى ذلك فيما يتعلق بجميع
+                                    األشخاص العاملين من قبله ألداء أي التزامات بموجب هذه االتفاقية
+                                    وال يحق لهذا الشخص الحصول على أي منفعة من الراتب أو أي
+                                    مطالبة أخرى مهما كانت من أو ضد الطرف اآلخر. يجب على الوكالة
+                                    تعويض الفاتح و/أو المساهم )المساهمين( ضد أي مطالبات من هذا
+                                    القبيل يقدمها أي شخص أو أي طرف ثالث. </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h2>المادة – 5</h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4>إشعارات</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>يجوز تقديم أي إشعار أو طلب أو أي اتصال آخر يتم تقديمه
+                                    بموجب هذه االتفاقية إلى أي من الطرفين عن طريق البريد
+                                    اإللكتروني المسجل أو النشر عن طريق إقرار بالبريد
+                                    المسجل بسبب البريد السريع أو تسليمه أو إرساله عن
+                                    طريق الفاكس إلى الطرف )عندما يتم إرساله عن طريق
+                                    إرسال الفاكس، ويجب أن يتبع هذا اإلشعار أو الطلب أو أي
+                                    اتصال آخر نسخة منه عن طريق إقرار بالبريد المسجل
+                                    مستحق أو بالبريد السريع، بعد ذلك مباشرة( ليتم إرساله
+                                    على عنوانه أو رقم الفاكس الموضح أدناه:
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4>قوة قهرية:</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>ن تكون خدمات الفاتح مسؤولة عن أي خسارة أو ضرر من أي
+                                    وصف مهما كان ينشأ عن الفشل أو التأخير في الموافقة على أي
+                                    طلب بسبب وقوع حدث قوة قاهرة، وهذا المصطلح يشمل على
+                                    سبيل المثال ال الحصر التشريعي واألعمال التنظيمية الحكومية،
+                                    والنزاعات المسلحة، والتمرد المدني، واإلضرابات، واإلغالق،
+                                    والزالزل، واألعاصير، وموجات المد والجزر، وكوفيد ،19 والقضاء
+                                    .والقدر
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h2>شروط العقد:</h2>
+                            </td>
+                        </tr>
+                        <tr class="pp">
+                            <td>
+                                <p><span><b>أ.</b></span>يقر مقدم الطلب بأنه سيتحمل وحده المسؤولية عن أي خسائر
+                                    تتكبده تجاهه أو تجاه المشروع أو خدمات شركة الفاتح، إذا كان عقد
+                                    أو متوق ًفا بسبب إهماله أو عدم تعاونه خالل أي مراحل
+                                    البيع فاشالً
+                                    من فترة عقد العمل والتي يمكن أن تكون لألسباب التالية على
+                                    سبيل المثال ال الحصر؛ تسجيل الدخول المتأخر، التأخر في التسليم،
+                                    هدر الطعا م، أضرار التغليف، عدم التواصل مع المستلم، عدم
+                                    التعاون/االستجابة للوكالء و/أو الهيئات الحكومية وما إلى ذلك.</p>
+                                <p><span><b>ب.</b></span> يمكن لخدمات Conqueror المطالبة بالعقوبات والغرامات
+                                    واإلجراءات القانونية المطبقة ألي سوء سلوك أو خسائر ناجمة عنغياب الراكب أو التأخير أو
+                                    اإلهمال أو األضرار مع أو بدون إصدار إشعار
+                                    مسبق. </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4>القانون الذي يحكم:</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>تخضع هذه االتفاقية والمفاوضات بين األطراف فيما يتعلق بها وجميع
+                                    النزاعات أو المطالبات )بما في ذلك النزاعات أو المطالبات غير
+                                    التعاقدية الناشئة عنها أو فيما يتعلق بها أو بموضوعها أو تشكيلها
+                                    للقانون وتفسر وف ًقا له. اإلمارات العربية المتحدة والمملكة المتحدة</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4>تنويه:</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>بموجبه فإنني أوقع على جميع الصفحات وأقر بفهم الشروط واألحكام
+                                    السابقة بدقة وبوعي كامل دون أي تأثير أو إجبار من أي شخص آخر.</p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <p class="text-center" style="text-align: center;"><b>By clicking "I Accept" below, the
+                                        Rider acknowledges that they have read, understood, and agree to be bound by the
+                                        terms and conditions of this
+                                        Agreement</b></p>
+                            </td>
+                        </tr>
+
+                    </table>
+
+
+                </div>
+
+
+            </div>
+
+            <button class="acceptbutton close">Accept</button>
+
+
+        </div>
+
+    </div>
 
     <div class="header bg-White-c p-2  Laptop:py-4  shadow-md rounded-b-3xl top-0 right-0 absolute w-full z-10">
         <div class="container mx-auto">
@@ -147,6 +1572,7 @@
                             <p class="text-White-c text-[10px] Laptop:text-sm"><a
                                     class="{{ $currentStep == 1 ? 'p-1 Laptop:py-1.5 Laptop:px-4  bg-[#e0b228] text-White-c rounded-md' : '' }}">Basic
                                     Information</a></p>
+
                         </div>
 
                         <div class="step flex items-center gap-1 Laptop:mb-14" id="secondStep">
@@ -180,7 +1606,8 @@
                     </section>
                 @endif
 
-                <h2 class="text-[14px] font-normal leading-4"><span class="text-Indicates">*</span> Indicates a required
+                <h2 class="text-[14px] font-normal leading-4"><span class="text-Indicates">*</span> Indicates a
+                    required
                     field</h2>
 
                 <form class="form-card " id="msform" method="POST" enctype="multipart/form-data">
@@ -210,8 +1637,8 @@
                                 <div class="field Laptop:w-[65%] w-[60%] fnamearea">
                                     <input type="text" name="firstname" id="firstname" autocomplete="off"
                                         class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('firstname') ? 'error' : '' }} "
-                                        value="{{ $hasOldData1 ? $oldData1->firstname : '' }}" placeholder="First Name"
-                                        required>
+                                        value="{{ $hasOldData1 ? $oldData1->firstname : '' }}"
+                                        placeholder="First Name" required>
                                     @error('firstname')
                                         <p class="erromessage">{{ $message }}</p>
                                     @enderror
@@ -235,6 +1662,7 @@
                                     <!--<label for="" class="label-t">Last Name</label>-->
                                 </div>
                             </div>
+
 
                         </div>
 
@@ -1741,8 +3169,63 @@
                                 </span>
                             @endif
                         </div>
-
+                        <div class="div">
+                            <input type="checkbox" id="show-agreement-btn" required style="margin-top: 20px;"> <label
+                                for="show-agreement-btn">I Accept the <span style="color: #1f76e1;">Terms and
+                                    Condition</span> of the Company</label>
+                        </div>
                         <!-- ----  -->
+
+                        <style>
+                            /* Style for increasing the size of the checkbox */
+                            #show-agreement-btn {
+                                width: 12px;
+                                /* Increase the width */
+                                height: 12px;
+                                /* Increase the height */
+                                transform: scale(1.5);
+                                /* Scale the checkbox */
+                                margin-top: 20px;
+                                /* Adjust the margin to align properly */
+                                -webkit-appearance: none;
+                                /* Remove default styling in WebKit browsers */
+                                -moz-appearance: none;
+                                /* Remove default styling in Firefox */
+                                appearance: none;
+                                /* Remove default styling */
+                                border: 2px solid #ccc;
+                                /* Add a border */
+                                border-radius: 4px;
+                                /* Round the corners */
+                                position: relative;
+                                /* Allow positioning of the checkmark */
+                                outline: none;
+                                /* Remove default outline */
+                                margin-right: 3px;
+                            }
+
+                            #show-agreement-btn:checked {
+                                background-color: #1f76e1;
+                                /* Change background color when checked */
+                                border-color: #1f76e1;
+                                /* Change border color when checked */
+                            }
+
+                            #show-agreement-btn:checked::after {
+                                
+                                /* Unicode checkmark character */
+                                font-size: 14px;
+                                /* Adjust checkmark size */
+                                color: white;
+                                /* Checkmark color */
+                                position: absolute;
+                                /* Position checkmark absolutely */
+                                top: 2px;
+                                /* Adjust positioning */
+                                left: 3px;
+                                /* Adjust positioning */
+                            }
+                        </style>
 
                         <div class="button text-right Laptop:mt-10 mt-4 pb-4 ">
                             <button type="button" id="previous3"
@@ -1753,7 +3236,7 @@
                             <button type="button"
                                 class="action-button next Laptop:py-3 py-2 text-xs Laptop:text-base bg-Primary-c text-White-c rounded-2xl leading-5"
                                 style="width: 150px" id="f3Button">
-                                <span class="btn-text">Save & Confirm</span>
+                                <span class="btn-text close">Save & Confirm</span>
                             </button>
                         </div>
                     </fieldset>
@@ -3806,6 +5289,90 @@
 
     // Trigger change event to set initial state based on the selected option
     document.getElementById('have_uae_licence_id').dispatchEvent(new Event('change'));
+</script>
+
+<script>
+    let mainRapper = document.querySelector('.ar-main-wrapper');
+    let agree = document.querySelector('#agree');
+    let close = document.querySelector('.close');
+
+    agree.onclick = () => {
+        mainRapper.classList.toggle('active');
+        close.classList.remove('active');
+    }
+    close.onclick = () => {
+        mainRapper.classList.remove('active')
+    }
+</script>
+
+
+{{-- <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Language selection functionality
+        document.getElementById('language-select').addEventListener('change', function() {
+            const selectedLanguage = this.value;
+            if (selectedLanguage === 'english') {
+                document.getElementById('english-section').style.display = 'block';
+                document.getElementById('arabic-section').style.display = 'none';
+            } else if (selectedLanguage === 'arabic') {
+                document.getElementById('english-section').style.display = 'none';
+                document.getElementById('arabic-section').style.display = 'block';
+            }
+        });
+
+        // Show agreement button functionality
+        document.getElementById('show-agreement-btn').addEventListener('click', function() {
+            document.querySelector('.ar-main-wrapper').classList.add('active');
+        });
+
+        // Close button functionality
+        document.querySelector('.close').addEventListener('click', function() {
+            document.querySelector('.ar-main-wrapper').classList.remove('active');
+        });
+    });
+</script> --}}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Language selection functionality
+        document.getElementById('language-select').addEventListener('change', function() {
+            const selectedLanguage = this.value;
+            if (selectedLanguage === 'english') {
+                document.getElementById('english-section').style.display = 'block';
+                document.getElementById('arabic-section').style.display = 'none';
+            } else if (selectedLanguage === 'arabic') {
+                document.getElementById('english-section').style.display = 'none';
+                document.getElementById('arabic-section').style.display = 'block';
+            }
+        });
+
+        // Show agreement checkbox functionality
+        const showAgreementCheckbox = document.getElementById('show-agreement-btn');
+        const saveConfirmButton = document.getElementById('f3Button');
+
+        // Disable the Save & Confirm button initially
+        saveConfirmButton.disabled = true;
+
+        // Enable/disable the Save & Confirm button based on checkbox state
+        showAgreementCheckbox.addEventListener('change', function() {
+            saveConfirmButton.disabled = !this.checked;
+        });
+
+        // Show agreement button functionality
+        showAgreementCheckbox.addEventListener('click', function() {
+            if (this.checked) {
+                document.querySelector('.ar-main-wrapper').classList.add('active');
+            }
+        });
+
+        // Close button functionality
+        document.querySelector('.close').addEventListener('click', function() {
+            document.querySelector('.ar-main-wrapper').classList.remove('active');
+            // Leave the checkbox unchecked to ensure the user reviews the agreement again
+            showAgreementCheckbox.checked = true;
+            saveConfirmButton.disabled = false;
+        });
+    });
 </script>
 
 </html>

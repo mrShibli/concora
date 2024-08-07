@@ -12,6 +12,7 @@ use Illuminate\Support\Carbon;
 use App\Mail\ApplicantVerifyOTP;
 use Spatie\ImageOptimizer\Image;
 use App\Http\Controllers\Controller;
+use App\Models\PayActivity;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
@@ -27,8 +28,8 @@ class ApplicantController extends Controller
     {
         $applicants = Applicant::where('applicant_status', 'new_entry')
             ->orderBy('created_at', 'desc')
-            ->paginate(20); 
-    
+            ->paginate(20);
+
         return view('layouts.admin.job-applicants.index', compact('applicants'));
     }
 
@@ -38,13 +39,13 @@ class ApplicantController extends Controller
     {
         $currentRecord = Applicant::findOrFail($id);
         $applicant = Applicant::where('id', '>', $currentRecord->id)
-                            ->orderBy('id')
-                            ->first();
+            ->orderBy('id')
+            ->first();
 
         if ($applicant) {
             return view('layouts.admin.job-applicants.view', compact('applicant'));
         } else {
-            
+
             return redirect()->back();
         }
     }
@@ -53,8 +54,8 @@ class ApplicantController extends Controller
     {
         $currentRecord = Applicant::findOrFail($id);
         $applicant = Applicant::where('id', '<', $currentRecord->id)
-                                ->orderBy('id', 'desc')
-                                ->first();
+            ->orderBy('id', 'desc')
+            ->first();
 
         if ($applicant) {
             return view('layouts.admin.job-applicants.view', compact('applicant'));
@@ -62,7 +63,7 @@ class ApplicantController extends Controller
             return redirect()->back();
         }
     }
-    
+
 
     public function indexverified()
     {
@@ -100,25 +101,98 @@ class ApplicantController extends Controller
     public function duesPayment()
     {
         $applicants = Applicant::where('balance', '<', 6000)
+            ->where('otp_verified', 1)
             ->orderBy('created_at', 'desc')
             ->get();
+
         return view('layouts.admin.job-applicants.indexDues', compact('applicants'));
     }
 
-    
+    public function receivePayment()
+    {
+        $applicants = Applicant::whereHas('payActivities', function ($query) {
+            $query->where('deposit_amount', '>=', 1);
+        })
+            ->where('balance', '<', 6000)
+            ->orderBy('created_at', 'desc')
+            ->with(['payActivities' => function ($query) {
+                $query->where('deposit_amount', '>=', 1);
+            }])
+            ->get();
+        return view('layouts.admin.job-applicants.indexRecceived', compact('applicants'));
+    }
+
+
     public function paymentHistory(Applicant $id)
     {
         $applicant = $applicant = $id;
-       // return $applicant;
+        // return $applicant;
         return view('layouts.admin.job-applicants.ViewDueHistory', compact('applicant'));
     }
+
+    public function paymentHistoryRCV(Applicant $applicant, $id)
+    {
+        // Retrieve the payment activities for the given applicant
+        $depoData = PayActivity::where('applicant_id', $id)
+            ->whereNull('is_recevied') // Corrected the condition to check for null
+            ->get();
+
+        // Fetch the applicant data
+        $applicant = Applicant::findOrFail($id);
+
+        // Return the view with the applicant and payment data
+        return view('layouts.admin.job-applicants.ViewDueHistoryRCV', compact('applicant', 'depoData'));
+    }
+
 
     public function paymentView(Applicant $id)
     {
         $applicant = $applicant = $id;
-       // return $applicant;
+        // return $applicant;
         return view('layouts.admin.job-applicants.paumentView', compact('applicant'));
     }
+
+    public function paymentViewRCV(Applicant $applicant, PayActivity $payment)
+    {
+        return view('layouts.admin.job-applicants.paymentViewRCV', compact('applicant', 'payment'));
+    }
+
+    public function updateBalance(Request $request, Applicant $applicant)
+    {
+        $request->validate([
+            'deposit_amount' => 'required|numeric|min:0', // Ensure the value is a positive number
+            'slip_invoice_number' => 'required|string', // Ensure slip_invoice_number is provided
+        ]);
+
+        $depositAmount = (float) $request->input('deposit_amount');
+
+        // Maximum allowed balance based on your current schema precision
+        $maxBalance = 6000; // Adjust this based on your column's max value
+
+        // Check if the new balance exceeds the maximum allowed
+        if ($applicant->balance + $depositAmount > $maxBalance) {
+            return redirect()->back()->with('error', 'The deposit amount is too high and would exceed the maximum allowed balance.');
+        }
+
+        // Update the applicant's balance
+        $applicant->balance += $depositAmount;
+        $applicant->save();
+
+        // Assuming you have the PayActivity ID available in the request
+        $payActivityId = $request->input('pay_activity_id'); // Make sure this field is in your form
+
+        // Find and update the PayActivity record
+        if ($payActivityId) {
+            $payActivity = PayActivity::findOrFail($payActivityId);
+            $payActivity->slip_invoice_number = $request->input('slip_invoice_number');
+            $payActivity->is_recevied = 'yes'; // Mark as received
+            $payActivity->save();
+        }
+
+        return redirect()->back()->with('success', 'Balance updated successfully.');
+    }
+
+
 
 
     public function store($tempDataId)
@@ -142,7 +216,7 @@ class ApplicantController extends Controller
         $applicant = new Applicant();
 
         // Generate random letters and numbers
-        
+
 
         // Generate OTPs and record the generation time
         $otp = mt_rand(100000, 999999);
@@ -220,12 +294,13 @@ class ApplicantController extends Controller
         $this->sendSmSOtp($mergedTempData['contact_number'], $otp);
 
         // Pass necessary data to the view
-        $redirectUrl = route('verify.now').'?verifymessage=' . urlencode('An OTP code has been sent to your email and phone number. Please verify your info before completing the job application.') . '&email=' . urlencode($applicant->email) . '&otpExpirationTime=' . $encodedExpirationTime.'';
+        $redirectUrl = route('verify.now') . '?verifymessage=' . urlencode('An OTP code has been sent to your email and phone number. Please verify your info before completing the job application.') . '&email=' . urlencode($applicant->email) . '&otpExpirationTime=' . $encodedExpirationTime . '';
         session()->put('verifyInfo', ['status' => false, 'url' => $redirectUrl]);
         return $redirectUrl;
     }
 
-    public function submitStep1(Request $request){
+    public function submitStep1(Request $request)
+    {
         $stepData = session()->has('step1') ? json_decode(session()->get('step1')) : null;
 
         $rules = [
@@ -241,8 +316,8 @@ class ApplicantController extends Controller
             'contact_numberr' => 'required|string|max:20',
             'whatsapp_numberr' => 'nullable|string|max:20',
         ];
- 
-        if($stepData && isset($stepData->applicant_photo)) {
+
+        if ($stepData && isset($stepData->applicant_photo)) {
             $rules['applicant_photo'] = 'nullable|image|max:2048';
         } else {
             $rules['applicant_photo'] = 'required|image|max:2048';
@@ -276,14 +351,14 @@ class ApplicantController extends Controller
             $imageName1 = str_replace(' ', '_', $request->firstname) . '_' . time() . '_photo.' . $request->applicant_photo->extension();
             $request->applicant_photo->move(public_path('applicants'), $imageName1);
             $step1Data['applicant_photo'] = $imageName1;
-        }else{
+        } else {
             $step1Data['applicant_photo'] = isset($stepData->applicant_photo) ? $stepData->applicant_photo : '';
         }
 
-        if(session()->has('step1')){
+        if (session()->has('step1')) {
             $tempappdata = json_decode(session()->get('step1'));
             $tempApplicant = TempApplicant::where('email', $tempappdata->email)->latest()->first();
-        }else{
+        } else {
             $tempApplicant = new TempApplicant;
         }
 
@@ -310,8 +385,8 @@ class ApplicantController extends Controller
                 'redirect' => route('others.apply')
             ]);
         }
-        
-        if(session()->has('step2')){
+
+        if (session()->has('step2')) {
             $stepData = json_decode(session()->get('step2'));
         }
         $validator = Validator::make($request->all(), [
@@ -339,7 +414,7 @@ class ApplicantController extends Controller
             'nid_cnic_front' => 'nullable|image|max:2048',
             'nid_cnic_back' => 'nullable|image|max:2048',
         ]);
-        
+
         if ($validator->fails()) {
             return response()->json([
                 'status' => false,
@@ -373,7 +448,7 @@ class ApplicantController extends Controller
             $imageName2 = str_replace(' ', '_', $request->firstname) . '_' . time() . '_passport.' . $request->applicant_passport->extension();
             $request->applicant_passport->move(public_path('applicants'), $imageName2);
             $step2Data['applicant_passport'] = $imageName2;
-        }else{
+        } else {
             $step2Data['applicant_passport'] = $stepData->applicant_passport;
         }
 
@@ -381,30 +456,30 @@ class ApplicantController extends Controller
             $imageName3 = str_replace(' ', '_', $request->firstname) . '_' . time() . '_specialpage.' . $request->specialpage->extension();
             $request->specialpage->move(public_path('applicants'), $imageName3);
             $step2Data['specialpage'] = $imageName3;
-        }elseif(isset($stepData->specialpage)){
+        } elseif (isset($stepData->specialpage)) {
             $step2Data['specialpage'] = $stepData->specialpage;
         }
         if ($request->hasFile('nid_cnic_front')) {
             $imageName4 = str_replace(' ', '_', $request->firstname) . '_' . time() . '_nid_cnic_front.' . $request->nid_cnic_front->extension();
             $request->nid_cnic_front->move(public_path('applicants'), $imageName4);
             $step2Data['nid_cnic_front'] = $imageName4;
-        }elseif(isset($stepData->nid_cnic_front)){
+        } elseif (isset($stepData->nid_cnic_front)) {
             $step2Data['nid_cnic_front'] = $stepData->nid_cnic_front;
         }
         if ($request->hasFile('nid_cnic_back')) {
             $imageName5 = str_replace(' ', '_', $request->firstname) . '_' . time() . '_nid_cnic_back.' . $request->nid_cnic_back->extension();
             $request->nid_cnic_back->move(public_path('applicants'), $imageName5);
             $step2Data['nid_cnic_back'] = $imageName5;
-        }elseif(isset($stepData->nid_cnic_back)){
+        } elseif (isset($stepData->nid_cnic_back)) {
             $step2Data['nid_cnic_back'] = $stepData->nid_cnic_back;
-        }   
+        }
 
         $tempappdata = json_decode(session()->get('step1'));
         $tempApplicant = TempApplicant::where('email', $tempappdata->email)->latest()->first();
         $tempApplicant->current_step = 3;
         $tempApplicant->applicant_data2 = json_encode($step2Data);
         $tempApplicant->save();
-        
+
         session()->put('step2', json_encode($step2Data));
 
         return response()->json([
@@ -412,7 +487,6 @@ class ApplicantController extends Controller
             'message' => 'Data saved successfully',
             'data1' => $step2Data
         ]);
-
     }
 
     public function submitStep3(Request $request)
@@ -483,7 +557,7 @@ class ApplicantController extends Controller
         $tempApplicant->current_step = 4;
         $tempApplicant->applicant_data3 = json_encode($step3Data);
         $tempApplicant->save();
-        
+
         session()->put('step3', json_encode($step3Data));
 
         $redirectLink = $this->store($tempApplicant->id);
@@ -530,8 +604,8 @@ class ApplicantController extends Controller
         $applicant = Applicant::findOrFail($id);
         $jobs_position =  JobPosition::all();
         // $allpositions = JobPosition::findOrFail($id);
- 
-        return view('layouts.admin.job-applicants.edit', compact('applicant','jobs_position'));
+
+        return view('layouts.admin.job-applicants.edit', compact('applicant', 'jobs_position'));
     }
 
     // Update the specified applicant in storage.
@@ -575,63 +649,63 @@ class ApplicantController extends Controller
 
     public function update(Request $request, $id)
     {
-        
- 
+
+
         $applicant = Applicant::findOrFail($id);
-        
-        if($request->position_id){
+
+        if ($request->position_id) {
             $applicant->position_id = $request->position_id;
         }
-        if($request->first_name){
+        if ($request->first_name) {
             $applicant->first_name = $request->first_name;
         }
-        if($request->last_name){
+        if ($request->last_name) {
             $applicant->last_name = $request->last_name;
         }
-        if($request->nationality){
+        if ($request->nationality) {
             $applicant->nationality = $request->nationality;
         }
-        if($request->nationality){
+        if ($request->nationality) {
             $applicant->nationality = $request->nationality;
         }
-        if($request->mother_name){
+        if ($request->mother_name) {
             $applicant->mother_name = $request->mother_name;
         }
-        if($request->uaeresident){
+        if ($request->uaeresident) {
             $applicant->uaeresident = $request->uaeresident;
         }
 
-           // Applicant nid_cnic_front
-           $nid_cnic_front_file = $request->hasFile('nid_cnic_front') ? str_replace(' ', '_', $request->first_name) . '_' . time() . '_nid_cnic_front.' . $request->nid_cnic_front->extension() : $applicant->nid_cnic_front;
-           if ($request->hasFile('nid_cnic_front')) {
-               if ($applicant->nid_cnic_front) {
-                   File::delete(public_path('/' . $applicant->nid_cnic_front));
-               }
-               $request->nid_cnic_front->move(public_path('applicants'), $nid_cnic_front_file);
-           }
-           $applicant->nid_cnic_front = $nid_cnic_front_file;
-   
-           // Applicant nid_cnic_back
-           $nid_cnic_back_file = $request->hasFile('nid_cnic_back') ? str_replace(' ', '_', $request->first_name) . '_' . time() . '_nid_cnic_back.' . $request->nid_cnic_back->extension() : $applicant->nid_cnic_back;
-           if ($request->hasFile('nid_cnic_back')) {
-               if ($applicant->nid_cnic_back) {
-                   File::delete(public_path('applicants/' . $applicant->nid_cnic_back));
-               }
-               $request->nid_cnic_back->move(public_path('applicants'), $nid_cnic_back_file);
-           }
-           $applicant->nid_cnic_back = $nid_cnic_back_file;
-        
-        if($request->date_of_birth){
-          $applicant->date_of_birth = $request->date_of_birth;
+        // Applicant nid_cnic_front
+        $nid_cnic_front_file = $request->hasFile('nid_cnic_front') ? str_replace(' ', '_', $request->first_name) . '_' . time() . '_nid_cnic_front.' . $request->nid_cnic_front->extension() : $applicant->nid_cnic_front;
+        if ($request->hasFile('nid_cnic_front')) {
+            if ($applicant->nid_cnic_front) {
+                File::delete(public_path('/' . $applicant->nid_cnic_front));
+            }
+            $request->nid_cnic_front->move(public_path('applicants'), $nid_cnic_front_file);
         }
-        if($request->contact_number){
-          $applicant->contact_number = $request->contact_number;
+        $applicant->nid_cnic_front = $nid_cnic_front_file;
+
+        // Applicant nid_cnic_back
+        $nid_cnic_back_file = $request->hasFile('nid_cnic_back') ? str_replace(' ', '_', $request->first_name) . '_' . time() . '_nid_cnic_back.' . $request->nid_cnic_back->extension() : $applicant->nid_cnic_back;
+        if ($request->hasFile('nid_cnic_back')) {
+            if ($applicant->nid_cnic_back) {
+                File::delete(public_path('applicants/' . $applicant->nid_cnic_back));
+            }
+            $request->nid_cnic_back->move(public_path('applicants'), $nid_cnic_back_file);
         }
-        if($request->whatsapp_number){
-         $applicant->whatsapp_number = $request->whatsapp_number;
+        $applicant->nid_cnic_back = $nid_cnic_back_file;
+
+        if ($request->date_of_birth) {
+            $applicant->date_of_birth = $request->date_of_birth;
         }
-        if($request->email){
-          $applicant->email = $request->email;
+        if ($request->contact_number) {
+            $applicant->contact_number = $request->contact_number;
+        }
+        if ($request->whatsapp_number) {
+            $applicant->whatsapp_number = $request->whatsapp_number;
+        }
+        if ($request->email) {
+            $applicant->email = $request->email;
         }
 
         // Applicant image
@@ -653,15 +727,15 @@ class ApplicantController extends Controller
             }
             $request->applicant_passport->move(public_path('applicants'), $applicant_passport_file);
         }
-         $applicant->applicant_passport = $applicant_passport_file;
- 
-         if($request->passportno){
+        $applicant->applicant_passport = $applicant_passport_file;
+
+        if ($request->passportno) {
             $applicant->passportno = $request->passportno;
-          }
-        if($request->date_of_expiry){
+        }
+        if ($request->date_of_expiry) {
             $applicant->date_of_expiry = $request->date_of_expiry;
         }
-    
+
         // Applicant Special Page
         $specialpage_file = $request->hasFile('specialpage') ? str_replace(' ', '_', $request->first_name) . '_' . time() . '_specialpage.' . $request->specialpage->extension() : $applicant->specialpage;
         if ($request->hasFile('specialpage')) {
@@ -693,18 +767,18 @@ class ApplicantController extends Controller
             $request->appli_dri_lisence_backpart->move(public_path('applicants'), $appli_dri_lisence_backpart_file);
         }
         $applicant->appli_dri_lisence_backpart = $appli_dri_lisence_backpart_file;
-        if( $request->appli_dri_number){
+        if ($request->appli_dri_number) {
             $applicant->appli_dri_number = $request->appli_dri_number;
         }
-        if( $request->reference){
+        if ($request->reference) {
             $applicant->reference = $request->reference;
         }
         $applicant->save();
 
 
 
-      
-   
+
+
 
 
         // // Applicant resume
@@ -718,7 +792,7 @@ class ApplicantController extends Controller
         // $applicant->applicant_resume = $applicant_resume_file;
 
 
-     
+
 
 
         // // Update the Applicant instance with the new data
@@ -741,7 +815,7 @@ class ApplicantController extends Controller
         // $applicant->contact_number = $validatedData['contact_number'];
         // $applicant->whatsapp_number = $validatedData['whatsapp_number'];
         // $applicant->email = $validatedData['email'];
-     
+
 
         // $applicant->nidorcnicnumber = $validatedData['nidorcnicnumber'];
         // $applicant->nidorcnicexpiry = $validatedData['nidorcnicexpiry'];
@@ -799,13 +873,14 @@ class ApplicantController extends Controller
         return redirect()->back()->with('success', 'Applicant status updated successfully');
     }
 
-    public function sendSmSOtp($phone, $otp){
+    public function sendSmSOtp($phone, $otp)
+    {
 
         $APIID = 'API1585204848741';
         $APIPASS = 'Conq@2022lLc';
         $SENDERID = 'Conquror';
-        
-        try{
+
+        try {
             $client = new Client();
             $response = $client->request('GET', 'http://api.smsala.com/api/SendSMS', [
                 'query' => [
@@ -815,18 +890,18 @@ class ApplicantController extends Controller
                     'encoding' => 'T',
                     'sender_id' => $SENDERID,
                     'phonenumber' => $phone,
-                    'textmessage' => 'Dear user, Your verification code is: '.$otp
+                    'textmessage' => 'Dear user, Your verification code is: ' . $otp
                 ]
             ]);
 
             if ($response->getStatusCode() == 200) {
                 $body = $response->getBody();
                 $data = json_decode($body, true);
-                if($data['status'] == 'F'){
+                if ($data['status'] == 'F') {
                     Log::error("A new sms sending failed from $phone and otp is $otp . Reason for the error is " . $data['remarks']);
                 }
             }
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             Log::error("A new sms sending failed from $phone and otp is $otp . Reason for the error is " . $e);
         }
     }
@@ -847,5 +922,4 @@ class ApplicantController extends Controller
             return redirect()->back()->with('message', 'User Verified');
         }
     }
-
 }

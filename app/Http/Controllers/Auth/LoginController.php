@@ -40,7 +40,7 @@ class LoginController extends Controller
         }
         
         else if (Auth::user()->role == 'user') {
-            return redirect('admin/applicants')->with('message', 'Welcome');
+            return redirect('admin')->with('message', 'Welcome');
         } 
         else {
             return redirect()->back()->with('message', 'Welcome User');

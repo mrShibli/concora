@@ -97,18 +97,23 @@
                     </thead>
                     <tbody>
                         @forelse ($applicants as $applicant)
-                            @if (
-                                (in_array(Auth::user()->email, [
-                                    'shubash@conquerorgroup.ae',
-                                    'kamal@conquerorgroup.ae',
-                                    'nepal@conquerorgroup.ae',
-                                ]) &&
-                                    $applicant->nationality === 'Nepal') ||
-                                    !in_array(Auth::user()->email, [
-                                        'shubash@conquerorgroup.ae',
-                                        'kamal@conquerorgroup.ae',
-                                        'nepal@conquerorgroup.ae',
-                                    ]))
+                        @if (
+                            (in_array(Auth::user()->email, [
+                                'shubash@conquerorgroup.ae',
+                                'kamal@conquerorgroup.ae',
+                                'nepal@conquerorgroup.ae',
+                                'santoshgirisir7@gmail.com',
+                            ]) &&
+                            $applicant->nationality === 'Nepal') ||
+                            (Auth::user()->email === 'india@conquerorgroup.ae' && $applicant->nationality === 'India') ||
+                            (!in_array(Auth::user()->email, [
+                                'shubash@conquerorgroup.ae',
+                                'kamal@conquerorgroup.ae',
+                                'nepal@conquerorgroup.ae',
+                                'santoshgirisir7@gmail.com',
+                                'india@conquerorgroup.ae',
+                            ]))
+                        )
                                 <tr class="{{ $applicant->viewed > 0 ? 'viewed' : 'notviewed' }}">
                                     <td> {{ $loop->index + 1 }} </td>
                                     <td>{{ $applicant->first_name }}</td>

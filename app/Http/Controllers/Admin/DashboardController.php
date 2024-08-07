@@ -251,6 +251,8 @@ class DashboardController extends Controller
     public function index()
     {
         $JobApplicant = Applicant::count();
+        $JobApplicantNepal = Applicant::where('nationality', 'Nepal')->count();
+        $JobApplicantIndia = Applicant::where('nationality', 'India')->count();
         $quotation = Quotation::count();
         $contactscount = Contact::count();
         $jobpositions = JobPosition::count();
@@ -261,7 +263,7 @@ class DashboardController extends Controller
         $JobApplicantHired = Applicant::where('applicant_status', 'hired')->count();
 
         $applicants = Applicant::orderBy('created_at', 'desc')->get();
-        return view('layouts.admin.dashboard', compact('JobApplicant', 'quotation', 'jobpositions', 'contactscount', 'applicants', 'JobApplicantOtpVerified', 'JobApplicantOtpNotVerified', 'JobApplicantInvited', 'JobApplicantHired'));
+        return view('layouts.admin.dashboard', compact('JobApplicant', 'quotation', 'jobpositions', 'contactscount', 'applicants', 'JobApplicantOtpVerified', 'JobApplicantOtpNotVerified', 'JobApplicantInvited', 'JobApplicantHired', 'JobApplicantNepal', 'JobApplicantIndia'));
     }
 
     public function logout(Request $request)

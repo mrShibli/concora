@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AddPayment;
 use App\Models\Applicant;
 use App\Http\Middleware\Role;
 use App\Http\Middleware\CheckRole;
@@ -17,6 +18,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\JobBoardController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PaymentActivity;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\FrotnEnd\FrontEndController;
 use App\Http\Controllers\FrontEnd\ApplicantController;
@@ -87,7 +89,7 @@ Route::post('/qauotation', [GetQuotation::class, 'store'])->name('qauotation.sto
 Route::get('/qauotation', [GetQuotation::class, 'index'])->name('qauotation.index');
 
 
-Route::prefix('admin')->middleware(['auth', CheckRole::class . ':super_admin,group_admin,admin'])->group(function () {
+Route::prefix('admin')->middleware(['auth', CheckRole::class . ':super_admin,group_admin,admin,user'])->group(function () {
 
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
@@ -198,6 +200,14 @@ Route::prefix('admin')->middleware(['auth', CheckRole::class . ':super_admin,gro
     Route::get('/applicants/dues-payment', [ApplicantController::class, 'duesPayment'])->name('applicants.duesPayment');
     Route::get('/applicants/dues-payment/payment-history/{id}', [ApplicantController::class, 'paymentHistory'])->name('applicants.paymentHistory');
     Route::get('/applicants/dues-payment/payment-view/{id}', [ApplicantController::class, 'paymentView'])->name('applicants.paymentView');
+
+    Route::post('/applicants/dues-payment/payment-deposit/', [AddPayment::class, 'paymentdeposit'])->name('payment.deposit');
+
+    Route::get('/applicants/receive-payment', [ApplicantController::class, 'receivePayment'])->name('applicants.receivePayment');
+    Route::get('/applicants/dues-payment/payment-history-rcv/{id}', [ApplicantController::class, 'paymentHistoryRCV'])->name('applicants.paymentHistoryRCV');
+    Route::get('/applicants/dues-payment/payment-view-rcv/{applicant}/{payment}', [ApplicantController::class, 'paymentViewRCV'])->name('applicants.paymentViewRCV');
+    Route::post('/applicants/{applicant}/update-balance', [ApplicantController::class, 'updateBalance'])->name('applicants.updateBalance');
+
 
     Route::get('/applicants/edit/{id}', [ApplicantController::class, 'editappli'])->name('applicants.editappli');
     Route::post('/applicants/update/{id}', [ApplicantController::class, 'update'])->name('applicants.update');

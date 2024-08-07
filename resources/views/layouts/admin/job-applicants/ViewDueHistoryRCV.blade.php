@@ -1,3 +1,4 @@
+<!-- resources/views/layouts/admin/job-applicants/ViewDueHistoryRCV.blade.php -->
 @extends('layouts.master')
 
 @section('styles')
@@ -44,8 +45,7 @@
             color: red;
             cursor: pointer;
         }
-    </style>
-    <style>
+
         table {
             width: 100%;
             border-collapse: collapse;
@@ -81,19 +81,19 @@
 @endsection
 
 @section('content')
+    {{-- {{ dd($depoData); }} --}}
     <div class="right-side m-4 Laptop:m-4 pt-20 Laptop:pt-[5.4rem] ml-4 Tablet:ml-[205px] Laptop:ml-[235px]">
 
         <div class="breadcums mb-3 ml-2 Tablet:mt-[-5px]">
             <div class="">
-                <a href="{{ route('dashboard') }}" class="text-xs text-blue-600 hover:underline">Home /</a> <a
-                    href="{{ route('applicants.duesPayment') }}" class="text-xs text-blue-600 hover:underline">Applicants /</a>
-                <a href="" class="text-xs text-gray-500 hover:underline">View</a>
+                <a href="{{ route('dashboard') }}" class="text-xs text-blue-600 hover:underline">Home /</a> 
+                <a href="{{ route('applicants.duesPayment') }}" class="text-xs text-blue-600 hover:underline">Applicants /</a>
+                <a href="" class="text-xs text-gray-500 hover:underline">View Payment History</a>
             </div>
         </div>
 
-        <div class=" bg-White-c p-2 py-4 pb-8 Tablet:p-8   Laptop:py-12  shadow-sm rounded-xl ">
-
-            <h2 style="padding-bottom: 9px;">Payment Details</h2>
+        <div class="bg-White-c p-2 py-4 pb-8 Tablet:p-8 Laptop:py-12 shadow-sm rounded-xl">
+            <h2 style="padding-bottom: 9px;">Payment Desposit Requests for - {{ $applicant->first_name . $applicant->last_name }}</h2>
             <table>
                 <thead>
                     <tr>
@@ -108,21 +108,27 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="action-icon"><a href="{{ route('applicants.paymentView', ['id' => $applicant->id]) }}">👁️</a></td>
-                        <td>{{ \Carbon\Carbon::parse($applicant->created_at)->format('d M Y') }}</td>
-                        <td>N/A</td>
-                        <td>Machine Deposit</td>
-                        <td>{{ in_array($applicant->reference, ['PK2024S7', 'KP2024P3', 'MS2024K8', 'MN2024U5', 'SZ2024A9', 'WK1978SI41']) ? $applicant->reference : 'No' }}</td>
-                        <td>{{ $applicant->passportno }}</td>
-                        <td>AED 4,000</td>
-                        <td>Sent for Credit</td>
-                    </tr>
+                    @if($depoData->isEmpty())
+                        <tr>
+                            <td colspan="8" class="text-center">No payment history available.</td>
+                        </tr>
+                    @else
+                        @foreach($depoData as $payment)
+                            <tr>
+                                <td class="action-icon"><a href="{{ route('applicants.paymentViewRCV', ['applicant' => $applicant->id, 'payment' => $payment->id]) }}">👁️</a></td>
+                                <td>{{ \Carbon\Carbon::parse($payment->created_at)->format('d M Y') }}</td>
+                                <td>{{ \Carbon\Carbon::parse($payment->payment_date)->format('d M Y') }}</td>
+                                <td>{{ $payment->method }}</td>
+                                <td>{{ $applicant->reference }}</td>
+                                <td>{{ $applicant->passportno }}</td>
+                                <td>{{ $payment->deposit_amount }}</td>
+                                <td>{{ $payment->is_received == null ? 'Req Deposit' : 'Received' }}</td>
+                            </tr>
+                        @endforeach
+                    @endif
                 </tbody>
             </table>
-
         </div>
-
     </div>
 @endsection
 

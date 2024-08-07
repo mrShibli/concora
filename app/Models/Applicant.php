@@ -75,4 +75,9 @@ class Applicant extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function payActivities()
+    {
+        return $this->hasMany(PayActivity::class, 'applicant_id');
+    }
 }
