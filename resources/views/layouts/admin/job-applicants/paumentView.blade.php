@@ -271,7 +271,7 @@
                                 <div class="form-group">
                                     <label>Ref Code</label>
                                     <div>
-                                        {{ in_array($applicant->reference, ['PK2024S7', 'KP2024P3', 'MS2024K8', 'MN2024U5', 'SZ2024A9', 'WK1978SI41']) ? $applicant->reference : 'No' }}
+                                        {{ in_array($applicant->reference, ['LS1994ND40', 'QM1990ZD12', 'WK1978SI41', 'GK1980MM51']) ? $applicant->reference : 'No' }}
                                         &nbsp; </div>
                                 </div>
                                 <div class="form-group">
@@ -307,7 +307,7 @@
 
                     <div class="tab-content" id="deposit" style="display: none;">
 
-                        @if (in_array($applicant->reference, ['PK2024S7', 'KP2024P3', 'MS2024K8', 'MN2024U5', 'SZ2024A9', 'WK1978SI41']))
+                        @if (in_array($applicant->reference, ['LS1994ND40', 'QM1990ZD12', 'WK1978SI41', 'GK1980MM51']))
                             <form action="{{ route('payment.deposit') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="lefttabcontent">
@@ -340,7 +340,7 @@
                                     <div class="form-group">
                                         <label>Ref Code</label>
                                         <div>
-                                            {{ in_array($applicant->reference, ['PK2024S7', 'KP2024P3', 'MS2024K8', 'MN2024U5', 'SZ2024A9', 'WK1978SI41']) ? $applicant->reference : 'No' }}
+                                            {{ in_array($applicant->reference, ['LS1994ND40', 'QM1990ZD12', 'WK1978SI41', 'GK1980MM51']) ? $applicant->reference : 'No' }}
                                             &nbsp; </div>
                                     </div>
                                     <div class="form-group">
@@ -438,7 +438,7 @@
                     </div>
 
                     <div class="tab-content" id="req-credit" style="display: none;">
-                        @if (in_array($applicant->reference, ['PK2024S7', 'KP2024P3', 'MS2024K8', 'MN2024U5', 'SZ2024A9', 'WK1978SI41']))
+                        @if (in_array($applicant->reference, ['LS1994ND40', 'QM1990ZD12', 'WK1978SI41', 'GK1980MM51']))
                         <form action="" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="lefttabcontent">

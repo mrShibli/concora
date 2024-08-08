@@ -512,7 +512,7 @@
                         <tr class="border">
                             <td class="border p-1.5 pl-2 text-xs Laptop:text-sm">Reference No</td>
                             <td class="border p-1.5 pl-2 text-xs Laptop:text-sm">
-                                {{ in_array($applicant->reference, ['PK2024S7', 'KP2024P3', 'MS2024K8', 'MN2024U5', 'SZ2024A9', 'WK1978SI41']) ? $applicant->reference : 'No' }}
+                                {{ in_array($applicant->reference, ['LS1994ND40', 'QM1990ZD12', 'WK1978SI41', 'GK1980MM51']) ? $applicant->reference : 'No' }}
                             </td>
                         </tr>
 

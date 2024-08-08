@@ -26,9 +26,8 @@ class ApplicantController extends Controller
     // Display a listing of the applicants.
     public function index()
     {
-        $applicants = Applicant::where('applicant_status', 'new_entry')
-            ->orderBy('created_at', 'desc')
-            ->paginate(20);
+        $applicants = Applicant::orderBy('created_at', 'desc')
+            ->get();
 
         return view('layouts.admin.job-applicants.index', compact('applicants'));
     }
