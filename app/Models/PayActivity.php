@@ -16,6 +16,15 @@ class PayActivity extends Model
         'slip_invoice_file',
         'balance',
         'applicant_id',
+        'status',
+        'recomNote',
+        'request_deposit_by',
+        'add_payment_by',
+        'receive_deposit_by',
+        'request_credit_by',
+        'accept_credit_by',
+        'sent_modified_by',
+        'modified_by',
     ];
     
     public function applicant()

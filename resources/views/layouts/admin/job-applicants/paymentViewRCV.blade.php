@@ -288,19 +288,14 @@
                                     <div><span class="highlight-red">AED {{ abs($applicant->balance) }}</span></div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Receivable Amount</label>
+                                    <label>Deposited Amount</label>
                                     <div><span class="highlight-green">AED {{ $payment->deposit_amount }}</span></div>
                                     <input type="hidden" name="deposit_amount" value="{{ $payment->deposit_amount }}">
                                 </div>
-                                <div class="form-group">
-                                    <label>Dues Amount</label>
-                                    <div class="totalammount">
-                                        AED <span style="color: rgb(66, 226, 55);margin-left:5px;"> {{ abs($applicant->balance) - $payment->deposit_amount }}</span>
-                                    </div>
-                                </div>
+                                
                                 <div class="form-group">
                                     <label>Payment Date</label>
-                                    <div class="totalammount">{{ \Carbon\Carbon::parse($applicant->created_at)->format('d M Y') }}</div>
+                                    <div class="totalammount">{{ \Carbon\Carbon::parse($payment->payment_date)->format('d M Y') }}</div>
                                 </div>
                                 <div class="form-group payableinput">
                                     <label>Invoice/Slip No</label>
@@ -312,7 +307,13 @@
                                 <input type="hidden" name="is_payment" value="yes">
                                 <input type="hidden" name="pay_activity_id" value="{{ $payment->id }}"> <!-- Hidden input for pay_activity_id -->
                                 <div class="submitbuttonarea">
-                                    <button type="submit" name="submit">Balance Update <img src="{{ asset('submit.svg') }}" width="20" alt=""> </button>
+                                    <button type="submit" name="submit"
+                                    @if ($payment->status == 'receive_deposit') 
+                                        disabled 
+                                        style="cursor: not-allowed; opacity: 0.6;" 
+                                    @endif>
+                                        Balance Update <img src="{{ asset('submit.svg') }}" width="20" alt=""> 
+                                    </button>
                                 </div>
                             </div>
                             <div class="upload-container">

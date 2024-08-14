@@ -116,13 +116,13 @@
                         @foreach($depoData as $payment)
                             <tr>
                                 <td class="action-icon"><a href="{{ route('applicants.paymentViewRCV', ['applicant' => $applicant->id, 'payment' => $payment->id]) }}">👁️</a></td>
-                                <td>{{ \Carbon\Carbon::parse($payment->created_at)->format('d M Y') }}</td>
+                                <td>{{ \Carbon\Carbon::parse($applicant->created_at)->format('d M Y') }}</td>
                                 <td>{{ \Carbon\Carbon::parse($payment->payment_date)->format('d M Y') }}</td>
                                 <td>{{ $payment->method }}</td>
                                 <td>{{ $applicant->reference }}</td>
                                 <td>{{ $applicant->passportno }}</td>
                                 <td>{{ $payment->deposit_amount }}</td>
-                                <td>{{ $payment->is_received == null ? 'Req Deposit' : 'Received' }}</td>
+                                <td>{{ ucwords(str_replace('_', ' ', $payment->status)) }}</td>
                             </tr>
                         @endforeach
                     @endif

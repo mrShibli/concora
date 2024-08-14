@@ -43,7 +43,6 @@
         table.dataTable thead .sorting:first-child {
             padding-right: 12px !important;
         }
-
     </style>
 @endsection
 
@@ -118,14 +117,18 @@
                                     <td>{{ $applicant->nationality }}</td>
                                     <td>{{ $applicant->position->title ?? 'Position Not Found' }}</td>
                                     <td>{{ $applicant->contact_number }}</td>
-                                    <td class="emailstatus">  @if ($applicant->otp_verified == 0)
-                                        <img src="{{ asset('email-not-verified.svg') }}" width="25">
-                                    @endif
-    
-                                    @if ($applicant->otp_verified == 1)
-                                        <img src="{{ asset('email-verified.svg') }}" width="25">
-                                    @endif {{ $applicant->email }}</td>
-                                    <td>{{ $applicant->created_at->format('F d, Y') }}</td>
+                                    <td class="emailstatus">
+                                        @if ($applicant->otp_verified == 0)
+                                            <img src="{{ asset('email-not-verified.svg') }}" width="25">
+                                        @endif
+
+                                        @if ($applicant->otp_verified == 1)
+                                            <img src="{{ asset('email-verified.svg') }}" width="25">
+                                        @endif {{ $applicant->email }}
+                                    </td>
+                                    {{-- <td>{{ $applicant->created_at->format('F d, Y') }}</td> --}}
+                                    <td> {{ \Carbon\Carbon::parse($applicant->payActivities->last()->created_at)->format('d M Y') }}
+                                    </td>
                                     <td style="display: none;">{{ $applicant->passportno }}</td>
                                     <td style="display: none;">{{ $applicant->submissionid }}</td>
                                     <td style="display: none;">{{ $applicant->reference }}</td>

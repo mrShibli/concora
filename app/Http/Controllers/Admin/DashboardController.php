@@ -9,6 +9,7 @@ use App\Models\Contact;
 use App\Models\Applicant;
 use App\Models\Quotation;
 use App\Models\JobPosition;
+use App\Models\PayActivity;
 use Illuminate\Http\Request;
 use App\Mail\ApplicantVerifyOTP;
 use App\Models\EmailVerification;
@@ -18,15 +19,15 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\JobApplicationVerification;
-use App\Models\Weather; // Assuming your Weather model namespace is App\Models\Weather
 use Illuminate\Support\Facades\Validator;
+use App\Models\Weather; // Assuming your Weather model namespace is App\Models\Weather
 
 class DashboardController extends Controller
 {
-    public function editappli() {
+    public function editappli()
+    {
 
         return 'hi';
-        
     }
 
     public function verifyjobmail(Request $request)
@@ -67,12 +68,11 @@ class DashboardController extends Controller
     public function verifyNow(Request $request)
     {
         $email = $request->query('email');
-        if(session()->has('verifyInfo')){
+        if (session()->has('verifyInfo')) {
             $vInfo = session()->get('verifyInfo');
-            if($vInfo['status'] == true){
+            if ($vInfo['status'] == true) {
                 return redirect()->route('verified.email')->with('verifymessage', 'Your email has been successfully verified. Welcome to Conqueror Services, Dubai. You will get a call from our recruitment team within 7-14 days for an interview in your home country.');
             }
-            
         }
         return view('layouts.frontend.verifynow', compact('email'));
     }
@@ -134,7 +134,8 @@ class DashboardController extends Controller
         }
     }
 
-    public function changeEmail(Request $request){
+    public function changeEmail(Request $request)
+    {
         // Retrieve email address from the request
         $email = $request->oldEmail;
         $newemail = $request->newEmail;
@@ -144,7 +145,7 @@ class DashboardController extends Controller
             'newEmail' => 'required|email|unique:applicants,email',
         ]);
 
-        if($validator->fails()){
+        if ($validator->fails()) {
             return response()->json([
                 'status' => false,
                 'message' => $validator->errors()->first()
@@ -233,7 +234,6 @@ class DashboardController extends Controller
         session()->put('verifyInfo', ['status' => true, 'url' => $vInfo['url']]);
         // Redirect user to a confirmation page
         return redirect('/verified')->with('verifymessage', 'Your email has been successfully verified. Welcome to Conqueror Services, Dubai. You will get a call from our recruitment team within 7-14 days for an interview in your home country.');
-
     }
 
     public function sendmail()
@@ -250,9 +250,17 @@ class DashboardController extends Controller
     //Main Page
     public function index()
     {
-        $JobApplicant = Applicant::count();
-        $JobApplicantNepal = Applicant::where('nationality', 'Nepal')->count();
-        $JobApplicantIndia = Applicant::where('nationality', 'India')->count();
+        $JobApplicantRegular = Applicant::count();
+        $JobApplicantNepalRegular = Applicant::where('nationality', 'Nepal')->count();
+        $JobApplicantIndiaRegular = Applicant::where('nationality', 'India')->count();
+
+        $applicants = Applicant::whereDoesntHave('payActivities')
+            ->where('otp_verified', 1);
+
+        $JobApplicant = $applicants->count();
+        $JobApplicantNepal = $applicants->where('nationality', 'Nepal')->count();
+        $JobApplicantIndia = $applicants->where('nationality', 'India')->count();
+
         $quotation = Quotation::count();
         $contactscount = Contact::count();
         $jobpositions = JobPosition::count();
@@ -262,8 +270,48 @@ class DashboardController extends Controller
         $JobApplicantInvited = Applicant::where('applicant_status', 'invited')->count();
         $JobApplicantHired = Applicant::where('applicant_status', 'hired')->count();
 
+
+        $applicantsPaymentDues = Applicant::whereHas('payActivities', function ($query) {
+            $query->where('deposit_amount', '>=', 1);
+        })
+            ->where('balance', '<', 6000)
+            ->orderBy('created_at', 'desc')
+            ->with(['payActivities' => function ($query) {
+                $query->where('status', 'request_deposit')->orWhere('status', 'receive_deposit');
+            }])
+            ->count();
+
+        $applicantsPaymnentRCV = Applicant::whereHas('payActivities', function ($query) {
+            $query->where('status', 'request_deposit')
+                ->orWhere('status', 'add_payment')
+                ->where('deposit_amount', '>=', 1);
+        })
+            ->where('balance', '<', 6000)
+            ->count();
+
+        // $applicantsCreditReqApproval = Applicant::whereHas('payActivities', function ($query) {
+        //     $query->where('deposit_amount', '>=', 1);
+        // })
+        //     ->where('balance', '<', 6000)
+        //     ->orderBy('created_at', 'desc')
+        //     ->with(['payActivities' => function ($query) {
+        //         $query->where('status', 'request_credit');
+        //     }])
+        //     ->count();
+
+        $applicantsCreditReqApproval = Applicant::whereHas('payActivities', function ($query) {
+            $query->where('status', 'request_credit')
+                ->where('deposit_amount', '>=', 1);
+        })
+            ->where('balance', '<', 6000)
+            ->count();
+
+        $applicantsInvited = Applicant::where('applicant_status', 'invited')
+            ->orderBy('created_at', 'desc')
+            ->count();
+
         $applicants = Applicant::orderBy('created_at', 'desc')->get();
-        return view('layouts.admin.dashboard', compact('JobApplicant', 'quotation', 'jobpositions', 'contactscount', 'applicants', 'JobApplicantOtpVerified', 'JobApplicantOtpNotVerified', 'JobApplicantInvited', 'JobApplicantHired', 'JobApplicantNepal', 'JobApplicantIndia'));
+        return view('layouts.admin.dashboard', compact('JobApplicant', 'quotation', 'jobpositions', 'contactscount', 'applicants', 'JobApplicantOtpVerified', 'JobApplicantOtpNotVerified', 'JobApplicantInvited', 'JobApplicantHired', 'JobApplicantNepal', 'JobApplicantIndia', 'applicantsPaymnentRCV', 'applicantsPaymentDues', 'applicantsCreditReqApproval', 'JobApplicantRegular', 'JobApplicantNepalRegular', 'JobApplicantIndiaRegular', 'applicantsInvited'));
     }
 
     public function logout(Request $request)

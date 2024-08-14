@@ -1794,8 +1794,8 @@
                                             value="Sri Lanka">Sri Lanka</option>
 
                                         <option
-                                            {{ $hasOldData1 && $oldData1->nationality == 'Philippine' ? 'selected' : '' }}
-                                            value="Philippine">Philippine</option>
+                                            {{ $hasOldData1 && $oldData1->nationality == 'Philippines' ? 'selected' : '' }}
+                                            value="Philippines">Philippines</option>
 
                                         <option
                                             {{ $hasOldData1 && $oldData1->nationality == 'Bangladesh' ? 'selected' : '' }}

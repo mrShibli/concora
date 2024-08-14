@@ -22,6 +22,17 @@ return new class extends Migration
             $table->string('slip_invoice_file');
             $table->string('is_recevied')->nullable();
             $table->string('applicant_id');
+            $table->string('status');
+            $table->string('recomNote')->nullable();
+
+            $table->unsignedBigInteger('request_deposit_by');
+            $table->unsignedBigInteger('add_payment_by');
+            $table->unsignedBigInteger('receive_deposit_by');
+            $table->unsignedBigInteger('request_credit_by');
+            $table->unsignedBigInteger('accept_credit_by');
+            $table->unsignedBigInteger('sent_modified_by');
+            $table->unsignedBigInteger('modified_by');
+
             $table->timestamps();
         });
     }

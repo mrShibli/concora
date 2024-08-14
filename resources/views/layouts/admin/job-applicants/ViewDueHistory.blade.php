@@ -86,7 +86,8 @@
         <div class="breadcums mb-3 ml-2 Tablet:mt-[-5px]">
             <div class="">
                 <a href="{{ route('dashboard') }}" class="text-xs text-blue-600 hover:underline">Home /</a> <a
-                    href="{{ route('applicants.duesPayment') }}" class="text-xs text-blue-600 hover:underline">Applicants /</a>
+                    href="{{ route('applicants.duesPayment') }}" class="text-xs text-blue-600 hover:underline">Applicants
+                    /</a>
                 <a href="" class="text-xs text-gray-500 hover:underline">View</a>
             </div>
         </div>
@@ -94,6 +95,17 @@
         <div class=" bg-White-c p-2 py-4 pb-8 Tablet:p-8   Laptop:py-12  shadow-sm rounded-xl ">
 
             <h2 style="padding-bottom: 9px;">Payment Details</h2>
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            @if (session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
             <table>
                 <thead>
                     <tr>
@@ -108,17 +120,38 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="action-icon"><a href="{{ route('applicants.paymentView', ['id' => $applicant->id]) }}">👁️</a></td>
-                        <td>{{ \Carbon\Carbon::parse($applicant->created_at)->format('d M Y') }}</td>
-                        <td>N/A</td>
-                        <td>Machine Deposit</td>
-                        <td>{{ in_array($applicant->reference, ['PK2024S7', 'KP2024P3', 'MS2024K8', 'MN2024U5', 'SZ2024A9', 'WK1978SI41']) ? $applicant->reference : 'No' }}</td>
-                        <td>{{ $applicant->passportno }}</td>
-                        <td>AED 4,000</td>
-                        <td>Sent for Credit</td>
-                    </tr>
+                    @forelse ($payactivity as $activity)
+                        <tr>
+                            <td class="action-icon">
+                                <a
+                                    href="{{ route('applicants.paymentView', ['applicant_id' => $activity->applicant->id, 'payid_id' => $activity->id]) }}">👁️</a>
+                            </td>
+                            <td>{{ \Carbon\Carbon::parse($activity->applicant->created_at)->format('d M Y') }}</td>
+                            <td>{{ \Carbon\Carbon::parse($activity->payment_date)->format('d M Y') }}</td>
+                            <td>{{ $activity->method }}</td>
+                            <td>{{ in_array($activity->applicant->reference, ['LS1994ND40', 'QM1990ZD12', 'WK1978SI41', 'GK1980MM51']) ? $activity->applicant->reference : 'No' }}
+                            </td>
+                            <td>{{ $activity->applicant->passportno }}</td>
+                            <td>{{ $activity->deposit_amount }}</td>
+                            <td> {{ ucwords(str_replace('_', ' ', $activity->status)) }} </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td class="action-icon">
+                                <a href="{{ route('applicants.paymentView', ['applicant_id' => $applicant->id]) }}">👁️</a>
+                            </td>
+                            <td>{{ \Carbon\Carbon::parse($applicant->created_at)->format('d M Y') }}</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>{{ in_array($applicant->reference, ['LS1994ND40', 'QM1990ZD12', 'WK1978SI41', 'GK1980MM51']) ? $applicant->reference : 'No' }}
+                            </td>
+                            <td>{{ $applicant->passportno }}</td>
+                            <td>N/A</td>
+                            <td>No Payment</td>
+                        </tr>
+                    @endforelse
                 </tbody>
+
             </table>
 
         </div>

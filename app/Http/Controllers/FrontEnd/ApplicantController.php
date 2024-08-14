@@ -86,7 +86,14 @@ class ApplicantController extends Controller
         $applicants = Applicant::where('applicant_status', 'invited')
             ->orderBy('created_at', 'desc')
             ->get();
-        return view('layouts.admin.job-applicants.indexinvited', compact('applicants'));
+        return view('layouts.admin.job-applicants.indexinvited ', compact('applicants'));
+    }
+
+    public function invitedByID($id)
+    {
+        $applicants = Applicant::findorfail($id);
+        return $applicants;
+        return view('layouts.admin.job-applicants.invitedsingleview', compact('applicants'));
     }
 
     public function hired()
@@ -99,10 +106,38 @@ class ApplicantController extends Controller
 
     public function duesPayment()
     {
-        $applicants = Applicant::where('balance', '<', 6000)
+        // $applicants = Applicant::where('balance', '<', 6000)
+        //     ->where('otp_verified', 1)
+        //     ->orderBy('created_at', 'desc')
+        //     ->get();
+
+
+        $applicants = Applicant::whereDoesntHave('payActivities')
             ->where('otp_verified', 1)
             ->orderBy('created_at', 'desc')
             ->get();
+
+
+
+        // return $applicants;
+
+        return view('layouts.admin.job-applicants.indexDues', compact('applicants'));
+    }
+
+    public function newPayment()
+    {
+
+        $applicants = Applicant::whereHas('payActivities', function ($query) {
+            $query->where('deposit_amount', '>=', 1);
+        })
+            ->where('balance', '<', 6000)
+            ->orderBy('created_at', 'desc')
+            ->with(['payActivities' => function ($query) {
+                $query->where('status', 'request_deposit')->orWhere('status', 'receive_deposit');
+            }])
+            ->get();
+
+        // return $applicants;
 
         return view('layouts.admin.job-applicants.indexDues', compact('applicants'));
     }
@@ -110,30 +145,52 @@ class ApplicantController extends Controller
     public function receivePayment()
     {
         $applicants = Applicant::whereHas('payActivities', function ($query) {
-            $query->where('deposit_amount', '>=', 1);
+            $query->where('status', 'request_deposit')
+                ->orWhere('status', 'add_payment')
+                ->where('deposit_amount', '>=', 1);
         })
             ->where('balance', '<', 6000)
-            ->orderBy('created_at', 'desc')
-            ->with(['payActivities' => function ($query) {
-                $query->where('deposit_amount', '>=', 1);
-            }])
             ->get();
+
         return view('layouts.admin.job-applicants.indexRecceived', compact('applicants'));
     }
 
-
-    public function paymentHistory(Applicant $id)
+    public function creditApprovalReqApplicants()
     {
-        $applicant = $applicant = $id;
-        // return $applicant;
-        return view('layouts.admin.job-applicants.ViewDueHistory', compact('applicant'));
+        // $applicants = Applicant::whereHas('payActivities', function ($query) {
+        //     $query->where('deposit_amount', '>=', 1);
+        // })
+        //     ->where('balance', '<', 6000)
+        //     ->orderBy('created_at', 'desc')
+        //     ->with(['payActivities' => function ($query) {
+        //         $query->where('status', 'request_credit');
+        //     }])
+        //     ->get();
+
+        $applicants = Applicant::whereHas('payActivities', function ($query) {
+            $query->where('status', 'request_credit')
+                ->where('deposit_amount', '>=', 1);
+        })
+            ->where('balance', '<', 6000)
+            ->get();
+
+        return view('layouts.admin.job-applicants.indexCreditReqApproval', compact('applicants'));
+    }
+
+
+    public function paymentHistory($id)
+    {
+        $applicant = Applicant::findorfail($id);
+        $payactivity = PayActivity::where('applicant_id', $applicant->id)->get();
+        return view('layouts.admin.job-applicants.ViewDueHistory', compact('applicant', 'payactivity'));
     }
 
     public function paymentHistoryRCV(Applicant $applicant, $id)
     {
         // Retrieve the payment activities for the given applicant
         $depoData = PayActivity::where('applicant_id', $id)
-            ->whereNull('is_recevied') // Corrected the condition to check for null
+            ->where('status', 'request_deposit') // Corrected the condition to check for null
+            ->orWhere('status', 'add_payment') // Corrected the condition to check for null
             ->get();
 
         // Fetch the applicant data
@@ -143,55 +200,42 @@ class ApplicantController extends Controller
         return view('layouts.admin.job-applicants.ViewDueHistoryRCV', compact('applicant', 'depoData'));
     }
 
-
-    public function paymentView(Applicant $id)
+    public function paymentReqCreditApproval(Applicant $applicant, $id)
     {
-        $applicant = $applicant = $id;
-        // return $applicant;
-        return view('layouts.admin.job-applicants.paumentView', compact('applicant'));
+        // Retrieve the payment activities for the given applicant
+        $depoData = PayActivity::where('applicant_id', $id)->where('status', 'request_credit')->get();
+
+        // Fetch the applicant data
+        $applicant = Applicant::findOrFail($id);
+
+        // Return the view with the applicant and payment data
+        return view('layouts.admin.job-applicants.ViewCreditApproval', compact('applicant', 'depoData'));
     }
+
+
+
+
+    public function paymentView($applicant_id, $payid_id = null)
+    {
+        $applicant = Applicant::findOrFail($applicant_id);
+        $payactivity = $payid_id ? PayActivity::findOrFail($payid_id) : null;
+
+        // dd($payactivity);
+
+        return view('layouts.admin.job-applicants.paymentView', compact('applicant', 'payactivity'));
+    }
+
 
     public function paymentViewRCV(Applicant $applicant, PayActivity $payment)
     {
         return view('layouts.admin.job-applicants.paymentViewRCV', compact('applicant', 'payment'));
     }
 
-    public function updateBalance(Request $request, Applicant $applicant)
+    public function paymentViewCreditApproval(Applicant $applicant, PayActivity $payment)
     {
-        $request->validate([
-            'deposit_amount' => 'required|numeric|min:0', // Ensure the value is a positive number
-            'slip_invoice_number' => 'required|string', // Ensure slip_invoice_number is provided
-        ]);
-
-        $depositAmount = (float) $request->input('deposit_amount');
-
-        // Maximum allowed balance based on your current schema precision
-        $maxBalance = 6000; // Adjust this based on your column's max value
-
-        // Check if the new balance exceeds the maximum allowed
-        if ($applicant->balance + $depositAmount > $maxBalance) {
-            return redirect()->back()->with('error', 'The deposit amount is too high and would exceed the maximum allowed balance.');
-        }
-
-        // Update the applicant's balance
-        $applicant->balance += $depositAmount;
-        $applicant->save();
-
-        // Assuming you have the PayActivity ID available in the request
-        $payActivityId = $request->input('pay_activity_id'); // Make sure this field is in your form
-
-        // Find and update the PayActivity record
-        if ($payActivityId) {
-            $payActivity = PayActivity::findOrFail($payActivityId);
-            $payActivity->slip_invoice_number = $request->input('slip_invoice_number');
-            $payActivity->is_recevied = 'yes'; // Mark as received
-            $payActivity->save();
-        }
-
-        return redirect()->back()->with('success', 'Balance updated successfully.');
+        // return $payment;
+        return view('layouts.admin.job-applicants.paymentViewCreditApproval', compact('applicant', 'payment'));
     }
-
-
 
 
     public function store($tempDataId)

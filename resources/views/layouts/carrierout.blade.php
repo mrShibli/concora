@@ -16,9 +16,13 @@
 
         }
 
+        .image{
+            text-align: center;
+        }
+
         .image img {
-            width: 100%;
-            height: 500px;
+            /* width: 100%;
+            height: 500px; */
         }
 
         .container-fluid .buttons {
@@ -114,21 +118,21 @@
 
         @media (max-width: 900px) {
             .image img {
-                width: 100%;
-                height: 250px;
+                /* width: 100%; */
+                /* height: 250px; */
             }
         }
     </style>
     <div class="container-fluid">
         <div class="image">
-            <img src="{{ asset('img.png') }}" alt="">
+            <img src="{{ asset('hiring-banner3.png') }}" alt="">
         </div>
 
         <div class="buttons">
-            <a href="{{ route('rider.apply') }}" class="" style="background: #5acbf4; color: #b2230a;">New Application</a>
-            <a href="#" class="new-btn" style="background: #f8aa4d; color: #165d37;">Track Application</a>
-            <a href="#" class="update-btn" style="background: #f69ea7; color: #000000;">Update Application</a>
-            <a href="#" class="email-btn" style="background: #f8f14e; color: #165d37;">Email Verify</a>
+            <a href="{{ route('rider.apply') }}" class="" style="background: #1278BC; color: #ffffff;">New Application</a>
+            <a href="#" class="new-btn" style="background: #27303F; color: #ffffff;">Track Application</a>
+            <a href="#" class="update-btn" style="background: #1278BC; color: #ffffff;">Update Application</a>
+            <a href="#" class="email-btn" style="background: #27303F; color: #ffffff;">Email Verify</a>
         </div>
 
         <div class="error">

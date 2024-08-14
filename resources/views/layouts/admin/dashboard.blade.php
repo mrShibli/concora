@@ -166,11 +166,14 @@
                                             'nepal@conquerorgroup.ae',
                                             'santoshgirisir7@gmail.com',
                                         ]))
-                                        <h2 class="text-black-c text-sm Tablet:text-base">{{ $JobApplicantNepal }}</h2>
+                                        <h2 class="text-black-c text-sm Tablet:text-base">
+                                            {{ $JobApplicantNepalRegular }}</h2>
                                     @elseif (Auth::user()->email === 'india@conquerorgroup.ae')
-                                        <h2 class="text-black-c text-sm Tablet:text-base">{{ $JobApplicantIndia }}</h2>
+                                        <h2 class="text-black-c text-sm Tablet:text-base">
+                                            {{ $JobApplicantIndiaRegular }}</h2>
                                     @else
-                                        <h2 class="text-black-c text-sm Tablet:text-base">{{ $JobApplicant }}</h2>
+                                        <h2 class="text-black-c text-sm Tablet:text-base">{{ $JobApplicantRegular }}
+                                        </h2>
                                     @endif
                                     <i class="fas fa-chevron-right"></i>
                                 </div>
@@ -180,26 +183,28 @@
 
 
 
-                        <div class="border border-gray-300 rounded-xl p-2 px-4">
-                            <div class="flex items-center justify-between mb-4">
-                                <h2 class="text-black-c text-sm Tablet:text-base">5</h2>
-                                <i class="fas fa-chevron-right"></i>
+                        <a href="{{ route('applicants.invited') }}">
+                            <div class="border border-gray-300 rounded-xl p-2 px-4">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h2 class="text-black-c text-sm Tablet:text-base">{{ $applicantsInvited }}</h2>
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                                <p class="text-xs Tablet:text-sm text-black-c">Invite for Interview</p>
                             </div>
-                            <p class="text-xs Tablet:text-sm text-black-c">Invite for Interview</p>
-                        </div>
+                        </a>
                         <div class="border border-gray-300 rounded-xl p-2 px-4">
                             <div class="flex items-center justify-between mb-4">
                                 <h2 class="text-black-c text-sm Tablet:text-base">2</h2>
                                 <i class="fas fa-chevron-right"></i>
                             </div>
-                            <p class="text-xs Tablet:text-sm text-black-c">Payment Received for Visa</p>
+                            <p class="text-xs Tablet:text-sm text-black-c">Payment Received for eVisa</p>
                         </div>
                         <div class="border border-gray-300 rounded-xl p-2 px-4">
                             <div class="flex items-center justify-between mb-4">
                                 <h2 class="text-black-c text-sm Tablet:text-base">1</h2>
                                 <i class="fas fa-chevron-right"></i>
                             </div>
-                            <p class="text-xs Tablet:text-sm text-black-c">Visa Processed</p>
+                            <p class="text-xs Tablet:text-sm text-black-c">eVisa Processed</p>
                         </div>
                         <div class="border border-gray-300 rounded-xl p-2 px-4">
                             <div class="flex items-center justify-between mb-4">
@@ -267,7 +272,16 @@
                     <h4 class="text-base mb-4">Pending Activities</h4>
                     <div
                         class="grid grid-cols-2 Tablet:grid-cols-3 Laptop:grid-cols-4  gap-2 Tablet:gap-3 Laptop:gap-4 ">
-
+                        <a href="{{ route('applicants.receivePayment') }}">
+                            <div class="border border-gray-300 rounded-xl p-2 px-4">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h2 class="text-black-c text-sm Tablet:text-base">{{ $applicantsPaymnentRCV }}
+                                    </h2>
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                                <p class="text-xs Tablet:text-sm text-black-c"> Payment Received</p>
+                            </div>
+                        </a>
                         <div class="border border-gray-300 rounded-xl p-2 px-4">
                             <div class="flex items-center justify-between mb-4">
                                 <h2 class="text-black-c text-sm Tablet:text-base">4</h2>
@@ -275,13 +289,15 @@
                             </div>
                             <p class="text-xs Tablet:text-sm text-black-c">Edit/Update Approval</p>
                         </div>
-                        <div class="border border-gray-300 rounded-xl p-2 px-4">
-                            <div class="flex items-center justify-between mb-4">
-                                <h2 class="text-black-c text-sm Tablet:text-base">2</h2>
-                                <i class="fas fa-chevron-right"></i>
+                        <a href="{{ route('applicants.creditApprovalReqApplicants') }}">
+                            <div class="border border-gray-300 rounded-xl p-2 px-4">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h2 class="text-black-c text-sm Tablet:text-base">2</h2>
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                                <p class="text-xs Tablet:text-sm text-black-c">Credit Approval Req</p>
                             </div>
-                            <p class="text-xs Tablet:text-sm text-black-c">Credit Req Approval</p>
-                        </div>
+                        </a>
                         <div class="border border-gray-300 rounded-xl p-2 px-4">
                             <div class="flex items-center justify-between mb-4">
                                 <h2 class="text-black-c text-sm Tablet:text-base">1</h2>
@@ -292,22 +308,15 @@
                         <a href="{{ route('applicants.notverified') }}">
                             <div class="border border-gray-300 rounded-xl p-2 px-4">
                                 <div class="flex items-center justify-between mb-4">
-                                    <h2 class="text-black-c text-sm Tablet:text-base">{{ $JobApplicantOtpNotVerified }}
+                                    <h2 class="text-black-c text-sm Tablet:text-base">
+                                        {{ $JobApplicantOtpNotVerified }}
                                     </h2>
                                     <i class="fas fa-chevron-right"></i>
                                 </div>
                                 <p class="text-xs Tablet:text-sm text-black-c">Email Verification</p>
                             </div>
                         </a>
-                        <a href="{{ route('applicants.receivePayment') }}">
-                            <div class="border border-gray-300 rounded-xl p-2 px-4">
-                                <div class="flex items-center justify-between mb-4">
-                                    <h2 class="text-black-c text-sm Tablet:text-base">2</h2>
-                                    <i class="fas fa-chevron-right"></i>
-                                </div>
-                                <p class="text-xs Tablet:text-sm text-black-c">Receive Payment</p>
-                            </div>
-                        </a>
+
 
 
 
@@ -380,13 +389,16 @@
                                 </div>
                                 <p class="text-xs Tablet:text-sm text-black-c">Manager</p>
                             </div>
-                            <div class="border border-gray-300 rounded-xl p-2 px-4">
-                                <div class="flex items-center justify-between mb-4">
-                                    <h2 class="text-black-c text-sm Tablet:text-base">7</h2>
-                                    <i class="fas fa-chevron-right"></i>
+                            <a href="{{ route('applicants.creditApprovalReqApplicants') }}">
+                                <div class="border border-gray-300 rounded-xl p-2 px-4">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h2 class="text-black-c text-sm Tablet:text-base">
+                                            {{ $applicantsCreditReqApproval }}</h2>
+                                        <i class="fas fa-chevron-right"></i>
+                                    </div>
+                                    <p class="text-xs Tablet:text-sm text-black-c">Credit Approval Req</p>
                                 </div>
-                                <p class="text-xs Tablet:text-sm text-black-c">Credit Approval Req</p>
-                            </div>
+                            </a>
                             <div class="border border-gray-300 rounded-xl p-2 px-4">
                                 <div class="flex items-center justify-between mb-4">
                                     <h2 class="text-black-c text-sm Tablet:text-base">4</h2>
@@ -469,13 +481,16 @@
                                 </div>
                                 <p class="text-xs Tablet:text-sm text-black-c">User Approval</p>
                             </div>
-                            <div class="border border-gray-300 rounded-xl p-2 px-4">
-                                <div class="flex items-center justify-between mb-4">
-                                    <h2 class="text-black-c text-sm Tablet:text-base">2</h2>
-                                    <i class="fas fa-chevron-right"></i>
+                            <a href="{{ route('applicants.creditApprovalReqApplicants') }}">
+                                <div class="border border-gray-300 rounded-xl p-2 px-4">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h2 class="text-black-c text-sm Tablet:text-base">
+                                            {{ $applicantsCreditReqApproval }}</h2>
+                                        <i class="fas fa-chevron-right"></i>
+                                    </div>
+                                    <p class="text-xs Tablet:text-sm text-black-c">Credit Approval Req</p>
                                 </div>
-                                <p class="text-xs Tablet:text-sm text-black-c">Credit Req Approval</p>
-                            </div>
+                            </a>
                             <div class="border border-gray-300 rounded-xl p-2 px-4">
                                 <div class="flex items-center justify-between mb-4">
                                     <h2 class="text-black-c text-sm Tablet:text-base">1</h2>
@@ -490,20 +505,17 @@
                                 </div>
                                 <p class="text-xs Tablet:text-sm text-black-c">Email Change</p>
                             </div>
-                            <div class="border border-gray-300 rounded-xl p-2 px-4">
-                                <div class="flex items-center justify-between mb-4">
-                                    <h2 class="text-black-c text-sm Tablet:text-base">2</h2>
-                                    <i class="fas fa-chevron-right"></i>
+                            <a href="{{ route('applicants.receivePayment') }}">
+                                <div class="border border-gray-300 rounded-xl p-2 px-4">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h2 class="text-black-c text-sm Tablet:text-base">{{ $applicantsPaymnentRCV }}
+                                        </h2>
+                                        <i class="fas fa-chevron-right"></i>
+                                    </div>
+                                    <p class="text-xs Tablet:text-sm text-black-c">Receive Payment</p>
                                 </div>
-                                <p class="text-xs Tablet:text-sm text-black-c">Receive Payment</p>
-                            </div>
-                            <div class="border border-gray-300 rounded-xl p-2 px-4">
-                                <div class="flex items-center justify-between mb-4">
-                                    <h2 class="text-black-c text-sm Tablet:text-base">2</h2>
-                                    <i class="fas fa-chevron-right"></i>
-                                </div>
-                                <p class="text-xs Tablet:text-sm text-black-c">Receive Payment</p>
-                            </div>
+                            </a>
+
 
 
 
@@ -560,22 +572,36 @@
 
                         <div
                             class="grid grid-cols-2 Tablet:grid-cols-3 Laptop:grid-cols-4 gap-2 Tablet:gap-3 Laptop:gap-4   ">
-                            <div class="border border-gray-300 rounded-xl p-2 px-4">
-                                <div class="flex items-center justify-between mb-4">
-                                    <h2 class="text-black-c text-sm Tablet:text-base">5</h2>
-                                    <i class="fas fa-chevron-right"></i>
+
+                            <a href="{{ route('applicants.newPayment') }}">
+                                <div class="border border-gray-300 rounded-xl p-2 px-4">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h2 class="text-black-c text-sm Tablet:text-base">{{ $applicantsPaymentDues }}
+                                        </h2>
+                                        <i class="fas fa-chevron-right"></i>
+                                    </div>
+                                    <p class="text-xs Tablet:text-sm text-black-c">New Payment </p>
                                 </div>
-                                <p class="text-xs Tablet:text-sm text-black-c">New Payment </p>
-                            </div>
+                            </a>
+
                             {{-- <a href="{{ route('applicants.duesPayment') }}">
                                 <div class="border border-gray-300 rounded-xl p-2 px-4">
                                     <div class="flex items-center justify-between mb-4">
-                                        <h2 class="text-black-c text-sm Tablet:text-base">{{ $JobApplicant }}</h2>
+                                        @if (in_array(Auth::user()->email, ['shubash@conquerorgroup.ae', 'kamal@conquerorgroup.ae', 'nepal@conquerorgroup.ae', 'santoshgirisir7@gmail.com']))
+                                            <h2 class="text-black-c text-sm Tablet:text-base">{{ $JobApplicantNepal }}
+                                            </h2>
+                                        @elseif (Auth::user()->email === 'india@conquerorgroup.ae')
+                                            <h2 class="text-black-c text-sm Tablet:text-base">{{ $JobApplicantIndia }}
+                                            </h2>
+                                        @else
+                                            <h2 class="text-black-c text-sm Tablet:text-base">{{ $JobApplicant }}</h2>
+                                        @endif
                                         <i class="fas fa-chevron-right"></i>
                                     </div>
                                     <p class="text-xs Tablet:text-sm text-black-c">Dues Payment</p>
                                 </div>
                             </a> --}}
+
                             <a href="{{ route('applicants.duesPayment') }}">
                                 <div class="border border-gray-300 rounded-xl p-2 px-4">
                                     <div class="flex items-center justify-between mb-4">
@@ -598,13 +624,17 @@
                                     <p class="text-xs Tablet:text-sm text-black-c">Dues Payment</p>
                                 </div>
                             </a>
-                            <div class="border border-gray-300 rounded-xl p-2 px-4">
-                                <div class="flex items-center justify-between mb-4">
-                                    <h2 class="text-black-c text-sm Tablet:text-base">7</h2>
-                                    <i class="fas fa-chevron-right"></i>
+
+                            <a href="{{ route('applicants.creditApprovalReqApplicants') }}">
+                                <div class="border border-gray-300 rounded-xl p-2 px-4">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h2 class="text-black-c text-sm Tablet:text-base">
+                                            {{ $applicantsCreditReqApproval }}</h2>
+                                        <i class="fas fa-chevron-right"></i>
+                                    </div>
+                                    <p class="text-xs Tablet:text-sm text-black-c">Credit Approval Req</p>
                                 </div>
-                                <p class="text-xs Tablet:text-sm text-black-c">Credit Approval Req</p>
-                            </div>
+                            </a>
                             <div class="border border-gray-300 rounded-xl p-2 px-4">
                                 <div class="flex items-center justify-between mb-4">
                                     <h2 class="text-black-c text-sm Tablet:text-base">4</h2>
@@ -653,10 +683,11 @@
                             </div>
                             <div class="border border-gray-300 rounded-xl p-2 px-4">
                                 <div class="flex items-center justify-between mb-4">
-                                    <h2 class="text-black-c text-sm Tablet:text-base">2</h2>
+                                    <h2 class="text-black-c text-sm Tablet:text-base">
+                                        {{ $applicantsCreditReqApproval }}</h2>
                                     <i class="fas fa-chevron-right"></i>
                                 </div>
-                                <p class="text-xs Tablet:text-sm text-black-c">Credit Req Approval</p>
+                                <p class="text-xs Tablet:text-sm text-black-c">Credit Approval Req</p>
                             </div>
                             <div class="border border-gray-300 rounded-xl p-2 px-4">
                                 <div class="flex items-center justify-between mb-4">
@@ -676,22 +707,13 @@
                             <a href="{{ route('applicants.receivePayment') }}">
                                 <div class="border border-gray-300 rounded-xl p-2 px-4">
                                     <div class="flex items-center justify-between mb-4">
-                                        <h2 class="text-black-c text-sm Tablet:text-base">2</h2>
+                                        <h2 class="text-black-c text-sm Tablet:text-base">{{ $applicantsPaymnentRCV }}
+                                        </h2>
                                         <i class="fas fa-chevron-right"></i>
                                     </div>
                                     <p class="text-xs Tablet:text-sm text-black-c">Receive Payment</p>
                                 </div>
                             </a>
-
-                            {{-- <div class="border border-gray-300 rounded-xl p-2 px-4">
-                                <div class="flex items-center justify-between mb-4">
-                                    <h2 class="text-black-c text-sm Tablet:text-base">2</h2>
-                                    <i class="fas fa-chevron-right"></i>
-                                </div>
-                                <p class="text-xs Tablet:text-sm text-black-c">Receive Payment</p>
-                            </div> --}}
-
-
 
                         </div>
 

@@ -195,18 +195,41 @@ Route::prefix('admin')->middleware(['auth', CheckRole::class . ':super_admin,gro
     Route::get('/applicants', [ApplicantController::class, 'index'])->name('applicants.index');
     Route::get('/applicants/verified', [ApplicantController::class, 'indexverified'])->name('applicants.indexverified');
     Route::get('/applicants/notverified', [ApplicantController::class, 'notverified'])->name('applicants.notverified');
+
     Route::get('/applicants/invited', [ApplicantController::class, 'invited'])->name('applicants.invited');
+    Route::get('/applicants/invited/{id}', [ApplicantController::class, 'invitedByID'])->name('applicants.invitedByID');
+
     Route::get('/applicants/hired', [ApplicantController::class, 'hired'])->name('applicants.hired');
     Route::get('/applicants/dues-payment', [ApplicantController::class, 'duesPayment'])->name('applicants.duesPayment');
     Route::get('/applicants/dues-payment/payment-history/{id}', [ApplicantController::class, 'paymentHistory'])->name('applicants.paymentHistory');
-    Route::get('/applicants/dues-payment/payment-view/{id}', [ApplicantController::class, 'paymentView'])->name('applicants.paymentView');
+    Route::get('/applicants/dues-payment/payment-view/{applicant_id}/{payid_id?}', [ApplicantController::class, 'paymentView'])->name('applicants.paymentView');
+
+    Route::get('/applicants/new-payment', [ApplicantController::class, 'newPayment'])->name('applicants.newPayment');
+
 
     Route::post('/applicants/dues-payment/payment-deposit/', [AddPayment::class, 'paymentdeposit'])->name('payment.deposit');
+    Route::post('/applicants/dues-payment/payment-addpayment/', [AddPayment::class, 'paymentadd'])->name('payment.addpayment');
 
     Route::get('/applicants/receive-payment', [ApplicantController::class, 'receivePayment'])->name('applicants.receivePayment');
+
+    Route::get('/applicants/credit-approval-req-applicants', [ApplicantController::class, 'creditApprovalReqApplicants'])->name('applicants.creditApprovalReqApplicants');
+
     Route::get('/applicants/dues-payment/payment-history-rcv/{id}', [ApplicantController::class, 'paymentHistoryRCV'])->name('applicants.paymentHistoryRCV');
+
+    Route::get('/applicants/dues-payment/req-credit-approval-history/{id}', [ApplicantController::class, 'paymentReqCreditApproval'])->name('applicants.paymentReqCreditApproval');
+
     Route::get('/applicants/dues-payment/payment-view-rcv/{applicant}/{payment}', [ApplicantController::class, 'paymentViewRCV'])->name('applicants.paymentViewRCV');
-    Route::post('/applicants/{applicant}/update-balance', [ApplicantController::class, 'updateBalance'])->name('applicants.updateBalance');
+
+    Route::get('/applicants/dues-payment/payment-view-credit-approval/{applicant}/{payment}', [ApplicantController::class, 'paymentViewCreditApproval'])->name('applicants.paymentViewCreditApproval');
+
+
+    Route::post('/applicants/{applicant}/update-balance', [AddPayment::class, 'updateBalance'])->name('applicants.updateBalance');
+
+    Route::post('/applicants/{applicant}/req-balance-approval', [AddPayment::class, 'reqBalanceApproval'])->name('applicants.reqBalanceApproval');
+
+    Route::post('/applicants/{applicant}/approve-balance-approval', [AddPayment::class, 'approveBalanceApproval'])->name('applicants.approveBalanceApproval');
+
+    Route::post('/applicants/{applicant}/req-approval-accept', [AddPayment::class, 'reqBalanceAccept'])->name('applicants.reqBalanceAccept');
 
 
     Route::get('/applicants/edit/{id}', [ApplicantController::class, 'editappli'])->name('applicants.editappli');

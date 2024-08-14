@@ -46,6 +46,15 @@
         .emailstatus img {
             margin-right: 3px;
         }
+        .alert-success {
+            padding: 9px 12px;
+            background: rgb(43, 113, 65);
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 7px;
+            border-radius: 5px;
+
+        }
     </style>
     @yield('styles')
 
