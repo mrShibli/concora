@@ -99,24 +99,27 @@ class AddPayment extends Controller
             return redirect()->back()->with('error', 'The deposit amount is too high and would exceed the maximum allowed balance.');
         }
 
-        // Update the applicant's balance
-        $applicant->balance += $depositAmount;
-        $applicant->save();
+        if ($applicant->applicant_status === 'hired') {
+            // Update the applicant's balance
+            $applicant->balance += $depositAmount;
+            $applicant->save();
 
-        // Assuming you have the PayActivity ID available in the request
-        $payActivityId = $request->input('pay_activity_id'); // Make sure this field is in your form
+            // Assuming you have the PayActivity ID available in the request
+            $payActivityId = $request->input('pay_activity_id'); // Make sure this field is in your form
 
-        // Find and update the PayActivity record
-        if ($payActivityId) {
-            $payActivity = PayActivity::findOrFail($payActivityId);
-            $payActivity->receive_deposit_by = Auth::id();
-            $payActivity->slip_invoice_number = $request->input('slip_invoice_number');
-            $payActivity->is_recevied = 'yes'; // Mark as received
-            $payActivity->status = 'receive_deposit';
-            $payActivity->save();
+            // Find and update the PayActivity record
+            if ($payActivityId) {
+                $payActivity = PayActivity::findOrFail($payActivityId);
+                $payActivity->receive_deposit_by = Auth::id();
+                $payActivity->slip_invoice_number = $request->input('slip_invoice_number');
+                $payActivity->is_recevied = 'yes'; // Mark as received
+                $payActivity->status = 'receive_deposit';
+                $payActivity->save();
+            }
+            return redirect()->back()->with('success', 'Balance updated successfully.');
+        } else {
+            return redirect()->back()->with('error', 'The applicant is not hired yet.');
         }
-
-        return redirect()->back()->with('success', 'Balance updated successfully.');
     }
 
 

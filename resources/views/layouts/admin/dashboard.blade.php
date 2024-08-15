@@ -182,7 +182,7 @@
                         </a>
 
 
-
+                        {{-- Invited Data Count and Action --}}
                         <a href="{{ route('applicants.invited') }}">
                             <div class="border border-gray-300 rounded-xl p-2 px-4">
                                 <div class="flex items-center justify-between mb-4">
@@ -192,6 +192,7 @@
                                 <p class="text-xs Tablet:text-sm text-black-c">Invite for Interview</p>
                             </div>
                         </a>
+
                         <div class="border border-gray-300 rounded-xl p-2 px-4">
                             <div class="flex items-center justify-between mb-4">
                                 <h2 class="text-black-c text-sm Tablet:text-base">2</h2>

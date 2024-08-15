@@ -197,7 +197,7 @@ Route::prefix('admin')->middleware(['auth', CheckRole::class . ':super_admin,gro
     Route::get('/applicants/notverified', [ApplicantController::class, 'notverified'])->name('applicants.notverified');
 
     Route::get('/applicants/invited', [ApplicantController::class, 'invited'])->name('applicants.invited');
-    Route::get('/applicants/invited/{id}', [ApplicantController::class, 'invitedByID'])->name('applicants.invitedByID');
+    Route::get('/applicants/invited/{id}', [ApplicantController::class, 'invitedByID'])->name('applicants.invitedByID'); // Get data with id
 
     Route::get('/applicants/hired', [ApplicantController::class, 'hired'])->name('applicants.hired');
     Route::get('/applicants/dues-payment', [ApplicantController::class, 'duesPayment'])->name('applicants.duesPayment');

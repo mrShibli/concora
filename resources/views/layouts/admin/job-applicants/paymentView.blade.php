@@ -202,6 +202,10 @@
             color: #000;
             text-align-last: left;
         }
+        .alert-danger{
+            background-color: red;
+            color: #fff;
+        }
     </style>
 @endsection
 
@@ -226,10 +230,11 @@
             @endif
 
             @if (session('error'))
-                <div class="alert alert-danger">
+                <div class="alert alert-success" style="background:rgb(146, 7, 7) !important;">
                     {{ session('error') }}
                 </div>
             @endif
+
             <div class="containermy form-container">
                 <div class="form-details">
 
@@ -246,7 +251,7 @@
 
                         @if (
                             !$payactivity ||
-                                in_array($payactivity->status, ['request_deposit', 'add_payment', 'receive_deposit', 'request_credit']))
+                                in_array($payactivity->status, ['request_deposit', 'add_payment', 'request_credit']))
                             <div class="tab-d" data-tab="add-payment">Add payment</div>
                         @else
                             <div class="tab" data-tab="add-payment">Add payment</div>

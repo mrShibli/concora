@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\User;
+use App\Models\Interview;
 use App\Models\JobPosition;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -79,5 +80,10 @@ class Applicant extends Model
     public function payActivities()
     {
         return $this->hasMany(PayActivity::class, 'applicant_id');
+    }
+
+    public function interview()
+    {
+        return $this->hasMany(Interview::class, 'applicant_id');
     }
 }

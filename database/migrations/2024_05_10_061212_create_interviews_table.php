@@ -21,8 +21,12 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('contactnumber')->nullable();
             $table->string('meetingurl')->nullable();
+            $table->string('meetingpass')->nullable();
             $table->string('zonecountry')->nullable();
             $table->string('scheduled_at')->nullable();
+            $table->string('qrcode_path')->nullable();
+            $table->string('message')->nullable();
+            $table->bigInteger('invitedby')->nullable();
             $table->timestamps();
         });
     }

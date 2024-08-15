@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\InPersonMail;
+use Carbon\Carbon;
 use App\Models\Applicant;
 use App\Models\Interview;
+use App\Mail\InPersonMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
+
 
 class InterviewController extends Controller
 {
@@ -32,13 +36,31 @@ class InterviewController extends Controller
         if ($request->address) {
             $interview->address = $request->address;
         }
+
         if ($request->meetingurl) {
             $interview->meetingurl = $request->meetingurl;
+    
+            // Generate QR code for the meeting URL using GD
+            $qrCode = QrCode::format('png')->size(300)->generate($request->meetingurl);
+    
+            // Create a file name for the QR code
+            $fileName = 'qrcodes/interview_' . $interview->id . '.png';
+    
+            // Save the QR code directly in the public directory
+            Storage::disk('public')->put($fileName, $qrCode);
+    
+            // Save the QR code path in the interview record
+            $interview->qrcode_path = $fileName;
         }
+
         $interview->time = $formattedDate;
         $interview->contactnumber = $request->contactNumber;
         $interview->meetingurl = $request->meetingurl;
         $interview->zonecountry = $request->zonecountry;
+
+        $interview->meetingpass = $request->meetingpass;
+        $interview->message = $request->message;
+        $interview->invitedby = Auth::id();
 
         $interview->save();
 

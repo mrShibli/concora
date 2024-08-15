@@ -126,8 +126,13 @@
                                             <img src="{{ asset('email-verified.svg') }}" width="25">
                                         @endif {{ $applicant->email }}
                                     </td>
-                                    {{-- <td>{{ $applicant->created_at->format('F d, Y') }}</td> --}}
-                                    <td> {{ \Carbon\Carbon::parse($applicant->payActivities->last()->created_at)->format('d M Y') }}
+                                    <td>
+                                        @if($applicant->payActivities->isNotEmpty())
+                                            {{ \Carbon\Carbon::parse($applicant->payActivities->last()->created_at)->format('d M Y') }}
+                                        @else
+                                            {{ $applicant->created_at->format('d M Y') }}
+                                        @endif
+                                    </td>
                                     </td>
                                     <td style="display: none;">{{ $applicant->passportno }}</td>
                                     <td style="display: none;">{{ $applicant->submissionid }}</td>

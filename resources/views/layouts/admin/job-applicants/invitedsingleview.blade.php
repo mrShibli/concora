@@ -126,6 +126,22 @@
             cursor: pointer;
         }
 
+        .qrcodecontainer {
+            width: 300px;
+            text-align: center;
+        }
+
+        .qrcodecontainer .upload-button {
+            border: none;
+            color: #000;
+        }
+
+        .qrcodecontainer button {
+            padding-top: 10px;
+            padding-left: 12px;
+        }
+
+
         .uploadarea {
             padding: 20px 5px;
         }
@@ -134,6 +150,10 @@
             text-align: center;
             position: relative;
             left: 38%;
+        }
+
+        .qrcodecontainer img {
+            left: 15%;
         }
 
         .upload-button input {
@@ -236,21 +256,9 @@
                     <div class="tabs">
                         <div class="tab active" data-tab="overview">Overview</div>
 
-                        <div class="tab" data-tab="deposit">Deposit</div>
+                        <div class="tab" data-tab="add-payment">Payment</div>
 
-                        @if (
-                            !$payactivity ||
-                                in_array($payactivity->status, ['request_deposit', 'add_payment', 'receive_deposit', 'request_credit']))
-                            <div class="tab-d" data-tab="add-payment">Add payment</div>
-                        @else
-                            <div class="tab" data-tab="add-payment">Add payment</div>
-                        @endif
-
-                        @if ($payactivity && $payactivity->status == 'receive_deposit')
-                            <div class="tab" data-tab="req-credit">Req for Credit</div>
-                        @else
-                            <div class="tab-d" data-tab="req-credit">Req for Credit</div>
-                        @endif
+                        <div class="tab" data-tab="req-credit">Send for Modification</div>
 
                         <div class="tab" data-tab="send-visa">Send for eVisa</div>
                     </div>
@@ -271,8 +279,8 @@
                                     <div>{{ $applicant->first_name }} {{ $applicant->last_name }}</div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Whatsapp Number</label>
-                                    <div>{{ $applicant->whatsapp_number }}</div>
+                                    <label>Nationality</label>
+                                    <div>{{ $applicant->nationality }}</div>
                                 </div>
                                 <div class="form-group emailaddress">
                                     <label>Email Address</label>
@@ -295,391 +303,112 @@
                                         &nbsp; </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Total Payable Amount</label>
-                                    <div><span class="highlight-red">AED 7,500</span></div>
+                                    <label>Meeting Code</label>
+                                    <div><span class="highlight-red">{{ $applicantInterview->meetingurl }}</span></div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Discount (if any)</label>
-                                    <div><span class="highlight-green">AED 1,500</span></div>
+                                    <label>Meeting Pass (if any)</label>
+                                    <div><span class="highlight-green">{{ $applicantInterview->meetingpass }}</span></div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Meeting Time</label>
+                                    <div><span class="highlight-black">{{ $applicantInterview->time }} , Time Zone By
+                                            {{ $applicantInterview->zonecountry }}</span></div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Note (if any)</label>
+                                    <div><span class="highlight-black">{{ $applicantInterview->message }}</span></div>
                                 </div>
 
                                 <div class="form-group">
-                                    @if ($payactivity != null && $payactivity->status == 'accept_credit')
-                                        <label>Wallet Amount</label>
-                                        <div><span class="highlight-green">AED {{ $payactivity->deposit_amount }}</span>
-                                        </div>
-                                    @elseif ($payactivity != null)
-                                        <label>Requested Amount</label>
-                                        <div><span class="highlight-green">AED {{ $payactivity->deposit_amount }}</span>
-                                        </div>
-                                    @else
-                                        <label>Receivable Amount</label>
-                                        <div><span class="highlight-green">AED 6000</span></div>
-                                    @endif
+                                <label>File Status</label>
+                                <div>
+                                    <span class="highlight-black">
+                                        @if ($invitedByUser)
+                                            Invited by - {{ $invitedByUser->name }}
+                                        @else
+                                            Invited by - Not available
+                                        @endif
+                            
+                                        @if ($applicantInterview && $applicantInterview->created_at)
+                                            , Time & Date - {{ \Carbon\Carbon::parse($applicantInterview->created_at)->format('H:i d/m/Y') }}
+                                        @else
+                                            , Time & Date - Not available
+                                        @endif
+                                    </span>
                                 </div>
+                            </div>
+
 
                                 <div class="form-group">
-                                    <label>Total Due</label>
-                                    <div class="totalammount">AED {{ $applicant->balance }}</div>
+                                    <label>Status updated</label>
+                                    <div><span
+                                            class="highlight-black">{{ ucwords(str_replace('_', ' ', $applicant->applicant_status)) }}</span>
+                                    </div>
                                 </div>
-                                {{-- <div class="submitbuttonarea">
-                                    <button type="submit" name="submit"> Submit <img src="{{ asset('submit.svg') }}"
-                                            width="20" alt=""> </button>
-                                </div> --}}
+
+
                             </div>
-                            <div class="upload-container">
-                                {{-- <div class="upload-button">
-                                    <input type="file" name="voucher" accept="image/*">
-                                    <img src="{{ asset('upload.svg') }}" width="70">
-                                    <button type="submit">Upload Slip/Voucher here</button>
-                                </div> --}}
-                            </div>
+
+                            @if ($applicantInterview->qrcode_path)
+                                <div class="upload-container qrcodecontainer">
+                                    <div class="upload-button">
+                                        <div>
+                                            <h3>Meeting QR Code</h3>
+                                            <img src="{{ asset('storage/' . $interview->qrcode_path) }}" width="100" alt="Meeting QR Code">
+                                        </div>
+                                        <button type="submit">QR Code</button>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="upload-container qrcodecontainer">
+                                    <div class="upload-button">
+                                        <div>
+                                            <h3>No QR Code Available</h3>
+                                            <p>The QR code for this meeting is not yet generated or available.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+
+
+
                         </form>
                     </div>
 
 
-                    <div class="tab-content" id="deposit" style="display: none;">
-
-                        @if (in_array($applicant->reference, ['LS1994ND40', 'QM1990ZD12', 'WK1978SI41', 'GK1980MM51']))
-                            <form action="{{ route('payment.deposit') }}" method="post" enctype="multipart/form-data">
-                                @csrf
-                                <div class="lefttabcontent">
-                                    <div class="form-group">
-                                        <label>Submission ID</label>
-                                        <div>{{ $applicant->submissionid }}</div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Full Name</label>
-                                        <div>{{ $applicant->first_name }} {{ $applicant->last_name }}</div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Nationality</label>
-                                        <div>{{ $applicant->nationality }}</div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Email Address</label>
-                                        <div>{{ $applicant->email }}
-                                            @if ($applicant->otp_verified == 0)
-                                                <img src="{{ asset('email-not-verified.svg') }}" width="25"
-                                                    style="padding-left: 3px;" class="eimg">
-                                            @endif
-
-                                            @if ($applicant->otp_verified == 1)
-                                                <img src="{{ asset('email-verified.svg') }}" width="25"
-                                                    style="padding-left: 3px;" class="eimg">
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Ref Code</label>
-                                        <div>
-                                            {{ in_array($applicant->reference, ['LS1994ND40', 'QM1990ZD12', 'WK1978SI41', 'GK1980MM51']) ? $applicant->reference : 'No' }}
-                                            &nbsp; </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Total Payable Amount</label>
-                                        <div><span class="highlight-red">AED 7,500</span></div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Discount (if any)</label>
-                                        <div><span class="highlight-green">AED 1,500</span></div>
-                                    </div>
-                                    <div class="form-group payableinput">
-                                        <label>Deposit Amount</label>
-                                        <div><span class="highlight-green">
-                                                <input type="text" name="deposit_amount" required>
-                                            </span></div>
-                                    </div>
-
-                                    <div class="paymenttypediv">
-                                        <div class="paymenttypeArea">
-                                            <div class="ptype1">
-                                                <input type="checkbox" name="paymenttype_checkbox" id="paymenttypebank"
-                                                    value="Bank Deposit" onclick="onlyOne(this)">
-                                                <label for="paymenttypebank">Bank Deposit</label>
-                                            </div>
-                                            <div class="ptype1">
-                                                <input type="checkbox" name="paymenttype_checkbox" id="paymenttypecash"
-                                                    value="Cash" onclick="onlyOne(this)">
-                                                <label for="paymenttypecash">Cash</label>
-                                            </div>
-                                        </div>
-                                        <input type="hidden" name="paymenttype" id="paymenttype">
-                                        <input type="hidden" name="applicant_id" id="applicant_id"
-                                            value="{{ $applicant->id }}">
-                                    </div>
-
-
-                                    <div class="form-group payableinput">
-                                        <label>Deposit Date</label>
-                                        <div class="totalammount">
-                                            <input type="date" name="payment_date" required>
-                                        </div>
-                                    </div>
-
-                                    <div class="submitbuttonarea">
-                                        <button type="submit" name="submit"> Deposit <img
-                                                src="{{ asset('submit.svg') }}" width="20" alt=""> </button>
-                                    </div>
-
-                                </div>
-                                <div class="upload-container">
-                                    <div class="upload-button">
-                                        <input type="file" name="slip_invoice_file" accept="image/*" required>
-                                        <img src="{{ asset('upload.svg') }}" width="70">
-                                        <button type="submit">Upload Slip/Voucher here</button>
-                                    </div>
-                                </div>
-                            </form>
-                        @else
-                            <form>
-                                @csrf
-
-                                <div class="lefttabcontent" style="text-align: center;">
-                                    <p>Please Update your reference number.</p>
-                                </div>
-
-                                <div class="upload-container">
-                                    {{-- <div class="upload-button">
-                                    <input type="file" name="slip_invoice_file" accept="image/*">
-                                    <img src="{{ asset('upload.svg') }}" width="70">
-                                    <button type="submit">Upload Slip/Voucher here</button>
-                                </div> --}}
-                                </div>
-                            </form>
-                        @endif
-
-                    </div>
-
                     <div class="tab-content" id="add-payment" style="display: none;">
 
-                        @if (in_array($applicant->reference, ['LS1994ND40', 'QM1990ZD12', 'WK1978SI41', 'GK1980MM51']))
-                            <form action="{{ route('payment.addpayment') }}" method="post"
-                                enctype="multipart/form-data">
-                                @csrf
-                                <div class="lefttabcontent">
-                                    <div class="form-group">
-                                        <label>Submission ID</label>
-                                        <div>{{ $applicant->submissionid }}</div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Full Name</label>
-                                        <div>{{ $applicant->first_name }} {{ $applicant->last_name }}</div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Nationality</label>
-                                        <div>{{ $applicant->nationality }}</div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Email Address</label>
-                                        <div>{{ $applicant->email }}
-                                            @if ($applicant->otp_verified == 0)
-                                                <img src="{{ asset('email-not-verified.svg') }}" width="25"
-                                                    style="padding-left: 3px;" class="eimg">
-                                            @endif
-
-                                            @if ($applicant->otp_verified == 1)
-                                                <img src="{{ asset('email-verified.svg') }}" width="25"
-                                                    style="padding-left: 3px;" class="eimg">
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Ref Code</label>
-                                        <div>
-                                            {{ in_array($applicant->reference, ['LS1994ND40', 'QM1990ZD12', 'WK1978SI41', 'GK1980MM51']) ? $applicant->reference : 'No' }}
-                                            &nbsp; </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Total Payable Amount</label>
-                                        <div><span class="highlight-red">AED 7,500</span></div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Discount (if any)</label>
-                                        <div><span class="highlight-green">AED 1,500</span></div>
-                                    </div>
-                                    <div class="form-group payableinput">
-                                        <label>Deposit Amount</label>
-                                        <div><span class="highlight-green">
-                                                <input type="text" name="deposit_amount" required>
-                                            </span></div>
-                                    </div>
-
-                                    <div class="paymenttypediv">
-                                        <div class="paymenttypeArea">
-                                            <div class="ptype1">
-                                                <input type="checkbox" name="paymenttype_checkbox" id="paymenttypebank"
-                                                    value="Bank Deposit" onclick="onlyOneTwo(this)">
-                                                <label for="paymenttypebank">Bank Deposit</label>
-                                            </div>
-                                            <div class="ptype1">
-                                                <input type="checkbox" name="paymenttype_checkbox" id="paymenttypecash"
-                                                    value="Cash" onclick="onlyOneTwo(this)">
-                                                <label for="paymenttypecash">Cash</label>
-                                            </div>
-                                        </div>
-                                        <input type="hidden" name="paymenttype" id="paymenttype2">
-                                        <input type="hidden" name="applicant_id" id="applicant_id"
-                                            value="{{ $applicant->id }}">
-                                    </div>
-
-
-                                    <div class="form-group payableinput">
-                                        <label>Deposit Date</label>
-                                        <div class="totalammount">
-                                            <input type="date" name="payment_date" required>
-                                        </div>
-                                    </div>
-
-                                    <div class="submitbuttonarea">
-                                        <button type="submit" name="submit"> Add Payment <img
-                                                src="{{ asset('submit.svg') }}" width="20" alt="">
-                                        </button>
-                                    </div>
-
-                                </div>
-                                <div class="upload-container">
-                                    <div class="upload-button">
-                                        <input type="file" name="slip_invoice_file" accept="image/*" required>
-                                        <img src="{{ asset('upload.svg') }}" width="70">
-                                        <button type="submit">Upload Slip/Voucher here</button>
-                                    </div>
-                                </div>
-                            </form>
-                        @else
-                            <form>
-                                @csrf
-
-                                <div class="lefttabcontent" style="text-align: center;">
-                                    <p>Please Update your reference number.</p>
-                                </div>
-
-                                <div class="upload-container">
-                                    {{-- <div class="upload-button">
-                                    <input type="file" name="slip_invoice_file" accept="image/*">
-                                    <img src="{{ asset('upload.svg') }}" width="70">
-                                    <button type="submit">Upload Slip/Voucher here</button>
-                                </div> --}}
-                                </div>
-                            </form>
-                        @endif
-
-                    </div>
-
-                    <div class="tab-content" id="req-credit" style="display: none;">
-                        @if (in_array($applicant->reference, ['LS1994ND40', 'QM1990ZD12', 'WK1978SI41', 'GK1980MM51']))
-                            <form action="{{ route('applicants.reqBalanceApproval', $applicant->id) }}" method="post"
-                                enctype="multipart/form-data">
-                                @csrf
-                                <div class="lefttabcontent">
-                                    <div class="form-group">
-                                        <label>Submission ID</label>
-                                        <div>{{ $applicant->submissionid }}</div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Full Name</label>
-                                        <div>{{ $applicant->first_name }} {{ $applicant->last_name }}</div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Whatsapp Number</label>
-                                        <div>{{ $applicant->whatsapp_number }}</div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Email Address</label>
-                                        <div>{{ $applicant->email }}
-                                            @if ($applicant->otp_verified == 0)
-                                                <img src="{{ asset('email-not-verified.svg') }}" width="25"
-                                                    style="padding-left: 3px;" class="eimg">
-                                            @endif
-
-                                            @if ($applicant->otp_verified == 1)
-                                                <img src="{{ asset('email-verified.svg') }}" width="25"
-                                                    style="padding-left: 3px;" class="eimg">
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Ref Code</label>
-                                        <div>
-                                            {{ in_array($applicant->reference, ['LS1994ND40', 'QM1990ZD12', 'WK1978SI41', 'GK1980MM51']) ? $applicant->reference : 'No' }}
-                                            &nbsp; </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Receivable Amount</label>
-                                        <div><span class="highlight-red">AED 6000</span></div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Walltet Balance</label>
-                                        <div><span class="highlight-green">
-                                                AED @if ($payactivity)
-                                                    {{ $payactivity->deposit_amount }}
-                                                @else
-                                                    00
-                                                @endif
-                                            </span></div>
-                                        @if ($payactivity)
-                                            <input type="hidden" name="pay_activity_id" value="{{ $payactivity->id }}">
-                                            <!-- Hidden input for pay_activity_id -->
-                                        @else
-                                            <input type="hidden" name="pay_activity_id" value="">
-                                            <!-- Hidden input for pay_activity_id -->
-                                        @endif
-                                    </div>
-
-                                    <div class="form-group payableinput">
-                                        <label>Recommendation Note</label>
-                                        <div><span class="highlight-green">
-                                                <input type="text" name="recomNote"
-                                                    placeholder="Plz check the Application and take necessary action
-for Proceeding eVisa. This is very potential reference"
-                                                    required minlength="5" style="color:#000;">
-                                            </span></div>
-                                    </div>
-
-                                    <div class="submitbuttonarea">
-
-                                        <button type="submit" name="submit"> Req for Approval <img
-                                                src="{{ asset('submit.svg') }}" width="20" alt=""> </button>
-                                    </div>
-                                </div>
-                                <div class="upload-container" style="border:none;">
-
-                                    <div class="upload-button">
-                                        <div class="upload-info" style="min-width: 300px;">
-                                            <p>Payment by: Mujahid Noman</p>
-                                            <p>Time: 16:35:54</p> <br>
-
-                                            <p>File Checked by: Zahid Sultan</p><br>
-
-                                            <p>Update: 28/07/2024</p>
-                                            <p>By Santosh Giri</p> <br>
-
-                                            <p>Last Update: 30/07/2024</p>
-
-                                        </div>
-                                        {{-- <div class="uploadarea" style="border: 1px solid rgb(96, 96, 96);">
-                                            <input type="file" name="voucher" accept="image/*">
-                                            <img src="{{ asset('upload.svg') }}" width="70">
-                                            <button type="submit">Upload Slip/Voucher here</button>
-                                        </div> --}}
-                                    </div>
-                                </div>
-                            </form>
-                        @else
-                            <form action="" method="post" enctype="multipart/form-data">
-                                @csrf
-                                <div class="lefttabcontent" style="text-align: center;">
-                                    <p>Please Update your reference number.</p>
-                                </div>
-                                {{-- <div class="upload-container">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <div class="lefttabcontent" style="text-align: center;">
+                                <p>Coming soon...</p>
+                            </div>
+                            {{-- <div class="upload-container">
                                 <div class="upload-button">
                                     <input type="file" name="voucher" accept="image/*">
                                     <img src="{{ asset('upload.svg') }}" width="70">
                                     <button type="submit">Upload Slip/Voucher here</button>
                                 </div>
                             </div> --}}
-                            </form>
-                        @endif
+                        </form>
+
+                    </div>
+
+                    <div class="tab-content" id="req-credit" style="display: none;">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <div class="lefttabcontent" style="text-align: center;">
+                                <p>Coming soon...</p>
+                            </div>
+                            {{-- <div class="upload-container">
+                                <div class="upload-button">
+                                    <input type="file" name="voucher" accept="image/*">
+                                    <img src="{{ asset('upload.svg') }}" width="70">
+                                    <button type="submit">Upload Slip/Voucher here</button>
+                                </div>
+                            </div> --}}
+                        </form>
 
                     </div>
 

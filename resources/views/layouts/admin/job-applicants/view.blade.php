@@ -215,6 +215,12 @@
                             class="w-full text-xs  pl-2 py-2.5 border border-gray-200 rounded">
                     </div>
 
+                     <div class="mb-2">
+                        <label for="meetingpass" class="text-sm mb-2">Meeting Pass (if any)</label>
+                        <input type="text" name="meetingpass" id="meetingpass"
+                            class="w-full text-xs  pl-2 py-2.5 border border-gray-200 rounded">
+                    </div>
+
                     <div class="mb-2">
                         <label for="" class="text-sm mb-2">Official Contact Number</label>
                         <input type="tel" name="contactNumber"

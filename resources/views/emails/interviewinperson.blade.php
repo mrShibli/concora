@@ -23,14 +23,23 @@
         <h4>Your interview has been scheduled for:</h4>
 
         <li>Date & Time: <?php echo $interview->time; ?> ( Time Zone by <?php echo $interview->zonecountry; ?> )</li>
-        <?php if($interview->address): ?>
+        <?php if ($interview->address): ?>
         <li>Location: <?php echo $interview->address; ?></li>
         <?php endif; ?>
-        <?php if($interview->meetingurl): ?>
+        <?php if ($interview->meetingurl): ?>
         <li>Video Interview Link: <?php echo $interview->meetingurl; ?></li>
         <?php endif; ?>
+        <?php if ($interview->meetingpass): ?>
+        <li>Meeting Pass Code: <?php echo $interview->meetingpass; ?></li>
+        <?php endif; ?>
         <li>Contact: <?php echo $interview->contactnumber; ?></li>
+        <?php if ($interview->message): ?>
         <br>
+        <p style="color: #333333; margin-top: 2px;">Note : <?php echo $interview->message; ?></p>
+        <?php endif; ?>
+
+        <br>
+
         <p style="color: #333333; margin-top: 5px;">Please call us at +971 50 362 0969 or email at
             jobs@conquerorservices.com if you have any questions
             or need to reschedule the interview time/Date.</p>

@@ -236,10 +236,11 @@
             @endif
 
             @if (session('error'))
-                <div class="alert alert-danger">
+                <div class="alert alert-success" style="background:rgb(146, 7, 7) !important;">
                     {{ session('error') }}
                 </div>
             @endif
+
             <div class="containermy form-container">
                 <div class="form-details">
                     <div class="tabs">

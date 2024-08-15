@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers\FrontEnd;
 
+use App\Models\User;
+use GuzzleHttp\Client;
 use App\Models\Applicant;
 use App\Models\Interview;
 use App\Models\JobPosition;
-use App\Models\TempApplicant;
-use GuzzleHttp\Client;
+use App\Models\PayActivity;
 use Illuminate\Http\Request;
+use App\Models\TempApplicant;
 use Illuminate\Support\Carbon;
 use App\Mail\ApplicantVerifyOTP;
 use Spatie\ImageOptimizer\Image;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
-use App\Models\PayActivity;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -89,12 +90,17 @@ class ApplicantController extends Controller
         return view('layouts.admin.job-applicants.indexinvited ', compact('applicants'));
     }
 
-    public function invitedByID($id)
-    {
-        $applicants = Applicant::findorfail($id);
-        return $applicants;
-        return view('layouts.admin.job-applicants.invitedsingleview', compact('applicants'));
-    }
+     // Get Invited Data ny ID
+     public function invitedByID($id)
+     {
+         $applicant = Applicant::findorfail($id);
+         $applicantInterview = Interview::where('applicant_id', $id)->orderBy('created_at', 'desc')->first();
+         // In your controller or where you pass data to the view
+         $invitedByUser = User::find($applicantInterview->invitedby);
+ 
+         // return $applicantInterview;
+         return view('layouts.admin.job-applicants.invitedsingleview', compact('applicant', 'applicantInterview', 'invitedByUser'));
+     }
 
     public function hired()
     {
