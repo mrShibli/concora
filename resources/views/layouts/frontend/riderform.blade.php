@@ -290,6 +290,7 @@
             margin-left: auto;
             margin-right: auto;
         } */
+         
     </style>
 
 
@@ -1432,9 +1433,13 @@
                     </section>
                 @endif
 
-                <h2 class="text-[14px] font-normal leading-4"><span class="text-Indicates">*</span> Indicates a
-                    required
-                    field</h2>
+                {{-- <h2 class="text-[14px] font-normal leading-4"><span class="text-Indicates">*</span> Indicates a  required field</h2> --}}
+
+                <div class="gap-2">
+                    <h2 class="text-base Laptop:text-xl Laptop:font-bold font-normal leading-4 mb-3">Basic Information</h2>
+                    <p class="text-xs">Please provide your basic information below to help us serve you better</p>
+                </div>
+                
 
                 <form class="form-card " id="msform" method="POST" enctype="multipart/form-data">
 
@@ -1450,76 +1455,124 @@
                         </div>
                     @endif
 
+
+
+                    <style>
+
+                        @media(max-width:768px){
+                        .mbl-hdn{
+                         display: none
+                         }
+
+                        }
+                         
+               
+                        
+                    </style>
+
+
                     <!-- Step 1 -->
+
                     <fieldset id="fieldset1" style="{{ $currentStep == 1 ? 'display: block' : 'display: none' }}">
-                        <div
-                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-2 Laptop:gap-8 py-4 Laptop:py-6">
+                        
+                        
 
-                            <div class=" flex items-center gap-2">
-                                <div class="Laptop:w-[35%] w-[40%]">
-                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">First Name <span
-                                            class="text-Indicates">*</span></h2>
-                                </div>
-                                <div class="field Laptop:w-[65%] w-[60%] fnamearea">
-                                    <input type="text" name="firstname" id="firstname" autocomplete="off"
-                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('firstname') ? 'error' : '' }} "
-                                        value="{{ $hasOldData1 ? $oldData1->firstname : '' }}"
-                                        placeholder="First Name" required>
-                                    @error('firstname')
-                                        <p class="erromessage">{{ $message }}</p>
-                                    @enderror
-                                    <!--<label for="" class="label-t">First Name</label>-->
-                                </div>
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">  
+
+                            <div class="mbl-hdn Laptop:w-[20%]">
+                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Name</h2>
                             </div>
 
-                            <div class=" flex items-center gap-2">
-                                <div class="Laptop:w-[35%] w-[40%]">
-                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Last Name <span
-                                            class="text-Indicates">*</span></h2>
-                                </div>
-                                <div class="field Laptop:w-[65%] w-[60%] lnamearea">
-                                    <input type="text" name="lastname" id="lastname"
-                                        value="{{ $hasOldData1 ? $oldData1->lastname : '' }}" autocomplete="off"
-                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('lastname') ? 'error' : '' }}"
-                                        placeholder ="Last Name" required>
-                                    @error('lastname')
-                                        <p class="erromessage">{{ $message }}</p>
-                                    @enderror
-                                    <!--<label for="" class="label-t">Last Name</label>-->
-                                </div>
-                            </div>
+                            <div class="Laptop:w-[80%] w-full">
 
-                            
+                                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
+
+                                <div>  
+                                    <label for="firstname" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">First Name <span
+                                        class="text-Indicates">*</span></label> 
+                                    <div class="field  fnamearea">
+                                        <input type="text" name="firstname" id="firstname" autocomplete="off"
+                                            class="input-t w-full w-[100%] Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('firstname') ? 'error' : '' }} "
+                                            value="{{ $hasOldData1 ? $oldData1->firstname : '' }}"
+                                            placeholder="First Name" required>
+                                        @error('firstname')
+                                            <p class="erromessage">{{ $message }}</p>
+                                        @enderror
+                                        <!--<label for="" class="label-t">First Name</label>-->
+                                    </div> 
+                                </div>
+
+                                <div> 
+                                    <label for="lastname" class="text-xs Laptop:text-sm font-medium leading-[29px] mb-2">Last Name <span
+                                        class="text-Indicates">*</span></label> 
+                                    <div class="field lnamearea">
+                                        <input type="text" name="lastname" id="lastname"
+                                            value="{{ $hasOldData1 ? $oldData1->lastname : '' }}" autocomplete="off"
+                                            class="input-t w-full Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('lastname') ? 'error' : '' }}"
+                                            placeholder ="Last Name" required>
+                                        @error('lastname')
+                                            <p class="erromessage">{{ $message }}</p>
+                                        @enderror
+                                        <!--<label for="" class="label-t">Last Name</label>-->
+                                    </div>
+                                </div>
+                                </div>
+
+    
+                            </div> 
+                           
                         </div>
 
-                        <div
-                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-3 Laptop:gap-8 py-4 Laptop:py-6">
 
-                            <div class=" flex items-center gap-2">
-                                <div class="Laptop:w-[35%] w-[40%]">
-                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Mother’s Name <span
-                                            class="text-Indicates">*</span></h2>
-                                </div>
-                                <div class="field Laptop:w-[65%] w-[60%] mnamearea">
-                                    <input type="text" name="mother_name"
-                                        value="{{ $hasOldData1 ? $oldData1->mother_name : '' }}" id="mother_name"
-                                        autocomplete="off"
-                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('mother_name') ? 'error' : '' }}"
-                                        placeholder="Mother Name" required>
-                                    <!--<label for="" class="label-t">Mother Name</label>-->
-                                    @error('mother_name')
-                                        <p class="erromessage">{{ $message }}</p>
-                                    @enderror
-                                </div>
+
+                      <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+ 
+                               
+                            <div class="mbl-hdn Laptop:w-[20%]">
+                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Mother Name</h2>
                             </div>
 
-                            <div class=" flex items-center gap-2">
-                                <div class="Laptop:w-[35%] w-[40%]">
-                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Date of Birth<span
-                                            class="text-Indicates">*</span></h2>
-                                </div>
-                                <div class="Laptop:w-[65%] w-[60%] grid grid-cols-3 gap-1 Tablet:gap-2 border p-2 Tablet:p-2.5 rounded dobdate relative"
-                                    style="padding-bottom: 2rem">
+                            <div class="Laptop:w-[80%] w-full">
+
+                                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
+
+                                <div>  
+                                    <label for="mothername" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Full Name <span
+                                        class="text-Indicates">*</span></label> 
+                                        <div class="field  mnamearea">
+                                            <input type="text" name="mother_name"
+                                                value="{{ $hasOldData1 ? $oldData1->mother_name : '' }}" id="mother_name"
+                                                autocomplete="off"
+                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('mother_name') ? 'error' : '' }}"
+                                                placeholder="Mother Name" required>
+                                            <!--<label for="" class="label-t">Mother Name</label>-->
+                                            @error('mother_name')
+                                                <p class="erromessage">{{ $message }}</p>
+                                            @enderror
+                                        </div> 
+                                </div> 
+                               
+                                </div> 
+    
+                            </div>  
+
+                    </div>
+
+                    <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+
+                           
+                            <div class="mbl-hdn Laptop:w-[20%]">
+                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Date of Birth</h2>
+                            </div>
+
+                            <div class="Laptop:w-[80%] w-full">
+
+                                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
+
+                                <div>  
+                                    <label for="mothername" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Date of birth <span
+                                        class="text-Indicates">*</span></label> 
+                                    <div class="grid grid-cols-3 gap-1 Tablet:gap-2 border p-2 Tablet:p-2.5 rounded dobdate relative" >
 
                                     <div class="field">
                                         <select name="date_of_birth_daye" id="date_of_birth_day"
@@ -1560,20 +1613,93 @@
                                     <div id="dexpiryTime"
                                         style="position: absolute; left: 10px; bottom: 5px; margin-top: 10px"></div>
                                 </div>
-                            </div>
+                                </div> 
+                               
+                                </div>
 
+    
+                            </div> 
+                       
+
+                    </div>
+
+                    
+                    <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center"> 
+                               
+                        <div class="mbl-hdn Laptop:w-[20%]">
+                            <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Country</h2>
                         </div>
 
+                        <div class="Laptop:w-[80%] w-full">
 
-                        <div class="grid grid-cols-1   border-b gap-2  py-4 Laptop:py-6">
+                            <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
-                            <div class="flex items-center gap-4">
-                                <div class="Laptop:w-[16%] w-[38%]">
-                                    <h2 class="text-sm  Laptop:text-base font-medium leading-[29px] ">Email Address
-                                        <span class="text-Indicates">*</span>
-                                    </h2>
-                                </div>
-                                <div class="field Laptop:w-[84%] w-[62%] ">
+                            <div>  
+                                <label for="nationality" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Nationality <span
+                                    class="text-Indicates">*</span></label> 
+
+                                    <div class="field">
+                                        <select name="nationality" id="nationality"
+                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                            <option value="">Select Nationality</option>
+    
+                                            <option
+                                                {{ $hasOldData1 && $oldData1->nationality == 'Pakistan' ? 'selected' : '' }}
+                                                value="Pakistan">Pakistan</option>
+    
+                                            <option
+                                                {{ $hasOldData1 && $oldData1->nationality == 'Nepal' ? 'selected' : '' }}
+                                                value="Nepal">Nepal</option>
+    
+                                            <option
+                                                {{ $hasOldData1 && $oldData1->nationality == 'India' ? 'selected' : '' }}
+                                                value="India">India</option>
+    
+                                            <option
+                                                {{ $hasOldData1 && $oldData1->nationality == 'Sri Lanka' ? 'selected' : '' }}
+                                                value="Sri Lanka">Sri Lanka</option>
+    
+                                            <option
+                                                {{ $hasOldData1 && $oldData1->nationality == 'Philippines' ? 'selected' : '' }}
+                                                value="Philippines">Philippines</option>
+    
+                                            <option
+                                                {{ $hasOldData1 && $oldData1->nationality == 'Bangladesh' ? 'selected' : '' }}
+                                                value="Bangladesh">Bangladesh</option>
+    
+    
+    
+                                        </select>
+    
+                                        @error('nationality')
+                                            <p class="erromessage">{{ $message }}</p>
+                                        @enderror
+    
+                                    </div>
+                            </div> 
+                           
+                            </div> 
+
+                        </div>  
+
+                   </div>
+
+                   
+                <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center"> 
+                               
+                    <div class="mbl-hdn Laptop:w-[20%]">
+                        <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Contact Info</h2>
+                    </div>
+
+                    <div class="Laptop:w-[80%] w-full">
+
+                        <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4 mb-3">
+
+                        <div>  
+                            <label for="email" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Email <span
+                                class="text-Indicates">*</span></label> 
+
+                                <div class="field">
                                     <input type="email" name="email" id="email" autocomplete="off"
                                         class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('email') ? 'error' : '' }}"
                                         value="{{ $hasOldData1 ? $oldData1->email : '' }}" required
@@ -1584,113 +1710,31 @@
                                     @enderror
                                     <!--<label for="" class="label-t">Email Address</label>-->
                                 </div>
-                            </div>
+                        </div> 
+                       
+                        </div> 
 
-                        </div>
+                        <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
+                            <div>  
+                                <label for="email" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Phone Number <span
+                                    class="text-Indicates">*</span></label>  
+                                    <div class="field">
+                                        <input type="tel" name="contact_number" id="contact_number"
+                                            autocomplete="off" title="Only numbers and hyphens are allowed"
+                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('contact_number') ? 'error' : '' }}"
+                                            value="{{ $hasOldData1 ? $oldData1->contact_number : '' }}" required>
+                                        <p id="phone-error"></p>
+                                        @error('contact_number')
+                                            <p class="erromessage">{{ $message }}</p>
+                                        @enderror
+                                        <!-- <label for="" class="label-t">Contact Number</label> -->
+                                    </div>
+                            </div> 
 
-                        <div
-                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 gap-4 Laptop:gap-8 py-4 Laptop:py-6">
-
-
-                            <div class=" flex items-center gap-2">
-                                <div class="Laptop:w-[35%] w-[40%]">
-                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Nationality <span
-                                            class="text-Indicates">*</span></h2>
-                                </div>
-                                <div class="field Laptop:w-[65%] w-[60%]">
-                                    <select name="nationality" id="nationality"
-                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
-                                        <option value="">Select Nationality</option>
-
-                                        <option
-                                            {{ $hasOldData1 && $oldData1->nationality == 'Pakistan' ? 'selected' : '' }}
-                                            value="Pakistan">Pakistan</option>
-
-                                        <option
-                                            {{ $hasOldData1 && $oldData1->nationality == 'Nepal' ? 'selected' : '' }}
-                                            value="Nepal">Nepal</option>
-
-                                        <option
-                                            {{ $hasOldData1 && $oldData1->nationality == 'India' ? 'selected' : '' }}
-                                            value="India">India</option>
-
-                                        <option
-                                            {{ $hasOldData1 && $oldData1->nationality == 'Sri Lanka' ? 'selected' : '' }}
-                                            value="Sri Lanka">Sri Lanka</option>
-
-                                        <option
-                                            {{ $hasOldData1 && $oldData1->nationality == 'Philippines' ? 'selected' : '' }}
-                                            value="Philippines">Philippines</option>
-
-                                        <option
-                                            {{ $hasOldData1 && $oldData1->nationality == 'Bangladesh' ? 'selected' : '' }}
-                                            value="Bangladesh">Bangladesh</option>
-
-
-
-                                    </select>
-
-                                    @error('nationality')
-                                        <p class="erromessage">{{ $message }}</p>
-                                    @enderror
-
-                                </div>
-                            </div>
-
-                            <div class=" flex items-center gap-2">
-                                <div class="Laptop:w-[35%] w-[40%]">
-                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Job Position <span
-                                            class="text-Indicates">*</span></h2>
-                                </div>
-                                <div class="field Laptop:w-[65%] w-[60%]">
-                                    <select name="job_position" id="job_position"
-                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none" required>
-                                        @foreach ($allpositions as $position)
-                                            @if ($position->status == 1 && $position->rider == 1)
-                                                <option
-                                                    {{ $hasOldData1 && $oldData1->job_position == $position->id ? 'selected' : '' }}
-                                                    value="{{ $position->id }}">{{ $position->title }}
-                                                </option>
-                                            @endif
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-
-
-
-
-                        </div>
-
-                        <div
-                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-2 Laptop:gap-8 py-4 Laptop:py-6">
-
-                            <div class=" flex items-center gap-2">
-                                <div class="Laptop:w-[35%] w-[40%]">
-                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Contact Number
-                                        <span class="text-Indicates">*</span>
-                                    </h2>
-                                </div>
-                                <div class="field Laptop:w-[65%] w-[60%]">
-                                    <input type="tel" name="contact_number" id="contact_number"
-                                        autocomplete="off" title="Only numbers and hyphens are allowed"
-                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('contact_number') ? 'error' : '' }}"
-                                        value="{{ $hasOldData1 ? $oldData1->contact_number : '' }}" required>
-                                    <p id="phone-error"></p>
-                                    @error('contact_number')
-                                        <p class="erromessage">{{ $message }}</p>
-                                    @enderror
-                                    <!-- <label for="" class="label-t">Contact Number</label> -->
-                                </div>
-                            </div>
-
-                            <div class=" flex items-center gap-2">
-                                <div class="Laptop:w-[35%] w-[40%]">
-                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">WhatsApp Number
-                                    </h2>
-                                </div>
-                                <div class="field Laptop:w-[65%] w-[60%]">
+                            <div>
+                                <label for="email" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">WhatsApp number (optional) </label>  
+                                <div class="field">
                                     <input type="tel" name="whatsapp_number" id="whatsapp_number"
                                         autocomplete="off"
                                         class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('whatsapp_number') ? 'error' : '' }}"
@@ -1702,40 +1746,93 @@
                                     <p id="whatsappnumberflag-error"></p>
 
                                 </div>
-                            </div>
 
-                        </div>
-
-                        <div
-                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 gap-2 Laptop:gap-8 py-4 Laptop:py-6">
-                            <div class="flex items-center gap-2">
-                                <div class="Laptop:w-[35%] w-[40%]">
-                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Applicant Photo
-                                        <span class="text-Indicates">*</span>
-                                    </h2>
-                                    <img class="mt-2 w-10 Laptop:w-14"
-                                        src="{{ asset('frontend/imagesupdate/applicant-image.svg') }}"
-                                        alt="">
-                                </div>
-                                <div id="uploadArea"
-                                    class="field Laptop:w-[65%] w-[60%] border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
-                                    <div class="text-center">
-                                        <img id="previewImage" class="w-8 Laptop:w-10 text-center mx-auto mb-2"
-                                            src="{{ asset('frontend/imagesupdate/Vector.png') }}" alt="">
-                                        <p class="text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
-                                            or <a href="#" id="uploadLink"
-                                                class="text-Primary-c underline underline-offset-2">Upload File</a></p>
-                                    </div>
-                                </div>
-                                <input type="file" name="applicant_image" id="fileInput" class="hidden"
-                                    accept="image/*" aria-required="true" value="{{ old('applicant_image') }}"
-                                    required>
-                                @error('applicant_image')
-                                    <p class="erromessage">{{ $message }}</p>
-                                @enderror
                             </div>
-                            <p id="photoError"></p>
-                        </div>
+                           
+                            </div> 
+
+                    </div>  
+
+               </div>
+
+               
+            <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center"> 
+                               
+                <div class="mbl-hdn Laptop:w-[20%]">
+                    <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Application</h2>
+                </div>
+
+                <div class="Laptop:w-[80%] w-full">
+
+                    <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
+
+                    <div>  
+                        <label for="jobpossition" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Job position <span
+                            class="text-Indicates">*</span></label> 
+
+                            <div class="field">
+                                <select name="job_position" id="job_position"
+                                    class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none" required>
+                                    @foreach ($allpositions as $position)
+                                        @if ($position->status == 1 && $position->rider == 1)
+                                            <option
+                                                {{ $hasOldData1 && $oldData1->job_position == $position->id ? 'selected' : '' }}
+                                                value="{{ $position->id }}">{{ $position->title }}
+                                            </option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                    </div> 
+                   
+                    </div> 
+
+                </div>  
+
+           </div>
+
+            
+           <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center"> 
+                               
+            <div class="mbl-hdn Laptop:w-[20%]">
+                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Applicant’s Photo</h2>
+                <img class="mt-2 w-10 Laptop:w-14"
+                        src="{{ asset('frontend/imagesupdate/applicant-image.svg') }}"
+                        alt="">
+            </div>
+
+            <div class="Laptop:w-[80%] w-full">
+
+                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
+
+                <div>  
+                    <label for="jobpossition" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 ">Applicant’s Photo <span class="text-Indicates">*</span></label>   
+                         
+                            <div id="uploadArea" class="field border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                <div class="text-center">
+                                    <img id="previewImage" class="w-8 Laptop:w-10 text-center mx-auto mb-2"
+                                        src="{{ asset('frontend/imagesupdate/Vector.png') }}" alt="">
+                                    <p class="text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
+                                        or <a href="#" id="uploadLink"
+                                            class="text-Primary-c underline underline-offset-2">Upload File</a></p>
+                                </div>
+                            </div>
+                            <input type="file" name="applicant_image" id="fileInput" class="hidden"
+                                accept="image/*" aria-required="true" value="{{ old('applicant_image') }}"
+                                required>
+                            @error('applicant_image')
+                                <p class="erromessage">{{ $message }}</p>
+                            @enderror 
+                        <p id="photoError"></p>
+                </div> 
+               
+                </div> 
+
+            </div>  
+
+       </div>
+
+  
 
                         <script>
                             document.addEventListener('DOMContentLoaded', function() {
