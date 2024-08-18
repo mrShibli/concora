@@ -84,185 +84,7 @@
         }
     </style>
 
-    {{-- <style>
-        .ar-main-wrapper {
-            position: fixed;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            height: 100%;
-            width: 100vw;
-            background: #000000b1;
-            overflow-y: auto;
-            z-index: 100000;
-            /* opacity: 0;
-            transform: scale(0); */
-        }
-
-        .ar-main-wrapper.active {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .ar-main-wrapper .close {
-            /* position: absolute;
-            position: fixed;
-            top: 10px;
-            right: 10px; */
-            cursor: pointer;
-            padding: 5px 10px;
-            background: #fff;
-            color: red;
-            border-radius: 3px;
-            text-align: right;
-        }
-
-        .ar-main-wrapper .agreement {
-            max-width: 600px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 15px;
-            border-radius: 6px;
-        }
-
-        ::-webkit-scrollbar {
-            width: 0;
-            height: 0;
-        }
-
-        .ar-main-wrapper .agreement .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin: 20px 0;
-            margin-bottom: 30px;
-        }
-
-        .agreement .header .language {
-            margin-bottom: 20px;
-        }
-
-        .agreement .header .logo {
-            width: 180px;
-        }
-
-        @media(max-width:750px) {
-            .agreement .header .logo {
-                width: 140px;
-            }
-
-            .agreement .header .language ul li {
-                font-size: 14px;
-            }
-
-        }
-
-
-
-        .agreement .header .language ul li {
-            position: relative;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .agreement .header .language ul li ul {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            display: none;
-        }
-
-        .agreement .header .language ul li:hover ul {
-            display: initial;
-        }
-
-
-
-        .agreement .box-container {
-            margin-bottom: 20px;
-        }
-
-        .agreement table tr {
-            border: 1px solid #bcbcbc;
-            padding: 10px;
-        }
-
-        .agreement table tr>td {
-            padding: 10px;
-        }
-
-        .agreement table h2 {
-            text-align: center;
-            font-size: 15px;
-            color: #000;
-            line-height: 1.4em;
-            font-weight: 600;
-        }
-
-        .agreement table h4 {
-            text-align: left;
-            font-size: 15px;
-            color: #111;
-            line-height: 1.4em;
-            font-weight: 600;
-        }
-
-        .agreement .arabic table h4 {
-            text-align: right;
-            font-size: 15px;
-            color: #111;
-            line-height: 1.4em;
-            font-weight: 600;
-        }
-
-        .agreement table p {
-            font-size: 14px;
-            color: #3e3e3e;
-            line-height: 1.4em;
-        }
-
-
-        .agreement .arabic table p {
-            text-align: right;
-            font-size: 14px;
-            color: #3e3e3e;
-            line-height: 1.4em;
-        }
-
-        .agreement table span {
-            margin-right: 8px;
-            font-weight: 600;
-        }
-
-        .pp p {
-            margin-bottom: 10px;
-        }
-
-        .terms-of-appoinment li {
-            list-style: lower-roman;
-            margin-bottom: 10px;
-            font-size: 14px;
-            color: #3e3e3e;
-            line-height: 1.4em;
-        }
-
-
-
-        .applicant-rider p {
-            margin-bottom: 10px;
-        }
-
-
-        @media(max-width:768px) {
-            .agreement {
-                margin: 20px;
-
-            }
-
-        }
-    </style> --}}
-
-    <style>
+   <style>
         .ar-main-wrapper {
             position: fixed;
             top: 0;
@@ -472,6 +294,8 @@
 </head>
 
 <body>
+
+    
 
     <div class="ar-main-wrapper">
 
@@ -1663,7 +1487,7 @@
                                 </div>
                             </div>
 
-
+                            
                         </div>
 
                         <div

@@ -48,68 +48,89 @@
     <div id="onlineinterview">
         <div class="flex items-center justify-center w-full  bg-[#0000009f] absolute top-0 left-0 right-0 bottom-0">
 
-            <form method="POST" action="{{ route('interview.submit', ['id' => $applicant->id]) }}"
-                class="w-[500px] bg-White-c shadow-md rounded py-5">
-                <div class="flex items-center justify-between px-4 pb-4">
-                    <h5 class="text-base">Online Interview</h5>
-                    <div id="cross" class="fas fa-times text-gray-400"></div>
-                </div>
 
-                <div class="border"></div>
 
-                <div class=" p-4">
-
-                    <div class="mb-2">
-                        <label for="" class="text-sm mb-2">Online Meet/Zoom Link</label>
-                        <input type="text" name="meetingurl"
-                            class="w-full text-xs  pl-2 py-2.5 border border-gray-200 rounded">
+            @if ($applicant->otp_verified == 1)
+                <form method="POST" action="{{ route('interview.submit', ['id' => $applicant->id]) }}"
+                    class="w-[500px] bg-White-c shadow-md rounded py-5">
+                    <div class="flex items-center justify-between px-4 pb-4">
+                        <h5 class="text-base">Online Interview</h5>
+                        <div id="cross" class="fas fa-times text-gray-400"></div>
                     </div>
 
-                    <div class="mb-2">
-                        <label for="" class="text-sm mb-2">Official Contact Number</label>
-                        <input type="tel" name="contactNumber"
-                            class="w-full text-xs  pl-2 py-2.5 border border-gray-200 rounded">
-                    </div>
+                    <div class="border"></div>
 
-                    <div class="mb-2">
-                        <label for="" class="text-sm mb-2">Message</label>
-                        <input type="text" name="message"
-                            class="w-full text-xs  pl-2 py-4 border border-gray-200 rounded">
-                    </div>
+                    <div class=" p-4">
 
-                    <div class="mb-2">
-                        <label for="" class="text-sm mb-2">Time Zone</label>
-                        <input type="datetime-local" name="time"
-                            class="w-full text-xs  pl-2 py-2.5 border border-gray-200 rounded">
-                    </div>
+                        <div class="mb-2">
+                            <label for="" class="text-sm mb-2">Online Meet/Zoom Link</label>
+                            <input type="text" name="meetingurl"
+                                class="w-full text-xs  pl-2 py-2.5 border border-gray-200 rounded">
+                        </div>
 
-                    <div class="mb-4">
-                        <label for="" class="text-sm mb-2">Time Zone Counry</label>
-                        <select name="zonecountry" required=""
-                            class="w-full text-xs  pl-2 py-2.5 border border-gray-200 rounded">
-                            <option value="Dubai">Dubai</option>
-                            <option value="India">India</option>
-                            <option value="Nepal">Nepal</option>
-                            <option value="Pakistan">Pakistan</option>
-                            <option value="Bangladesh">Bangladesh</option>
-                            <option value="Philippines">Philippines</option>
-                            <option value="Indonesia">Indonesia</option>
-                            <option value="Sri Lanka">Sri Lanka</option>
-                        </select>
-                    </div>
+                        <div class="mb-2">
+                            <label for="" class="text-sm mb-2">Official Contact Number</label>
+                            <input type="tel" name="contactNumber"
+                                class="w-full text-xs  pl-2 py-2.5 border border-gray-200 rounded">
+                        </div>
 
-                    <input type="hidden" class="form-control" value="Online" id="methodperson" name="methodperson">
+                        <div class="mb-2">
+                            <label for="" class="text-sm mb-2">Message</label>
+                            <input type="text" name="message"
+                                class="w-full text-xs  pl-2 py-4 border border-gray-200 rounded">
+                        </div>
 
-                    <div class="btn mt-8">
-                        {{-- <a href=""
+                        <div class="mb-2">
+                            <label for="" class="text-sm mb-2">Time Zone</label>
+                            <input type="datetime-local" name="time"
+                                class="w-full text-xs  pl-2 py-2.5 border border-gray-200 rounded">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="" class="text-sm mb-2">Time Zone Counry</label>
+                            <select name="zonecountry" required=""
+                                class="w-full text-xs  pl-2 py-2.5 border border-gray-200 rounded">
+                                <option value="Dubai">Dubai</option>
+                                <option value="India">India</option>
+                                <option value="Nepal">Nepal</option>
+                                <option value="Pakistan">Pakistan</option>
+                                <option value="Bangladesh">Bangladesh</option>
+                                <option value="Philippines">Philippines</option>
+                                <option value="Indonesia">Indonesia</option>
+                                <option value="Sri Lanka">Sri Lanka</option>
+                            </select>
+                        </div>
+
+                        <input type="hidden" class="form-control" value="Online" id="methodperson" name="methodperson">
+
+                        <div class="btn mt-8">
+                            {{-- <a href=""
                             class="w-full block text-center text-sm bg-Black-c text-White-c py-3 rounded">Submit</a> --}}
-                        <input type="submit" class="w-full block text-center text-sm bg-Black-c text-White-c py-3 rounded"
-                            value="Submit">
+                            <input type="submit"
+                                class="w-full block text-center text-sm bg-Black-c text-White-c py-3 rounded"
+                                value="Submit">
+                        </div>
+
+
+                    </div>
+                </form>
+            @else
+                <form 
+                    class="w-[500px] bg-White-c shadow-md rounded py-5">
+                    <div class="flex items-center justify-between px-4 pb-4">
+                        <h5 class="text-base">Online Interview</h5>
+                        <div id="cross" class="fas fa-times text-gray-400"></div>
                     </div>
 
+                    <div class="border"></div>
 
-                </div>
-            </form>
+                    <div class=" p-4">
+
+                        <p>Verify Your email</p>
+
+                    </div>
+                </form>
+            @endif
 
 
 
@@ -193,81 +214,103 @@
     {{-- End online person area --}}
 
     {{-- Interview for video --}}
+
     <div id="videointerview">
         <div class="flex items-center justify-center w-full  bg-[#0000009f] absolute top-0 left-0 right-0 bottom-0">
 
-            <form method="POST" action="{{ route('interview.submit', ['id' => $applicant->id]) }}"
-                class="w-[500px] bg-White-c shadow-md rounded py-5">
-                @csrf
-                <div class="flex items-center justify-between px-4 pb-4">
-                    <h5 class="text-base">Video Interview</h5>
-                    <div id="cross" class="fas fa-times text-gray-400"></div>
-                    <span class="cross" id="crossvideointerview">X</span>
-                </div>
 
-                <div class="border"></div>
 
-                <div class=" p-4">
-
-                    <div class="mb-2">
-                        <label for="" class="text-sm mb-2">Online Meet/Zoom Link</label>
-                        <input type="text" name="meetingurl"
-                            class="w-full text-xs  pl-2 py-2.5 border border-gray-200 rounded">
+            @if ($applicant->otp_verified == 1)
+                <form method="POST" action="{{ route('interview.submit', ['id' => $applicant->id]) }}"
+                    class="w-[500px] bg-White-c shadow-md rounded py-5">
+                    @csrf
+                    <div class="flex items-center justify-between px-4 pb-4">
+                        <h5 class="text-base">Video Interview</h5>
+                        <div id="cross" class="fas fa-times text-gray-400"></div>
+                        <span class="cross" id="crossvideointerview">X</span>
                     </div>
 
-                     <div class="mb-2">
-                        <label for="meetingpass" class="text-sm mb-2">Meeting Pass (if any)</label>
-                        <input type="text" name="meetingpass" id="meetingpass"
-                            class="w-full text-xs  pl-2 py-2.5 border border-gray-200 rounded">
-                    </div>
+                    <div class="border"></div>
 
-                    <div class="mb-2">
-                        <label for="" class="text-sm mb-2">Official Contact Number</label>
-                        <input type="tel" name="contactNumber"
-                            class="w-full text-xs  pl-2 py-2.5 border border-gray-200 rounded">
-                    </div>
+                    <div class=" p-4">
 
-                    <div class="mb-2">
-                        <label for="" class="text-sm mb-2">Message</label>
-                        <input type="text" name="message"
-                            class="w-full text-xs  pl-2 py-4 border border-gray-200 rounded">
-                    </div>
+                        <div class="mb-2">
+                            <label for="" class="text-sm mb-2">Online Meet/Zoom Link</label>
+                            <input type="text" name="meetingurl"
+                                class="w-full text-xs  pl-2 py-2.5 border border-gray-200 rounded">
+                        </div>
 
-                    <div class="mb-2">
-                        <label for="" class="text-sm mb-2">Time Zone</label>
-                        <input type="datetime-local" name="time"
-                            class="w-full text-xs  pl-2 py-2.5 border border-gray-200 rounded">
-                    </div>
+                        <div class="mb-2">
+                            <label for="meetingpass" class="text-sm mb-2">Meeting Pass (if any)</label>
+                            <input type="text" name="meetingpass" id="meetingpass"
+                                class="w-full text-xs  pl-2 py-2.5 border border-gray-200 rounded">
+                        </div>
 
-                    <div class="mb-4">
-                        <label for="" class="text-sm mb-2">Time Zone Counry</label>
-                        <select name="zonecountry" required=""
-                            class="w-full text-xs  pl-2 py-2.5 border border-gray-200 rounded">
-                            <option value="Dubai">Dubai</option>
-                            <option value="India">India</option>
-                            <option value="Nepal">Nepal</option>
-                            <option value="Pakistan">Pakistan</option>
-                            <option value="Bangladesh">Bangladesh</option>
-                            <option value="Philippines">Philippines</option>
-                            <option value="Indonesia">Indonesia</option>
-                            <option value="Sri Lanka">Sri Lanka</option>
-                        </select>
-                    </div>
+                        <div class="mb-2">
+                            <label for="" class="text-sm mb-2">Official Contact Number</label>
+                            <input type="tel" name="contactNumber"
+                                class="w-full text-xs  pl-2 py-2.5 border border-gray-200 rounded">
+                        </div>
 
-                    <input type="hidden" class="form-control" value="video" id="methodperson" name="methodperson">
+                        <div class="mb-2">
+                            <label for="" class="text-sm mb-2">Message</label>
+                            <input type="text" name="message"
+                                class="w-full text-xs  pl-2 py-4 border border-gray-200 rounded">
+                        </div>
 
-                    <div class="btn mt-8">
-                        {{-- <a href=""
+                        <div class="mb-2">
+                            <label for="" class="text-sm mb-2">Time Zone</label>
+                            <input type="datetime-local" name="time"
+                                class="w-full text-xs  pl-2 py-2.5 border border-gray-200 rounded">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="" class="text-sm mb-2">Time Zone Counry</label>
+                            <select name="zonecountry" required=""
+                                class="w-full text-xs  pl-2 py-2.5 border border-gray-200 rounded">
+                                <option value="Dubai">Dubai</option>
+                                <option value="India">India</option>
+                                <option value="Nepal">Nepal</option>
+                                <option value="Pakistan">Pakistan</option>
+                                <option value="Bangladesh">Bangladesh</option>
+                                <option value="Philippines">Philippines</option>
+                                <option value="Indonesia">Indonesia</option>
+                                <option value="Sri Lanka">Sri Lanka</option>
+                            </select>
+                        </div>
+
+                        <input type="hidden" class="form-control" value="video" id="methodperson"
+                            name="methodperson">
+
+                        <div class="btn mt-8">
+                            {{-- <a href=""
                             class="w-full block text-center text-sm bg-Black-c text-White-c py-3 rounded">Submit</a> --}}
-                        <input type="submit"
-                            class="w-full block text-center text-sm bg-Black-c text-White-c py-3 rounded" value="Submit">
+                            <input type="submit"
+                                class="w-full block text-center text-sm bg-Black-c text-White-c py-3 rounded"
+                                value="Submit">
+                        </div>
+
+
+                    </div>
+                </form>
+            @else
+                <form 
+                    class="w-[500px] bg-White-c shadow-md rounded py-5">
+                    <div class="flex items-center justify-between px-4 pb-4">
+                        <h5 class="text-base">Video Interview</h5>
+                        <div id="cross" class="fas fa-times text-gray-400"></div>
+                        <span class="cross" id="crossvideointerview">X</span>
                     </div>
 
+                    <div class="border"></div>
 
-                </div>
-            </form>
+                    <div class=" p-4">
 
+                        <p style="color: rgb(145, 27, 27);">Please verify the Email first. </p>
 
+                    </div>
+                </form>
+            @endif
 
         </div>
     </div>
@@ -321,11 +364,12 @@
 
                         @if ($applicant->applicant_status == 'invited')
                             <a href=""
-                                class="px-2 py-1 Tablet:px-6 Tablet:py-2 Laptop:px-8 Laptop:py-2.5 font-semibold text-[8px] Tablet:text-xs Laptop:text-sm rounded" style="background-color: #1278BC; color:#fff;">Invited</a>
+                                class="px-2 py-1 Tablet:px-6 Tablet:py-2 Laptop:px-8 Laptop:py-2.5 font-semibold text-[8px] Tablet:text-xs Laptop:text-sm rounded"
+                                style="background-color: #1278BC; color:#fff;">Invited</a>
                         @else
-                        <a href=""
-                            class="px-2 py-1 Tablet:px-6 Tablet:py-2 Laptop:px-8 Laptop:py-2.5 bg-[#EEE915]  text-Black-c font-semibold text-[8px] Tablet:text-xs Laptop:text-sm rounded">New
-                            Entry</a>
+                            <a href=""
+                                class="px-2 py-1 Tablet:px-6 Tablet:py-2 Laptop:px-8 Laptop:py-2.5 bg-[#EEE915]  text-Black-c font-semibold text-[8px] Tablet:text-xs Laptop:text-sm rounded">New
+                                Entry</a>
                         @endif
                     </li>
                     <li> <a href=""
