@@ -3104,7 +3104,7 @@
                     <fieldset id="fieldset3" style="{{ $currentStep == 3 ? 'display: block' : 'display: none' }}">
 
 
-                    <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+                    <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center gap-4">
  
                                
                             <div class="mbl-hdn Laptop:w-[20%]">
@@ -3130,7 +3130,7 @@
                     </div>
 
 
-                    <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+                    <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center gap-4">
  
                                
                             <div class="mbl-hdn Laptop:w-[20%]">
@@ -3203,79 +3203,82 @@
 
                     </div>
 
-                         
-
-                        <div
-                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-2 Laptop:gap-8 py-4 Laptop:py-6">
-
-                            <div class=" flex items-center gap-2">
-                                <div class="Laptop:w-[35%] w-[40%]">
-                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Do you have UAE
-                                        License <span class="text-Indicates">*</span></h2>
-                                </div>
-                                <div class="field Laptop:w-[65%] w-[60%]">
-                                    <select name="have_uae_licence" id="have_uae_licence_id"
-                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
-                                        <option
-                                            {{ $hasOldData3 && $oldData3->have_uae_licence == 'Yes' ? 'selected' : '' }}
-                                            value="Yes">Yes</option>
-                                        <option
-                                            {{ $hasOldData3 && $oldData3->have_uae_licence == 'No' ? 'selected' : '' }}
-                                            value="No">No</option>
-                                    </select>
-                                </div>
-                            </div>
-
-
-                            <div class=" flex items-center gap-2">
-                                <div class="Laptop:w-[35%] w-[40%]">
-                                    <h2 class="text-sm Laptop:text-sm font-medium leading-[29px]">UAE Resident Visa No
-                                        (optional)</h2>
-                                </div>
-                                <div class="field Laptop:w-[65%] w-[60%]">
-                                    <input type="text" name="UAE_Resident_Visa_No" id="UAE_Resident_Visa_No"
-                                        autocomplete="off"
-                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
-                                        value="{{ $hasOldData3 ? $oldData3->UAE_Resident_Visa_No : '' }}" required>
-                                    <label for="" class="label-t">UAE Resident Visa No</label>
-                                </div>
-                            </div>
-
-
+                    
+                    <div class="border-b py-4 Laptop:py-6 flex flex-wrap gap-4">
+ 
+                               
+                        <div class="mbl-hdn Laptop:w-[20%]">
+                            <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">  Do you have UAE license</h2>
                         </div>
 
-                        <div
-                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-2 Laptop:gap-8 py-4 Laptop:py-6">
+                        <div class="Laptop:w-[80%] w-full">
 
-                            <div class=" flex items-center gap-2" id="uae_licence_no_area" style="display: none;">
-                                <div class="Laptop:w-[35%] w-[40%]">
-                                    <h2 class="text-sm Laptop:text-sm font-medium leading-[29px]">UAE License No <span
-                                            class="text-Indicates">*</span></h2>
+                            <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
+ 
+                                <div>  
+                                    <label for="firstname" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">UAE license <span class="text-Indicates">*</span></label> 
+                                    <div class="field">
+                                        <select name="have_uae_licence" id="have_uae_licence_id"
+                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                            <option
+                                                {{ $hasOldData3 && $oldData3->have_uae_licence == 'Yes' ? 'selected' : '' }}
+                                                value="Yes">Yes</option>
+                                            <option
+                                                {{ $hasOldData3 && $oldData3->have_uae_licence == 'No' ? 'selected' : '' }}
+                                                value="No">No</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="field Laptop:w-[65%] w-[60%]">
-                                    <input type="tel" name="UAE_License_No" id="UAE_License_No"
-                                        autocomplete="off"
-                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
-                                        value="{{ $hasOldData3 ? $oldData3->UAE_License_No : '' }}">
-                                    <label for="" class="label-t">UAE License No</label>
-                                </div>
-                            </div>
 
-                            <div class=" flex items-center gap-2">
-                                <div class="Laptop:w-[35%] w-[40%]">
-                                    <h2 class="text-sm Laptop:text-sm font-medium leading-[29px]">SIM No (Optional)
-                                    </h2>
+                                <div>
+                                    <label for="firstname" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2"> UAE license number  <span class="text-Indicates">*</span></label> 
+                                    <div class="field ">
+                                        <input type="text" name="UAE_Resident_Visa_No" id="UAE_Resident_Visa_No"
+                                            autocomplete="off"
+                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
+                                            value="{{ $hasOldData3 ? $oldData3->UAE_Resident_Visa_No : '' }}" required> 
+                                    </div> 
+                                   
+                                </div> 
+                                
+                            </div> 
+
+                            
+                            <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
+
+                                <div class=" flex items-center gap-2" id="uae_licence_no_area" style="display: none;">
+                                    <div>  
+                                    <label for="firstname" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2"> UAE resident visa number <span class="text-Indicates">*</span></label> 
+                                    <div class="field ">
+                                        <input type="tel" name="UAE_License_No" id="UAE_License_No"
+                                            autocomplete="off"
+                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
+                                            value="{{ $hasOldData3 ? $oldData3->UAE_License_No : '' }}"> 
+                                    </div>
+                                </div> 
                                 </div>
-                                <div class="field Laptop:w-[65%] w-[60%]">
-                                    <input type="tel" name="SIM_No" id="SIM_No" autocomplete="off"
-                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
-                                        value="{{ $hasOldData3 ? $oldData3->SIM_No : '' }}" required>
-                                    <label for="" class="label-t">SIM No</label>
-                                </div>
-                            </div>
+                               
+
+                                <div>
+                                    <label for="firstname" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Sim number (optional)</label> 
+                                    <div class="field ">
+                                        <input type="tel" name="SIM_No" id="SIM_No" autocomplete="off"
+                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
+                                            value="{{ $hasOldData3 ? $oldData3->SIM_No : '' }}" required> 
+                                    </div>
+                                   
+                                </div> 
+                                
+                            </div> 
 
 
-                        </div>
+
+                        </div>  
+
+                </div>
+
+                          
+                        
 
                         <div
                             class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b  gap-2 Laptop:gap-8 py-4 Laptop:py-6">
