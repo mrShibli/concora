@@ -86,7 +86,7 @@
         }
     </style>
 
-   <style>
+    <style>
         .ar-main-wrapper {
             position: fixed;
             top: 0;
@@ -290,7 +290,6 @@
             margin-left: auto;
             margin-right: auto;
         } */
-         
     </style>
 
 
@@ -298,7 +297,7 @@
 
 <body>
 
-    
+
 
     <div class="ar-main-wrapper">
 
@@ -1433,9 +1432,10 @@
                     </section>
                 @endif
 
-                <h2 class="text-[14px] font-normal leading-4"><span class="text-Indicates">*</span> Indicates a  required field</h2> 
+                <h2 class="text-[14px] font-normal leading-4"><span class="text-Indicates">*</span> Indicates a required
+                    field</h2>
 
-                <form class="form-card " id="msform" method="POST" enctype="multipart/form-data"> 
+                <form class="form-card " id="msform" method="POST" enctype="multipart/form-data">
 
                     @if ($errors->any())
                         <div class="center allerror">
@@ -1452,33 +1452,30 @@
 
 
                     <style>
+                        @media(max-width:768px) {
+                            .mbl-hdn {
+                                display: none
+                            }
 
-                        @media(max-width:768px){
-                        .mbl-hdn{
-                         display: none
-                         }
-                         .applicationphotoMb{
-                            display: initial
-                         }
+                            .applicationphotoMb {
+                                display: initial
+                            }
 
-                         .applicationphotodesktp{
-                            display: none
-                         }
+                            .applicationphotodesktp {
+                                display: none
+                            }
 
                         }
-                         
-               
-                        
                     </style>
 
 
                     <!-- Step 1 -->
 
                     <fieldset id="fieldset1" style="{{ $currentStep == 1 ? 'display: block' : 'display: none' }}">
-                        
-                        
 
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">  
+
+
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
 
                             <div class="mbl-hdn Laptop:w-[20%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Name</h2>
@@ -1488,47 +1485,50 @@
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
-                                <div>  
-                                    <label for="firstname" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">First Name <span
-                                        class="text-Indicates">*</span></label> 
-                                    <div class="field  fnamearea">
-                                        <input type="text" name="firstname" id="firstname" autocomplete="off"
-                                            class="input-t w-full w-[100%] Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('firstname') ? 'error' : '' }} "
-                                            value="{{ $hasOldData1 ? $oldData1->firstname : '' }}"
-                                            placeholder="First Name" required>
-                                        @error('firstname')
-                                            <p class="erromessage">{{ $message }}</p>
-                                        @enderror
-                                        <!--<label for="" class="label-t">First Name</label>-->
-                                    </div> 
-                                </div>
+                                    <div>
+                                        <label for="firstname"
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">First Name
+                                            <span class="text-Indicates">*</span></label>
+                                        <div class="field  fnamearea">
+                                            <input type="text" name="firstname" id="firstname" autocomplete="off"
+                                                class="input-t w-full w-[100%] Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('firstname') ? 'error' : '' }} "
+                                                value="{{ $hasOldData1 ? $oldData1->firstname : '' }}"
+                                                placeholder="First Name" required>
+                                            @error('firstname')
+                                                <p class="erromessage">{{ $message }}</p>
+                                            @enderror
+                                            <!--<label for="" class="label-t">First Name</label>-->
+                                        </div>
+                                    </div>
 
-                                <div> 
-                                    <label for="lastname" class="text-xs Laptop:text-sm font-medium leading-[29px] mb-2">Last Name <span
-                                        class="text-Indicates">*</span></label> 
-                                    <div class="field lnamearea">
-                                        <input type="text" name="lastname" id="lastname"
-                                            value="{{ $hasOldData1 ? $oldData1->lastname : '' }}" autocomplete="off"
-                                            class="input-t w-full Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('lastname') ? 'error' : '' }}"
-                                            placeholder ="Last Name" required>
-                                        @error('lastname')
-                                            <p class="erromessage">{{ $message }}</p>
-                                        @enderror
-                                        <!--<label for="" class="label-t">Last Name</label>-->
+                                    <div>
+                                        <label for="lastname"
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px] mb-2">Last Name
+                                            <span class="text-Indicates">*</span></label>
+                                        <div class="field lnamearea">
+                                            <input type="text" name="lastname" id="lastname"
+                                                value="{{ $hasOldData1 ? $oldData1->lastname : '' }}"
+                                                autocomplete="off"
+                                                class="input-t w-full Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('lastname') ? 'error' : '' }}"
+                                                placeholder ="Last Name" required>
+                                            @error('lastname')
+                                                <p class="erromessage">{{ $message }}</p>
+                                            @enderror
+                                            <!--<label for="" class="label-t">Last Name</label>-->
+                                        </div>
                                     </div>
                                 </div>
-                                </div>
 
-    
-                            </div> 
-                           
+
+                            </div>
+
                         </div>
 
 
 
-                      <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
- 
-                               
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+
+
                             <div class="mbl-hdn Laptop:w-[20%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Mother Name</h2>
                             </div>
@@ -1537,31 +1537,32 @@
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
-                                <div>  
-                                    <label for="mothername" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Full Name <span
-                                        class="text-Indicates">*</span></label> 
+                                    <div>
+                                        <label for="mothername"
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Full Name
+                                            <span class="text-Indicates">*</span></label>
                                         <div class="field  mnamearea">
                                             <input type="text" name="mother_name"
-                                                value="{{ $hasOldData1 ? $oldData1->mother_name : '' }}" id="mother_name"
-                                                autocomplete="off"
+                                                value="{{ $hasOldData1 ? $oldData1->mother_name : '' }}"
+                                                id="mother_name" autocomplete="off"
                                                 class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('mother_name') ? 'error' : '' }}"
                                                 placeholder="Mother Name" required>
                                             <!--<label for="" class="label-t">Mother Name</label>-->
                                             @error('mother_name')
                                                 <p class="erromessage">{{ $message }}</p>
                                             @enderror
-                                        </div> 
-                                </div> 
-                               
-                                </div> 
-    
-                            </div>  
+                                        </div>
+                                    </div>
 
-                    </div>
+                                </div>
 
-                    <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+                            </div>
 
-                           
+                        </div>
+
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+
+
                             <div class="mbl-hdn Laptop:w-[20%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Date of Birth</h2>
                             </div>
@@ -1570,271 +1571,293 @@
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
-                                <div>  
-                                    <label for="mothername" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Date of birth <span
-                                        class="text-Indicates">*</span></label> 
-                                    <div class="grid grid-cols-3 gap-1 Tablet:gap-2   dobdate relative" >
+                                    <div>
+                                        <label for="mothername"
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Date of
+                                            birth <span class="text-Indicates">*</span></label>
+                                        <div class="grid grid-cols-3 gap-1 Tablet:gap-2   dobdate relative">
 
-                                    <div class="field">
-                                        <select name="date_of_birth_daye" id="date_of_birth_day"
-                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none" required>
-                                            <option value="">Day</option>
-                                            @for ($i = 1; $i <= 31; $i++)
-                                                <option value="{{ $i }}"
-                                                    {{ $hasOldData1 && $oldData1->date_of_birth_day == $i ? 'selected' : '' }}>
-                                                    {{ $i }}</option>
-                                            @endfor
-                                        </select>
-                                    </div>
-                                    <div class="field">
-                                        <select name="date_of_birth_monthe" id="date_of_birth_month"
-                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none" required>
-                                            <option value="">Month</option>
-                                            @foreach ([1 => 'January', 2 => 'February', 3 => 'March', 4 => 'April', 5 => 'May', 6 => 'June', 7 => 'July', 8 => 'August', 9 => 'September', 10 => 'October', 11 => 'November', 12 => 'December'] as $monthNumber => $monthName)
-                                                <option value="{{ $monthNumber }}"
-                                                    {{ $hasOldData1 && $oldData1->date_of_birth_month == $monthNumber ? 'selected' : '' }}>
-                                                    {{ $monthName }}
-                                                </option>
-                                                {{-- value="{{ $hasOldData1 ? $oldData1->mother_name : '' }}" --}}
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="field">
-                                        <select name="date_of_birth_yeare" id="date_of_birth_year"
-                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none" required>
-                                            <option value="">Year</option>
-                                            @for ($year = 1960; $year <= 2005; $year++)
-                                                <option value="{{ $year }}"
-                                                    {{ $hasOldData1 && $oldData1->date_of_birth_year == $year ? 'selected' : '' }}>
-                                                    {{ $year }}</option>
-                                            @endfor
-                                        </select>
+                                            <div class="field">
+                                                <select name="date_of_birth_daye" id="date_of_birth_day"
+                                                    class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none"
+                                                    required>
+                                                    <option value="">Day</option>
+                                                    @for ($i = 1; $i <= 31; $i++)
+                                                        <option value="{{ $i }}"
+                                                            {{ $hasOldData1 && $oldData1->date_of_birth_day == $i ? 'selected' : '' }}>
+                                                            {{ $i }}</option>
+                                                    @endfor
+                                                </select>
+                                            </div>
+                                            <div class="field">
+                                                <select name="date_of_birth_monthe" id="date_of_birth_month"
+                                                    class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none"
+                                                    required>
+                                                    <option value="">Month</option>
+                                                    @foreach ([1 => 'January', 2 => 'February', 3 => 'March', 4 => 'April', 5 => 'May', 6 => 'June', 7 => 'July', 8 => 'August', 9 => 'September', 10 => 'October', 11 => 'November', 12 => 'December'] as $monthNumber => $monthName)
+                                                        <option value="{{ $monthNumber }}"
+                                                            {{ $hasOldData1 && $oldData1->date_of_birth_month == $monthNumber ? 'selected' : '' }}>
+                                                            {{ $monthName }}
+                                                        </option>
+                                                        {{-- value="{{ $hasOldData1 ? $oldData1->mother_name : '' }}" --}}
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="field">
+                                                <select name="date_of_birth_yeare" id="date_of_birth_year"
+                                                    class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none"
+                                                    required>
+                                                    <option value="">Year</option>
+                                                    @for ($year = 1960; $year <= 2005; $year++)
+                                                        <option value="{{ $year }}"
+                                                            {{ $hasOldData1 && $oldData1->date_of_birth_year == $year ? 'selected' : '' }}>
+                                                            {{ $year }}</option>
+                                                    @endfor
+                                                </select>
+                                            </div>
+
+                                            <div id="dexpiryTime"
+                                                style="position: absolute; left: 10px; bottom: 5px; margin-top: 10px">
+                                            </div>
+                                        </div>
                                     </div>
 
-                                    <div id="dexpiryTime"
-                                        style="position: absolute; left: 10px; bottom: 5px; margin-top: 10px"></div>
                                 </div>
-                                </div> 
-                               
-                                </div>
 
-    
-                            </div> 
-                       
 
-                    </div>
+                            </div>
 
-                    
-                    <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center"> 
-                               
-                        <div class="mbl-hdn Laptop:w-[20%]">
-                            <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Country</h2>
+
                         </div>
 
-                        <div class="Laptop:w-[80%] w-full">
 
-                            <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
 
-                            <div>  
-                                <label for="nationality" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Nationality <span
-                                    class="text-Indicates">*</span></label> 
+                            <div class="mbl-hdn Laptop:w-[20%]">
+                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Country</h2>
+                            </div>
 
-                                    <div class="field">
-                                        <select name="nationality" id="nationality"
-                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
-                                            <option value="">Select Nationality</option>
-    
-                                            <option
-                                                {{ $hasOldData1 && $oldData1->nationality == 'Pakistan' ? 'selected' : '' }}
-                                                value="Pakistan">Pakistan</option>
-    
-                                            <option
-                                                {{ $hasOldData1 && $oldData1->nationality == 'Nepal' ? 'selected' : '' }}
-                                                value="Nepal">Nepal</option>
-    
-                                            <option
-                                                {{ $hasOldData1 && $oldData1->nationality == 'India' ? 'selected' : '' }}
-                                                value="India">India</option>
-    
-                                            <option
-                                                {{ $hasOldData1 && $oldData1->nationality == 'Sri Lanka' ? 'selected' : '' }}
-                                                value="Sri Lanka">Sri Lanka</option>
-    
-                                            <option
-                                                {{ $hasOldData1 && $oldData1->nationality == 'Philippines' ? 'selected' : '' }}
-                                                value="Philippines">Philippines</option>
-    
-                                            <option
-                                                {{ $hasOldData1 && $oldData1->nationality == 'Bangladesh' ? 'selected' : '' }}
-                                                value="Bangladesh">Bangladesh</option>
-    
-    
-    
-                                        </select>
-    
-                                        @error('nationality')
+                            <div class="Laptop:w-[80%] w-full">
+
+                                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
+
+                                    <div>
+                                        <label for="nationality"
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Nationality
+                                            <span class="text-Indicates">*</span></label>
+
+                                        <div class="field">
+                                            <select name="nationality" id="nationality"
+                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
+                                                required>
+                                                <option value="">Select Nationality</option>
+
+                                                <option
+                                                    {{ $hasOldData1 && $oldData1->nationality == 'Pakistan' ? 'selected' : '' }}
+                                                    value="Pakistan">Pakistan</option>
+
+                                                <option
+                                                    {{ $hasOldData1 && $oldData1->nationality == 'Nepal' ? 'selected' : '' }}
+                                                    value="Nepal">Nepal</option>
+
+                                                <option
+                                                    {{ $hasOldData1 && $oldData1->nationality == 'India' ? 'selected' : '' }}
+                                                    value="India">India</option>
+
+                                                <option
+                                                    {{ $hasOldData1 && $oldData1->nationality == 'Sri Lanka' ? 'selected' : '' }}
+                                                    value="Sri Lanka">Sri Lanka</option>
+
+                                                <option
+                                                    {{ $hasOldData1 && $oldData1->nationality == 'Philippines' ? 'selected' : '' }}
+                                                    value="Philippines">Philippines</option>
+
+                                                <option
+                                                    {{ $hasOldData1 && $oldData1->nationality == 'Bangladesh' ? 'selected' : '' }}
+                                                    value="Bangladesh">Bangladesh</option>
+
+
+
+                                            </select>
+
+                                            @error('nationality')
+                                                <p class="erromessage">{{ $message }}</p>
+                                            @enderror
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+
+                            <div class="mbl-hdn Laptop:w-[20%]">
+                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Contact Info</h2>
+                            </div>
+
+                            <div class="Laptop:w-[80%] w-full">
+
+                                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4 mb-3">
+
+                                    <div>
+                                        <label for="email"
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Email <span
+                                                class="text-Indicates">*</span></label>
+
+                                        <div class="field">
+                                            <input type="email" name="email" id="email" autocomplete="off"
+                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('email') ? 'error' : '' }}"
+                                                value="{{ $hasOldData1 ? $oldData1->email : '' }}" required
+                                                placeholder="Email Address">
+                                            <div id="email-error" class="error-message" style="display: none;"></div>
+                                            @error('email')
+                                                <p class="erromessage">{{ $message }}</p>
+                                            @enderror
+                                            <!--<label for="" class="label-t">Email Address</label>-->
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
+
+                                    <div>
+                                        <label for="email"
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Phone
+                                            Number <span class="text-Indicates">*</span></label>
+                                        <div class="field">
+                                            <input type="tel" name="contact_number" id="contact_number"
+                                                autocomplete="off" title="Only numbers and hyphens are allowed"
+                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('contact_number') ? 'error' : '' }}"
+                                                value="{{ $hasOldData1 ? $oldData1->contact_number : '' }}" required>
+                                            <p id="phone-error"></p>
+                                            @error('contact_number')
+                                                <p class="erromessage">{{ $message }}</p>
+                                            @enderror
+                                            <!-- <label for="" class="label-t">Contact Number</label> -->
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label for="email"
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">WhatsApp
+                                            number (optional) </label>
+                                        <div class="field">
+                                            <input type="tel" name="whatsapp_number" id="whatsapp_number"
+                                                autocomplete="off"
+                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('whatsapp_number') ? 'error' : '' }}"
+                                                value="{{ $hasOldData1 ? $oldData1->whatsapp_number : '' }}" required>
+                                            @error('whatsapp_number')
+                                                <p class="erromessage">{{ $message }}</p>
+                                            @enderror
+                                            <!-- <label for="" class="label-t">WhatsApp Number</label> -->
+                                            <p id="whatsappnumberflag-error"></p>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+
+                            <div class="mbl-hdn Laptop:w-[20%]">
+                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Application</h2>
+                            </div>
+
+                            <div class="Laptop:w-[80%] w-full">
+
+                                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
+
+                                    <div>
+                                        <label for="jobpossition"
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Job
+                                            position <span class="text-Indicates">*</span></label>
+
+                                        <div class="field">
+                                            <select name="job_position" id="job_position"
+                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none"
+                                                required>
+                                                @foreach ($allpositions as $position)
+                                                    @if ($position->status == 1 && $position->rider == 1)
+                                                        <option
+                                                            {{ $hasOldData1 && $oldData1->job_position == $position->id ? 'selected' : '' }}
+                                                            value="{{ $position->id }}">{{ $position->title }}
+                                                        </option>
+                                                    @endif
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+
+                            <div class="mbl-hdn Laptop:w-[20%]">
+                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Applicant’s Photo
+                                </h2>
+                                <img class="mt-2 w-10 Laptop:w-14"
+                                    src="{{ asset('frontend/imagesupdate/applicant-image.svg') }}" alt="">
+                            </div>
+
+                            <div class="Laptop:w-[80%] w-full">
+
+                                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
+
+                                    <div>
+                                        <label for="jobpossition"
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 hidden applicationphotoMb">Applicant’s
+                                            Photo <span class="text-Indicates">*</span></label>
+                                        <label for="jobpossition"
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 applicationphotodesktp ">Add
+                                            Photo <span class="text-Indicates">*</span></label>
+
+                                        <div id="uploadArea"
+                                            class="field border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                            <div class="text-center">
+                                                <img id="previewImage"
+                                                    class="w-8 Laptop:w-10 text-center mx-auto mb-2"
+                                                    src="{{ asset('frontend/imagesupdate/Vector.png') }}"
+                                                    alt="">
+                                                <p class="text-xs Laptop:text-base font-medium leading-6">Drop File
+                                                    here <br>
+                                                    or <a href="#" id="uploadLink"
+                                                        class="text-Primary-c underline underline-offset-2">Upload
+                                                        File</a></p>
+                                            </div>
+                                        </div>
+                                        <input type="file" name="applicant_image" id="fileInput" class="hidden"
+                                            accept="image/*" aria-required="true"
+                                            value="{{ old('applicant_image') }}" required>
+                                        @error('applicant_image')
                                             <p class="erromessage">{{ $message }}</p>
                                         @enderror
-    
+                                        <p id="photoError"></p>
                                     </div>
-                            </div> 
-                           
-                            </div> 
-
-                        </div>  
-
-                   </div>
-
-                   
-                <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center"> 
-                               
-                    <div class="mbl-hdn Laptop:w-[20%]">
-                        <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Contact Info</h2>
-                    </div>
-
-                    <div class="Laptop:w-[80%] w-full">
-
-                        <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4 mb-3">
-
-                        <div>  
-                            <label for="email" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Email <span
-                                class="text-Indicates">*</span></label> 
-
-                                <div class="field">
-                                    <input type="email" name="email" id="email" autocomplete="off"
-                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('email') ? 'error' : '' }}"
-                                        value="{{ $hasOldData1 ? $oldData1->email : '' }}" required
-                                        placeholder="Email Address">
-                                    <div id="email-error" class="error-message" style="display: none;"></div>
-                                    @error('email')
-                                        <p class="erromessage">{{ $message }}</p>
-                                    @enderror
-                                    <!--<label for="" class="label-t">Email Address</label>-->
-                                </div>
-                        </div> 
-                       
-                        </div> 
-
-                        <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
-
-                            <div>  
-                                <label for="email" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Phone Number <span
-                                    class="text-Indicates">*</span></label>  
-                                    <div class="field">
-                                        <input type="tel" name="contact_number" id="contact_number"
-                                            autocomplete="off" title="Only numbers and hyphens are allowed"
-                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('contact_number') ? 'error' : '' }}"
-                                            value="{{ $hasOldData1 ? $oldData1->contact_number : '' }}" required>
-                                        <p id="phone-error"></p>
-                                        @error('contact_number')
-                                            <p class="erromessage">{{ $message }}</p>
-                                        @enderror
-                                        <!-- <label for="" class="label-t">Contact Number</label> -->
-                                    </div>
-                            </div> 
-
-                            <div>
-                                <label for="email" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">WhatsApp number (optional) </label>  
-                                <div class="field">
-                                    <input type="tel" name="whatsapp_number" id="whatsapp_number"
-                                        autocomplete="off"
-                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('whatsapp_number') ? 'error' : '' }}"
-                                        value="{{ $hasOldData1 ? $oldData1->whatsapp_number : '' }}" required>
-                                    @error('whatsapp_number')
-                                        <p class="erromessage">{{ $message }}</p>
-                                    @enderror
-                                    <!-- <label for="" class="label-t">WhatsApp Number</label> -->
-                                    <p id="whatsappnumberflag-error"></p>
 
                                 </div>
 
                             </div>
-                           
-                            </div> 
 
-                    </div>  
+                        </div>
 
-               </div>
 
-               
-            <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center"> 
-                               
-                <div class="mbl-hdn Laptop:w-[20%]">
-                    <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Application</h2>
-                </div>
-
-                <div class="Laptop:w-[80%] w-full">
-
-                    <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
-
-                    <div>  
-                        <label for="jobpossition" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Job position <span
-                            class="text-Indicates">*</span></label> 
-
-                            <div class="field">
-                                <select name="job_position" id="job_position"
-                                    class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none" required>
-                                    @foreach ($allpositions as $position)
-                                        @if ($position->status == 1 && $position->rider == 1)
-                                            <option
-                                                {{ $hasOldData1 && $oldData1->job_position == $position->id ? 'selected' : '' }}
-                                                value="{{ $position->id }}">{{ $position->title }}
-                                            </option>
-                                        @endif
-                                    @endforeach
-                                </select>
-                            </div>
-                    </div> 
-                   
-                    </div> 
-
-                </div>  
-
-           </div>
-
-            
-           <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center"> 
-                               
-            <div class="mbl-hdn Laptop:w-[20%]">
-                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Applicant’s Photo</h2>
-                <img class="mt-2 w-10 Laptop:w-14"
-                        src="{{ asset('frontend/imagesupdate/applicant-image.svg') }}"
-                        alt="">
-            </div>
-
-            <div class="Laptop:w-[80%] w-full">
-
-                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
-
-                <div>  
-                    <label for="jobpossition" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 hidden applicationphotoMb">Applicant’s Photo <span class="text-Indicates">*</span></label>   
-                    <label for="jobpossition" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 applicationphotodesktp ">Add Photo <span class="text-Indicates">*</span></label>   
-                         
-                            <div id="uploadArea" class="field border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
-                                <div class="text-center">
-                                    <img id="previewImage" class="w-8 Laptop:w-10 text-center mx-auto mb-2"
-                                        src="{{ asset('frontend/imagesupdate/Vector.png') }}" alt="">
-                                    <p class="text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
-                                        or <a href="#" id="uploadLink"
-                                            class="text-Primary-c underline underline-offset-2">Upload File</a></p>
-                                </div>
-                            </div>
-                            <input type="file" name="applicant_image" id="fileInput" class="hidden"
-                                accept="image/*" aria-required="true" value="{{ old('applicant_image') }}"
-                                required>
-                            @error('applicant_image')
-                                <p class="erromessage">{{ $message }}</p>
-                            @enderror 
-                        <p id="photoError"></p>
-                </div> 
-               
-                </div> 
-
-            </div>  
-
-       </div>
-
-  
 
                         <script>
                             document.addEventListener('DOMContentLoaded', function() {
@@ -1900,121 +1923,134 @@
 
                     <fieldset id="fieldset2" style="{{ $currentStep == 2 ? 'display: block' : 'display: none' }}">
 
-                        
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">  
+
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
 
                             <div class="mbl-hdn Laptop:w-[20%]">
-                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Passport & Expiry Date</h2>
+                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Passport & Expiry
+                                    Date</h2>
                             </div>
 
                             <div class="Laptop:w-[80%] w-full">
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
-                                <div>  
-                                    <label for="firstname" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Passport number <span class="text-Indicates">*</span></label> 
+                                    <div>
+                                        <label for="firstname"
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Passport
+                                            number <span class="text-Indicates">*</span></label>
                                         <div class="field">
-                                            <input type="text" name="passportno" id="passportno" autocomplete="off"
+                                            <input type="text" name="passportno" id="passportno"
+                                                autocomplete="off"
                                                 class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
                                                 value="{{ $hasOldData2 && isset($oldData2->passportno) ? $oldData2->passportno : '' }}"
                                                 required>
                                             {{-- <label for="" class="label-t">Passport Number</label> --}}
                                         </div>
+                                    </div>
+
+                                    <div>
+
+                                        <label for="firstname"
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Expiry date
+                                            <span class="text-Indicates">*</span></label>
+                                        <div class="grid grid-cols-3 gap-1 Tablet:gap-2 expiry   date relative">
+
+                                            <div class="field">
+                                                <select name="passport_doe_daye" id="passport_doe_day"
+                                                    class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none"
+                                                    required>
+                                                    <option value="">Day</option>
+                                                    @php
+                                                        $selectedDay =
+                                                            isset($hasOldData2) &&
+                                                            $hasOldData2 &&
+                                                            isset($oldData2->passport_doe_day)
+                                                                ? $oldData2->passport_doe_day
+                                                                : '';
+                                                    @endphp
+
+                                                    @for ($day = 1; $day <= 31; $day++)
+                                                        <option value="{{ $day }}"
+                                                            {{ $day == $selectedDay ? 'selected' : '' }}>
+                                                            {{ $day }}
+                                                        </option>
+                                                    @endfor
+                                                </select>
+                                            </div>
+                                            <div class="field">
+                                                <select name="passport_doe_monthe" id="passport_doe_month"
+                                                    class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none"
+                                                    required>
+                                                    <option value="">Month</option>
+                                                    @php
+                                                        $selectedMonth =
+                                                            isset($hasOldData2) &&
+                                                            $hasOldData2 &&
+                                                            isset($oldData2->passport_doe_month)
+                                                                ? $oldData2->passport_doe_month
+                                                                : '';
+                                                        $months = [
+                                                            1 => 'January',
+                                                            2 => 'February',
+                                                            3 => 'March',
+                                                            4 => 'April',
+                                                            5 => 'May',
+                                                            6 => 'June',
+                                                            7 => 'July',
+                                                            8 => 'August',
+                                                            9 => 'September',
+                                                            10 => 'October',
+                                                            11 => 'November',
+                                                            12 => 'December',
+                                                        ];
+                                                    @endphp
+                                                    @foreach ($months as $key => $month)
+                                                        <option value="{{ $key }}"
+                                                            {{ $key == $selectedMonth ? 'selected' : '' }}>
+                                                            {{ $month }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="field">
+                                                <select name="passport_doe_yeare" id="passport_doe_year"
+                                                    class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none"
+                                                    required>
+                                                    <option value="">Year</option>
+                                                    @php
+                                                        $selectedYear =
+                                                            isset($hasOldData2) &&
+                                                            $hasOldData2 &&
+                                                            isset($oldData2->passport_doe_year)
+                                                                ? $oldData2->passport_doe_year
+                                                                : '';
+                                                    @endphp
+                                                    @for ($year = 2022; $year <= 2099; $year++)
+                                                        <option value="{{ $year }}"
+                                                            {{ $year == $selectedYear ? 'selected' : '' }}>
+                                                            {{ $year }}
+                                                        </option>
+                                                    @endfor
+                                                </select>
+                                            </div>
+                                            <div id="pexpiryTime"
+                                                style="position: absolute; left: 10px; bottom: 5px; margin-top: 10px">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
                                 </div>
 
-                                <div>
+                            </div>
 
-                                <label for="firstname" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Expiry date <span class="text-Indicates">*</span></label>  
-                                <div class="grid grid-cols-3 gap-1 Tablet:gap-2 expiry   date relative">
-
-                                <div class="field">
-                                    <select name="passport_doe_daye" id="passport_doe_day"
-                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none" required>
-                                        <option value="">Day</option>
-                                        @php
-                                            $selectedDay =
-                                                isset($hasOldData2) &&
-                                                $hasOldData2 &&
-                                                isset($oldData2->passport_doe_day)
-                                                    ? $oldData2->passport_doe_day
-                                                    : '';
-                                        @endphp
-
-                                        @for ($day = 1; $day <= 31; $day++)
-                                            <option value="{{ $day }}"
-                                                {{ $day == $selectedDay ? 'selected' : '' }}>{{ $day }}
-                                            </option>
-                                        @endfor
-                                    </select>
-                                </div>
-                                <div class="field">
-                                    <select name="passport_doe_monthe" id="passport_doe_month"
-                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none" required>
-                                        <option value="">Month</option>
-                                        @php
-                                            $selectedMonth =
-                                                isset($hasOldData2) &&
-                                                $hasOldData2 &&
-                                                isset($oldData2->passport_doe_month)
-                                                    ? $oldData2->passport_doe_month
-                                                    : '';
-                                            $months = [
-                                                1 => 'January',
-                                                2 => 'February',
-                                                3 => 'March',
-                                                4 => 'April',
-                                                5 => 'May',
-                                                6 => 'June',
-                                                7 => 'July',
-                                                8 => 'August',
-                                                9 => 'September',
-                                                10 => 'October',
-                                                11 => 'November',
-                                                12 => 'December',
-                                            ];
-                                        @endphp
-                                        @foreach ($months as $key => $month)
-                                            <option value="{{ $key }}"
-                                                {{ $key == $selectedMonth ? 'selected' : '' }}>{{ $month }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="field">
-                                    <select name="passport_doe_yeare" id="passport_doe_year"
-                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none" required>
-                                        <option value="">Year</option>
-                                        @php
-                                            $selectedYear =
-                                                isset($hasOldData2) &&
-                                                $hasOldData2 &&
-                                                isset($oldData2->passport_doe_year)
-                                                    ? $oldData2->passport_doe_year
-                                                    : '';
-                                        @endphp
-                                        @for ($year = 2022; $year <= 2099; $year++)
-                                            <option value="{{ $year }}"
-                                                {{ $year == $selectedYear ? 'selected' : '' }}>{{ $year }}
-                                            </option>
-                                        @endfor
-                                    </select>
-                                </div>
-                                <div id="pexpiryTime"
-                                    style="position: absolute; left: 10px; bottom: 5px; margin-top: 10px"></div>
-                            </div> 
-
-                                </div> 
-                                
-                                </div> 
-    
-                            </div> 
-                           
                         </div>
 
 
-                    <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
- 
-                               
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+
+
                             <div class="mbl-hdn Laptop:w-[20%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Father Name</h2>
                             </div>
@@ -2023,11 +2059,13 @@
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
-                                <div>  
-                                    <label for="fathername" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Full Name <span
-                                        class="text-Indicates">*</span></label> 
+                                    <div>
+                                        <label for="fathername"
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Full Name
+                                            <span class="text-Indicates">*</span></label>
                                         <div class="field ffnamearea">
-                                            <input type="text" name="father_name" id="father_name" autocomplete="off"
+                                            <input type="text" name="father_name" id="father_name"
+                                                autocomplete="off"
                                                 class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('father_name') ? 'error' : '' }}"
                                                 value="{{ $hasOldData2 ? $oldData2->father_name : '' }}" required>
                                             @error('father_name')
@@ -2035,707 +2073,753 @@
                                             @enderror
                                             {{-- <label for="" class="label-t">Father’s Name</label> --}}
                                         </div>
-                                </div> 
-                               
-                                </div> 
-    
-                            </div>  
+                                    </div>
 
-                    </div>
+                                </div>
 
-                <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
- 
-                               
-                        <div class="mbl-hdn Laptop:w-[20%]">
-                            <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Identity Number</h2>
+                            </div>
+
                         </div>
 
-                        <div class="Laptop:w-[80%] w-full">
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
 
-                            <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
-                            <div>  
-                                <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">NID / CNIC <span
-                                    class="text-Indicates">*</span></label> 
-                                    <div class="field">
-                                        <input type="text" name="nidorcnicnumber" id="nidorcnicnumber"
-                                            autocomplete="off"
-                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('nidorcnicnumber') ? 'error' : '' }}"
-                                            value="{{ $hasOldData2 ? $oldData2->nidorcnicnumber : '' }}" required>
-                                        @error('nidorcnicnumber')
-                                            <p class="erromessage">{{ $message }}</p>
-                                        @enderror
-                                        {{-- <label for="" class="label-t">NID/CNIC</label> --}}
+                            <div class="mbl-hdn Laptop:w-[20%]">
+                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Identity Number</h2>
+                            </div>
+
+                            <div class="Laptop:w-[80%] w-full">
+
+                                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
+
+                                    <div>
+                                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">NID /
+                                            CNIC <span class="text-Indicates">*</span></label>
+                                        <div class="field">
+                                            <input type="text" name="nidorcnicnumber" id="nidorcnicnumber"
+                                                autocomplete="off"
+                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('nidorcnicnumber') ? 'error' : '' }}"
+                                                value="{{ $hasOldData2 ? $oldData2->nidorcnicnumber : '' }}" required>
+                                            @error('nidorcnicnumber')
+                                                <p class="erromessage">{{ $message }}</p>
+                                            @enderror
+                                            {{-- <label for="" class="label-t">NID/CNIC</label> --}}
+                                        </div>
                                     </div>
-                            </div> 
-                           
-                            </div> 
 
-                        </div>  
+                                </div>
 
-                </div>
+                            </div>
 
-            <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
- 
-                               
-                    <div class="mbl-hdn Laptop:w-[20%]">
-                        <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Marital Status</h2>
-                    </div>
+                        </div>
 
-                    <div class="Laptop:w-[80%] w-full">
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
 
-                        <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
-                        <div>  
-                            <label   class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Marital Status <span
-                                class="text-Indicates">*</span></label> 
-                                <div class="field">
-                                    <select name="martialstatus" id="martialstatus"
-                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
-                                        <option value="">Select Status</option>
-                                        <option
-                                            {{ $hasOldData2 && $oldData2->martialstatus == 'Single' ? 'selected' : '' }}
-                                            value="Single">Single</option>
-                                        <option
-                                            {{ $hasOldData2 && $oldData2->martialstatus == 'Married' ? 'selected' : '' }}
-                                            value="Married">Married</option>
-                                        <option
-                                            {{ $hasOldData2 && $oldData2->martialstatus == 'Divorced' ? 'selected' : '' }}
-                                            value="Divorced">Divorced</option>
-                                    </select>
-                                    @error('martialstatus')
+                            <div class="mbl-hdn Laptop:w-[20%]">
+                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Marital Status</h2>
+                            </div>
+
+                            <div class="Laptop:w-[80%] w-full">
+
+                                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
+
+                                    <div>
+                                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Marital
+                                            Status <span class="text-Indicates">*</span></label>
+                                        <div class="field">
+                                            <select name="martialstatus" id="martialstatus"
+                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
+                                                required>
+                                                <option value="">Select Status</option>
+                                                <option
+                                                    {{ $hasOldData2 && $oldData2->martialstatus == 'Single' ? 'selected' : '' }}
+                                                    value="Single">Single</option>
+                                                <option
+                                                    {{ $hasOldData2 && $oldData2->martialstatus == 'Married' ? 'selected' : '' }}
+                                                    value="Married">Married</option>
+                                                <option
+                                                    {{ $hasOldData2 && $oldData2->martialstatus == 'Divorced' ? 'selected' : '' }}
+                                                    value="Divorced">Divorced</option>
+                                            </select>
+                                            @error('martialstatus')
+                                                <p class="erromessage">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+
+
+                            <div class="mbl-hdn Laptop:w-[20%]">
+                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Residency</h2>
+                            </div>
+
+                            <div class="Laptop:w-[80%] w-full">
+
+                                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
+
+                                    <div>
+                                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">UAE
+                                            resident <span class="text-Indicates">*</span></label>
+                                        <div class="field">
+                                            <div class="flex gap-8">
+                                                <select name="uaeresident" id="uaeresident"
+                                                    class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none">
+                                                    <option
+                                                        {{ $hasOldData2 && $oldData2->uaeresident == 'No' ? 'selected' : '' }}
+                                                        value="No"><span id="no">No</span></option>
+                                                    <option
+                                                        {{ $hasOldData2 && $oldData2->uaeresident == 'Yes' ? 'selected' : '' }}
+                                                        value="Yes"><span id="yes">Yes</span> </option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div id="residence-yes"
+                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-2 Laptop:gap-8 py-4 Laptop:py-6">
+
+                            <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Emirates ID <span
+                                            class="text-Indicates">*</span></h2>
+                                </div>
+                                <div class="field Laptop:w-[65%] w-[60%]">
+                                    <input type="text" name="emiratesid" id="fixedInput" autocomplete="off"
+                                        value="{{ $hasOldData2 ? $oldData2->emiratesid : '' }}" maxlength="18"
+                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('emiratesid') ? 'error' : '' }}"
+                                        oninput="formatInput(this)" placeholder="784-####-#######-#"
+                                        onclick="autofill()">
+                                    @error('emiratesid')
                                         <p class="erromessage">{{ $message }}</p>
                                     @enderror
+                                    <label for="" class="label-t">Emirates ID </label>
                                 </div>
-                        </div> 
-                       
-                        </div> 
+                            </div>
 
-                    </div>  
 
-            </div>
-
-            
-         <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
- 
-                               
-                <div class="mbl-hdn Laptop:w-[20%]">
-                    <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Residency</h2>
-                </div>
-
-                <div class="Laptop:w-[80%] w-full">
-
-                    <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
-
-                    <div>  
-                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">UAE resident <span
-                            class="text-Indicates">*</span></label> 
-                            <div class="field">
-                                <div class="flex gap-8">
-                                    <select name="uaeresident" id="uaeresident"
-                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none">
-                                        <option
-                                            {{ $hasOldData2 && $oldData2->uaeresident == 'No' ? 'selected' : '' }}
-                                            value="No"><span id="no">No</span></option>
-                                        <option
-                                            {{ $hasOldData2 && $oldData2->uaeresident == 'Yes' ? 'selected' : '' }}
-                                            value="Yes"><span id="yes">Yes</span> </option>
-                                    </select>
+                            <div class=" flex items-center gap-2">
+                                <div class="Laptop:w-[35%] w-[40%]">
+                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Date of Expiry
+                                        <span class="text-Indicates">*</span>
+                                    </h2>
                                 </div>
 
-                            </div>
-                    </div> 
-                   
-                    </div> 
+                                <div class="Laptop:w-[65%] w-[60%] grid grid-cols-3 gap-1 Tablet:gap-2 border p-2 Tablet:p-2.5 expiry  rounded date relative"
+                                    style="padding-bottom: 2rem">
 
-                </div>  
-
-        </div>
-
-       
-     <div id="residence-yes"  class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-2 Laptop:gap-8 py-4 Laptop:py-6">
-
-        <div class=" flex items-center gap-2">
-            <div class="Laptop:w-[35%] w-[40%]">
-                <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Emirates ID <span
-                        class="text-Indicates">*</span></h2>
-            </div>
-            <div class="field Laptop:w-[65%] w-[60%]">
-                <input type="text" name="emiratesid" id="fixedInput" autocomplete="off"
-                    value="{{ $hasOldData2 ? $oldData2->emiratesid : '' }}" maxlength="18"
-                    class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('emiratesid') ? 'error' : '' }}"
-                    oninput="formatInput(this)" placeholder="784-####-#######-#"
-                    onclick="autofill()">
-                @error('emiratesid')
-                    <p class="erromessage">{{ $message }}</p>
-                @enderror
-                <label for="" class="label-t">Emirates ID </label>
-            </div>
-        </div>
-
-
-        <div class=" flex items-center gap-2">
-            <div class="Laptop:w-[35%] w-[40%]">
-                <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Date of Expiry
-                    <span class="text-Indicates">*</span>
-                </h2>
-            </div>
-
-            <div class="Laptop:w-[65%] w-[60%] grid grid-cols-3 gap-1 Tablet:gap-2 border p-2 Tablet:p-2.5 expiry  rounded date relative"
-                style="padding-bottom: 2rem">
-
-                <div class="field">
-                    <select name="emirates_expiry_daye" id="emirates_expiry_day"
-                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
-                        <option value="">Day</option>
-                        @php
-                            $selectedDay = isset($oldData2->emirates_expiry_day)
-                                ? $oldData2->emirates_expiry_day
-                                : null;
-                        @endphp
-                        @for ($day = 1; $day <= 31; $day++)
-                            <option value="{{ $day }}"
-                                {{ $day == $selectedDay ? 'selected' : '' }}>{{ $day }}
-                            </option>
-                        @endfor
-                    </select>
-                </div>
-
-                <div class="field">
-                    <select name="emirates_expiry_monthe" id="emirates_expiry_month"
-                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
-                        <option value="">Month</option>
-                        @php
-                            $selectedMonth = isset($oldData2->emirates_expiry_month)
-                                ? $oldData2->emirates_expiry_month
-                                : '';
-                            $months = [
-                                1 => 'January',
-                                2 => 'February',
-                                3 => 'March',
-                                4 => 'April',
-                                5 => 'May',
-                                6 => 'June',
-                                7 => 'July',
-                                8 => 'August',
-                                9 => 'September',
-                                10 => 'October',
-                                11 => 'November',
-                                12 => 'December',
-                            ];
-                        @endphp
-                        @foreach ($months as $key => $month)
-                            <option value="{{ $key }}"
-                                {{ $month == $selectedMonth ? 'selected' : '' }}>
-                                {{ $month }}</option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <div class="field">
-                    <select name="emirates_expiry_yeare" id="emirates_expiry_year"
-                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
-                        <option value="">Year</option>
-                        @php
-                            $selectedYear = isset($oldData2->emirates_expiry_year)
-                                ? $oldData2->emirates_expiry_year
-                                : '';
-                            $currentYear = date('Y');
-                        @endphp
-                        @for ($year = $currentYear; $year <= $currentYear + 10; $year++)
-                            <option value="{{ $year }}"
-                                {{ $year == $selectedYear ? 'selected' : '' }}>{{ $year }}
-                            </option>
-                        @endfor
-                    </select>
-                </div>
-
-                <div id="eexpiryTime"
-                    style="position: absolute; left: 10px; bottom: 5px; margin-top: 10px"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="" id="residence-no">
-    </div>
-
-          
-    <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
- 
-                               
-            <div class="mbl-hdn Laptop:w-[20%]">
-                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Religion</h2>
-            </div>
-
-            <div class="Laptop:w-[80%] w-full">
-
-                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
-
-                <div>  
-                    <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Religion<span class="text-Indicates">*</span></label> 
-                        <div class="field">
-                            <div class="flex gap-8">
-                                <select name="religion" id="religion"
-                                    class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none">
-                                    <option
-                                        {{ $hasOldData2 && $oldData2->religion == 'Islam' ? 'selected' : '' }}
-                                        value="Islam">Islam</option>
-                                    <option
-                                        {{ $hasOldData2 && $oldData2->religion == 'Hindu' ? 'selected' : '' }}
-                                        value="Hindu">Hindu</option>
-                                    <option
-                                        {{ $hasOldData2 && $oldData2->religion == 'Christian' ? 'selected' : '' }}
-                                        value="Christian">Christian </option>
-                                    <option
-                                        {{ $hasOldData2 && $oldData2->religion == 'Buddhist' ? 'selected' : '' }}
-                                        value="Buddhist">Buddhist</option>
-                                </select>
-                            </div>
-                            @error('religion')
-                                <p class="erromessage">{{ $message }}</p>
-                            @enderror
-                        </div>
-                </div> 
-               
-                </div> 
-
-            </div>  
-
-    </div>
-
-       
-   <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
- 
-                               
-        <div class="mbl-hdn Laptop:w-[20%]">
-            <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Home Country Address</h2>
-        </div>
-
-        <div class="Laptop:w-[80%] w-full">
-
-            <div class="grid grid-cols-1 gap-2  Laptop:gap-4">
-
-            <div>  
-                <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Permanent address <span class="text-Indicates">*</span></label> 
-                <div class="field">
-                    <input type="text" name="homeaddrss" id="homeaddrss" autocomplete="off"
-                        value="{{ $hasOldData2 ? $oldData2->homeaddrss : '' }}"
-                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required> 
-                    @error('homeaddrss')
-                        <p class="erromessage">{{ $message }}</p>
-                    @enderror
-                </div>
-            </div> 
- 
-           
-            </div> 
-
-        <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4"> 
-
-                   
-                    <div>
-                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">State / Province <span class="text-Indicates">*</span></label> 
-                        <select name="province" id="stateProvince"
-                            class="w-full mt-2 px-2 py-2 rounded-md border text-xs">
-                            <option value="">Select State/Province</option>
-                        </select>
-                        @error('province')
-                            <p class="erromessage">{{ $message }}</p>
-                        @enderror
-                    </div> 
- 
-
-                    <div> 
-                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">City / District <span class="text-Indicates">*</span></label> 
-                        <select name="city" id="cityDistrict"
-                            class="w-full  mt-2 px-2 py-2 rounded-md border text-xs {{ $errors->has('city') ? 'error' : '' }}">
-                            <option value="">Select City/District</option>
-                            @error('city')
-                                <p class="erromessage">{{ $message }}</p>
-                            @enderror
-                        </select>
-                    </div> 
-
-               
-                </div> 
-
-
-      
-
-        <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
-
-                   
-            <div> 
-                <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Police Station </label> 
-                <input type="text" name="policeStation" id="policeStation"
-                    value="{{ $hasOldData2 ? $oldData2->policeStation : '' }}"
-                    class="w-full mt-2 px-2 py-2  text-xs rounded-md border outline-none">
-                @error('policeStation')
-                    <p class="erromessage">{{ $message }}</p>
-                @enderror
-            </div>
-
-
-            <div> 
-                <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Post Office (Optional) </label>  
-                <input type="text" name="zip" id="postCode"
-                    value="{{ $hasOldData2 ? $oldData2->zip : '' }}"
-                    class="w-full mt-2 px-2 py-2  text-xs rounded-md border outline-none">
-                @error('zip')
-                    <p class="erromessage">{{ $message }}</p>
-                @enderror
-            </div>  
-       
-        </div> 
-
-        <div class="grid grid-cols-1 gap-2  Laptop:gap-4">
-
-            <div>  
-                <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Reference number (optional) </label> 
-                <div class="field ">
-                    <input type="text" name="reference" id="reference" autocomplete="off"
-                        value="{{ $hasOldData2 ? $oldData2->reference : '' }}"
-                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('reference') ? 'error' : '' }}"
-                        required> 
-                    @error('reference')
-                        <p class="erromessage">{{ $message }}</p>
-                    @enderror
-                </div>
-            </div> 
- 
-           
-            </div> 
-
-   </div>  
-
-</div>  
-
-
-<div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center"> 
-                               
-    <div class="mbl-hdn Laptop:w-[20%]">
-        <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Passport Images</h2>
-        <img class="mt-2 w-10 Laptop:w-14"
-        src="{{ asset('frontend/imagesupdate/passport.svg') }}" alt="">
-    </div>
-
-    <div class="Laptop:w-[80%] w-full">
-
-        <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
-
-        <div>  
-            <label for="jobpossition" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 hidden applicationphotoMb">Passport Front page  <span class="text-Indicates">*</span></label>   
-            <label for="jobpossition" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 applicationphotodesktp ">Front page <span class="text-Indicates">*</span></label>   
-                 
-            <div id="uploadAreaPassport"
-            class="field border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
-            <div class="text-center">
-                <img id="previewImagePassport"
-                    class="w-8 Laptop:w-10 text-center mx-auto mb-2"
-                    src="{{ asset('frontend/imagesupdate/Vector.png') }}" alt="">
-                <p class="text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
-                    or <a href="#" id="uploadLinkPassport"
-                        class="text-Primary-c underline underline-offset-2">Upload File</a></p>
-            </div>
-        </div>
-        <input type="file" name="applicant_passporte" id="fileInputPassport"
-            value="{{ old('applicant_passporte') }}" class="hidden" accept="image/*"> 
-           
-    </div> 
-    <div id="applicant_passport" style="display: none"></div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const uploadAreaPassport = document.getElementById('uploadAreaPassport');
-            const uploadLinkPassport = document.getElementById('uploadLinkPassport');
-            const fileInputPassport = document.getElementById('fileInputPassport');
-            const previewImagePassport = document.getElementById('previewImagePassport');
-            var serverImageUrl = @json($applicantPassUrl);
-
-            // Function to load an image from server folder
-            function loadServerImage(imageUrl) {
-                if (imageUrl) {
-                    previewImagePassport.src = imageUrl;
-                    previewImagePassport.setAttribute('data-loaded', true);
-                }
-            }
-
-            // Event listener for file input change
-            fileInputPassport.addEventListener('change', function() {
-                if (fileInputPassport.files.length > 0) {
-                    const file = fileInputPassport.files[0];
-                    const reader = new FileReader();
-
-                    reader.onload = function(e) {
-                        previewImagePassport.src = e.target.result;
-                        previewImagePassport.removeAttribute('data-loaded');
-                    }
-
-                    reader.readAsDataURL(file);
-                } else {
-                    previewImagePassport.src =
-                        'assets/Images/Vector.png'; // Default image if no file selected
-                    previewImagePassport.removeAttribute('data-loaded');
-                }
-            });
-
-            // Load image from server folder if available
-            loadServerImage(serverImageUrl);
-
-            // Event listeners for triggering file input
-            uploadAreaPassport.addEventListener('click', function() {
-                fileInputPassport.click();
-            });
-
-            uploadLinkPassport.addEventListener('click', function(event) {
-                event.preventDefault();
-                fileInputPassport.click();
-            });
-        });
-    </script>
-
-<div>  
-    <label for="jobpossition" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 hidden applicationphotoMb">Passport Signature page (optional)  <span class="text-Indicates">*</span></label>   
-    <label for="jobpossition" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 applicationphotodesktp ">Signature page (optional) </label>   
-         
-    <div id="uploadAreaSignature"
-                                    class="field   border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
-                                    <div class="text-center">
-                                        <img id="previewImageSignature"
-                                            class="w-8 Laptop:w-10 text-center mx-auto mb-2"
-                                            src="{{ asset('frontend/imagesupdate/Vector.png') }}" alt="">
-                                        <p class="text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
-                                            or <a href="#" id="uploadLinkSignature"
-                                                class="text-Primary-c underline underline-offset-2">Upload File</a></p>
+                                    <div class="field">
+                                        <select name="emirates_expiry_daye" id="emirates_expiry_day"
+                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                            <option value="">Day</option>
+                                            @php
+                                                $selectedDay = isset($oldData2->emirates_expiry_day)
+                                                    ? $oldData2->emirates_expiry_day
+                                                    : null;
+                                            @endphp
+                                            @for ($day = 1; $day <= 31; $day++)
+                                                <option value="{{ $day }}"
+                                                    {{ $day == $selectedDay ? 'selected' : '' }}>{{ $day }}
+                                                </option>
+                                            @endfor
+                                        </select>
                                     </div>
+
+                                    <div class="field">
+                                        <select name="emirates_expiry_monthe" id="emirates_expiry_month"
+                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                            <option value="">Month</option>
+                                            @php
+                                                $selectedMonth = isset($oldData2->emirates_expiry_month)
+                                                    ? $oldData2->emirates_expiry_month
+                                                    : '';
+                                                $months = [
+                                                    1 => 'January',
+                                                    2 => 'February',
+                                                    3 => 'March',
+                                                    4 => 'April',
+                                                    5 => 'May',
+                                                    6 => 'June',
+                                                    7 => 'July',
+                                                    8 => 'August',
+                                                    9 => 'September',
+                                                    10 => 'October',
+                                                    11 => 'November',
+                                                    12 => 'December',
+                                                ];
+                                            @endphp
+                                            @foreach ($months as $key => $month)
+                                                <option value="{{ $key }}"
+                                                    {{ $month == $selectedMonth ? 'selected' : '' }}>
+                                                    {{ $month }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="field">
+                                        <select name="emirates_expiry_yeare" id="emirates_expiry_year"
+                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
+                                            <option value="">Year</option>
+                                            @php
+                                                $selectedYear = isset($oldData2->emirates_expiry_year)
+                                                    ? $oldData2->emirates_expiry_year
+                                                    : '';
+                                                $currentYear = date('Y');
+                                            @endphp
+                                            @for ($year = $currentYear; $year <= $currentYear + 10; $year++)
+                                                <option value="{{ $year }}"
+                                                    {{ $year == $selectedYear ? 'selected' : '' }}>{{ $year }}
+                                                </option>
+                                            @endfor
+                                        </select>
+                                    </div>
+
+                                    <div id="eexpiryTime"
+                                        style="position: absolute; left: 10px; bottom: 5px; margin-top: 10px"></div>
                                 </div>
-                                <input type="file" name="specialpagee" id="fileInputSignature"
-                                    value="{{ old('specialpagee') }}" class="hidden" accept="image/*">
+
                             </div>
-                            <div id="specialpage" style="display: none"></div>
 
-                            <script>
-                                document.addEventListener('DOMContentLoaded', function() {
-                                    const uploadAreaSignature = document.getElementById('uploadAreaSignature');
-                                    const uploadLinkSignature = document.getElementById('uploadLinkSignature');
-                                    const fileInputSignature = document.getElementById('fileInputSignature');
-                                    const previewImageSignature = document.getElementById('previewImageSignature');
-                                    var serverImageUrlSignature = @json($applicantSpclAgeUrl);
+                        </div>
 
-                                    // Function to load an image from server folder
-                                    function loadServerImageSignature(imageUrl) {
-                                        if (imageUrl) {
-                                            previewImageSignature.src = imageUrl;
-                                            previewImageSignature.setAttribute('data-loaded', true);
-                                        }
-                                    }
+                        <div class="" id="residence-no">
+                        </div>
 
-                                    // Event listener for file input change
-                                    fileInputSignature.addEventListener('change', function() {
-                                        if (fileInputSignature.files.length > 0) {
-                                            const file = fileInputSignature.files[0];
-                                            const reader = new FileReader();
 
-                                            reader.onload = function(e) {
-                                                previewImageSignature.src = e.target.result;
-                                                previewImageSignature.removeAttribute('data-loaded');
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+
+
+                            <div class="mbl-hdn Laptop:w-[20%]">
+                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Religion</h2>
+                            </div>
+
+                            <div class="Laptop:w-[80%] w-full">
+
+                                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
+
+                                    <div>
+                                        <label
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Religion<span
+                                                class="text-Indicates">*</span></label>
+                                        <div class="field">
+                                            <div class="flex gap-8">
+                                                <select name="religion" id="religion"
+                                                    class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none">
+                                                    <option
+                                                        {{ $hasOldData2 && $oldData2->religion == 'Islam' ? 'selected' : '' }}
+                                                        value="Islam">Islam</option>
+                                                    <option
+                                                        {{ $hasOldData2 && $oldData2->religion == 'Hindu' ? 'selected' : '' }}
+                                                        value="Hindu">Hindu</option>
+                                                    <option
+                                                        {{ $hasOldData2 && $oldData2->religion == 'Christian' ? 'selected' : '' }}
+                                                        value="Christian">Christian </option>
+                                                    <option
+                                                        {{ $hasOldData2 && $oldData2->religion == 'Buddhist' ? 'selected' : '' }}
+                                                        value="Buddhist">Buddhist</option>
+                                                </select>
+                                            </div>
+                                            @error('religion')
+                                                <p class="erromessage">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
+
+
+                            <div class="mbl-hdn Laptop:w-[20%]">
+                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Home Country Address
+                                </h2>
+                            </div>
+
+                            <div class="Laptop:w-[80%] w-full">
+
+                                <div class="grid grid-cols-1 gap-2  Laptop:gap-4">
+
+                                    <div>
+                                        <label
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Permanent
+                                            address <span class="text-Indicates">*</span></label>
+                                        <div class="field">
+                                            <input type="text" name="homeaddrss" id="homeaddrss"
+                                                autocomplete="off"
+                                                value="{{ $hasOldData2 ? $oldData2->homeaddrss : '' }}"
+                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
+                                                required>
+                                            @error('homeaddrss')
+                                                <p class="erromessage">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
+
+
+                                    <div>
+                                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">State /
+                                            Province <span class="text-Indicates">*</span></label>
+                                        <select name="province" id="stateProvince"
+                                            class="w-full mt-2 px-2 py-2 rounded-md border text-xs">
+                                            <option value="">Select State/Province</option>
+                                        </select>
+                                        @error('province')
+                                            <p class="erromessage">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+
+
+                                    <div>
+                                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">City /
+                                            District <span class="text-Indicates">*</span></label>
+                                        <select name="city" id="cityDistrict"
+                                            class="w-full  mt-2 px-2 py-2 rounded-md border text-xs {{ $errors->has('city') ? 'error' : '' }}">
+                                            <option value="">Select City/District</option>
+                                            @error('city')
+                                                <p class="erromessage">{{ $message }}</p>
+                                            @enderror
+                                        </select>
+                                    </div>
+
+
+                                </div>
+
+
+
+
+                                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
+
+
+                                    <div>
+                                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Police
+                                            Station </label>
+                                        <input type="text" name="policeStation" id="policeStation"
+                                            value="{{ $hasOldData2 ? $oldData2->policeStation : '' }}"
+                                            class="w-full mt-2 px-2 py-2  text-xs rounded-md border outline-none">
+                                        @error('policeStation')
+                                            <p class="erromessage">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+
+
+                                    <div>
+                                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Post
+                                            Office (Optional) </label>
+                                        <input type="text" name="zip" id="postCode"
+                                            value="{{ $hasOldData2 ? $oldData2->zip : '' }}"
+                                            class="w-full mt-2 px-2 py-2  text-xs rounded-md border outline-none">
+                                        @error('zip')
+                                            <p class="erromessage">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+
+                                </div>
+
+                                <div class="grid grid-cols-1 gap-2  Laptop:gap-4">
+
+                                    <div>
+                                        <label
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Reference
+                                            number (optional) </label>
+                                        <div class="field ">
+                                            <input type="text" name="reference" id="reference" autocomplete="off"
+                                                value="{{ $hasOldData2 ? $oldData2->reference : '' }}"
+                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('reference') ? 'error' : '' }}"
+                                                required>
+                                            @error('reference')
+                                                <p class="erromessage">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+
+                            <div class="mbl-hdn Laptop:w-[20%]">
+                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Passport Images</h2>
+                                <img class="mt-2 w-10 Laptop:w-14"
+                                    src="{{ asset('frontend/imagesupdate/passport.svg') }}" alt="">
+                            </div>
+
+                            <div class="Laptop:w-[80%] w-full">
+
+                                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
+
+                                    <div>
+                                        <label for="jobpossition"
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 hidden applicationphotoMb">Passport
+                                            Front page <span class="text-Indicates">*</span></label>
+                                        <label for="jobpossition"
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 applicationphotodesktp ">Front
+                                            page <span class="text-Indicates">*</span></label>
+
+                                        <div id="uploadAreaPassport"
+                                            class="field border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                            <div class="text-center">
+                                                <img id="previewImagePassport"
+                                                    class="w-8 Laptop:w-10 text-center mx-auto mb-2"
+                                                    src="{{ asset('frontend/imagesupdate/Vector.png') }}"
+                                                    alt="">
+                                                <p class="text-xs Laptop:text-base font-medium leading-6">Drop File
+                                                    here <br>
+                                                    or <a href="#" id="uploadLinkPassport"
+                                                        class="text-Primary-c underline underline-offset-2">Upload
+                                                        File</a></p>
+                                            </div>
+                                        </div>
+                                        <input type="file" name="applicant_passporte" id="fileInputPassport"
+                                            value="{{ old('applicant_passporte') }}" class="hidden"
+                                            accept="image/*">
+
+                                    </div>
+                                    <div id="applicant_passport" style="display: none"></div>
+
+                                    <script>
+                                        document.addEventListener('DOMContentLoaded', function() {
+                                            const uploadAreaPassport = document.getElementById('uploadAreaPassport');
+                                            const uploadLinkPassport = document.getElementById('uploadLinkPassport');
+                                            const fileInputPassport = document.getElementById('fileInputPassport');
+                                            const previewImagePassport = document.getElementById('previewImagePassport');
+                                            var serverImageUrl = @json($applicantPassUrl);
+
+                                            // Function to load an image from server folder
+                                            function loadServerImage(imageUrl) {
+                                                if (imageUrl) {
+                                                    previewImagePassport.src = imageUrl;
+                                                    previewImagePassport.setAttribute('data-loaded', true);
+                                                }
                                             }
 
-                                            reader.readAsDataURL(file);
-                                        } else {
-                                            previewImageSignature.src =
-                                                'assets/Images/Vector.png'; // Default image if no file selected
-                                            previewImageSignature.removeAttribute('data-loaded');
-                                        }
-                                    });
+                                            // Event listener for file input change
+                                            fileInputPassport.addEventListener('change', function() {
+                                                if (fileInputPassport.files.length > 0) {
+                                                    const file = fileInputPassport.files[0];
+                                                    const reader = new FileReader();
 
-                                    // Load image from server folder if available
-                                    loadServerImageSignature(serverImageUrlSignature);
+                                                    reader.onload = function(e) {
+                                                        previewImagePassport.src = e.target.result;
+                                                        previewImagePassport.removeAttribute('data-loaded');
+                                                    }
 
-                                    // Event listeners for triggering file input
-                                    uploadAreaSignature.addEventListener('click', function() {
-                                        fileInputSignature.click();
-                                    });
+                                                    reader.readAsDataURL(file);
+                                                } else {
+                                                    previewImagePassport.src =
+                                                        'assets/Images/Vector.png'; // Default image if no file selected
+                                                    previewImagePassport.removeAttribute('data-loaded');
+                                                }
+                                            });
 
-                                    uploadLinkSignature.addEventListener('click', function(event) {
-                                        event.preventDefault();
-                                        fileInputSignature.click();
-                                    });
-                                });
-                            </script>
+                                            // Load image from server folder if available
+                                            loadServerImage(serverImageUrl);
 
+                                            // Event listeners for triggering file input
+                                            uploadAreaPassport.addEventListener('click', function() {
+                                                fileInputPassport.click();
+                                            });
 
+                                            uploadLinkPassport.addEventListener('click', function(event) {
+                                                event.preventDefault();
+                                                fileInputPassport.click();
+                                            });
+                                        });
+                                    </script>
 
+                                    <div>
+                                        <label for="jobpossition"
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 hidden applicationphotoMb">Passport
+                                            Signature page (optional) <span class="text-Indicates">*</span></label>
+                                        <label for="jobpossition"
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 applicationphotodesktp ">Signature
+                                            page (optional) </label>
 
-        </div> 
-       
-        </div> 
- 
+                                        <div id="uploadAreaSignature"
+                                            class="field   border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                            <div class="text-center">
+                                                <img id="previewImageSignature"
+                                                    class="w-8 Laptop:w-10 text-center mx-auto mb-2"
+                                                    src="{{ asset('frontend/imagesupdate/Vector.png') }}"
+                                                    alt="">
+                                                <p class="text-xs Laptop:text-base font-medium leading-6">Drop File
+                                                    here <br>
+                                                    or <a href="#" id="uploadLinkSignature"
+                                                        class="text-Primary-c underline underline-offset-2">Upload
+                                                        File</a></p>
+                                            </div>
+                                        </div>
+                                        <input type="file" name="specialpagee" id="fileInputSignature"
+                                            value="{{ old('specialpagee') }}" class="hidden" accept="image/*">
+                                    </div>
+                                    <div id="specialpage" style="display: none"></div>
 
-</div>
- 
+                                    <script>
+                                        document.addEventListener('DOMContentLoaded', function() {
+                                            const uploadAreaSignature = document.getElementById('uploadAreaSignature');
+                                            const uploadLinkSignature = document.getElementById('uploadLinkSignature');
+                                            const fileInputSignature = document.getElementById('fileInputSignature');
+                                            const previewImageSignature = document.getElementById('previewImageSignature');
+                                            var serverImageUrlSignature = @json($applicantSpclAgeUrl);
 
+                                            // Function to load an image from server folder
+                                            function loadServerImageSignature(imageUrl) {
+                                                if (imageUrl) {
+                                                    previewImageSignature.src = imageUrl;
+                                                    previewImageSignature.setAttribute('data-loaded', true);
+                                                }
+                                            }
 
-<div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center"> 
-                               
-    <div class="mbl-hdn Laptop:w-[20%]">
-        <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">NID / CNIC Images </h2>
-        <img class="mt-2 w-10 Laptop:w-14" src="{{ asset('frontend/imagesupdate/idfront.svg') }}" alt="">
-    </div>
+                                            // Event listener for file input change
+                                            fileInputSignature.addEventListener('change', function() {
+                                                if (fileInputSignature.files.length > 0) {
+                                                    const file = fileInputSignature.files[0];
+                                                    const reader = new FileReader();
 
-    <div class="Laptop:w-[80%] w-full">
+                                                    reader.onload = function(e) {
+                                                        previewImageSignature.src = e.target.result;
+                                                        previewImageSignature.removeAttribute('data-loaded');
+                                                    }
 
-        <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
+                                                    reader.readAsDataURL(file);
+                                                } else {
+                                                    previewImageSignature.src =
+                                                        'assets/Images/Vector.png'; // Default image if no file selected
+                                                    previewImageSignature.removeAttribute('data-loaded');
+                                                }
+                                            });
 
-        <div>  
-            <label for="jobpossition" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 ">NID / CNIC front <span class="text-Indicates">*</span></label>    
-                  
-            <div id="uploadAreaNID"
-            class="field border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
-            <div class="text-center">
-                <img id="previewImageNID" class="w-8 Laptop:w-10 text-center mx-auto mb-2"
-                    src="{{ asset('frontend/imagesupdate/Vector.png') }}" alt="">
-                <p class="text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
-                    or <a href="#" id="uploadLinkNID"
-                        class="text-Primary-c underline underline-offset-2">Upload File</a></p>
-            </div>
-        </div>
-        <input type="file" name="nid_cnic_fronte" value="{{ old('nid_cnic_fronte') }}"
-            id="fileInputNID" class="hidden" accept="image/*">
-    </div>
-    <div id="nid_cnic_front" style="display: none"></div>
+                                            // Load image from server folder if available
+                                            loadServerImageSignature(serverImageUrlSignature);
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const uploadAreaNID = document.getElementById('uploadAreaNID');
-            const uploadLinkNID = document.getElementById('uploadLinkNID');
-            const fileInputNID = document.getElementById('fileInputNID');
-            const previewImageNID = document.getElementById('previewImageNID');
-            var serverImageUrlNID = @json($applicantcncfUrl);
+                                            // Event listeners for triggering file input
+                                            uploadAreaSignature.addEventListener('click', function() {
+                                                fileInputSignature.click();
+                                            });
 
-            // Function to load an image from server folder
-            function loadServerImageNID(imageUrl) {
-                if (imageUrl) {
-                    previewImageNID.src = imageUrl;
-                    previewImageNID.setAttribute('data-loaded', true);
-                }
-            }
-
-            // Event listener for file input change
-            fileInputNID.addEventListener('change', function() {
-                if (fileInputNID.files.length > 0) {
-                    const file = fileInputNID.files[0];
-                    const reader = new FileReader();
-
-                    reader.onload = function(e) {
-                        previewImageNID.src = e.target.result;
-                        previewImageNID.removeAttribute('data-loaded');
-                    }
-
-                    reader.readAsDataURL(file);
-                } else {
-                    previewImageNID.src = 'assets/Images/Vector.png'; // Default image if no file selected
-                    previewImageNID.removeAttribute('data-loaded');
-                }
-            });
-
-            // Load image from server folder if available
-            loadServerImageNID(serverImageUrlNID);
-
-            // Event listeners for triggering file input
-            uploadAreaNID.addEventListener('click', function() {
-                fileInputNID.click();
-            });
-
-            uploadLinkNID.addEventListener('click', function(event) {
-                event.preventDefault();
-                fileInputNID.click();
-            });
-        });
-    </script>
-
-
-<div>   
-    <label for="jobpossition" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">NID / CNIC Back </label>  
-    <div id="uploadAreaNIDBack"
-        class="field  border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
-        <div class="text-center">
-            <img id="previewImageNIDBack" class="w-8 Laptop:w-10 text-center mx-auto mb-2"
-                src="{{ asset('frontend/imagesupdate/Vector.png') }}" alt="">
-            <p class="text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
-                or <a href="#" id="uploadLinkNIDBack"
-                    class="text-Primary-c underline underline-offset-2">Upload File</a></p>
-        </div>
-    </div>
-    <input type="file" name="nid_cnic_backe" id="fileInputNIDBack"
-        value="{{ old('nid_cnic_backe') }}" class="hidden" accept="image/*">
-</div>
-<div id="nid_cnic_back" style="display: none"></div>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const uploadAreaNIDBack = document.getElementById('uploadAreaNIDBack');
-        const uploadLinkNIDBack = document.getElementById('uploadLinkNIDBack');
-        const fileInputNIDBack = document.getElementById('fileInputNIDBack');
-        const previewImageNIDBack = document.getElementById('previewImageNIDBack');
-        var serverImageUrlNIDBack = @json($applicantcncbUrl);
-
-        // Function to load an image from server folder
-        function loadServerImageNIDBack(imageUrl) {
-            if (imageUrl) {
-                previewImageNIDBack.src = imageUrl;
-                previewImageNIDBack.setAttribute('data-loaded', true);
-            }
-        }
-
-        // Event listener for file input change
-        fileInputNIDBack.addEventListener('change', function() {
-            if (fileInputNIDBack.files.length > 0) {
-                const file = fileInputNIDBack.files[0];
-                const reader = new FileReader();
-
-                reader.onload = function(e) {
-                    previewImageNIDBack.src = e.target.result;
-                    previewImageNIDBack.removeAttribute('data-loaded');
-                }
-
-                reader.readAsDataURL(file);
-            } else {
-                previewImageNIDBack.src =
-                    'assets/Images/Vector.png'; // Default image if no file selected
-                previewImageNIDBack.removeAttribute('data-loaded');
-            }
-        });
-
-        // Load image from server folder if available
-        loadServerImageNIDBack(serverImageUrlNIDBack);
-
-        // Event listeners for triggering file input
-        uploadAreaNIDBack.addEventListener('click', function() {
-            fileInputNIDBack.click();
-        });
-
-        uploadLinkNIDBack.addEventListener('click', function(event) {
-            event.preventDefault();
-            fileInputNIDBack.click();
-        });
-    });
-</script>  
-    
- </div> 
-       
-        </div> 
- 
-
-</div>
- 
- 
+                                            uploadLinkSignature.addEventListener('click', function(event) {
+                                                event.preventDefault();
+                                                fileInputSignature.click();
+                                            });
+                                        });
+                                    </script>
 
 
 
-                      
-                        <div   class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-2 Laptop:gap-8 py-4 Laptop:py-6">
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+
+                            <div class="mbl-hdn Laptop:w-[20%]">
+                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">NID / CNIC Images
+                                </h2>
+                                <img class="mt-2 w-10 Laptop:w-14"
+                                    src="{{ asset('frontend/imagesupdate/idfront.svg') }}" alt="">
+                            </div>
+
+                            <div class="Laptop:w-[80%] w-full">
+
+                                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
+
+                                    <div>
+                                        <label for="jobpossition"
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 ">NID / CNIC
+                                            front <span class="text-Indicates">*</span></label>
+
+                                        <div id="uploadAreaNID"
+                                            class="field border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                            <div class="text-center">
+                                                <img id="previewImageNID"
+                                                    class="w-8 Laptop:w-10 text-center mx-auto mb-2"
+                                                    src="{{ asset('frontend/imagesupdate/Vector.png') }}"
+                                                    alt="">
+                                                <p class="text-xs Laptop:text-base font-medium leading-6">Drop File
+                                                    here <br>
+                                                    or <a href="#" id="uploadLinkNID"
+                                                        class="text-Primary-c underline underline-offset-2">Upload
+                                                        File</a></p>
+                                            </div>
+                                        </div>
+                                        <input type="file" name="nid_cnic_fronte"
+                                            value="{{ old('nid_cnic_fronte') }}" id="fileInputNID" class="hidden"
+                                            accept="image/*">
+                                    </div>
+                                    <div id="nid_cnic_front" style="display: none"></div>
+
+                                    <script>
+                                        document.addEventListener('DOMContentLoaded', function() {
+                                            const uploadAreaNID = document.getElementById('uploadAreaNID');
+                                            const uploadLinkNID = document.getElementById('uploadLinkNID');
+                                            const fileInputNID = document.getElementById('fileInputNID');
+                                            const previewImageNID = document.getElementById('previewImageNID');
+                                            var serverImageUrlNID = @json($applicantcncfUrl);
+
+                                            // Function to load an image from server folder
+                                            function loadServerImageNID(imageUrl) {
+                                                if (imageUrl) {
+                                                    previewImageNID.src = imageUrl;
+                                                    previewImageNID.setAttribute('data-loaded', true);
+                                                }
+                                            }
+
+                                            // Event listener for file input change
+                                            fileInputNID.addEventListener('change', function() {
+                                                if (fileInputNID.files.length > 0) {
+                                                    const file = fileInputNID.files[0];
+                                                    const reader = new FileReader();
+
+                                                    reader.onload = function(e) {
+                                                        previewImageNID.src = e.target.result;
+                                                        previewImageNID.removeAttribute('data-loaded');
+                                                    }
+
+                                                    reader.readAsDataURL(file);
+                                                } else {
+                                                    previewImageNID.src = 'assets/Images/Vector.png'; // Default image if no file selected
+                                                    previewImageNID.removeAttribute('data-loaded');
+                                                }
+                                            });
+
+                                            // Load image from server folder if available
+                                            loadServerImageNID(serverImageUrlNID);
+
+                                            // Event listeners for triggering file input
+                                            uploadAreaNID.addEventListener('click', function() {
+                                                fileInputNID.click();
+                                            });
+
+                                            uploadLinkNID.addEventListener('click', function(event) {
+                                                event.preventDefault();
+                                                fileInputNID.click();
+                                            });
+                                        });
+                                    </script>
+
+
+                                    <div>
+                                        <label for="jobpossition"
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">NID / CNIC
+                                            Back </label>
+                                        <div id="uploadAreaNIDBack"
+                                            class="field  border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                            <div class="text-center">
+                                                <img id="previewImageNIDBack"
+                                                    class="w-8 Laptop:w-10 text-center mx-auto mb-2"
+                                                    src="{{ asset('frontend/imagesupdate/Vector.png') }}"
+                                                    alt="">
+                                                <p class="text-xs Laptop:text-base font-medium leading-6">Drop File
+                                                    here <br>
+                                                    or <a href="#" id="uploadLinkNIDBack"
+                                                        class="text-Primary-c underline underline-offset-2">Upload
+                                                        File</a></p>
+                                            </div>
+                                        </div>
+                                        <input type="file" name="nid_cnic_backe" id="fileInputNIDBack"
+                                            value="{{ old('nid_cnic_backe') }}" class="hidden" accept="image/*">
+                                    </div>
+                                    <div id="nid_cnic_back" style="display: none"></div>
+                                    <script>
+                                        document.addEventListener('DOMContentLoaded', function() {
+                                            const uploadAreaNIDBack = document.getElementById('uploadAreaNIDBack');
+                                            const uploadLinkNIDBack = document.getElementById('uploadLinkNIDBack');
+                                            const fileInputNIDBack = document.getElementById('fileInputNIDBack');
+                                            const previewImageNIDBack = document.getElementById('previewImageNIDBack');
+                                            var serverImageUrlNIDBack = @json($applicantcncbUrl);
+
+                                            // Function to load an image from server folder
+                                            function loadServerImageNIDBack(imageUrl) {
+                                                if (imageUrl) {
+                                                    previewImageNIDBack.src = imageUrl;
+                                                    previewImageNIDBack.setAttribute('data-loaded', true);
+                                                }
+                                            }
+
+                                            // Event listener for file input change
+                                            fileInputNIDBack.addEventListener('change', function() {
+                                                if (fileInputNIDBack.files.length > 0) {
+                                                    const file = fileInputNIDBack.files[0];
+                                                    const reader = new FileReader();
+
+                                                    reader.onload = function(e) {
+                                                        previewImageNIDBack.src = e.target.result;
+                                                        previewImageNIDBack.removeAttribute('data-loaded');
+                                                    }
+
+                                                    reader.readAsDataURL(file);
+                                                } else {
+                                                    previewImageNIDBack.src =
+                                                        'assets/Images/Vector.png'; // Default image if no file selected
+                                                    previewImageNIDBack.removeAttribute('data-loaded');
+                                                }
+                                            });
+
+                                            // Load image from server folder if available
+                                            loadServerImageNIDBack(serverImageUrlNIDBack);
+
+                                            // Event listeners for triggering file input
+                                            uploadAreaNIDBack.addEventListener('click', function() {
+                                                fileInputNIDBack.click();
+                                            });
+
+                                            uploadLinkNIDBack.addEventListener('click', function(event) {
+                                                event.preventDefault();
+                                                fileInputNIDBack.click();
+                                            });
+                                        });
+                                    </script>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+
+                        <div
+                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-2 Laptop:gap-8 py-4 Laptop:py-6">
 
                             <div class="flex items-center gap-2 YesNo">
                                 <div class="Laptop:w-[35%] w-[40%]">
@@ -2883,7 +2967,8 @@
                                             @endphp
                                             @for ($year = $currentYear; $year <= $currentYear + 10; $year++)
                                                 <option value="{{ $year }}"
-                                                    {{ $year == $selectedYear ? 'selected' : '' }}>{{ $year }}
+                                                    {{ $year == $selectedYear ? 'selected' : '' }}>
+                                                    {{ $year }}
                                                 </option>
                                             @endfor
                                         </select>
@@ -2900,13 +2985,14 @@
                         <div class="" id="residence-no">
                         </div>
 
- 
 
 
-                        
- 
 
-                        <div  class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-2 Laptop:gap-8 py-4 Laptop:py-6">
+
+
+
+                        <div
+                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-2 Laptop:gap-8 py-4 Laptop:py-6">
 
                             <div class=" flex items-center gap-2">
                                 <div class="Laptop:w-[35%] w-[40%]">
@@ -2930,9 +3016,9 @@
                         </div>
 
 
-                        
 
-                        <div class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2  gap-2 Laptop:gap-8 py-4 Laptop:py-6">
+
+                        {{-- <div class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2  gap-2 Laptop:gap-8 py-4 Laptop:py-6">
 
 
                             <div class="flex items-center gap-2">
@@ -3080,7 +3166,7 @@
 
 
 
-                        </div>
+                        </div> --}}
 
                         <div class="button text-right Laptop:mt-10 mt-4 pb-4 ">
                             <button type="button" id="previous2"
@@ -3096,7 +3182,7 @@
                         </div>
                     </fieldset>
 
-{{-- ------------------------------------------------------------------------------------------------------- --}}
+                    {{-- ------------------------------------------------------------------------------------------------------- --}}
 
                     <!-- Step 3 -->
 
@@ -3104,9 +3190,9 @@
                     <fieldset id="fieldset3" style="{{ $currentStep == 3 ? 'display: block' : 'display: none' }}">
 
 
-                    <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center gap-4">
- 
-                               
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center gap-4">
+
+
                             <div class="mbl-hdn Laptop:w-[20%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Submission ID</h2>
                             </div>
@@ -3115,49 +3201,57 @@
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
-                                <div>   
+                                    <div>
                                         <div class="field bg-gray-200 border Laptop:p-1.5 p-1 rounded">
                                             @if (Session::has('submissionID'))
                                                 <p class="text-xs Tablet:text-sm">{{ $submissionID }}</p>
                                             @endif
                                         </div>
-                                </div> 
-                               
-                                </div> 
-    
-                            </div>  
+                                    </div>
 
-                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
 
 
-                    <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center gap-4">
- 
-                               
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center gap-4">
+
+
                             <div class="mbl-hdn Laptop:w-[20%]">
-                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]"> Driving license (home country)</h2>
+                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]"> Driving license
+                                    (home country)</h2>
                             </div>
 
                             <div class="Laptop:w-[80%] w-full">
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
-                                    <div>  
-                                        <label for="firstname" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Passport number <span class="text-Indicates">*</span></label> 
-                                            <div class="field">
-                                                <input type="text" name="passportno" id="passportno" autocomplete="off"
-                                                    class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
-                                                    value="{{ $hasOldData2 && isset($oldData2->passportno) ? $oldData2->passportno : '' }}"
-                                                    required> 
-                                            </div>
+                                    <div>
+                                        <label for="firstname"
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Passport
+                                            number <span class="text-Indicates">*</span></label>
+                                        <div class="field">
+                                            <input type="text" name="passportno" id="passportno"
+                                                autocomplete="off"
+                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
+                                                value="{{ $hasOldData2 && isset($oldData2->passportno) ? $oldData2->passportno : '' }}"
+                                                required>
+                                        </div>
                                     </div>
 
                                     <div>
-                                        <label for="firstname" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Expiry date  <span class="text-Indicates">*</span></label> 
-                                        <div class="grid grid-cols-3 gap-1 Tablet:gap-2 dobdate relative"  style="padding-bottom: 2rem"> 
+                                        <label for="firstname"
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Expiry date
+                                            <span class="text-Indicates">*</span></label>
+                                        <div class="grid grid-cols-3 gap-1 Tablet:gap-2 dobdate relative"
+                                            style="padding-bottom: 2rem">
 
                                             <div class="field">
                                                 <select name="drving_lic_expiry_daye" id="drving_lic_expiry_day"
-                                                    class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none" required>
+                                                    class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none"
+                                                    required>
                                                     <option value="">Day</option>
                                                     @for ($i = 1; $i <= 31; $i++)
                                                         <option value="{{ $i }}"
@@ -3168,7 +3262,8 @@
                                             </div>
                                             <div class="field">
                                                 <select name="drving_lic_expiry_monthe" id="drving_lic_expiry_month"
-                                                    class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none" required>
+                                                    class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none"
+                                                    required>
                                                     <option value="">Month</option>
                                                     @foreach ([1 => 'January', 2 => 'February', 3 => 'March', 4 => 'April', 5 => 'May', 6 => 'June', 7 => 'July', 8 => 'August', 9 => 'September', 10 => 'October', 11 => 'November', 12 => 'December'] as $monthNumber => $monthName)
                                                         <option value="{{ $monthNumber }}"
@@ -3180,7 +3275,8 @@
                                             </div>
                                             <div class="field">
                                                 <select name="drving_lic_expiry_yeare" id="drving_lic_expiry_year"
-                                                    class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none" required>
+                                                    class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none"
+                                                    required>
                                                     <option value="">Year</option>
                                                     @for ($year = 2019; $year <= 2050; $year++)
                                                         <option value="{{ $year }}"
@@ -3189,299 +3285,308 @@
                                                     @endfor
                                                 </select>
                                             </div>
-        
+
                                             <div id="ddexpiryTime"
-                                                style="position: absolute; left: 10px; bottom: 5px; margin-top: 10px"></div>
+                                                style="position: absolute; left: 10px; bottom: 5px; margin-top: 10px">
+                                            </div>
                                         </div>
-                                       
+
                                     </div>
 
-                                    
-                                </div> 
-    
-                            </div>  
 
-                    </div>
+                                </div>
 
-                    
-                    <div class="border-b py-4 Laptop:py-6 flex flex-wrap gap-4">
- 
-                               
-                        <div class="mbl-hdn Laptop:w-[20%]">
-                            <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">  Do you have UAE license</h2>
+                            </div>
+
                         </div>
 
-                        <div class="Laptop:w-[80%] w-full">
 
-                            <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
- 
-                                <div>  
-                                    <label for="firstname" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">UAE license <span class="text-Indicates">*</span></label> 
-                                    <div class="field">
-                                        <select name="have_uae_licence" id="have_uae_licence_id"
-                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
-                                            <option
-                                                {{ $hasOldData3 && $oldData3->have_uae_licence == 'Yes' ? 'selected' : '' }}
-                                                value="Yes">Yes</option>
-                                            <option
-                                                {{ $hasOldData3 && $oldData3->have_uae_licence == 'No' ? 'selected' : '' }}
-                                                value="No">No</option>
-                                        </select>
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap gap-4">
+
+
+                            <div class="mbl-hdn Laptop:w-[20%]">
+                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]"> Do you have UAE
+                                    license</h2>
+                            </div>
+
+                            <div class="Laptop:w-[80%] w-full">
+
+                                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
+
+                                    <div>
+                                        <label for="firstname"
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">UAE license
+                                            <span class="text-Indicates">*</span></label>
+                                        <div class="field">
+                                            <select name="have_uae_licence" id="have_uae_licence_id"
+                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
+                                                required>
+                                                <option
+                                                    {{ $hasOldData3 && $oldData3->have_uae_licence == 'Yes' ? 'selected' : '' }}
+                                                    value="Yes">Yes</option>
+                                                <option
+                                                    {{ $hasOldData3 && $oldData3->have_uae_licence == 'No' ? 'selected' : '' }}
+                                                    value="No">No</option>
+                                            </select>
+                                        </div>
                                     </div>
+
+                                    <div>
+                                        <label for="firstname"
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2"> UAE
+                                            license number <span class="text-Indicates">*</span></label>
+                                        <div class="field ">
+                                            <input type="text" name="UAE_Resident_Visa_No"
+                                                id="UAE_Resident_Visa_No" autocomplete="off"
+                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
+                                                value="{{ $hasOldData3 ? $oldData3->UAE_Resident_Visa_No : '' }}"
+                                                required>
+                                        </div>
+
+                                    </div>
+
                                 </div>
 
-                                <div>
-                                    <label for="firstname" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2"> UAE license number  <span class="text-Indicates">*</span></label> 
-                                    <div class="field ">
-                                        <input type="text" name="UAE_Resident_Visa_No" id="UAE_Resident_Visa_No"
-                                            autocomplete="off"
-                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
-                                            value="{{ $hasOldData3 ? $oldData3->UAE_Resident_Visa_No : '' }}" required> 
-                                    </div> 
-                                   
-                                </div> 
-                                
-                            </div> 
 
-                            
-                            <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
+                                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
-                                <div class=" flex items-center gap-2" id="uae_licence_no_area" style="display: none;">
-                                    <div>  
-                                    <label for="firstname" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2"> UAE resident visa number <span class="text-Indicates">*</span></label> 
-                                    <div class="field ">
-                                        <input type="tel" name="UAE_License_No" id="UAE_License_No"
-                                            autocomplete="off"
-                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
-                                            value="{{ $hasOldData3 ? $oldData3->UAE_License_No : '' }}"> 
+                                    <div class=" flex items-center gap-2" id="uae_licence_no_area"
+                                        style="display: none;">
+                                        <div>
+                                            <label for="firstname"
+                                                class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2"> UAE
+                                                resident visa number <span class="text-Indicates">*</span></label>
+                                            <div class="field ">
+                                                <input type="tel" name="UAE_License_No" id="UAE_License_No"
+                                                    autocomplete="off"
+                                                    class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
+                                                    value="{{ $hasOldData3 ? $oldData3->UAE_License_No : '' }}">
+                                            </div>
+                                        </div>
                                     </div>
-                                </div> 
+
+
+                                    <div>
+                                        <label for="firstname"
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Sim number
+                                            (optional)</label>
+                                        <div class="field ">
+                                            <input type="tel" name="SIM_No" id="SIM_No" autocomplete="off"
+                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
+                                                value="{{ $hasOldData3 ? $oldData3->SIM_No : '' }}" required>
+                                        </div>
+
+                                    </div>
+
                                 </div>
-                               
 
-                                <div>
-                                    <label for="firstname" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Sim number (optional)</label> 
-                                    <div class="field ">
-                                        <input type="tel" name="SIM_No" id="SIM_No" autocomplete="off"
-                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
-                                            value="{{ $hasOldData3 ? $oldData3->SIM_No : '' }}" required> 
+
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap ">
+
+                            <div class="mbl-hdn Laptop:w-[20%]">
+                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]"> Driving license images
+                                </h2>
+                                {{-- <img class="mt-2 w-10 Laptop:w-14"
+                                src="{{ asset('frontend/imagesupdate/driving.svg') }}" alt=""> --}}
+                            </div>
+
+                            <div class="Laptop:w-[80%] w-full">
+
+                                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
+
+                                    <div>
+                                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 ">Driving license front <span class="text-Indicates">*</span></label> 
+
+                                            <div id="uploadAreaLicenseFront" class="field border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                            <div class="text-center">
+                                                <img id="previewImageLicenseFront"
+                                                    class="w-8 Laptop:w-10 text-center mx-auto mb-2"
+                                                    src="{{ asset('frontend/imagesupdate/Vector.png') }}" alt="">
+                                                <p class="text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
+                                                    or <a href="#" id="uploadLinkLicenseFront"
+                                                        class="text-Primary-c underline underline-offset-2">Upload File</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <input type="file" name="appli_dri_lisence_frontparte" id="fileInputLicenseFront"
+                                            value="{{ old('appli_dri_lisence_frontparte') }}" class="hidden"
+                                            accept="image/*">
                                     </div>
-                                   
-                                </div> 
-                                
-                            </div> 
+        
+                                    <div id="frontImag" style="display: none"></div>
+        
+                                    <script>
+                                        document.addEventListener('DOMContentLoaded', function() {
+                                            const uploadAreaLicenseFront = document.getElementById('uploadAreaLicenseFront');
+                                            const uploadLinkLicenseFront = document.getElementById('uploadLinkLicenseFront');
+                                            const fileInputLicenseFront = document.getElementById('fileInputLicenseFront');
+                                            const previewImageLicenseFront = document.getElementById('previewImageLicenseFront');
+        
+                                            uploadAreaLicenseFront.addEventListener('click', function() {
+                                                fileInputLicenseFront.click();
+                                            });
+        
+                                            uploadLinkLicenseFront.addEventListener('click', function(event) {
+                                                event.preventDefault();
+                                                fileInputLicenseFront.click();
+                                            });
+        
+                                            fileInputLicenseFront.addEventListener('change', function() {
+                                                if (fileInputLicenseFront.files.length > 0) {
+                                                    const file = fileInputLicenseFront.files[0];
+                                                    const reader = new FileReader();
+        
+                                                    reader.onload = function(e) {
+                                                        previewImageLicenseFront.src = e.target.result;
+                                                    }
+        
+                                                    reader.readAsDataURL(file);
+                                                } else {
+                                                    previewImageLicenseFront.src = 'assets/Images/Vector.png';
+                                                }
+                                            });
+                                        });
+                                    </script>
 
 
+                                    <div>
+                                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Driving license back <span class="text-Indicates">*</span></label>
+                                            <div id="uploadAreaLicenseBack"
+                                            class="field border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                            <div class="text-center">
+                                                <img id="previewImageLicenseBack"
+                                                    class="w-8 Laptop:w-10 text-center mx-auto mb-2"
+                                                    src="{{ asset('frontend/imagesupdate/Vector.png') }}" alt="">
+                                                <p class="text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
+                                                    or <a href="#" id="uploadLinkLicenseBack"
+                                                        class="text-Primary-c underline underline-offset-2">Upload File</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <input type="file" name="appli_dri_lisence_backparte"
+                                            value="{{ old('appli_dri_lisence_backparte') }}" id="fileInputLicenseBack"
+                                            class="hidden" accept="image/*">
+                                    </div>
+                                    <div id="backImag" style="display: none"></div>
+                                    <script>
+                                        document.addEventListener('DOMContentLoaded', function() {
+                                            const uploadAreaLicenseBack = document.getElementById('uploadAreaLicenseBack');
+                                            const uploadLinkLicenseBack = document.getElementById('uploadLinkLicenseBack');
+                                            const fileInputLicenseBack = document.getElementById('fileInputLicenseBack');
+                                            const previewImageLicenseBack = document.getElementById('previewImageLicenseBack');
+        
+                                            uploadAreaLicenseBack.addEventListener('click', function() {
+                                                fileInputLicenseBack.click();
+                                            });
+        
+                                            uploadLinkLicenseBack.addEventListener('click', function(event) {
+                                                event.preventDefault();
+                                                fileInputLicenseBack.click();
+                                            });
+        
+                                            fileInputLicenseBack.addEventListener('change', function() {
+                                                if (fileInputLicenseBack.files.length > 0) {
+                                                    const file = fileInputLicenseBack.files[0];
+                                                    const reader = new FileReader();
+        
+                                                    reader.onload = function(e) {
+                                                        previewImageLicenseBack.src = e.target.result;
+                                                    }
+        
+                                                    reader.readAsDataURL(file);
+                                                } else {
+                                                    previewImageLicenseBack.src = 'assets/Images/Vector.png';
+                                                }
+                                            });
+                                        });
+                                    </script>
 
-                        </div>  
+                                </div>
 
-                </div>
+                            </div>
 
-                          
+
+                        </div>
+
                         
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap mb-4 ">
 
-                        <div
-                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b  gap-2 Laptop:gap-8 py-4 Laptop:py-6">
-
-
-
-
-                            <div class="flex items-center gap-2">
-                                <div class="Laptop:w-[35%] w-[40%]">
-                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Driving License
-                                        Front<span class="text-Indicates">*</span></h2>
-                                    <img class="mt-2 w-10 Laptop:w-14"
-                                        src="{{ asset('frontend/imagesupdate/driving.svg') }}" alt="">
-                                </div>
-                                <div id="uploadAreaLicenseFront"
-                                    class="field Laptop:w-[65%] w-[60%] border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
-                                    <div class="text-center">
-                                        <img id="previewImageLicenseFront"
-                                            class="w-8 Laptop:w-10 text-center mx-auto mb-2"
-                                            src="{{ asset('frontend/imagesupdate/Vector.png') }}" alt="">
-                                        <p class="text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
-                                            or <a href="#" id="uploadLinkLicenseFront"
-                                                class="text-Primary-c underline underline-offset-2">Upload File</a>
-                                        </p>
-                                    </div>
-                                </div>
-                                <input type="file" name="appli_dri_lisence_frontparte" id="fileInputLicenseFront"
-                                    value="{{ old('appli_dri_lisence_frontparte') }}" class="hidden"
-                                    accept="image/*">
+                            <div class="mbl-hdn Laptop:w-[20%]">
+                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">UAE DL (optional)
+                                </h2>
+                                {{-- <img class="mt-2 w-10 Laptop:w-14"
+                                src="{{ asset('frontend/imagesupdate/license.jpg') }}" alt=""> --}}
                             </div>
 
-                            <div id="frontImag" style="display: none"></div>
+                            <div class="Laptop:w-[80%] w-full">
 
-                            <script>
-                                document.addEventListener('DOMContentLoaded', function() {
-                                    const uploadAreaLicenseFront = document.getElementById('uploadAreaLicenseFront');
-                                    const uploadLinkLicenseFront = document.getElementById('uploadLinkLicenseFront');
-                                    const fileInputLicenseFront = document.getElementById('fileInputLicenseFront');
-                                    const previewImageLicenseFront = document.getElementById('previewImageLicenseFront');
+                                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
-                                    uploadAreaLicenseFront.addEventListener('click', function() {
-                                        fileInputLicenseFront.click();
-                                    });
+                                    <div>
+                                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 ">UAE DL front <span class="text-Indicates">*</span></label>  
 
-                                    uploadLinkLicenseFront.addEventListener('click', function(event) {
-                                        event.preventDefault();
-                                        fileInputLicenseFront.click();
-                                    });
-
-                                    fileInputLicenseFront.addEventListener('change', function() {
-                                        if (fileInputLicenseFront.files.length > 0) {
-                                            const file = fileInputLicenseFront.files[0];
-                                            const reader = new FileReader();
-
-                                            reader.onload = function(e) {
-                                                previewImageLicenseFront.src = e.target.result;
-                                            }
-
-                                            reader.readAsDataURL(file);
-                                        } else {
-                                            previewImageLicenseFront.src = 'assets/Images/Vector.png';
-                                        }
-                                    });
-                                });
-                            </script>
-
-
-
-                            <div class="flex items-center gap-2">
-                                <div class="Laptop:w-[35%] w-[40%]">
-                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Driving License
-                                        Back<span class="text-Indicates">*</span></h2>
-                                    <img class="mt-2 w-10 Laptop:w-14"
-                                        src="{{ asset('frontend/imagesupdate/driving.svg') }}" alt="">
-                                </div>
-                                <div id="uploadAreaLicenseBack"
-                                    class="field Laptop:w-[65%] w-[60%] border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
-                                    <div class="text-center">
-                                        <img id="previewImageLicenseBack"
-                                            class="w-8 Laptop:w-10 text-center mx-auto mb-2"
-                                            src="{{ asset('frontend/imagesupdate/Vector.png') }}" alt="">
-                                        <p class="text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
-                                            or <a href="#" id="uploadLinkLicenseBack"
-                                                class="text-Primary-c underline underline-offset-2">Upload File</a>
-                                        </p>
+                                        <div id="uploadAreaUAEDLFront"
+                                        class="field border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                        <div class="text-center">
+                                            <img id="previewImageUAEDLFront"
+                                                class="w-8 Laptop:w-10 text-center mx-auto mb-2"
+                                                src="{{ asset('frontend/imagesupdate/Vector.png') }}" alt="">
+                                            <p class="text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
+                                                or <a href="#" id="uploadLinkUAEDLFront"
+                                                    class="text-Primary-c underline underline-offset-2">Upload File</a>
+                                            </p>
+                                        </div>
                                     </div>
+                                    <input type="file" name="UAE_DL_Fronte" id="fileInputUAEDLFront" class="hidden"
+                                        accept="image/*">
                                 </div>
-                                <input type="file" name="appli_dri_lisence_backparte"
-                                    value="{{ old('appli_dri_lisence_backparte') }}" id="fileInputLicenseBack"
-                                    class="hidden" accept="image/*">
-                            </div>
-                            <div id="backImag" style="display: none"></div>
-                            <script>
-                                document.addEventListener('DOMContentLoaded', function() {
-                                    const uploadAreaLicenseBack = document.getElementById('uploadAreaLicenseBack');
-                                    const uploadLinkLicenseBack = document.getElementById('uploadLinkLicenseBack');
-                                    const fileInputLicenseBack = document.getElementById('fileInputLicenseBack');
-                                    const previewImageLicenseBack = document.getElementById('previewImageLicenseBack');
-
-                                    uploadAreaLicenseBack.addEventListener('click', function() {
-                                        fileInputLicenseBack.click();
-                                    });
-
-                                    uploadLinkLicenseBack.addEventListener('click', function(event) {
-                                        event.preventDefault();
-                                        fileInputLicenseBack.click();
-                                    });
-
-                                    fileInputLicenseBack.addEventListener('change', function() {
-                                        if (fileInputLicenseBack.files.length > 0) {
-                                            const file = fileInputLicenseBack.files[0];
-                                            const reader = new FileReader();
-
-                                            reader.onload = function(e) {
-                                                previewImageLicenseBack.src = e.target.result;
+                                <div id="UAEfrontImag" style="display: none"></div>
+    
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function() {
+                                        const uploadAreaUAEDLFront = document.getElementById('uploadAreaUAEDLFront');
+                                        const uploadLinkUAEDLFront = document.getElementById('uploadLinkUAEDLFront');
+                                        const fileInputUAEDLFront = document.getElementById('fileInputUAEDLFront');
+                                        const previewImageUAEDLFront = document.getElementById('previewImageUAEDLFront');
+    
+                                        uploadAreaUAEDLFront.addEventListener('click', function() {
+                                            fileInputUAEDLFront.click();
+                                        });
+    
+                                        uploadLinkUAEDLFront.addEventListener('click', function(event) {
+                                            event.preventDefault();
+                                            fileInputUAEDLFront.click();
+                                        });
+    
+                                        fileInputUAEDLFront.addEventListener('change', function() {
+                                            if (fileInputUAEDLFront.files.length > 0) {
+                                                const file = fileInputUAEDLFront.files[0];
+                                                const reader = new FileReader();
+    
+                                                reader.onload = function(e) {
+                                                    previewImageUAEDLFront.src = e.target.result;
+                                                }
+    
+                                                reader.readAsDataURL(file);
+                                            } else {
+                                                previewImageUAEDLFront.src = 'assets/Images/Vector.png';
                                             }
-
-                                            reader.readAsDataURL(file);
-                                        } else {
-                                            previewImageLicenseBack.src = 'assets/Images/Vector.png';
-                                        }
+                                        });
                                     });
-                                });
-                            </script>
+                                </script>
 
 
 
+                                    <div>
+                                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">UAE DL Back <span class="text-Indicates">*</span></label>
 
-                        </div>
-
-                        <div
-                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2  gap-2 Laptop:gap-8 py-4 Laptop:py-6">
-
-
-                            <div class="flex items-center gap-2">
-                                <div class="Laptop:w-[35%] w-[40%]">
-                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">UAE DL Front
-                                        (Optional)</h2>
-                                    <img class="mt-2 w-10 Laptop:w-14"
-                                        src="{{ asset('frontend/imagesupdate/license.jpg') }}" alt="">
-                                </div>
-                                <div id="uploadAreaUAEDLFront"
-                                    class="field Laptop:w-[65%] w-[60%] border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
-                                    <div class="text-center">
-                                        <img id="previewImageUAEDLFront"
-                                            class="w-8 Laptop:w-10 text-center mx-auto mb-2"
-                                            src="{{ asset('frontend/imagesupdate/Vector.png') }}" alt="">
-                                        <p class="text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
-                                            or <a href="#" id="uploadLinkUAEDLFront"
-                                                class="text-Primary-c underline underline-offset-2">Upload File</a>
-                                        </p>
-                                    </div>
-                                </div>
-                                <input type="file" name="UAE_DL_Fronte" id="fileInputUAEDLFront" class="hidden"
-                                    accept="image/*">
-                            </div>
-                            <div id="UAEfrontImag" style="display: none"></div>
-
-                            <script>
-                                document.addEventListener('DOMContentLoaded', function() {
-                                    const uploadAreaUAEDLFront = document.getElementById('uploadAreaUAEDLFront');
-                                    const uploadLinkUAEDLFront = document.getElementById('uploadLinkUAEDLFront');
-                                    const fileInputUAEDLFront = document.getElementById('fileInputUAEDLFront');
-                                    const previewImageUAEDLFront = document.getElementById('previewImageUAEDLFront');
-
-                                    uploadAreaUAEDLFront.addEventListener('click', function() {
-                                        fileInputUAEDLFront.click();
-                                    });
-
-                                    uploadLinkUAEDLFront.addEventListener('click', function(event) {
-                                        event.preventDefault();
-                                        fileInputUAEDLFront.click();
-                                    });
-
-                                    fileInputUAEDLFront.addEventListener('change', function() {
-                                        if (fileInputUAEDLFront.files.length > 0) {
-                                            const file = fileInputUAEDLFront.files[0];
-                                            const reader = new FileReader();
-
-                                            reader.onload = function(e) {
-                                                previewImageUAEDLFront.src = e.target.result;
-                                            }
-
-                                            reader.readAsDataURL(file);
-                                        } else {
-                                            previewImageUAEDLFront.src = 'assets/Images/Vector.png';
-                                        }
-                                    });
-                                });
-                            </script>
-
-
-
-
-                            <div class="flex items-center gap-2">
-                                <div class="Laptop:w-[35%] w-[40%]">
-                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">UAE DL Back
-                                        (Optional)</h2>
-                                    <img class="mt-2 w-10 Laptop:w-14"
-                                        src="{{ asset('frontend/imagesupdate/license.jpg') }}" alt="">
-                                </div>
-                                <div id="uploadAreaUAEDLBack"
-                                    class="field Laptop:w-[65%] w-[60%] border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                    <div id="uploadAreaUAEDLBack" class="field border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
                                     <div class="text-center">
                                         <img id="previewImageUAEDLBack"
                                             class="w-8 Laptop:w-10 text-center mx-auto mb-2"
@@ -3529,11 +3634,30 @@
                                 });
                             </script>
 
+                                </div>
+
+                            </div>
 
 
                         </div>
 
-                        <div class="box" style="margin-top: 5px;">
+                        {{-- // --}}
+
+                        <div class="div text-right mt-10">
+                            <input type="checkbox" id="show-agreement-btn" required style="margin-top: 20px;"> <label
+                                for="show-agreement-btn">I Accept the <span style="color: #1f76e1;">Terms and
+                                    Condition</span> of the Company</label>
+                        </div>  
+
+
+                        <style>
+                            label{
+                                margin-bottom: 10px !important;
+                            }
+                        </style>
+ 
+
+                        <div class="box" style="margin-top: 15px;">
                             {!! NoCaptcha::renderJs() !!}
                             {!! NoCaptcha::display() !!}
                             @if ($errors->has('g-recaptcha-response'))
@@ -3542,11 +3666,7 @@
                                 </span>
                             @endif
                         </div>
-                        <div class="div">
-                            <input type="checkbox" id="show-agreement-btn" required style="margin-top: 20px;"> <label
-                                for="show-agreement-btn">I Accept the <span style="color: #1f76e1;">Terms and
-                                    Condition</span> of the Company</label>
-                        </div>
+                        
                         <!-- ----  -->
 
                         <style>
@@ -3585,7 +3705,7 @@
                             }
 
                             #show-agreement-btn:checked::after {
-                                
+
                                 /* Unicode checkmark character */
                                 font-size: 14px;
                                 /* Adjust checkmark size */
