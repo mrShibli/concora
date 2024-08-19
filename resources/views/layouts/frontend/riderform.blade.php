@@ -2155,7 +2155,7 @@
                         </div>
 
 
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
 
 
                             <div class="mbl-hdn Laptop:w-[20%]">
@@ -2166,7 +2166,7 @@
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
-                                    <div>
+                                    <div class="YesNo">
                                         <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">UAE
                                             resident <span class="text-Indicates">*</span></label>
                                         <div class="field">
@@ -2187,116 +2187,125 @@
 
                                 </div>
 
-                            </div>
 
-                        </div>
+                                <div id="residence-yes"
+                                    class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
-
-                        <div id="residence-yes"
-                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-2 Laptop:gap-8 py-4 Laptop:py-6">
-
-                            <div class=" flex items-center gap-2">
-                                <div class="Laptop:w-[35%] w-[40%]">
-                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Emirates ID <span
-                                            class="text-Indicates">*</span></h2>
-                                </div>
-                                <div class="field Laptop:w-[65%] w-[60%]">
-                                    <input type="text" name="emiratesid" id="fixedInput" autocomplete="off"
-                                        value="{{ $hasOldData2 ? $oldData2->emiratesid : '' }}" maxlength="18"
-                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('emiratesid') ? 'error' : '' }}"
-                                        oninput="formatInput(this)" placeholder="784-####-#######-#"
-                                        onclick="autofill()">
-                                    @error('emiratesid')
-                                        <p class="erromessage">{{ $message }}</p>
-                                    @enderror
-                                    <label for="" class="label-t">Emirates ID </label>
-                                </div>
-                            </div>
-
-
-                            <div class=" flex items-center gap-2">
-                                <div class="Laptop:w-[35%] w-[40%]">
-                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Date of Expiry
-                                        <span class="text-Indicates">*</span>
-                                    </h2>
-                                </div>
-
-                                <div class="Laptop:w-[65%] w-[60%] grid grid-cols-3 gap-1 Tablet:gap-2 border p-2 Tablet:p-2.5 expiry  rounded date relative"
-                                    style="padding-bottom: 2rem">
-
-                                    <div class="field">
-                                        <select name="emirates_expiry_daye" id="emirates_expiry_day"
-                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
-                                            <option value="">Day</option>
-                                            @php
-                                                $selectedDay = isset($oldData2->emirates_expiry_day)
-                                                    ? $oldData2->emirates_expiry_day
-                                                    : null;
-                                            @endphp
-                                            @for ($day = 1; $day <= 31; $day++)
-                                                <option value="{{ $day }}"
-                                                    {{ $day == $selectedDay ? 'selected' : '' }}>{{ $day }}
-                                                </option>
-                                            @endfor
-                                        </select>
+                                    <div>
+                                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Emirates
+                                            ID <span class="text-Indicates">*</span></label>
+                                        <div class="field ">
+                                            <input type="text" name="emiratesid" id="fixedInput"
+                                                autocomplete="off"
+                                                value="{{ $hasOldData2 ? $oldData2->emiratesid : '' }}"
+                                                maxlength="18"
+                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('emiratesid') ? 'error' : '' }}"
+                                                oninput="formatInput(this)" placeholder="784-####-#######-#"
+                                                onclick="autofill()">
+                                            @error('emiratesid')
+                                                <p class="erromessage">{{ $message }}</p>
+                                            @enderror
+                                        </div>
                                     </div>
 
-                                    <div class="field">
-                                        <select name="emirates_expiry_monthe" id="emirates_expiry_month"
-                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
-                                            <option value="">Month</option>
-                                            @php
-                                                $selectedMonth = isset($oldData2->emirates_expiry_month)
-                                                    ? $oldData2->emirates_expiry_month
-                                                    : '';
-                                                $months = [
-                                                    1 => 'January',
-                                                    2 => 'February',
-                                                    3 => 'March',
-                                                    4 => 'April',
-                                                    5 => 'May',
-                                                    6 => 'June',
-                                                    7 => 'July',
-                                                    8 => 'August',
-                                                    9 => 'September',
-                                                    10 => 'October',
-                                                    11 => 'November',
-                                                    12 => 'December',
-                                                ];
-                                            @endphp
-                                            @foreach ($months as $key => $month)
-                                                <option value="{{ $key }}"
-                                                    {{ $month == $selectedMonth ? 'selected' : '' }}>
-                                                    {{ $month }}</option>
-                                            @endforeach
-                                        </select>
+                                    <div class="">
+                                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Expiry
+                                            date <span class="text-Indicates">*</span></label>
+                                        <div class="grid grid-cols-3 gap-1 Tablet:gap-2   expiry  date relative"
+                                            style="padding-bottom: 2rem">
+
+                                            <div class="field">
+
+                                                <select name="emirates_expiry_daye" id="emirates_expiry_day"
+                                                    class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
+                                                    required>
+                                                    <option value="">Day</option>
+                                                    @php
+                                                        $selectedDay = isset($oldData2->emirates_expiry_day)
+                                                            ? $oldData2->emirates_expiry_day
+                                                            : null;
+                                                    @endphp
+                                                    @for ($day = 1; $day <= 31; $day++)
+                                                        <option value="{{ $day }}"
+                                                            {{ $day == $selectedDay ? 'selected' : '' }}>
+                                                            {{ $day }}
+                                                        </option>
+                                                    @endfor
+                                                </select>
+                                            </div>
+
+                                            <div class="field">
+                                                <select name="emirates_expiry_monthe" id="emirates_expiry_month"
+                                                    class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
+                                                    required>
+                                                    <option value="">Month</option>
+                                                    @php
+                                                        $selectedMonth = isset($oldData2->emirates_expiry_month)
+                                                            ? $oldData2->emirates_expiry_month
+                                                            : '';
+                                                        $months = [
+                                                            1 => 'January',
+                                                            2 => 'February',
+                                                            3 => 'March',
+                                                            4 => 'April',
+                                                            5 => 'May',
+                                                            6 => 'June',
+                                                            7 => 'July',
+                                                            8 => 'August',
+                                                            9 => 'September',
+                                                            10 => 'October',
+                                                            11 => 'November',
+                                                            12 => 'December',
+                                                        ];
+                                                    @endphp
+                                                    @foreach ($months as $key => $month)
+                                                        <option value="{{ $key }}"
+                                                            {{ $month == $selectedMonth ? 'selected' : '' }}>
+                                                            {{ $month }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
+                                            <div class="field">
+                                                <select name="emirates_expiry_yeare" id="emirates_expiry_year"
+                                                    class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
+                                                    required>
+                                                    <option value="">Year</option>
+                                                    @php
+                                                        $selectedYear = isset($oldData2->emirates_expiry_year)
+                                                            ? $oldData2->emirates_expiry_year
+                                                            : '';
+                                                        $currentYear = date('Y');
+                                                    @endphp
+                                                    @for ($year = $currentYear; $year <= $currentYear + 10; $year++)
+                                                        <option value="{{ $year }}"
+                                                            {{ $year == $selectedYear ? 'selected' : '' }}>
+                                                            {{ $year }}
+                                                        </option>
+                                                    @endfor
+                                                </select>
+                                            </div>
+
+                                            <div id="eexpiryTime"
+                                                style="position: absolute; left: 10px; bottom: 5px; margin-top: 10px">
+                                            </div>
+                                        </div>
+
                                     </div>
 
-                                    <div class="field">
-                                        <select name="emirates_expiry_yeare" id="emirates_expiry_year"
-                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
-                                            <option value="">Year</option>
-                                            @php
-                                                $selectedYear = isset($oldData2->emirates_expiry_year)
-                                                    ? $oldData2->emirates_expiry_year
-                                                    : '';
-                                                $currentYear = date('Y');
-                                            @endphp
-                                            @for ($year = $currentYear; $year <= $currentYear + 10; $year++)
-                                                <option value="{{ $year }}"
-                                                    {{ $year == $selectedYear ? 'selected' : '' }}>{{ $year }}
-                                                </option>
-                                            @endfor
-                                        </select>
-                                    </div>
 
-                                    <div id="eexpiryTime"
-                                        style="position: absolute; left: 10px; bottom: 5px; margin-top: 10px"></div>
+
+
+
+
                                 </div>
+
+
 
                             </div>
 
-                        </div>
+                        </div> 
+                        
 
                         <div class="" id="residence-no">
                         </div>
@@ -2813,360 +2822,7 @@
 
                         </div>
 
-
-
-
-
-
-                        <div
-                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-2 Laptop:gap-8 py-4 Laptop:py-6">
-
-                            <div class="flex items-center gap-2 YesNo">
-                                <div class="Laptop:w-[35%] w-[40%]">
-                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">UAE Residence <span
-                                            class="text-Indicates">*</span></h2>
-                                </div>
-                                <div class="field Laptop:w-[65%] w-[60%]">
-                                    <div class="flex gap-8">
-                                        <select name="uaeresident" id="uaeresident"
-                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none">
-                                            <option
-                                                {{ $hasOldData2 && $oldData2->uaeresident == 'No' ? 'selected' : '' }}
-                                                value="No"><span id="no">No</span></option>
-                                            <option
-                                                {{ $hasOldData2 && $oldData2->uaeresident == 'Yes' ? 'selected' : '' }}
-                                                value="Yes"><span id="yes">Yes</span> </option>
-                                        </select>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                            <div class=" flex items-center gap-2 YesNo">
-                                <div class="Laptop:w-[35%] w-[40%]">
-                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Religion <span
-                                            class="text-Indicates">*</span></h2>
-                                </div>
-                                <div class="field Laptop:w-[65%] w-[60%]">
-                                    <div class="flex gap-8">
-                                        <select name="religion" id="religion"
-                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none">
-                                            <option
-                                                {{ $hasOldData2 && $oldData2->religion == 'Islam' ? 'selected' : '' }}
-                                                value="Islam">Islam</option>
-                                            <option
-                                                {{ $hasOldData2 && $oldData2->religion == 'Hindu' ? 'selected' : '' }}
-                                                value="Hindu">Hindu</option>
-                                            <option
-                                                {{ $hasOldData2 && $oldData2->religion == 'Christian' ? 'selected' : '' }}
-                                                value="Christian">Christian </option>
-                                            <option
-                                                {{ $hasOldData2 && $oldData2->religion == 'Buddhist' ? 'selected' : '' }}
-                                                value="Buddhist">Buddhist</option>
-                                        </select>
-                                    </div>
-                                    @error('religion')
-                                        <p class="erromessage">{{ $message }}</p>
-                                    @enderror
-                                </div>
-                            </div>
-
-                        </div>
-
-
-                        <div id="residence-yes"
-                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-2 Laptop:gap-8 py-4 Laptop:py-6">
-
-                            <div class=" flex items-center gap-2">
-                                <div class="Laptop:w-[35%] w-[40%]">
-                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Emirates ID <span
-                                            class="text-Indicates">*</span></h2>
-                                </div>
-                                <div class="field Laptop:w-[65%] w-[60%]">
-                                    <input type="text" name="emiratesid" id="fixedInput" autocomplete="off"
-                                        value="{{ $hasOldData2 ? $oldData2->emiratesid : '' }}" maxlength="18"
-                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('emiratesid') ? 'error' : '' }}"
-                                        oninput="formatInput(this)" placeholder="784-####-#######-#"
-                                        onclick="autofill()">
-                                    @error('emiratesid')
-                                        <p class="erromessage">{{ $message }}</p>
-                                    @enderror
-                                    <label for="" class="label-t">Emirates ID </label>
-                                </div>
-                            </div>
-
-
-                            <div class=" flex items-center gap-2">
-                                <div class="Laptop:w-[35%] w-[40%]">
-                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">Date of Expiry
-                                        <span class="text-Indicates">*</span>
-                                    </h2>
-                                </div>
-
-                                <div class="Laptop:w-[65%] w-[60%] grid grid-cols-3 gap-1 Tablet:gap-2 border p-2 Tablet:p-2.5 expiry  rounded date relative"
-                                    style="padding-bottom: 2rem">
-
-                                    <div class="field">
-                                        <select name="emirates_expiry_daye" id="emirates_expiry_day"
-                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
-                                            <option value="">Day</option>
-                                            @php
-                                                $selectedDay = isset($oldData2->emirates_expiry_day)
-                                                    ? $oldData2->emirates_expiry_day
-                                                    : null;
-                                            @endphp
-                                            @for ($day = 1; $day <= 31; $day++)
-                                                <option value="{{ $day }}"
-                                                    {{ $day == $selectedDay ? 'selected' : '' }}>{{ $day }}
-                                                </option>
-                                            @endfor
-                                        </select>
-                                    </div>
-
-                                    <div class="field">
-                                        <select name="emirates_expiry_monthe" id="emirates_expiry_month"
-                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
-                                            <option value="">Month</option>
-                                            @php
-                                                $selectedMonth = isset($oldData2->emirates_expiry_month)
-                                                    ? $oldData2->emirates_expiry_month
-                                                    : '';
-                                                $months = [
-                                                    1 => 'January',
-                                                    2 => 'February',
-                                                    3 => 'March',
-                                                    4 => 'April',
-                                                    5 => 'May',
-                                                    6 => 'June',
-                                                    7 => 'July',
-                                                    8 => 'August',
-                                                    9 => 'September',
-                                                    10 => 'October',
-                                                    11 => 'November',
-                                                    12 => 'December',
-                                                ];
-                                            @endphp
-                                            @foreach ($months as $key => $month)
-                                                <option value="{{ $key }}"
-                                                    {{ $month == $selectedMonth ? 'selected' : '' }}>
-                                                    {{ $month }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-
-                                    <div class="field">
-                                        <select name="emirates_expiry_yeare" id="emirates_expiry_year"
-                                            class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none " required>
-                                            <option value="">Year</option>
-                                            @php
-                                                $selectedYear = isset($oldData2->emirates_expiry_year)
-                                                    ? $oldData2->emirates_expiry_year
-                                                    : '';
-                                                $currentYear = date('Y');
-                                            @endphp
-                                            @for ($year = $currentYear; $year <= $currentYear + 10; $year++)
-                                                <option value="{{ $year }}"
-                                                    {{ $year == $selectedYear ? 'selected' : '' }}>
-                                                    {{ $year }}
-                                                </option>
-                                            @endfor
-                                        </select>
-                                    </div>
-
-                                    <div id="eexpiryTime"
-                                        style="position: absolute; left: 10px; bottom: 5px; margin-top: 10px"></div>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="" id="residence-no">
-                        </div>
-
-
-
-
-
-
-
-                        <div
-                            class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2 border-b gap-2 Laptop:gap-8 py-4 Laptop:py-6">
-
-                            <div class=" flex items-center gap-2">
-                                <div class="Laptop:w-[35%] w-[40%]">
-                                    <h2 class="text-sm Laptop:text-sm font-medium leading-[29px]">Reference No
-                                        (Optional)</h2>
-                                </div>
-                                <div class="field Laptop:w-[65%] w-[60%]">
-                                    <input type="text" name="reference" id="reference" autocomplete="off"
-                                        value="{{ $hasOldData2 ? $oldData2->reference : '' }}"
-                                        class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('reference') ? 'error' : '' }}"
-                                        required>
-                                    <label for="" class="label-t">Reference No</label>
-                                    @error('reference')
-                                        <p class="erromessage">{{ $message }}</p>
-                                    @enderror
-                                </div>
-                            </div>
-
-
-
-                        </div>
-
-
-
-
-                        {{-- <div class="grid grid-cols-1 Tablet:grid-cols-2 Laptop:grid-cols-2  gap-2 Laptop:gap-8 py-4 Laptop:py-6">
-
-
-                            <div class="flex items-center gap-2">
-                                <div class="Laptop:w-[35%] w-[40%]">
-                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">NID/CNIC Front</h2>
-                                    <img class="mt-2 w-10 Laptop:w-14"
-                                        src="{{ asset('frontend/imagesupdate/idfront.svg') }}" alt="">
-                                </div>
-                                <div id="uploadAreaNID"
-                                    class="field Laptop:w-[65%] w-[60%] border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
-                                    <div class="text-center">
-                                        <img id="previewImageNID" class="w-8 Laptop:w-10 text-center mx-auto mb-2"
-                                            src="{{ asset('frontend/imagesupdate/Vector.png') }}" alt="">
-                                        <p class="text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
-                                            or <a href="#" id="uploadLinkNID"
-                                                class="text-Primary-c underline underline-offset-2">Upload File</a></p>
-                                    </div>
-                                </div>
-                                <input type="file" name="nid_cnic_fronte" value="{{ old('nid_cnic_fronte') }}"
-                                    id="fileInputNID" class="hidden" accept="image/*">
-                            </div>
-                            <div id="nid_cnic_front" style="display: none"></div>
-
-                            <script>
-                                document.addEventListener('DOMContentLoaded', function() {
-                                    const uploadAreaNID = document.getElementById('uploadAreaNID');
-                                    const uploadLinkNID = document.getElementById('uploadLinkNID');
-                                    const fileInputNID = document.getElementById('fileInputNID');
-                                    const previewImageNID = document.getElementById('previewImageNID');
-                                    var serverImageUrlNID = @json($applicantcncfUrl);
-
-                                    // Function to load an image from server folder
-                                    function loadServerImageNID(imageUrl) {
-                                        if (imageUrl) {
-                                            previewImageNID.src = imageUrl;
-                                            previewImageNID.setAttribute('data-loaded', true);
-                                        }
-                                    }
-
-                                    // Event listener for file input change
-                                    fileInputNID.addEventListener('change', function() {
-                                        if (fileInputNID.files.length > 0) {
-                                            const file = fileInputNID.files[0];
-                                            const reader = new FileReader();
-
-                                            reader.onload = function(e) {
-                                                previewImageNID.src = e.target.result;
-                                                previewImageNID.removeAttribute('data-loaded');
-                                            }
-
-                                            reader.readAsDataURL(file);
-                                        } else {
-                                            previewImageNID.src = 'assets/Images/Vector.png'; // Default image if no file selected
-                                            previewImageNID.removeAttribute('data-loaded');
-                                        }
-                                    });
-
-                                    // Load image from server folder if available
-                                    loadServerImageNID(serverImageUrlNID);
-
-                                    // Event listeners for triggering file input
-                                    uploadAreaNID.addEventListener('click', function() {
-                                        fileInputNID.click();
-                                    });
-
-                                    uploadLinkNID.addEventListener('click', function(event) {
-                                        event.preventDefault();
-                                        fileInputNID.click();
-                                    });
-                                });
-                            </script>
-
-
-
-
-                            <div class="flex items-center gap-2">
-                                <div class="Laptop:w-[35%] w-[40%]">
-                                    <h2 class="text-sm Laptop:text-base font-medium leading-[29px]">NID/CNIC Back</h2>
-                                    <img class="mt-2 w-10 Laptop:w-14"
-                                        src="{{ asset('frontend/imagesupdate/idback.svg') }}" alt="">
-                                </div>
-                                <div id="uploadAreaNIDBack"
-                                    class="field Laptop:w-[65%] w-[60%] border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
-                                    <div class="text-center">
-                                        <img id="previewImageNIDBack" class="w-8 Laptop:w-10 text-center mx-auto mb-2"
-                                            src="{{ asset('frontend/imagesupdate/Vector.png') }}" alt="">
-                                        <p class="text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
-                                            or <a href="#" id="uploadLinkNIDBack"
-                                                class="text-Primary-c underline underline-offset-2">Upload File</a></p>
-                                    </div>
-                                </div>
-                                <input type="file" name="nid_cnic_backe" id="fileInputNIDBack"
-                                    value="{{ old('nid_cnic_backe') }}" class="hidden" accept="image/*">
-                            </div>
-                            <div id="nid_cnic_back" style="display: none"></div>
-                            <script>
-                                document.addEventListener('DOMContentLoaded', function() {
-                                    const uploadAreaNIDBack = document.getElementById('uploadAreaNIDBack');
-                                    const uploadLinkNIDBack = document.getElementById('uploadLinkNIDBack');
-                                    const fileInputNIDBack = document.getElementById('fileInputNIDBack');
-                                    const previewImageNIDBack = document.getElementById('previewImageNIDBack');
-                                    var serverImageUrlNIDBack = @json($applicantcncbUrl);
-
-                                    // Function to load an image from server folder
-                                    function loadServerImageNIDBack(imageUrl) {
-                                        if (imageUrl) {
-                                            previewImageNIDBack.src = imageUrl;
-                                            previewImageNIDBack.setAttribute('data-loaded', true);
-                                        }
-                                    }
-
-                                    // Event listener for file input change
-                                    fileInputNIDBack.addEventListener('change', function() {
-                                        if (fileInputNIDBack.files.length > 0) {
-                                            const file = fileInputNIDBack.files[0];
-                                            const reader = new FileReader();
-
-                                            reader.onload = function(e) {
-                                                previewImageNIDBack.src = e.target.result;
-                                                previewImageNIDBack.removeAttribute('data-loaded');
-                                            }
-
-                                            reader.readAsDataURL(file);
-                                        } else {
-                                            previewImageNIDBack.src =
-                                                'assets/Images/Vector.png'; // Default image if no file selected
-                                            previewImageNIDBack.removeAttribute('data-loaded');
-                                        }
-                                    });
-
-                                    // Load image from server folder if available
-                                    loadServerImageNIDBack(serverImageUrlNIDBack);
-
-                                    // Event listeners for triggering file input
-                                    uploadAreaNIDBack.addEventListener('click', function() {
-                                        fileInputNIDBack.click();
-                                    });
-
-                                    uploadLinkNIDBack.addEventListener('click', function(event) {
-                                        event.preventDefault();
-                                        fileInputNIDBack.click();
-                                    });
-                                });
-                            </script>
-
-
-
-                        </div> --}}
+  
 
                         <div class="button text-right Laptop:mt-10 mt-4 pb-4 ">
                             <button type="button" id="previous2"
@@ -3390,7 +3046,8 @@
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap ">
 
                             <div class="mbl-hdn Laptop:w-[20%]">
-                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]"> Driving license images
+                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]"> Driving license
+                                    images
                                 </h2>
                                 {{-- <img class="mt-2 w-10 Laptop:w-14"
                                 src="{{ asset('frontend/imagesupdate/driving.svg') }}" alt=""> --}}
@@ -3401,51 +3058,57 @@
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
                                     <div>
-                                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 ">Driving license front <span class="text-Indicates">*</span></label> 
+                                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 ">Driving
+                                            license front <span class="text-Indicates">*</span></label>
 
-                                            <div id="uploadAreaLicenseFront" class="field border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                        <div id="uploadAreaLicenseFront"
+                                            class="field border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
                                             <div class="text-center">
                                                 <img id="previewImageLicenseFront"
                                                     class="w-8 Laptop:w-10 text-center mx-auto mb-2"
-                                                    src="{{ asset('frontend/imagesupdate/Vector.png') }}" alt="">
-                                                <p class="text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
+                                                    src="{{ asset('frontend/imagesupdate/Vector.png') }}"
+                                                    alt="">
+                                                <p class="text-xs Laptop:text-base font-medium leading-6">Drop File
+                                                    here <br>
                                                     or <a href="#" id="uploadLinkLicenseFront"
-                                                        class="text-Primary-c underline underline-offset-2">Upload File</a>
+                                                        class="text-Primary-c underline underline-offset-2">Upload
+                                                        File</a>
                                                 </p>
                                             </div>
                                         </div>
-                                        <input type="file" name="appli_dri_lisence_frontparte" id="fileInputLicenseFront"
+                                        <input type="file" name="appli_dri_lisence_frontparte"
+                                            id="fileInputLicenseFront"
                                             value="{{ old('appli_dri_lisence_frontparte') }}" class="hidden"
                                             accept="image/*">
                                     </div>
-        
+
                                     <div id="frontImag" style="display: none"></div>
-        
+
                                     <script>
                                         document.addEventListener('DOMContentLoaded', function() {
                                             const uploadAreaLicenseFront = document.getElementById('uploadAreaLicenseFront');
                                             const uploadLinkLicenseFront = document.getElementById('uploadLinkLicenseFront');
                                             const fileInputLicenseFront = document.getElementById('fileInputLicenseFront');
                                             const previewImageLicenseFront = document.getElementById('previewImageLicenseFront');
-        
+
                                             uploadAreaLicenseFront.addEventListener('click', function() {
                                                 fileInputLicenseFront.click();
                                             });
-        
+
                                             uploadLinkLicenseFront.addEventListener('click', function(event) {
                                                 event.preventDefault();
                                                 fileInputLicenseFront.click();
                                             });
-        
+
                                             fileInputLicenseFront.addEventListener('change', function() {
                                                 if (fileInputLicenseFront.files.length > 0) {
                                                     const file = fileInputLicenseFront.files[0];
                                                     const reader = new FileReader();
-        
+
                                                     reader.onload = function(e) {
                                                         previewImageLicenseFront.src = e.target.result;
                                                     }
-        
+
                                                     reader.readAsDataURL(file);
                                                 } else {
                                                     previewImageLicenseFront.src = 'assets/Images/Vector.png';
@@ -3456,22 +3119,26 @@
 
 
                                     <div>
-                                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Driving license back <span class="text-Indicates">*</span></label>
-                                            <div id="uploadAreaLicenseBack"
+                                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Driving
+                                            license back <span class="text-Indicates">*</span></label>
+                                        <div id="uploadAreaLicenseBack"
                                             class="field border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
                                             <div class="text-center">
                                                 <img id="previewImageLicenseBack"
                                                     class="w-8 Laptop:w-10 text-center mx-auto mb-2"
-                                                    src="{{ asset('frontend/imagesupdate/Vector.png') }}" alt="">
-                                                <p class="text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
+                                                    src="{{ asset('frontend/imagesupdate/Vector.png') }}"
+                                                    alt="">
+                                                <p class="text-xs Laptop:text-base font-medium leading-6">Drop File
+                                                    here <br>
                                                     or <a href="#" id="uploadLinkLicenseBack"
-                                                        class="text-Primary-c underline underline-offset-2">Upload File</a>
+                                                        class="text-Primary-c underline underline-offset-2">Upload
+                                                        File</a>
                                                 </p>
                                             </div>
                                         </div>
                                         <input type="file" name="appli_dri_lisence_backparte"
-                                            value="{{ old('appli_dri_lisence_backparte') }}" id="fileInputLicenseBack"
-                                            class="hidden" accept="image/*">
+                                            value="{{ old('appli_dri_lisence_backparte') }}"
+                                            id="fileInputLicenseBack" class="hidden" accept="image/*">
                                     </div>
                                     <div id="backImag" style="display: none"></div>
                                     <script>
@@ -3480,25 +3147,25 @@
                                             const uploadLinkLicenseBack = document.getElementById('uploadLinkLicenseBack');
                                             const fileInputLicenseBack = document.getElementById('fileInputLicenseBack');
                                             const previewImageLicenseBack = document.getElementById('previewImageLicenseBack');
-        
+
                                             uploadAreaLicenseBack.addEventListener('click', function() {
                                                 fileInputLicenseBack.click();
                                             });
-        
+
                                             uploadLinkLicenseBack.addEventListener('click', function(event) {
                                                 event.preventDefault();
                                                 fileInputLicenseBack.click();
                                             });
-        
+
                                             fileInputLicenseBack.addEventListener('change', function() {
                                                 if (fileInputLicenseBack.files.length > 0) {
                                                     const file = fileInputLicenseBack.files[0];
                                                     const reader = new FileReader();
-        
+
                                                     reader.onload = function(e) {
                                                         previewImageLicenseBack.src = e.target.result;
                                                     }
-        
+
                                                     reader.readAsDataURL(file);
                                                 } else {
                                                     previewImageLicenseBack.src = 'assets/Images/Vector.png';
@@ -3514,7 +3181,7 @@
 
                         </div>
 
-                        
+
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap mb-4 ">
 
                             <div class="mbl-hdn Laptop:w-[20%]">
@@ -3529,110 +3196,119 @@
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
                                     <div>
-                                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 ">UAE DL front <span class="text-Indicates">*</span></label>  
+                                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 ">UAE DL
+                                            front <span class="text-Indicates">*</span></label>
 
                                         <div id="uploadAreaUAEDLFront"
-                                        class="field border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
-                                        <div class="text-center">
-                                            <img id="previewImageUAEDLFront"
-                                                class="w-8 Laptop:w-10 text-center mx-auto mb-2"
-                                                src="{{ asset('frontend/imagesupdate/Vector.png') }}" alt="">
-                                            <p class="text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
-                                                or <a href="#" id="uploadLinkUAEDLFront"
-                                                    class="text-Primary-c underline underline-offset-2">Upload File</a>
-                                            </p>
+                                            class="field border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                            <div class="text-center">
+                                                <img id="previewImageUAEDLFront"
+                                                    class="w-8 Laptop:w-10 text-center mx-auto mb-2"
+                                                    src="{{ asset('frontend/imagesupdate/Vector.png') }}"
+                                                    alt="">
+                                                <p class="text-xs Laptop:text-base font-medium leading-6">Drop File
+                                                    here <br>
+                                                    or <a href="#" id="uploadLinkUAEDLFront"
+                                                        class="text-Primary-c underline underline-offset-2">Upload
+                                                        File</a>
+                                                </p>
+                                            </div>
                                         </div>
+                                        <input type="file" name="UAE_DL_Fronte" id="fileInputUAEDLFront"
+                                            class="hidden" accept="image/*">
                                     </div>
-                                    <input type="file" name="UAE_DL_Fronte" id="fileInputUAEDLFront" class="hidden"
-                                        accept="image/*">
-                                </div>
-                                <div id="UAEfrontImag" style="display: none"></div>
-    
-                                <script>
-                                    document.addEventListener('DOMContentLoaded', function() {
-                                        const uploadAreaUAEDLFront = document.getElementById('uploadAreaUAEDLFront');
-                                        const uploadLinkUAEDLFront = document.getElementById('uploadLinkUAEDLFront');
-                                        const fileInputUAEDLFront = document.getElementById('fileInputUAEDLFront');
-                                        const previewImageUAEDLFront = document.getElementById('previewImageUAEDLFront');
-    
-                                        uploadAreaUAEDLFront.addEventListener('click', function() {
-                                            fileInputUAEDLFront.click();
-                                        });
-    
-                                        uploadLinkUAEDLFront.addEventListener('click', function(event) {
-                                            event.preventDefault();
-                                            fileInputUAEDLFront.click();
-                                        });
-    
-                                        fileInputUAEDLFront.addEventListener('change', function() {
-                                            if (fileInputUAEDLFront.files.length > 0) {
-                                                const file = fileInputUAEDLFront.files[0];
-                                                const reader = new FileReader();
-    
-                                                reader.onload = function(e) {
-                                                    previewImageUAEDLFront.src = e.target.result;
+                                    <div id="UAEfrontImag" style="display: none"></div>
+
+                                    <script>
+                                        document.addEventListener('DOMContentLoaded', function() {
+                                            const uploadAreaUAEDLFront = document.getElementById('uploadAreaUAEDLFront');
+                                            const uploadLinkUAEDLFront = document.getElementById('uploadLinkUAEDLFront');
+                                            const fileInputUAEDLFront = document.getElementById('fileInputUAEDLFront');
+                                            const previewImageUAEDLFront = document.getElementById('previewImageUAEDLFront');
+
+                                            uploadAreaUAEDLFront.addEventListener('click', function() {
+                                                fileInputUAEDLFront.click();
+                                            });
+
+                                            uploadLinkUAEDLFront.addEventListener('click', function(event) {
+                                                event.preventDefault();
+                                                fileInputUAEDLFront.click();
+                                            });
+
+                                            fileInputUAEDLFront.addEventListener('change', function() {
+                                                if (fileInputUAEDLFront.files.length > 0) {
+                                                    const file = fileInputUAEDLFront.files[0];
+                                                    const reader = new FileReader();
+
+                                                    reader.onload = function(e) {
+                                                        previewImageUAEDLFront.src = e.target.result;
+                                                    }
+
+                                                    reader.readAsDataURL(file);
+                                                } else {
+                                                    previewImageUAEDLFront.src = 'assets/Images/Vector.png';
                                                 }
-    
-                                                reader.readAsDataURL(file);
-                                            } else {
-                                                previewImageUAEDLFront.src = 'assets/Images/Vector.png';
-                                            }
+                                            });
                                         });
-                                    });
-                                </script>
+                                    </script>
 
 
 
                                     <div>
-                                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">UAE DL Back <span class="text-Indicates">*</span></label>
+                                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">UAE DL
+                                            Back <span class="text-Indicates">*</span></label>
 
-                                    <div id="uploadAreaUAEDLBack" class="field border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
-                                    <div class="text-center">
-                                        <img id="previewImageUAEDLBack"
-                                            class="w-8 Laptop:w-10 text-center mx-auto mb-2"
-                                            src="{{ asset('frontend/imagesupdate/Vector.png') }}" alt="">
-                                        <p class="text-xs Laptop:text-base font-medium leading-6">Drop File here <br>
-                                            or <a href="#" id="uploadLinkUAEDLBack"
-                                                class="text-Primary-c underline underline-offset-2">Upload File</a>
-                                        </p>
+                                        <div id="uploadAreaUAEDLBack"
+                                            class="field border-dashed border border-[#b3b3b3] p-3 Laptop:py-5 rounded cursor-pointer">
+                                            <div class="text-center">
+                                                <img id="previewImageUAEDLBack"
+                                                    class="w-8 Laptop:w-10 text-center mx-auto mb-2"
+                                                    src="{{ asset('frontend/imagesupdate/Vector.png') }}"
+                                                    alt="">
+                                                <p class="text-xs Laptop:text-base font-medium leading-6">Drop File
+                                                    here <br>
+                                                    or <a href="#" id="uploadLinkUAEDLBack"
+                                                        class="text-Primary-c underline underline-offset-2">Upload
+                                                        File</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <input type="file" name="UAE_DL_Backe" id="fileInputUAEDLBack"
+                                            class="hidden" accept="image/*">
                                     </div>
-                                </div>
-                                <input type="file" name="UAE_DL_Backe" id="fileInputUAEDLBack" class="hidden"
-                                    accept="image/*">
-                            </div>
-                            <div id="UAEbackImag" style="display: none"></div>
-                            <script>
-                                document.addEventListener('DOMContentLoaded', function() {
-                                    const uploadAreaUAEDLBack = document.getElementById('uploadAreaUAEDLBack');
-                                    const uploadLinkUAEDLBack = document.getElementById('uploadLinkUAEDLBack');
-                                    const fileInputUAEDLBack = document.getElementById('fileInputUAEDLBack');
-                                    const previewImageUAEDLBack = document.getElementById('previewImageUAEDLBack');
+                                    <div id="UAEbackImag" style="display: none"></div>
+                                    <script>
+                                        document.addEventListener('DOMContentLoaded', function() {
+                                            const uploadAreaUAEDLBack = document.getElementById('uploadAreaUAEDLBack');
+                                            const uploadLinkUAEDLBack = document.getElementById('uploadLinkUAEDLBack');
+                                            const fileInputUAEDLBack = document.getElementById('fileInputUAEDLBack');
+                                            const previewImageUAEDLBack = document.getElementById('previewImageUAEDLBack');
 
-                                    uploadAreaUAEDLBack.addEventListener('click', function() {
-                                        fileInputUAEDLBack.click();
-                                    });
+                                            uploadAreaUAEDLBack.addEventListener('click', function() {
+                                                fileInputUAEDLBack.click();
+                                            });
 
-                                    uploadLinkUAEDLBack.addEventListener('click', function(event) {
-                                        event.preventDefault();
-                                        fileInputUAEDLBack.click();
-                                    });
+                                            uploadLinkUAEDLBack.addEventListener('click', function(event) {
+                                                event.preventDefault();
+                                                fileInputUAEDLBack.click();
+                                            });
 
-                                    fileInputUAEDLBack.addEventListener('change', function() {
-                                        if (fileInputUAEDLBack.files.length > 0) {
-                                            const file = fileInputUAEDLBack.files[0];
-                                            const reader = new FileReader();
+                                            fileInputUAEDLBack.addEventListener('change', function() {
+                                                if (fileInputUAEDLBack.files.length > 0) {
+                                                    const file = fileInputUAEDLBack.files[0];
+                                                    const reader = new FileReader();
 
-                                            reader.onload = function(e) {
-                                                previewImageUAEDLBack.src = e.target.result;
-                                            }
+                                                    reader.onload = function(e) {
+                                                        previewImageUAEDLBack.src = e.target.result;
+                                                    }
 
-                                            reader.readAsDataURL(file);
-                                        } else {
-                                            previewImageUAEDLBack.src = 'assets/Images/Vector.png';
-                                        }
-                                    });
-                                });
-                            </script>
+                                                    reader.readAsDataURL(file);
+                                                } else {
+                                                    previewImageUAEDLBack.src = 'assets/Images/Vector.png';
+                                                }
+                                            });
+                                        });
+                                    </script>
 
                                 </div>
 
@@ -3647,15 +3323,15 @@
                             <input type="checkbox" id="show-agreement-btn" required style="margin-top: 20px;"> <label
                                 for="show-agreement-btn">I Accept the <span style="color: #1f76e1;">Terms and
                                     Condition</span> of the Company</label>
-                        </div>  
+                        </div>
 
 
                         <style>
-                            label{
+                            label {
                                 margin-bottom: 10px !important;
                             }
                         </style>
- 
+
 
                         <div class="box" style="margin-top: 15px;">
                             {!! NoCaptcha::renderJs() !!}
@@ -3666,7 +3342,7 @@
                                 </span>
                             @endif
                         </div>
-                        
+
                         <!-- ----  -->
 
                         <style>
