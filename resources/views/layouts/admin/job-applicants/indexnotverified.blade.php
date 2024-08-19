@@ -64,6 +64,8 @@
                                 'nepal@conquerorgroup.ae',
                             ]) &&
                                 $applicant->nationality === 'Nepal') ||
+                                (Auth::user()->email === 'india@conquerorgroup.ae' && $applicant->nationality === 'India') ||
+                                (Auth::user()->email === 'noman@conquerorgroup.ae' && $applicant->nationality === 'Pakistan') ||
                                 !in_array(Auth::user()->email, [
                                     'shubash@conquerorgroup.ae',
                                     'kamal@conquerorgroup.ae',
