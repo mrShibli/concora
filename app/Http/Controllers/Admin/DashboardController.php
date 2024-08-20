@@ -250,9 +250,9 @@ class DashboardController extends Controller
     //Main Page
     public function index()
     {
-        $JobApplicantRegular = Applicant::count();
-        $JobApplicantNepalRegular = Applicant::where('nationality', 'Nepal')->count();
-        $JobApplicantIndiaRegular = Applicant::where('nationality', 'India')->count();
+        $JobApplicantRegular = Applicant::where('applicant_status', 'new_entry')->count();
+        $JobApplicantNepalRegular = Applicant::where('applicant_status', 'new_entry')->where('nationality', 'Nepal')->count();
+        $JobApplicantIndiaRegular = Applicant::where('applicant_status', 'new_entry')->where('nationality', 'India')->count();
 
         $applicants = Applicant::whereDoesntHave('payActivities')
             ->where('otp_verified', 1);
