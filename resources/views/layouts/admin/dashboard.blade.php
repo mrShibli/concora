@@ -193,6 +193,8 @@
                             </div>
                         </a>
 
+                        
+
                         <div class="border border-gray-300 rounded-xl p-2 px-4">
                             <div class="flex items-center justify-between mb-4">
                                 <h2 class="text-black-c text-sm Tablet:text-base">2</h2>
@@ -320,7 +322,15 @@
                             </a>
 
 
-
+                            <a href="{{ route('applicants.accepted') }}">
+                                <div class="border border-gray-300 rounded-xl p-2 px-4">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h2 class="text-black-c text-sm Tablet:text-base">{{ $applicantsAcceptedCount }}</h2>
+                                        <i class="fas fa-chevron-right"></i>
+                                    </div>
+                                    <p class="text-xs Tablet:text-sm text-black-c">Interview Accepted</p>
+                                </div>
+                            </a>
 
                         </div>
 

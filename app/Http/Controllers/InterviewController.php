@@ -36,22 +36,23 @@ class InterviewController extends Controller
         if ($request->address) {
             $interview->address = $request->address;
         }
+        $interview->meetingurl = $request->meetingurl;
 
-        if ($request->meetingurl) {
-            $interview->meetingurl = $request->meetingurl;
+        // if ($request->meetingurl) {
+        //     $interview->meetingurl = $request->meetingurl;
     
-            // Generate QR code for the meeting URL using GD
-            $qrCode = QrCode::format('png')->size(300)->generate($request->meetingurl);
+        //     // Generate QR code for the meeting URL using GD
+        //     $qrCode = QrCode::format('png')->size(300)->generate($request->meetingurl);
     
-            // Create a file name for the QR code
-            $fileName = 'qrcodes/interview_' . $interview->id . '.png';
+        //     // Create a file name for the QR code
+        //     $fileName = 'qrcodes/interview_' . $interview->id . '.png';
     
-            // Save the QR code directly in the public directory
-            Storage::disk('public')->put($fileName, $qrCode);
+        //     // Save the QR code directly in the public directory
+        //     Storage::disk('public')->put($fileName, $qrCode);
     
-            // Save the QR code path in the interview record
-            $interview->qrcode_path = $fileName;
-        }
+        //     // Save the QR code path in the interview record
+        //     $interview->qrcode_path = $fileName;
+        // }
 
         $interview->time = $formattedDate;
         $interview->contactnumber = $request->contactNumber;

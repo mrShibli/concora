@@ -289,15 +289,6 @@ class DashboardController extends Controller
             ->where('balance', '<', 6000)
             ->count();
 
-        // $applicantsCreditReqApproval = Applicant::whereHas('payActivities', function ($query) {
-        //     $query->where('deposit_amount', '>=', 1);
-        // })
-        //     ->where('balance', '<', 6000)
-        //     ->orderBy('created_at', 'desc')
-        //     ->with(['payActivities' => function ($query) {
-        //         $query->where('status', 'request_credit');
-        //     }])
-        //     ->count();
 
         $applicantsCreditReqApproval = Applicant::whereHas('payActivities', function ($query) {
             $query->where('status', 'request_credit')
@@ -311,7 +302,12 @@ class DashboardController extends Controller
             ->count();
 
         $applicants = Applicant::orderBy('created_at', 'desc')->get();
-        return view('layouts.admin.dashboard', compact('JobApplicant', 'quotation', 'jobpositions', 'contactscount', 'applicants', 'JobApplicantOtpVerified', 'JobApplicantOtpNotVerified', 'JobApplicantInvited', 'JobApplicantHired', 'JobApplicantNepal', 'JobApplicantIndia', 'applicantsPaymnentRCV', 'applicantsPaymentDues', 'applicantsCreditReqApproval', 'JobApplicantRegular', 'JobApplicantNepalRegular', 'JobApplicantIndiaRegular', 'applicantsInvited'));
+
+        $applicantsAcceptedCount = Applicant::where('applicant_status', 'accepted')
+            ->orderBy('created_at', 'desc')
+            ->count();
+
+        return view('layouts.admin.dashboard', compact('JobApplicant', 'quotation', 'jobpositions', 'contactscount', 'applicants', 'JobApplicantOtpVerified', 'JobApplicantOtpNotVerified', 'JobApplicantInvited', 'JobApplicantHired', 'JobApplicantNepal', 'JobApplicantIndia', 'applicantsPaymnentRCV', 'applicantsPaymentDues', 'applicantsCreditReqApproval', 'JobApplicantRegular', 'JobApplicantNepalRegular', 'JobApplicantIndiaRegular', 'applicantsInvited', 'applicantsAcceptedCount'));
     }
 
     public function logout(Request $request)

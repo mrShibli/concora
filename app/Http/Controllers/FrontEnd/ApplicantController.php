@@ -27,7 +27,7 @@ class ApplicantController extends Controller
     // Display a listing of the applicants.
     public function index()
     {
-        $applicants = Applicant::orderBy('created_at', 'desc')
+        $applicants = Applicant::orderBy('created_at', 'desc')->where('applicant_status', 'new_entry')
             ->get();
 
         return view('layouts.admin.job-applicants.index', compact('applicants'));
@@ -90,17 +90,42 @@ class ApplicantController extends Controller
         return view('layouts.admin.job-applicants.indexinvited ', compact('applicants'));
     }
 
-     // Get Invited Data ny ID
-     public function invitedByID($id)
-     {
-         $applicant = Applicant::findorfail($id);
-         $applicantInterview = Interview::where('applicant_id', $id)->orderBy('created_at', 'desc')->first();
-         // In your controller or where you pass data to the view
-         $invitedByUser = User::find($applicantInterview->invitedby);
- 
-         // return $applicantInterview;
-         return view('layouts.admin.job-applicants.invitedsingleview', compact('applicant', 'applicantInterview', 'invitedByUser'));
-     }
+
+    // Get Invited Data ny ID
+    public function invitedByID($id)
+    {
+        $applicant = Applicant::findorfail($id);
+        $applicantInterview = Interview::where('applicant_id', $id)->orderBy('created_at', 'desc')->first();
+        // In your controller or where you pass data to the view
+        $invitedByUser = User::find($applicantInterview->invitedby);
+
+        // return $applicantInterview;
+        return view('layouts.admin.job-applicants.invitedsingleview', compact('applicant', 'applicantInterview', 'invitedByUser'));
+    }
+
+    public function accepted()
+    {
+        $applicants = Applicant::where('applicant_status', 'accepted')
+            ->orderBy('created_at', 'desc')
+            ->get();
+        return view('layouts.admin.job-applicants.indexaccepted', compact('applicants'));
+    }
+
+    // Get Invited Data ny ID
+    public function acceptedByID($id)
+    {
+        $applicant = Applicant::findorfail($id);
+        $applicantInterview = Interview::where('applicant_id', $id)->orderBy('created_at', 'desc')->first();
+        // In your controller or where you pass data to the view
+
+        // return $applicantInterview;
+
+        // return $applicantInterview;
+        return view('layouts.admin.job-applicants.acceptedsingleview', compact('applicant', 'applicantInterview'));
+    }
+
+
+
 
     public function hired()
     {
