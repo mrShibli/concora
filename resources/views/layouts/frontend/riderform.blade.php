@@ -296,8 +296,7 @@
 </head>
 
 <body>
-
-
+ 
 
     <div class="ar-main-wrapper">
 
@@ -1338,6 +1337,8 @@
 
     </div>
 
+
+    
     <div class="header bg-White-c p-2  Laptop:py-4  shadow-md rounded-b-3xl top-0 right-0 absolute w-full z-10">
         <div class="container mx-auto">
             <a href="{{ route('mainindex') }}" id="logo"><img class="w-40 Laptop:w-[215px] Tablet:w-[160px]"
@@ -1350,8 +1351,7 @@
 
     <div class="applicant bg-Dull-c pb-4 h-[145vh]">
 
-        <div class="box-container container mx-auto flex flex-nowrap gap-4 Laptop:gap-8">
-
+        <div class="box-container container mx-auto flex flex-nowrap gap-4 Laptop:gap-8"> 
 
 
             @php
@@ -1386,8 +1386,7 @@
                 $applicantcncbUrl = $hasBImage ? asset('applicants/' . $oldData2->nid_cnic_back) : '';
             @endphp
 
-            <div
-                class="left-side Laptop:w-[20%] w-full h-auto Laptop:ml-[-40px] h-22  p-2 Laptop:p-4 pb-0 pt-16 Laptop:pt-36   bg-Primary-c ">
+            <div class="left-side Laptop:w-[20%] w-full h-auto Laptop:ml-[-40px] h-22  p-2 Laptop:p-4 pb-0 pt-16 Laptop:pt-36   bg-Primary-c ">
 
                 <div class="Laptop:pl-2 Laptop:fixed">
                     <div class="step-titles gap-2 ">
@@ -1421,8 +1420,7 @@
 
             </div>
 
-            <div
-                class="right-side Laptop:w-[80%] bg-White-c   Laptop:mt-28 Laptop:p-6 Laptop:pb-4 p-4  Tablet:m-4 Tablet:mb-6  rounded-md ">
+            <div class="right-side Laptop:w-[80%] bg-White-c Laptop:mt-28 Laptop:p-6 Laptop:pb-4 p-4  Tablet:m-4 Tablet:mb-6  rounded-md ">
                 @if (Session::has('success'))
                     <section>
                         <div
@@ -1431,9 +1429,7 @@
                         </div>
                     </section>
                 @endif
-
-                <h2 class="text-[14px] font-normal leading-4"><span class="text-Indicates">*</span> Indicates a required
-                    field</h2>
+ 
 
                 <form class="form-card " id="msform" method="POST" enctype="multipart/form-data">
 
@@ -1473,9 +1469,14 @@
 
                     <fieldset id="fieldset1" style="{{ $currentStep == 1 ? 'display: block' : 'display: none' }}">
 
+                        <div class="mb-4">
+                            <h2 class="text-base Laptop:text-xl font-bold leading-4 mb-1.5">Basic Information</h2>
+                            <p class="text-xs">Please provide your basic information below to help us serve you better</p>
+                        </div> 
+                
 
-
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+ 
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
 
                             <div class="mbl-hdn Laptop:w-[20%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Name</h2>
@@ -1522,11 +1523,10 @@
 
                             </div>
 
-                        </div>
+                        </div> 
 
 
-
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
 
 
                             <div class="mbl-hdn Laptop:w-[20%]">
@@ -1560,7 +1560,7 @@
 
                         </div>
 
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
 
 
                             <div class="mbl-hdn Laptop:w-[20%]">
@@ -1631,7 +1631,7 @@
                         </div>
 
 
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
 
                             <div class="mbl-hdn Laptop:w-[20%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Country</h2>
@@ -1694,7 +1694,7 @@
                         </div>
 
 
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
 
                             <div class="mbl-hdn Laptop:w-[20%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Contact Info</h2>
@@ -1769,7 +1769,7 @@
                         </div>
 
 
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
 
                             <div class="mbl-hdn Laptop:w-[20%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Application</h2>
@@ -1804,16 +1804,16 @@
 
                             </div>
 
-                        </div>
+                        </div> 
 
 
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
 
                             <div class="mbl-hdn Laptop:w-[20%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Applicant’s Photo
                                 </h2>
-                                <img class="mt-2 w-10 Laptop:w-14"
-                                    src="{{ asset('frontend/imagesupdate/applicant-image.svg') }}" alt="">
+                                {{-- <img class="mt-2 w-10 Laptop:w-14"
+                                    src="{{ asset('frontend/imagesupdate/applicant-image.svg') }}" alt=""> --}}
                             </div>
 
                             <div class="Laptop:w-[80%] w-full">
@@ -1923,8 +1923,14 @@
 
                     <fieldset id="fieldset2" style="{{ $currentStep == 2 ? 'display: block' : 'display: none' }}">
 
+                        
+                        <div class="mb-4">
+                            <h2 class="text-base Laptop:text-xl font-bold leading-4 mb-1.5">NID / CNIC Information</h2>
+                            <p class="text-xs">Provide your National ID or Computerized National Identity Card details</p>
+                        </div>
 
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap ">
 
                             <div class="mbl-hdn Laptop:w-[20%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Passport & Expiry
@@ -2048,7 +2054,7 @@
                         </div>
 
 
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap ">
 
 
                             <div class="mbl-hdn Laptop:w-[20%]">
@@ -2081,7 +2087,7 @@
 
                         </div>
 
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap ">
 
 
                             <div class="mbl-hdn Laptop:w-[20%]">
@@ -2113,7 +2119,7 @@
 
                         </div>
 
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap ">
 
 
                             <div class="mbl-hdn Laptop:w-[20%]">
@@ -2145,6 +2151,17 @@
                                             @error('martialstatus')
                                                 <p class="erromessage">{{ $message }}</p>
                                             @enderror
+                                        </div>
+                                    </div>
+
+                                </div>
+                                
+                                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
+
+                                    <div>
+                                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Spouse Name <span class="text-Indicates">*</span></label>
+                                        <div class="field">
+                                            <input type="text" name="spouse name" id="" class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none">
                                         </div>
                                     </div>
 
@@ -2310,7 +2327,7 @@
                         </div>
 
 
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap ">
 
 
                             <div class="mbl-hdn Laptop:w-[20%]">
@@ -2474,12 +2491,12 @@
                         </div>
 
 
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap ">
 
                             <div class="mbl-hdn Laptop:w-[20%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Passport Images</h2>
-                                <img class="mt-2 w-10 Laptop:w-14"
-                                    src="{{ asset('frontend/imagesupdate/passport.svg') }}" alt="">
+                                {{-- <img class="mt-2 w-10 Laptop:w-14"
+                                    src="{{ asset('frontend/imagesupdate/passport.svg') }}" alt=""> --}}
                             </div>
 
                             <div class="Laptop:w-[80%] w-full">
@@ -2650,17 +2667,16 @@
                             </div>
 
 
-                        </div>
+                        </div> 
 
 
-
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center">
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap ">
 
                             <div class="mbl-hdn Laptop:w-[20%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">NID / CNIC Images
                                 </h2>
-                                <img class="mt-2 w-10 Laptop:w-14"
-                                    src="{{ asset('frontend/imagesupdate/idfront.svg') }}" alt="">
+                                {{-- <img class="mt-2 w-10 Laptop:w-14"
+                                    src="{{ asset('frontend/imagesupdate/idfront.svg') }}" alt=""> --}}
                             </div>
 
                             <div class="Laptop:w-[80%] w-full">
@@ -2844,8 +2860,14 @@
 
                     <fieldset id="fieldset3" style="{{ $currentStep == 3 ? 'display: block' : 'display: none' }}">
 
+                        
+                        <div class="mb-4">
+                            <h2 class="text-base Laptop:text-xl font-bold leading-4 mb-1.5">License Information</h2>
+                            <p class="text-xs">Provide details of your license and residency permit</p>
+                        </div>
 
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center gap-4">
+
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap  Laptop:gap-4 gap-2">
 
 
                             <div class="mbl-hdn Laptop:w-[20%]">
@@ -2871,7 +2893,7 @@
                         </div>
 
 
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap items-center gap-4">
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap  Laptop:gap-4 gap-2">
 
 
                             <div class="mbl-hdn Laptop:w-[20%]">
@@ -2956,7 +2978,7 @@
                         </div>
 
 
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap gap-4">
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap  Laptop:gap-4 gap-2">
 
 
                             <div class="mbl-hdn Laptop:w-[20%]">
@@ -3414,6 +3436,8 @@
             </div>
         </div>
     </div>
+
+
 </body>
 
 <!-- Load intl-tel-input library -->
