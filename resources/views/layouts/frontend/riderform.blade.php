@@ -1346,15 +1346,15 @@
     </div>
 
 
-    <div class="header bg-White-c p-2 ml-3 Laptop:ml-0  Laptop:py-4  shadow-md z-10">
+    <div class="header bg-White-c p-2 ml-3 Laptop:pr-6 Laptop:ml-0  Laptop:py-4  shadow-md z-10">
         <div class="container mx-auto d-flex justify-between"> 
                 <a href="{{ route('mainindex') }}" id="logo"><img class="w-40 Laptop:w-[215px] Tablet:w-[160px]"
                         src="{{ asset('assets/img/logo.png') }}" alt=""></a>  
 
-                {{-- <div class="search-bar p-1 px-2 bg-gray-100 rounded w-56 flex justify-between items-center">
+                <div class="search-bar p-1 px-2 bg-gray-100 rounded Laptop:w-56 w-36 flex justify-between items-center">
                     <input class="bg-transparent outline-none w-full" type="search" name="search" id="search" placeholder="Search..">
                     <span class="fas fa-search text-xs p-0 cursor-pointer"></span>
-                </div>  --}}
+                </div> 
         </div>
     </div>
 
@@ -1491,27 +1491,26 @@
 
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
 
-                            <div class="mbl-hdn Laptop:w-[20%]">
+                            <div class="mbl-hdn Laptop:w-[30%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Name</h2>
                             </div>
 
-                            <div class="Laptop:w-[80%] w-full">
+                            <div class="Laptop:w-[70%] w-full">
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
                                     <div>
                                         <label for="firstname"
-                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">First Name
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px] mb-1">First Name
                                             <span class="text-Indicates">*</span></label>
                                         <div class="field  fnamearea">
                                             <input type="text" name="firstname" id="firstname" autocomplete="off"
-                                                class="input-t w-full Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('firstname') ? 'error' : '' }} "
+                                                class="input-t w-full Laptop:p-1.5 p-1 rounded-md border outline-none {{ $errors->has('firstname') ? 'error' : '' }} "
                                                 value="{{ $hasOldData1 ? $oldData1->firstname : '' }}"
                                                 placeholder="First Name" required>
                                             @error('firstname')
                                                 <p class="erromessage">{{ $message }}</p>
-                                            @enderror
-                                            <!--<label for="" class="label-t">First Name</label>-->
+                                            @enderror 
                                         </div>
                                     </div>
 
@@ -1523,7 +1522,7 @@
                                             <input type="text" name="lastname" id="lastname"
                                                 value="{{ $hasOldData1 ? $oldData1->lastname : '' }}"
                                                 autocomplete="off"
-                                                class="input-t w-full Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('lastname') ? 'error' : '' }}"
+                                                class="input-t w-full Laptop:p-1.5 p-1 rounded-md border outline-none {{ $errors->has('lastname') ? 'error' : '' }}"
                                                 placeholder ="Last Name" required>
                                             @error('lastname')
                                                 <p class="erromessage">{{ $message }}</p>
@@ -1542,11 +1541,11 @@
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
 
 
-                            <div class="mbl-hdn Laptop:w-[20%]">
+                            <div class="mbl-hdn Laptop:w-[30%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Mother Name</h2>
                             </div>
 
-                            <div class="Laptop:w-[80%] w-full">
+                            <div class="Laptop:w-[70%] w-full">
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
@@ -1558,7 +1557,7 @@
                                             <input type="text" name="mother_name"
                                                 value="{{ $hasOldData1 ? $oldData1->mother_name : '' }}"
                                                 id="mother_name" autocomplete="off"
-                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('mother_name') ? 'error' : '' }}"
+                                                class="input-t Laptop:p-1.5 p-1 rounded-md border outline-none {{ $errors->has('mother_name') ? 'error' : '' }}"
                                                 placeholder="Mother Name" required>
                                             <!--<label for="" class="label-t">Mother Name</label>-->
                                             @error('mother_name')
@@ -1576,17 +1575,16 @@
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
 
 
-                            <div class="mbl-hdn Laptop:w-[20%]">
+                            <div class="mbl-hdn Laptop:w-[30%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Date of Birth</h2>
                             </div>
 
-                            <div class="Laptop:w-[80%] w-full">
+                            <div class="Laptop:w-[70%] w-full">
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
                                     <div>
-                                        <label for="mothername"
-                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Date of
+                                        <label  class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Date of
                                             birth <span class="text-Indicates">*</span></label>
                                         <div class="grid grid-cols-3 gap-1 Tablet:gap-2   dobdate relative">
 
@@ -1646,11 +1644,11 @@
 
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
 
-                            <div class="mbl-hdn Laptop:w-[20%]">
+                            <div class="mbl-hdn Laptop:w-[30%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Country</h2>
                             </div>
 
-                            <div class="Laptop:w-[80%] w-full">
+                            <div class="Laptop:w-[70%] w-full">
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
@@ -1709,11 +1707,11 @@
 
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
 
-                            <div class="mbl-hdn Laptop:w-[20%]">
+                            <div class="mbl-hdn Laptop:w-[30%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Contact Info</h2>
                             </div>
 
-                            <div class="Laptop:w-[80%] w-full">
+                            <div class="Laptop:w-[70%] w-full">
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4 mb-3">
 
@@ -1724,7 +1722,7 @@
 
                                         <div class="field">
                                             <input type="email" name="email" id="email" autocomplete="off"
-                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('email') ? 'error' : '' }}"
+                                                class="input-t Laptop:p-1.5 p-1 rounded-md border outline-none {{ $errors->has('email') ? 'error' : '' }}"
                                                 value="{{ $hasOldData1 ? $oldData1->email : '' }}" required
                                                 placeholder="Email Address">
                                             <div id="email-error" class="error-message" style="display: none;"></div>
@@ -1746,7 +1744,7 @@
                                         <div class="field">
                                             <input type="tel" name="contact_number" id="contact_number"
                                                 autocomplete="off" title="Only numbers and hyphens are allowed"
-                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('contact_number') ? 'error' : '' }}"
+                                                class="input-t Laptop:p-1.5 p-1 rounded-md border outline-none {{ $errors->has('contact_number') ? 'error' : '' }}"
                                                 value="{{ $hasOldData1 ? $oldData1->contact_number : '' }}" required>
                                             <p id="phone-error"></p>
                                             @error('contact_number')
@@ -1763,7 +1761,7 @@
                                         <div class="field">
                                             <input type="tel" name="whatsapp_number" id="whatsapp_number"
                                                 autocomplete="off"
-                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('whatsapp_number') ? 'error' : '' }}"
+                                                class="input-t Laptop:p-1.5 p-1 rounded-md border outline-none {{ $errors->has('whatsapp_number') ? 'error' : '' }}"
                                                 value="{{ $hasOldData1 ? $oldData1->whatsapp_number : '' }}" required>
                                             @error('whatsapp_number')
                                                 <p class="erromessage">{{ $message }}</p>
@@ -1784,11 +1782,11 @@
 
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
 
-                            <div class="mbl-hdn Laptop:w-[20%]">
+                            <div class="mbl-hdn Laptop:w-[30%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Application</h2>
                             </div>
 
-                            <div class="Laptop:w-[80%] w-full">
+                            <div class="Laptop:w-[70%] w-full">
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
@@ -1822,14 +1820,12 @@
 
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
 
-                            <div class="mbl-hdn Laptop:w-[20%]">
+                            <div class="mbl-hdn Laptop:w-[30%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Applicant’s Photo
-                                </h2>
-                                {{-- <img class="mt-2 w-10 Laptop:w-14"
-                                    src="{{ asset('frontend/imagesupdate/applicant-image.svg') }}" alt=""> --}}
+                                </h2> 
                             </div>
 
-                            <div class="Laptop:w-[80%] w-full">
+                            <div class="Laptop:w-[70%] w-full">
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
@@ -1946,23 +1942,21 @@
 
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap ">
 
-                            <div class="mbl-hdn Laptop:w-[20%]">
+                            <div class="mbl-hdn Laptop:w-[30%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Passport & Expiry
                                     Date</h2>
                             </div>
 
-                            <div class="Laptop:w-[80%] w-full">
+                            <div class="Laptop:w-[70%] w-full">
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
                                     <div>
-                                        <label for="firstname"
-                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Passport
+                                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Passport
                                             number <span class="text-Indicates">*</span></label>
                                         <div class="field">
                                             <input type="text" name="passportno" id="passportno"
-                                                autocomplete="off"
-                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
+                                                autocomplete="off" class="input-t Laptop:p-1.5 p-1 rounded-md border outline-none "
                                                 value="{{ $hasOldData2 && isset($oldData2->passportno) ? $oldData2->passportno : '' }}"
                                                 required>
                                             {{-- <label for="" class="label-t">Passport Number</label> --}}
@@ -1971,8 +1965,7 @@
 
                                     <div>
 
-                                        <label for="firstname"
-                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Expiry date
+                                        <label  class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Expiry date
                                             <span class="text-Indicates">*</span></label>
                                         <div class="grid grid-cols-3 gap-1 Tablet:gap-2 expiry   date relative">
 
@@ -2071,11 +2064,11 @@
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap ">
 
 
-                            <div class="mbl-hdn Laptop:w-[20%]">
+                            <div class="mbl-hdn Laptop:w-[30%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Father Name</h2>
                             </div>
 
-                            <div class="Laptop:w-[80%] w-full">
+                            <div class="Laptop:w-[70%] w-full">
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
@@ -2086,7 +2079,7 @@
                                         <div class="field ffnamearea">
                                             <input type="text" name="father_name" id="father_name"
                                                 autocomplete="off"
-                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('father_name') ? 'error' : '' }}"
+                                                class="input-t Laptop:p-1.5 p-1 rounded-md border outline-none {{ $errors->has('father_name') ? 'error' : '' }}"
                                                 value="{{ $hasOldData2 ? $oldData2->father_name : '' }}" required>
                                             @error('father_name')
                                                 <p class="erromessage">{{ $message }}</p>
@@ -2104,11 +2097,11 @@
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap ">
 
 
-                            <div class="mbl-hdn Laptop:w-[20%]">
+                            <div class="mbl-hdn Laptop:w-[30%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Identity Number</h2>
                             </div>
 
-                            <div class="Laptop:w-[80%] w-full">
+                            <div class="Laptop:w-[70%] w-full">
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
@@ -2118,7 +2111,7 @@
                                         <div class="field">
                                             <input type="text" name="nidorcnicnumber" id="nidorcnicnumber"
                                                 autocomplete="off"
-                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('nidorcnicnumber') ? 'error' : '' }}"
+                                                class="input-t Laptop:p-1.5 p-1 rounded-md border outline-none {{ $errors->has('nidorcnicnumber') ? 'error' : '' }}"
                                                 value="{{ $hasOldData2 ? $oldData2->nidorcnicnumber : '' }}" required>
                                             @error('nidorcnicnumber')
                                                 <p class="erromessage">{{ $message }}</p>
@@ -2136,11 +2129,11 @@
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap ">
 
 
-                            <div class="mbl-hdn Laptop:w-[20%]">
+                            <div class="mbl-hdn Laptop:w-[30%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Marital Status</h2>
                             </div>
 
-                            <div class="Laptop:w-[80%] w-full">
+                            <div class="Laptop:w-[70%] w-full">
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
@@ -2149,7 +2142,7 @@
                                             Status <span class="text-Indicates">*</span></label>
                                         <div class="field">
                                             <select name="martialstatus" id="martialstatus"
-                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
+                                                class="input-t Laptop:p-2.5 p-2 rounded-md border outline-none "
                                                 required>
                                                 <option value="">Select Status</option>
                                                 <option
@@ -2177,7 +2170,7 @@
                                             Name <span class="text-Indicates">*</span></label>
                                         <div class="field">
                                             <input type="text" name="spouse name" id=""
-                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none">
+                                                class="input-t Laptop:p-1.5 p-1 rounded-md border outline-none">
                                         </div>
                                     </div>
 
@@ -2191,11 +2184,11 @@
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
 
 
-                            <div class="mbl-hdn Laptop:w-[20%]">
+                            <div class="mbl-hdn Laptop:w-[30%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Residency</h2>
                             </div>
 
-                            <div class="Laptop:w-[80%] w-full">
+                            <div class="Laptop:w-[70%] w-full">
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
@@ -2205,7 +2198,7 @@
                                         <div class="field">
                                             <div class="flex gap-8">
                                                 <select name="uaeresident" id="uaeresident"
-                                                    class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none">
+                                                    class="input-t Laptop:p-2.5 p-2 rounded-md border outline-none">
                                                     <option
                                                         {{ $hasOldData2 && $oldData2->uaeresident == 'No' ? 'selected' : '' }}
                                                         value="No"><span id="no">No</span></option>
@@ -2232,7 +2225,7 @@
                                                 autocomplete="off"
                                                 value="{{ $hasOldData2 ? $oldData2->emiratesid : '' }}"
                                                 maxlength="18"
-                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('emiratesid') ? 'error' : '' }}"
+                                                class="input-t Laptop:p-1.5 p-1 rounded-md border outline-none {{ $errors->has('emiratesid') ? 'error' : '' }}"
                                                 oninput="formatInput(this)" placeholder="784-####-#######-#"
                                                 onclick="autofill()">
                                             @error('emiratesid')
@@ -2346,11 +2339,11 @@
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap ">
 
 
-                            <div class="mbl-hdn Laptop:w-[20%]">
+                            <div class="mbl-hdn Laptop:w-[30%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Religion</h2>
                             </div>
 
-                            <div class="Laptop:w-[80%] w-full">
+                            <div class="Laptop:w-[70%] w-full">
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
@@ -2361,7 +2354,7 @@
                                         <div class="field">
                                             <div class="flex gap-8">
                                                 <select name="religion" id="religion"
-                                                    class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none">
+                                                    class="input-t Laptop:p-2.5 p-2 rounded-md border outline-none">
                                                     <option
                                                         {{ $hasOldData2 && $oldData2->religion == 'Islam' ? 'selected' : '' }}
                                                         value="Islam">Islam</option>
@@ -2392,12 +2385,12 @@
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
 
 
-                            <div class="mbl-hdn Laptop:w-[20%]">
+                            <div class="mbl-hdn Laptop:w-[30%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Home Country Address
                                 </h2>
                             </div>
 
-                            <div class="Laptop:w-[80%] w-full">
+                            <div class="Laptop:w-[70%] w-full">
 
                                 <div class="grid grid-cols-1 gap-2  Laptop:gap-4">
 
@@ -2409,7 +2402,7 @@
                                             <input type="text" name="homeaddrss" id="homeaddrss"
                                                 autocomplete="off"
                                                 value="{{ $hasOldData2 ? $oldData2->homeaddrss : '' }}"
-                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
+                                                class="input-t Laptop:p-1.5 p-1 rounded-md border outline-none "
                                                 required>
                                             @error('homeaddrss')
                                                 <p class="erromessage">{{ $message }}</p>
@@ -2420,7 +2413,7 @@
 
                                 </div>
 
-                                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
+                                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4 mt-2">
 
 
                                     <div>
@@ -2454,7 +2447,7 @@
 
 
 
-                                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
+                                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4 mt-2">
 
 
                                     <div>
@@ -2491,7 +2484,7 @@
                                         <div class="field ">
                                             <input type="text" name="reference" id="reference" autocomplete="off"
                                                 value="{{ $hasOldData2 ? $oldData2->reference : '' }}"
-                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('reference') ? 'error' : '' }}"
+                                                class="input-t Laptop:p-1.5 p-1 rounded-md border outline-none {{ $errors->has('reference') ? 'error' : '' }}"
                                                 required>
                                             @error('reference')
                                                 <p class="erromessage">{{ $message }}</p>
@@ -2509,13 +2502,13 @@
 
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap ">
 
-                            <div class="mbl-hdn Laptop:w-[20%]">
+                            <div class="mbl-hdn Laptop:w-[30%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Passport Images</h2>
                                 {{-- <img class="mt-2 w-10 Laptop:w-14"
                                     src="{{ asset('frontend/imagesupdate/passport.svg') }}" alt=""> --}}
                             </div>
 
-                            <div class="Laptop:w-[80%] w-full">
+                            <div class="Laptop:w-[70%] w-full">
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
@@ -2524,7 +2517,7 @@
                                             class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 hidden applicationphotoMb">Passport
                                             Front page <span class="text-Indicates">*</span></label>
                                         <label for="jobpossition"
-                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 applicationphotodesktp ">Front
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 pb-2 applicationphotodesktp ">Front
                                             page <span class="text-Indicates">*</span></label>
 
                                         <div id="uploadAreaPassport"
@@ -2688,14 +2681,14 @@
 
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap ">
 
-                            <div class="mbl-hdn Laptop:w-[20%]">
+                            <div class="mbl-hdn Laptop:w-[30%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">NID / CNIC Images
                                 </h2>
                                 {{-- <img class="mt-2 w-10 Laptop:w-14"
                                     src="{{ asset('frontend/imagesupdate/idfront.svg') }}" alt=""> --}}
                             </div>
 
-                            <div class="Laptop:w-[80%] w-full">
+                            <div class="Laptop:w-[70%] w-full">
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
@@ -2883,19 +2876,19 @@
                         </div>
 
 
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap  Laptop:gap-4 gap-2">
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
 
 
-                            <div class="mbl-hdn Laptop:w-[20%]">
+                            <div class="mbl-hdn Laptop:w-[30%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Submission ID</h2>
                             </div>
 
-                            <div class="Laptop:w-[80%] w-full">
+                            <div class="Laptop:w-[70%] w-full">
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
                                     <div>
-                                        <div class="field bg-gray-200 border Laptop:p-1.5 p-1 rounded">
+                                        <div class="field bg-gray-100 border Laptop:p-1.5 p-1 rounded">
                                             @if (Session::has('submissionID'))
                                                 <p class="text-xs Tablet:text-sm">{{ $submissionID }}</p>
                                             @endif
@@ -2909,15 +2902,14 @@
                         </div>
 
 
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap  Laptop:gap-4 gap-2">
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap ">
 
 
-                            <div class="mbl-hdn Laptop:w-[20%]">
-                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]"> Driving license
-                                    (home country)</h2>
+                            <div class="mbl-hdn Laptop:w-[30%]">
+                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]"> Driving license (home country)</h2>
                             </div>
 
-                            <div class="Laptop:w-[80%] w-full">
+                            <div class="Laptop:w-[70%] w-full">
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
@@ -2928,7 +2920,7 @@
                                         <div class="field">
                                             <input type="text" name="passportno" id="passportno"
                                                 autocomplete="off"
-                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
+                                                class="input-t Laptop:p-1.5 p-1 rounded-md border outline-none "
                                                 value="{{ $hasOldData2 && isset($oldData2->passportno) ? $oldData2->passportno : '' }}"
                                                 required>
                                         </div>
@@ -2994,15 +2986,15 @@
                         </div>
 
 
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap  Laptop:gap-4 gap-2">
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap ">
 
 
-                            <div class="mbl-hdn Laptop:w-[20%]">
+                            <div class="mbl-hdn Laptop:w-[30%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]"> Do you have UAE
                                     license</h2>
                             </div>
 
-                            <div class="Laptop:w-[80%] w-full">
+                            <div class="Laptop:w-[70%] w-full">
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
@@ -3031,7 +3023,7 @@
                                         <div class="field ">
                                             <input type="text" name="UAE_Resident_Visa_No"
                                                 id="UAE_Resident_Visa_No" autocomplete="off"
-                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
+                                                class="input-t Laptop:p-1.5 p-1 rounded-md border outline-none "
                                                 value="{{ $hasOldData3 ? $oldData3->UAE_Resident_Visa_No : '' }}"
                                                 required>
                                         </div>
@@ -3052,7 +3044,7 @@
                                             <div class="field ">
                                                 <input type="tel" name="UAE_License_No" id="UAE_License_No"
                                                     autocomplete="off"
-                                                    class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
+                                                    class="input-t Laptop:p-1.5 p-1 rounded-md border outline-none "
                                                     value="{{ $hasOldData3 ? $oldData3->UAE_License_No : '' }}">
                                             </div>
                                         </div>
@@ -3065,7 +3057,7 @@
                                             (optional)</label>
                                         <div class="field ">
                                             <input type="tel" name="SIM_No" id="SIM_No" autocomplete="off"
-                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none "
+                                                class="input-t Laptop:p-1.5 p-1 rounded-md border outline-none "
                                                 value="{{ $hasOldData3 ? $oldData3->SIM_No : '' }}" required>
                                         </div>
 
@@ -3082,7 +3074,7 @@
 
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap ">
 
-                            <div class="mbl-hdn Laptop:w-[20%]">
+                            <div class="mbl-hdn Laptop:w-[30%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]"> Driving license
                                     images
                                 </h2>
@@ -3090,7 +3082,7 @@
                                 src="{{ asset('frontend/imagesupdate/driving.svg') }}" alt=""> --}}
                             </div>
 
-                            <div class="Laptop:w-[80%] w-full">
+                            <div class="Laptop:w-[70%] w-full">
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
@@ -3221,14 +3213,14 @@
 
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap mb-4 ">
 
-                            <div class="mbl-hdn Laptop:w-[20%]">
+                            <div class="mbl-hdn Laptop:w-[30%]">
                                 <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">UAE DL (optional)
                                 </h2>
                                 {{-- <img class="mt-2 w-10 Laptop:w-14"
                                 src="{{ asset('frontend/imagesupdate/license.jpg') }}" alt=""> --}}
                             </div>
 
-                            <div class="Laptop:w-[80%] w-full">
+                            <div class="Laptop:w-[70%] w-full">
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
@@ -3452,7 +3444,27 @@
             </div>
 
         </div>
+        
+
+        <footer class="footer container mx-auto  d-flex flex-wrap justify-between items-center">
+             
+                 <div class="d-flex items-center gap-2">
+                <h2 class="Laptop:text-xl text-base font-semibold text-[#0B4871]">Conqueror</h2>
+            <p class="text-sm">© 2024, All rights reserved</p>
+            </div>
+            <div class="d-flex items-center gap-4">
+                <a href="#" class="text-sm">Privacy Policy</a>
+                <a href="#" class="text-sm">Terms & Conditions</a>
+                <a href="#" class="text-sm">Support</a>
+            </div>
+            
+           
+           
+        </footer>
+
     </div>
+
+    
 
 
 </body>

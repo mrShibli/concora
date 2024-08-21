@@ -7,6 +7,16 @@
     font-size: 11px;
 }
 
+input{
+    font-size: 14px;
+}
+
+.header .container{
+    display: flex ;
+    justify-content: space-between ;
+    align-items: center;
+}
+
 .left-side{
     background: linear-gradient(#DDE4F7, #DDE4F700);
     /* border:3px solid  #ffffff; */
@@ -34,6 +44,24 @@
     background: #d5d5d5; 
 }
  
+
+.applicant .footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.applicant .footer div:nth-child(1){
+    display: flex;
+    align-items: center; 
+    gap: 7px;
+}
+
+.applicant .footer div:nth-child(2){
+    display: flex;
+    align-items: center; 
+    gap: 20px;
+}
+
 
 @media(max-width:450px){ 
     .left-side{
