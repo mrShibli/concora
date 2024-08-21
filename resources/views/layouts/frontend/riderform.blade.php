@@ -14,7 +14,7 @@
         content="{{ $pageDescription ?? 'Conqueror Services LLC | Food Delivery Services | UAE | KSA | Bahrain | Qatar' }}">
     <meta property="og:image" content="{{ asset('logoicon.png') }}">
 
-    <!-- <link rel="stylesheet" href="assets/css/input.css"> -->
+    <link rel="stylesheet" href="assets/css/input.css">
     <link rel="stylesheet" href="{{ asset('dist/assets/index-DXSHw0cc.css') }}">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -293,10 +293,18 @@
     </style>
 
 
+    <style>
+        .header {
+            background: #fff;
+        }
+    </style>
+
+    @vite('resources/css/app.css')
+
 </head>
 
 <body>
- 
+
 
     <div class="ar-main-wrapper">
 
@@ -1338,21 +1346,24 @@
     </div>
 
 
-    
-    <div class="header bg-White-c p-2  Laptop:py-4  shadow-md rounded-b-3xl top-0 right-0 absolute w-full z-10">
-        <div class="container mx-auto">
-            <a href="{{ route('mainindex') }}" id="logo"><img class="w-40 Laptop:w-[215px] Tablet:w-[160px]"
-                    src="{{ asset('assets/img/logo.png') }}" alt=""></a>
+    <div class="header bg-White-c p-2 ml-3 Laptop:ml-0  Laptop:py-4  shadow-md z-10">
+        <div class="container mx-auto d-flex justify-between"> 
+                <a href="{{ route('mainindex') }}" id="logo"><img class="w-40 Laptop:w-[215px] Tablet:w-[160px]"
+                        src="{{ asset('assets/img/logo.png') }}" alt=""></a>  
+
+                {{-- <div class="search-bar p-1 px-2 bg-gray-100 rounded w-56 flex justify-between items-center">
+                    <input class="bg-transparent outline-none w-full" type="search" name="search" id="search" placeholder="Search..">
+                    <span class="fas fa-search text-xs p-0 cursor-pointer"></span>
+                </div>  --}}
         </div>
     </div>
 
     <!-- ------------- -->
 
 
-    <div class="applicant bg-Dull-c pb-4 h-[145vh]">
+    <div class="applicant  bg-[#f0f2f8] pb-4 p-3">
 
-        <div class="box-container container mx-auto flex flex-nowrap gap-4 Laptop:gap-8"> 
-
+        <div class="box-container container mx-auto flex Laptop:flex-nowrap flex-wrap Laptop:gap-4 gap-2">
 
             @php
                 $hasOldData1 = false;
@@ -1386,17 +1397,18 @@
                 $applicantcncbUrl = $hasBImage ? asset('applicants/' . $oldData2->nid_cnic_back) : '';
             @endphp
 
-            <div class="left-side Laptop:w-[20%] w-full h-auto Laptop:ml-[-40px] h-22  p-2 Laptop:p-4 pb-0 pt-16 Laptop:pt-36   bg-Primary-c ">
+            <div class="left-side Laptop:w-[25%] w-full p-2 Laptop:p-4  bg-Primary-c rounded-xl border-4 border-white Laptop:mt-4 mt-2 m-2.5">
 
-                <div class="Laptop:pl-2 Laptop:fixed">
-                    <div class="step-titles gap-2 ">
+                <div class="Laptop:pl-2 Laptop:fixed Laptop:pt-8 ">
+                    <div class="step-titles gap-1 Laptop:gap-2">
 
-                        <div class="step flex items-center gap-1 Laptop:mb-14" id="firstStep">
-                            <span
-                                class="Laptop:h-6 h-3 Laptop:w-6 w-3 leading-3 Laptop:leading-6 text-center  rounded-full {{ $currentStep == 1 ? 'bg-[#e0b228]' : 'bg-White-c' }} text-Black-c text-[10px] Laptop:text-sm">1</span>
-                            <p class="text-White-c text-[10px] Laptop:text-sm"><a
-                                    class="{{ $currentStep == 1 ? 'p-1 Laptop:py-1.5 Laptop:px-4  bg-[#e0b228] text-White-c rounded-md' : '' }}">Basic
-                                    Information</a></p>
+                        <div class="step flex  gap-1 Laptop:gap-2 Laptop:mb-14" id="firstStep">
+                            <span  class="Laptop:h-6  Laptop:w-6 Laptop:leading-5 h-3 w-3 leading-3 text-center  rounded-full border-2 border-[#1278bc] {{ $currentStep == 1 ?  : 'bg-White-c' }}text-[#1278BC] text-[10px] Laptop:text-[8px] "><i class="fas fa-circle"></i></span>
+                            <div>
+                                <h5 class="text-[#1278BC] text-[12px] Laptop:text-base"><a class="{{ $currentStep == 1 ? 'p-1 Laptop:py-1.5 Laptop:px-4 text-[#1278BC] bg-transparent rounded-md' : '' }}">Basic Information</a></h5>
+                                    <p class="text-xs mt-1">Fill out your personal details accurately</p>
+                            </div>
+                            
 
                         </div>
 
@@ -1420,7 +1432,7 @@
 
             </div>
 
-            <div class="right-side Laptop:w-[80%] bg-White-c Laptop:mt-28 Laptop:p-6 Laptop:pb-4 p-4  Tablet:m-4 Tablet:mb-6  rounded-md ">
+            <div   class="right-side Laptop:w-[75%] w-full bg-White-c  Laptop:p-6 Laptop:pb-4 p-3  Tablet:m-4 m-0 Tablet:mb-6  rounded-md ">
                 @if (Session::has('success'))
                     <section>
                         <div
@@ -1429,7 +1441,7 @@
                         </div>
                     </section>
                 @endif
- 
+
 
                 <form class="form-card " id="msform" method="POST" enctype="multipart/form-data">
 
@@ -1471,11 +1483,12 @@
 
                         <div class="mb-4">
                             <h2 class="text-base Laptop:text-xl font-bold leading-4 mb-1.5">Basic Information</h2>
-                            <p class="text-xs">Please provide your basic information below to help us serve you better</p>
-                        </div> 
-                
+                            <p class="text-xs">Please provide your basic information below to help us serve you better
+                            </p>
+                        </div>
 
- 
+
+
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
 
                             <div class="mbl-hdn Laptop:w-[20%]">
@@ -1492,7 +1505,7 @@
                                             <span class="text-Indicates">*</span></label>
                                         <div class="field  fnamearea">
                                             <input type="text" name="firstname" id="firstname" autocomplete="off"
-                                                class="input-t w-full w-[100%] Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('firstname') ? 'error' : '' }} "
+                                                class="input-t w-full Laptop:p-2 p-1.5 rounded-md border outline-none {{ $errors->has('firstname') ? 'error' : '' }} "
                                                 value="{{ $hasOldData1 ? $oldData1->firstname : '' }}"
                                                 placeholder="First Name" required>
                                             @error('firstname')
@@ -1523,7 +1536,7 @@
 
                             </div>
 
-                        </div> 
+                        </div>
 
 
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
@@ -1804,7 +1817,7 @@
 
                             </div>
 
-                        </div> 
+                        </div>
 
 
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
@@ -1923,10 +1936,11 @@
 
                     <fieldset id="fieldset2" style="{{ $currentStep == 2 ? 'display: block' : 'display: none' }}">
 
-                        
+
                         <div class="mb-4">
                             <h2 class="text-base Laptop:text-xl font-bold leading-4 mb-1.5">NID / CNIC Information</h2>
-                            <p class="text-xs">Provide your National ID or Computerized National Identity Card details</p>
+                            <p class="text-xs">Provide your National ID or Computerized National Identity Card details
+                            </p>
                         </div>
 
 
@@ -2155,13 +2169,15 @@
                                     </div>
 
                                 </div>
-                                
+
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
                                     <div>
-                                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Spouse Name <span class="text-Indicates">*</span></label>
+                                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Spouse
+                                            Name <span class="text-Indicates">*</span></label>
                                         <div class="field">
-                                            <input type="text" name="spouse name" id="" class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none">
+                                            <input type="text" name="spouse name" id=""
+                                                class="input-t Laptop:p-2 p-1.5 rounded-md border outline-none">
                                         </div>
                                     </div>
 
@@ -2315,13 +2331,13 @@
 
 
 
-                                </div> 
+                                </div>
 
 
                             </div>
 
-                        </div> 
-                        
+                        </div>
+
 
                         <div class="" id="residence-no">
                         </div>
@@ -2667,7 +2683,7 @@
                             </div>
 
 
-                        </div> 
+                        </div>
 
 
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap ">
@@ -2837,7 +2853,7 @@
 
                         </div>
 
-  
+
 
                         <div class="button text-right Laptop:mt-10 mt-4 pb-4 ">
                             <button type="button" id="previous2"
@@ -2860,7 +2876,7 @@
 
                     <fieldset id="fieldset3" style="{{ $currentStep == 3 ? 'display: block' : 'display: none' }}">
 
-                        
+
                         <div class="mb-4">
                             <h2 class="text-base Laptop:text-xl font-bold leading-4 mb-1.5">License Information</h2>
                             <p class="text-xs">Provide details of your license and residency permit</p>
@@ -3434,6 +3450,7 @@
 
 
             </div>
+
         </div>
     </div>
 
