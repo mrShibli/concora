@@ -1397,9 +1397,9 @@
                 $applicantcncbUrl = $hasBImage ? asset('applicants/' . $oldData2->nid_cnic_back) : '';
             @endphp
 
-            <div class="left-side Laptop:w-[30%] w-full p-2   bg-Primary-c rounded-3xl border-[7px] border-white Laptop:mt-4 mt-2">
+            <div class="left-side Laptop:w-[30%] w-full p-2   bg-Primary-c rounded-3xl border-[7px] border-white Laptop:mt-4 mt-2 m-3">
 
-                <div class="Laptop:pl-2 Laptop:fixed Laptop:pt-8 ">
+                <div class="Laptop:pl-2 Laptop:fixed Laptop:pt-8  ml-2 Laptop:ml-0 ">
                     <div class="step-titles gap-1 Laptop:gap-2">
 
                         <div class="step flex flex-wrap gap-1 Laptop:gap-2 Laptop:mb-14" id="firstStep">
@@ -1436,7 +1436,7 @@
 
             </div>
 
-            <div class="right-side Laptop:w-[70%] w-full bg-White-c  Laptop:p-6 Laptop:pb-4 p-3  Tablet:m-4 m-0 Tablet:mb-6 rounded-3xl ">
+            <div class="right-side rs Laptop:w-[70%] w-full bg-White-c  Laptop:p-6 Laptop:pb-4 p-3 py-5  Tablet:m-4 m-0 Tablet:mb-6 rounded-3xl ">
                 @if (Session::has('success'))
                     <section>
                         <div
