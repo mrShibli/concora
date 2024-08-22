@@ -23,7 +23,9 @@ module.exports = {
         'Black-c': '#000000',
         'Indicates': '#f00b0b',
         'Dull-c': '#E0E3E8',
-        'Low-dull-c': '#f7f4f4'
+        'Low-dull-c': '#f7f4f4',
+        'text-color': '#27303F',
+        'blue': '#1278BC'
 
       },
 

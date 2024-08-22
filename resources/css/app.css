@@ -11,6 +11,10 @@ input{
     font-size: 14px;
 }
 
+label{
+    margin-bottom: 10px !important;
+}
+
 .header .container{
     display: flex ;
     justify-content: space-between ;
@@ -24,8 +28,7 @@ input{
  
 
 .step-titles .step span i{
-   color: #1278bc;
-   /* margin-top: -15px; */
+   color: #1278bc; 
 }
  
 .step-titles .step span{ 
@@ -38,9 +41,10 @@ input{
     position: absolute;
     content: '';
     left:12px;
-    top: 4px;
-    bottom: 4pxpx;
-    width: 4px;
+    top: 8px;
+    bottom: 0;
+    width: 4px; 
+    height: 90%;
     background: #d5d5d5; 
 }
  
@@ -70,6 +74,22 @@ input{
     .right-side{
         margin: 0 !important; 
     }
+
+    
+.step-titles::before{
+    position: absolute;
+    content: '';
+    left:12px;
+    top: 4px;
+    bottom: 4px;
+    width: 4px;
+    background: #d5d5d5; 
+    display: none;
+}
+.si,.tt{
+    display: none;
+}
+ 
 }
 
      

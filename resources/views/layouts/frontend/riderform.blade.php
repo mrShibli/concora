@@ -1351,7 +1351,7 @@
                 <a href="{{ route('mainindex') }}" id="logo"><img class="w-40 Laptop:w-[215px] Tablet:w-[160px]"
                         src="{{ asset('assets/img/logo.png') }}" alt=""></a>  
 
-                <div class="search-bar p-1 px-2 bg-gray-100 rounded Laptop:w-56 w-36 flex justify-between items-center">
+                <div class="search-bar p-1 Laptop:p-2 Laptop:px-3 px-2 bg-gray-50 rounded-xl border Laptop:w-56 w-36 flex justify-between items-center">
                     <input class="bg-transparent outline-none w-full" type="search" name="search" id="search" placeholder="Search..">
                     <span class="fas fa-search text-xs p-0 cursor-pointer"></span>
                 </div> 
@@ -1397,34 +1397,38 @@
                 $applicantcncbUrl = $hasBImage ? asset('applicants/' . $oldData2->nid_cnic_back) : '';
             @endphp
 
-            <div class="left-side Laptop:w-[25%] w-full p-2 Laptop:p-4  bg-Primary-c rounded-xl border-4 border-white Laptop:mt-4 mt-2 m-2.5">
+            <div class="left-side Laptop:w-[30%] w-full p-2   bg-Primary-c rounded-3xl border-[7px] border-white Laptop:mt-4 mt-2">
 
                 <div class="Laptop:pl-2 Laptop:fixed Laptop:pt-8 ">
                     <div class="step-titles gap-1 Laptop:gap-2">
 
-                        <div class="step flex  gap-1 Laptop:gap-2 Laptop:mb-14" id="firstStep">
-                            <span  class="Laptop:h-6  Laptop:w-6 Laptop:leading-5 h-3 w-3 leading-3 text-center  rounded-full border-2 border-[#1278bc] {{ $currentStep == 1 ?  : 'bg-White-c' }}text-[#1278BC] text-[10px] Laptop:text-[8px] "><i class="fas fa-circle"></i></span>
+                        <div class="step flex flex-wrap gap-1 Laptop:gap-2 Laptop:mb-14" id="firstStep">
+                            <span  class="Laptop:h-6  Laptop:w-6 Laptop:leading-5 h-3 w-3 leading-3 text-center  rounded-full border-2 border-[#1278bc] {{ $currentStep == 1 ?  : 'bg-White-c' }}text-[#1278BC]"><i class="fas fa-circle"></i></span>
                             <div>
-                                <h5 class="text-[#1278BC] text-[12px] Laptop:text-base"><a class="{{ $currentStep == 1 ? 'p-1 Laptop:py-1.5 Laptop:px-4 text-[#1278BC] bg-transparent rounded-md' : '' }}">Basic Information</a></h5>
-                                    <p class="text-xs mt-1">Fill out your personal details accurately</p>
-                            </div>
+                                <h5 class="text-text-color text-sm font-bold"><a class="{{ $currentStep == 1 ? 'text-blue ' : '' }}">Basic Information</a></h5>
+                                    <p class="text-xs mt-1 si">Fill out your personal details accurately</p>
+                            </div> 
+
+                        </div>
+
+                        <div class="step flex flex-wrap gap-1 Laptop:gap-2 Laptop:mb-14" id="secondStep">
+                            <span
+                                class="Laptop:h-6 h-3 Laptop:w-6 w-3 leading-3 Laptop:leading-6 text-center  rounded-full {{ $currentStep == 2 ? 'bg-White-c' : 'bg-White-c' }} text-Black-c text-[10px] Laptop:text-sm"><i class="fas fa-circle"></i></span>
+                                <div>
+                                    <h5 class="text-blue text-sm font-bold "><a
+                                    class="{{ $currentStep == 2 ? 'text-blue bg-transparent' : '' }}">NID/CNIC  Information</a></h5>
+                                    <p class="text-xs mt-1 si">Provide your national identification details</p>
+                                </div>
                             
-
                         </div>
-
-                        <div class="step flex items-center gap-1 Laptop:mb-14" id="secondStep">
+                        <div class="step flex flex-wrap gap-1 Laptop:gap-2" id="thirdStep">
                             <span
-                                class="Laptop:h-6 h-3 Laptop:w-6 w-3 leading-3 Laptop:leading-6 text-center  rounded-full {{ $currentStep == 2 ? 'bg-[#e0b228]' : 'bg-White-c' }} text-Black-c text-[10px] Laptop:text-sm">2</span>
-                            <p class="text-White-c text-[10px] Laptop:text-sm"><a
-                                    class="{{ $currentStep == 2 ? 'p-1 Laptop:py-1.5 Laptop:px-4  bg-[#e0b228] text-White-c rounded-md' : '' }}">NID/CNIC
-                                    Information</a></p>
-                        </div>
-                        <div class="step flex items-center gap-1" id="thirdStep">
-                            <span
-                                class="Laptop:h-6 h-3 Laptop:w-6 w-3 leading-3 Laptop:leading-6 text-center  rounded-full {{ $currentStep == 3 ? 'bg-[#e0b228]' : 'bg-White-c' }} text-Black-c text-[10px] Laptop:text-sm">3</span>
-                            <p class="text-White-c text-[10px] Laptop:text-base"><a
-                                    class="{{ $currentStep == 3 ? 'p-1 Laptop:py-1.5 Laptop:px-4  bg-[#e0b228] text-White-c rounded-md' : '' }}">License
-                                    Information</a></p>
+                                class="Laptop:h-6 h-3 Laptop:w-6 w-3 leading-3 Laptop:leading-6 text-center  rounded-full {{ $currentStep == 3 ? 'bg-White-c' : 'bg-White-c' }} text-Black-c text-[10px] Laptop:text-sm"><i class="fas fa-circle"></i></span>
+                                <div>
+                                   <h5 class="text-blue text-sm  font-bold"><a class="{{ $currentStep == 3 ? 'text-[#1278BC] bg-transparent' : '' }}">License  Information</a></h5>
+                                    <p class="text-xs mt-1 si">Provide details of your license and residency permit</p>
+                                </div>
+                          
                         </div>
 
                     </div>
@@ -1432,7 +1436,7 @@
 
             </div>
 
-            <div   class="right-side Laptop:w-[75%] w-full bg-White-c  Laptop:p-6 Laptop:pb-4 p-3  Tablet:m-4 m-0 Tablet:mb-6  rounded-md ">
+            <div class="right-side Laptop:w-[70%] w-full bg-White-c  Laptop:p-6 Laptop:pb-4 p-3  Tablet:m-4 m-0 Tablet:mb-6 rounded-3xl ">
                 @if (Session::has('success'))
                     <section>
                         <div
@@ -1481,9 +1485,9 @@
 
                     <fieldset id="fieldset1" style="{{ $currentStep == 1 ? 'display: block' : 'display: none' }}">
 
-                        <div class="mb-4">
-                            <h2 class="text-base Laptop:text-xl font-bold leading-4 mb-1.5">Basic Information</h2>
-                            <p class="text-xs">Please provide your basic information below to help us serve you better
+                        <div class="mb-2 Laptop:mb-4">
+                            <h2 class="text-base Laptop:text-[18px] font-bold leading-4 mb-1.5">Basic Information</h2>
+                            <p class="text-xs Laptop:text-sm">Please provide your basic information below to help us serve you better
                             </p>
                         </div>
 
@@ -1492,7 +1496,7 @@
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Name</h2>
+                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Name</h2>
                             </div>
 
                             <div class="Laptop:w-[70%] w-full">
@@ -1542,7 +1546,7 @@
 
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Mother Name</h2>
+                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Mother Name</h2>
                             </div>
 
                             <div class="Laptop:w-[70%] w-full">
@@ -1550,9 +1554,10 @@
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
                                     <div>
-                                        <label for="mothername"
-                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Full Name
-                                            <span class="text-Indicates">*</span></label>
+                                        <label for="jobpossition" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 hidden applicationphotoMb">Mother name <span class="text-Indicates">*</span></label>
+
+                                    <label for="jobpossition" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 applicationphotodesktp ">Full Name<span class="text-Indicates">*</span></label>
+ 
                                         <div class="field  mnamearea">
                                             <input type="text" name="mother_name"
                                                 value="{{ $hasOldData1 ? $oldData1->mother_name : '' }}"
@@ -1564,6 +1569,11 @@
                                                 <p class="erromessage">{{ $message }}</p>
                                             @enderror
                                         </div>
+
+
+                                        <label for=""></label>
+
+
                                     </div>
 
                                 </div>
@@ -1576,7 +1586,7 @@
 
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Date of Birth</h2>
+                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Date of Birth</h2>
                             </div>
 
                             <div class="Laptop:w-[70%] w-full">
@@ -1645,7 +1655,7 @@
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Country</h2>
+                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Country</h2>
                             </div>
 
                             <div class="Laptop:w-[70%] w-full">
@@ -1708,7 +1718,7 @@
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Contact Info</h2>
+                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Contact Info</h2>
                             </div>
 
                             <div class="Laptop:w-[70%] w-full">
@@ -1783,7 +1793,7 @@
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Application</h2>
+                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Application</h2>
                             </div>
 
                             <div class="Laptop:w-[70%] w-full">
@@ -1821,7 +1831,7 @@
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Applicant’s Photo
+                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Applicant’s Photo
                                 </h2> 
                             </div>
 
@@ -1933,9 +1943,9 @@
                     <fieldset id="fieldset2" style="{{ $currentStep == 2 ? 'display: block' : 'display: none' }}">
 
 
-                        <div class="mb-4">
-                            <h2 class="text-base Laptop:text-xl font-bold leading-4 mb-1.5">NID / CNIC Information</h2>
-                            <p class="text-xs">Provide your National ID or Computerized National Identity Card details
+                        <div class="mb-2 Laptop:mb-4">
+                            <h2 class="text-[18px] Laptop:text-xl font-bold leading-4 mb-1.5">NID / CNIC Information</h2>
+                            <p class="text-xs Laptop:text-sm">Provide your National ID or Computerized National Identity Card details
                             </p>
                         </div>
 
@@ -1943,7 +1953,7 @@
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap ">
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Passport & Expiry
+                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Passport & Expiry
                                     Date</h2>
                             </div>
 
@@ -2065,7 +2075,7 @@
 
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Father Name</h2>
+                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Father Name</h2>
                             </div>
 
                             <div class="Laptop:w-[70%] w-full">
@@ -2098,7 +2108,7 @@
 
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Identity Number</h2>
+                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Identity Number</h2>
                             </div>
 
                             <div class="Laptop:w-[70%] w-full">
@@ -2130,7 +2140,7 @@
 
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Marital Status</h2>
+                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Marital Status</h2>
                             </div>
 
                             <div class="Laptop:w-[70%] w-full">
@@ -2185,7 +2195,7 @@
 
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Residency</h2>
+                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Residency</h2>
                             </div>
 
                             <div class="Laptop:w-[70%] w-full">
@@ -2340,7 +2350,7 @@
 
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Religion</h2>
+                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Religion</h2>
                             </div>
 
                             <div class="Laptop:w-[70%] w-full">
@@ -2386,7 +2396,7 @@
 
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Home Country Address
+                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Home Country Address
                                 </h2>
                             </div>
 
@@ -2503,7 +2513,7 @@
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap ">
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Passport Images</h2>
+                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Passport Images</h2>
                                 {{-- <img class="mt-2 w-10 Laptop:w-14"
                                     src="{{ asset('frontend/imagesupdate/passport.svg') }}" alt=""> --}}
                             </div>
@@ -2682,7 +2692,7 @@
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap ">
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">NID / CNIC Images
+                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">NID / CNIC Images
                                 </h2>
                                 {{-- <img class="mt-2 w-10 Laptop:w-14"
                                     src="{{ asset('frontend/imagesupdate/idfront.svg') }}" alt=""> --}}
@@ -2870,9 +2880,9 @@
                     <fieldset id="fieldset3" style="{{ $currentStep == 3 ? 'display: block' : 'display: none' }}">
 
 
-                        <div class="mb-4">
-                            <h2 class="text-base Laptop:text-xl font-bold leading-4 mb-1.5">License Information</h2>
-                            <p class="text-xs">Provide details of your license and residency permit</p>
+                        <div class="mb-2 Laptop:mb-4">
+                            <h2 class="text-[18px] Laptop:text-xl font-bold leading-4 mb-1.5">License Information</h2>
+                            <p class="text-xs Laptop:text-sm">Provide details of your license and residency permit</p>
                         </div>
 
 
@@ -2880,7 +2890,7 @@
 
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">Submission ID</h2>
+                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Submission ID</h2>
                             </div>
 
                             <div class="Laptop:w-[70%] w-full">
@@ -2906,7 +2916,7 @@
 
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]"> Driving license (home country)</h2>
+                                <h2 class="text-sm text-text-color font-semibold leading-[29px]"> Driving license (home country)</h2>
                             </div>
 
                             <div class="Laptop:w-[70%] w-full">
@@ -2990,7 +3000,7 @@
 
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]"> Do you have UAE
+                                <h2 class="text-sm text-text-color font-semibold leading-[29px]"> Do you have UAE
                                     license</h2>
                             </div>
 
@@ -3075,7 +3085,7 @@
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap ">
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]"> Driving license
+                                <h2 class="text-sm text-text-color font-semibold leading-[29px]"> Driving license
                                     images
                                 </h2>
                                 {{-- <img class="mt-2 w-10 Laptop:w-14"
@@ -3214,7 +3224,7 @@
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap mb-4 ">
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm Laptop:text-base font-semibold leading-[29px]">UAE DL (optional)
+                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">UAE DL (optional)
                                 </h2>
                                 {{-- <img class="mt-2 w-10 Laptop:w-14"
                                 src="{{ asset('frontend/imagesupdate/license.jpg') }}" alt=""> --}}
@@ -3443,13 +3453,12 @@
 
             </div>
 
-        </div>
-        
+        </div> 
 
         <footer class="footer container mx-auto  d-flex flex-wrap justify-between items-center">
              
-                 <div class="d-flex items-center gap-2">
-                <h2 class="Laptop:text-xl text-base font-semibold text-[#0B4871]">Conqueror</h2>
+            <div class="d-flex items-center gap-2">
+            <h2 class="Laptop:text-xl text-base Laptop:text-[24px] font-semibold text-[#0B4871]">Conqueror</h2>
             <p class="text-sm">© 2024, All rights reserved</p>
             </div>
             <div class="d-flex items-center gap-4">
