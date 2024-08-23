@@ -7,12 +7,30 @@
     font-size: 11px;
 }
 
+input,select{
+    font-size: 13px; 
+}
 input{
-    font-size: 14px;
+    padding: 10px 14px 10px 14px !important;
+}
+select{
+    padding: 12px 14px 12px 14px !important;
+}
+.field{
+    margin-top: 4px;
 }
 
 label{
     margin-bottom: 10px !important;
+}
+
+.header .search-bar{ 
+    height: 36px;
+    width: 215px;
+}
+
+.search-bar ::placeholder{
+    font-size: 14px;
 }
 
 .header .container{
@@ -75,6 +93,13 @@ label{
     .right-side{
         margin: 0 !important; 
     }
+    
+.header .search-bar{  
+    width: 177px;
+}
+.search-bar ::placeholder{
+    font-size: 12px;
+}
 
     
 .right-side .rs{
@@ -89,6 +114,11 @@ label{
 .si{
     display: none;
 }
+
+.field{
+    margin-top: 0px;
+}
+ 
  
 }
 

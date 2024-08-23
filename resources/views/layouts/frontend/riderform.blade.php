@@ -1351,9 +1351,9 @@
                 <a href="{{ route('mainindex') }}" id="logo"><img class="w-40 Laptop:w-[215px] Tablet:w-[160px]"
                         src="{{ asset('assets/img/logo.png') }}" alt=""></a>  
 
-                <div class="search-bar p-1 Laptop:p-2 Laptop:px-3 px-2 bg-gray-50 rounded-xl border Laptop:w-56 w-36 flex justify-between items-center">
+                <div class="search-bar p-1 Laptop:p-2 bg-gray-50 rounded-xl border Laptop:w-56 w-36 flex justify-between items-center">
                     <input class="bg-transparent outline-none w-full" type="search" name="search" id="search" placeholder="Search..">
-                    <span class="fas fa-search text-xs p-0 cursor-pointer"></span>
+                    <span class="fas fa-search text-sm p-0 cursor-pointer"></span>
                 </div> 
         </div>
     </div>
