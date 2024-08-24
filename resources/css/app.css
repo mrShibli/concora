@@ -10,10 +10,13 @@
 input,select{
     font-size: 13px; 
 }
-input{
+.input-t{
     padding: 10px 14px 10px 14px !important;
 }
-select{
+.nmflg{
+    padding: 10px;
+}
+.field select, select{
     padding: 12px 14px 12px 14px !important;
 }
 .field{
@@ -62,9 +65,9 @@ label{
     left:12px;
     top: 8px;
     bottom: 0;
-    width: 4px; 
-    height: 90%;
-    background: #d5d5d5; 
+    width: 5px; 
+    height: 85%;
+    background: #d5d5d5 !important; 
 }
  
 
@@ -86,9 +89,15 @@ label{
 }
 
 
-@media(max-width:450px){ 
+
+label{ 
+    font-weight: 500;
+}
+
+@media(max-width:768px){ 
     .left-side{
         padding: 2px !important;  
+        height: 130px;
     }
     .right-side{
         margin: 0 !important; 
@@ -101,6 +110,10 @@ label{
     font-size: 12px;
 }
 
+.left-side .step p{
+    display: none !important;
+}
+
     
 .right-side .rs{
     margin: 0;
@@ -109,17 +122,63 @@ label{
     
 .step-titles::before{
    
+    display: none !important;
+}
+
+.step-titles span{
     display: none;
 }
+
 .si{
-    display: none;
+    display: none !important;
 }
 
 .field{
     margin-top: 0px;
 }
+
+
+.button button{
+    width: 100% !important;
+    display: block !important;
+    margin-bottom: 10px;
+}
+
+
+.applicationphotoMb {
+    display: initial
+}
+
+.applicationphotodesktp {
+    display: none
+}
+
+label{
+    font-size: 14px !important;
+    font-weight: 500;
+}
  
+.left-side .step-titles .step .pp p{
+    display: none !important;
+    opacity: 0 !important;
+}
+ 
+.msteps{
+    margin-top: -37px;
+    display: flex; 
+    gap: 10px;
+    justify-content: space-between;  
+    background: gainsboro;
+    height: 5px;
+    align-items: center;
+    border-radius: 5rem;
+} 
+.msteps div i{
+    color: #1278BC;
+    border: 5px solid white;
+    border-radius: 5rem;
+}
  
 }
 
-     
+  

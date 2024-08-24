@@ -297,7 +297,25 @@
         .header {
             background: #fff;
         }
+
+        @media(max-width:768px) {
+        .mbl-hdn {
+            display: none
+        }
+
+        .applicationphotoMb {
+            display: initial
+        }
+
+        .applicationphotodesktp {
+            display: none
+        }
+
+    }
+
     </style>
+
+     
 
     @vite('resources/css/app.css')
 
@@ -1346,12 +1364,12 @@
     </div>
 
 
-    <div class="header bg-White-c p-2 ml-3 Laptop:pr-6 Laptop:ml-0  Laptop:py-4  shadow-md z-10">
+    <div class="header bg-White-c p-2 pl-2 Laptop:pr-12 Laptop:pl-11 Laptop:ml-0  Laptop:py-4  shadow-md z-10">
         <div class="container mx-auto d-flex justify-between"> 
-                <a href="{{ route('mainindex') }}" id="logo"><img class="w-40 Laptop:w-[215px] Tablet:w-[160px]"
+                <a href="{{ route('mainindex') }}" id="logo"><img class="Laptop:w-[173.54px] Laptop:h-[40px] w-40 "
                         src="{{ asset('assets/img/logo.png') }}" alt=""></a>  
 
-                <div class="search-bar p-1 Laptop:p-2 bg-gray-50 rounded-xl border Laptop:w-56 w-36 flex justify-between items-center">
+                <div class="search-bar p-1 Laptop:p-2 bg-gray-50 rounded-xl border Laptop:w-56 w-30 px-3 flex justify-between items-center">
                     <input class="bg-transparent outline-none w-full" type="search" name="search" id="search" placeholder="Search..">
                     <span class="fas fa-search text-sm p-0 cursor-pointer"></span>
                 </div> 
@@ -1363,7 +1381,7 @@
 
     <div class="applicant  bg-[#f0f2f8] pb-4 p-3">
 
-        <div class="box-container container mx-auto flex Laptop:flex-nowrap flex-wrap Laptop:gap-4 gap-2">
+        <div class="box-container container mx-auto flex Laptop:flex-nowrap flex-wrap justify-between Laptop:gap-4 gap-2">
 
             @php
                 $hasOldData1 = false;
@@ -1397,14 +1415,15 @@
                 $applicantcncbUrl = $hasBImage ? asset('applicants/' . $oldData2->nid_cnic_back) : '';
             @endphp
 
-            <div class="left-side Laptop:w-[30%] w-full p-2   bg-Primary-c rounded-3xl border-[7px] border-white Laptop:mt-4 mt-2 m-3">
+            <div class="left-side Laptop:w-[410px] w-full p-2   bg-Primary-c rounded-3xl border-[7px] border-white Laptop:mt-4 mt-2 m-3">
 
                 <div class="Laptop:pl-2 Laptop:fixed Laptop:pt-8  ml-2 Laptop:ml-0 ">
+
                     <div class="step-titles gap-1 Laptop:gap-2">
 
                         <div class="step flex flex-wrap gap-1 Laptop:gap-2 Laptop:mb-14" id="firstStep">
                             <span  class="Laptop:h-6  Laptop:w-6 Laptop:leading-5 h-3 w-3 leading-3 text-center  rounded-full border-2 border-[#1278bc] {{ $currentStep == 1 ?  : 'bg-White-c' }}text-[#1278BC]"><i class="fas fa-circle"></i></span>
-                            <div>
+                            <div class="pp">
                                 <h5 class="text-text-color text-sm font-bold"><a class="{{ $currentStep == 1 ? 'text-blue ' : '' }}">Basic Information</a></h5>
                                     <p class="text-xs mt-1 si">Fill out your personal details accurately</p>
                             </div> 
@@ -1413,18 +1432,18 @@
 
                         <div class="step flex flex-wrap gap-1 Laptop:gap-2 Laptop:mb-14" id="secondStep">
                             <span
-                                class="Laptop:h-6 h-3 Laptop:w-6 w-3 leading-3 Laptop:leading-6 text-center  rounded-full {{ $currentStep == 2 ? 'bg-White-c' : 'bg-White-c' }} text-Black-c text-[10px] Laptop:text-sm"><i class="fas fa-circle"></i></span>
-                                <div>
+                                class="Laptop:h-6 h-3 Laptop:w-6 w-3 leading-3 Laptop:leading-5 text-center  rounded-full border-2 border-[#1278bc] {{ $currentStep == 2 ? 'bg-White-c' : 'bg-White-c' }} text-Black-c text-[10px] Laptop:text-sm"><i class="fas fa-circle"></i></span>
+                                <div class="pp">
                                     <h5 class="text-blue text-sm font-bold "><a
                                     class="{{ $currentStep == 2 ? 'text-blue bg-transparent' : '' }}">NID/CNIC  Information</a></h5>
                                     <p class="text-xs mt-1 si">Provide your national identification details</p>
                                 </div>
                             
                         </div>
-                        <div class="step flex flex-wrap gap-1 Laptop:gap-2" id="thirdStep">
+                        <div class="step flex flex-wrap gap-1 Laptop:gap-2 " id="thirdStep">
                             <span
-                                class="Laptop:h-6 h-3 Laptop:w-6 w-3 leading-3 Laptop:leading-6 text-center  rounded-full {{ $currentStep == 3 ? 'bg-White-c' : 'bg-White-c' }} text-Black-c text-[10px] Laptop:text-sm"><i class="fas fa-circle"></i></span>
-                                <div>
+                                class="Laptop:h-6 h-3 Laptop:w-6 w-3 leading-3 Laptop:leading-5 text-center  rounded-full border-2 border-[#1278bc] {{ $currentStep == 3 ? 'bg-White-c' : 'bg-White-c' }} text-Black-c text-[10px] Laptop:text-sm"><i class="fas fa-circle"></i></span>
+                                <div class="pp">
                                    <h5 class="text-blue text-sm  font-bold"><a class="{{ $currentStep == 3 ? 'text-[#1278BC] bg-transparent' : '' }}">License  Information</a></h5>
                                     <p class="text-xs mt-1 si">Provide details of your license and residency permit</p>
                                 </div>
@@ -1432,11 +1451,18 @@
                         </div>
 
                     </div>
+
+                    <div class="msteps mx-4 hidden mb-4">
+                        <div class="mstep-1"><i class="fas fa-circle"></i></div>
+                        <div class="mstep-2"><i class="fas fa-circle"></i></div>
+                        <div class="mstep-3"><i class="fas fa-circle"></i></div>
+                    </div>
+
                 </div>
 
             </div>
 
-            <div class="right-side rs Laptop:w-[70%] w-full bg-White-c  Laptop:p-6 Laptop:pb-4 p-3 py-5  Tablet:m-4 m-0 Tablet:mb-6 rounded-3xl ">
+            <div class="right-side rs Laptop:w-[942px] w-full bg-White-c  Laptop:p-6 Laptop:pb-4 p-3 py-5  Tablet:m-4 m-0 Tablet:mb-6 rounded-3xl ">
                 @if (Session::has('success'))
                     <section>
                         <div
@@ -1463,22 +1489,6 @@
 
 
 
-                    <style>
-                        @media(max-width:768px) {
-                            .mbl-hdn {
-                                display: none
-                            }
-
-                            .applicationphotoMb {
-                                display: initial
-                            }
-
-                            .applicationphotodesktp {
-                                display: none
-                            }
-
-                        }
-                    </style>
 
 
                     <!-- Step 1 -->
@@ -1493,7 +1503,7 @@
 
 
 
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
+                        <div class="border-b py-4 Laptop:py-6  flex flex-wrap">
 
                             <div class="mbl-hdn Laptop:w-[30%]">
                                 <h2 class="text-sm text-text-color font-semibold leading-[29px]">Name</h2>
@@ -1542,7 +1552,7 @@
                         </div>
 
 
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
+                        <div class="border-b py-4 Laptop:py-6  flex flex-wrap">
 
 
                             <div class="mbl-hdn Laptop:w-[30%]">
@@ -1582,7 +1592,7 @@
 
                         </div>
 
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
+                        <div class="border-b py-4 Laptop:py-6  flex flex-wrap">
 
 
                             <div class="mbl-hdn Laptop:w-[30%]">
@@ -1652,7 +1662,7 @@
                         </div>
 
 
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
+                        <div class="border-b py-4 Laptop:py-6  flex flex-wrap">
 
                             <div class="mbl-hdn Laptop:w-[30%]">
                                 <h2 class="text-sm text-text-color font-semibold leading-[29px]">Country</h2>
@@ -1715,7 +1725,7 @@
                         </div>
 
 
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
+                        <div class="border-b py-4 Laptop:py-6  flex flex-wrap">
 
                             <div class="mbl-hdn Laptop:w-[30%]">
                                 <h2 class="text-sm text-text-color font-semibold leading-[29px]">Contact Info</h2>
@@ -1754,7 +1764,7 @@
                                         <div class="field">
                                             <input type="tel" name="contact_number" id="contact_number"
                                                 autocomplete="off" title="Only numbers and hyphens are allowed"
-                                                class="input-t Laptop:p-1.5 p-1 rounded-md border outline-none {{ $errors->has('contact_number') ? 'error' : '' }}"
+                                                class="Laptop:p-2 py-3 h-11 w-full rounded-md border outline-none {{ $errors->has('contact_number') ? 'error' : '' }}"
                                                 value="{{ $hasOldData1 ? $oldData1->contact_number : '' }}" required>
                                             <p id="phone-error"></p>
                                             @error('contact_number')
@@ -1771,7 +1781,7 @@
                                         <div class="field">
                                             <input type="tel" name="whatsapp_number" id="whatsapp_number"
                                                 autocomplete="off"
-                                                class="input-t Laptop:p-1.5 p-1 rounded-md border outline-none {{ $errors->has('whatsapp_number') ? 'error' : '' }}"
+                                                class="Laptop:p-2 py-3 h-11 w-full  rounded-md border outline-none {{ $errors->has('whatsapp_number') ? 'error' : '' }}"
                                                 value="{{ $hasOldData1 ? $oldData1->whatsapp_number : '' }}" required>
                                             @error('whatsapp_number')
                                                 <p class="erromessage">{{ $message }}</p>
@@ -1930,10 +1940,9 @@
 
                         <div class="button text-right Laptop:mt-10 mt-4 pb-4">
 
-                            <button type="button"
-                                class="action-button next Laptop:py-3 py-2 text-xs Laptop:text-base bg-Primary-c text-White-c rounded-2xl leading-5"
-                                style="width: 150px" id="f1Button">
-                                <span class="btn-text">Save & Continue</span>
+                            <button type="button" class="action-button next py-2.5  px-[18px] text-base bg-[#1278BC] text-White-c rounded-[8px] leading-5"
+                                style="width: 191px" id="f1Button">
+                                <span class="btn-text ">Save & Continue <i class="fas fa-arrow-right ml-1"></i></span>
                             </button>
                         </div>
                     </fieldset>
@@ -2082,10 +2091,9 @@
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
-                                    <div>
-                                        <label for="fathername"
-                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Full Name
-                                            <span class="text-Indicates">*</span></label>
+                                    <div> 
+                                            <label for="jobpossition" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 hidden applicationphotoMb">Father name <span class="text-Indicates">*</span></label> 
+                                            <label for="jobpossition" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 applicationphotodesktp ">Full Name<span class="text-Indicates">*</span></label>
                                         <div class="field ffnamearea">
                                             <input type="text" name="father_name" id="father_name"
                                                 autocomplete="off"
@@ -2465,7 +2473,7 @@
                                             Station </label>
                                         <input type="text" name="policeStation" id="policeStation"
                                             value="{{ $hasOldData2 ? $oldData2->policeStation : '' }}"
-                                            class="w-full mt-2 px-2 py-2  text-xs rounded-md border outline-none">
+                                            class="w-full mt-2 px-2 py-3  text-xs rounded-md border outline-none">
                                         @error('policeStation')
                                             <p class="erromessage">{{ $message }}</p>
                                         @enderror
@@ -2477,7 +2485,7 @@
                                             Office (Optional) </label>
                                         <input type="text" name="zip" id="postCode"
                                             value="{{ $hasOldData2 ? $oldData2->zip : '' }}"
-                                            class="w-full mt-2 px-2 py-2  text-xs rounded-md border outline-none">
+                                            class="w-full mt-2 px-2 py-3 text-xs rounded-md border outline-none">
                                         @error('zip')
                                             <p class="erromessage">{{ $message }}</p>
                                         @enderror
@@ -2860,14 +2868,14 @@
 
                         <div class="button text-right Laptop:mt-10 mt-4 pb-4 ">
                             <button type="button" id="previous2"
-                                class="previous Laptop:px-10 Laptop:py-3 px-4 py-2 text-xs Laptop:text-base bg-Black-c text-White-c rounded-2xl leading-5 mr-4">
+                                class="previous py-2.5 px-[18px] text-base bg-Black-c text-White-c rounded-[8px] leading-5 mr-4">
                                 Previous
                             </button>
 
                             <button type="button"
-                                class="action-button next Laptop:py-3 py-2 text-xs Laptop:text-base bg-Primary-c text-White-c rounded-2xl leading-5"
-                                style="width: 150px" id="f2Button">
-                                <span class="btn-text">Save & Continue</span>
+                                class="action-button next  py-2.5 px-[18px] text-base bg-[#1278BC] text-White-c rounded-[8px] leading-5"
+                                style="width: 191px" id="f2Button">
+                                <span class="btn-text">Save & Continue <i class="fas fa-arrow-right ml-1"></i></span>
                             </button>
                         </div>
                     </fieldset>
@@ -2886,7 +2894,7 @@
                         </div>
 
 
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
+                        <div class="border-b py-4 Laptop:py-6 Laptop:mb-6 mb-4 flex flex-wrap">
 
 
                             <div class="mbl-hdn Laptop:w-[30%]">
@@ -2898,7 +2906,9 @@
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
                                     <div>
-                                        <div class="field bg-gray-100 border Laptop:p-1.5 p-1 rounded">
+                                        <label for="jobpossition"
+                                        class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 hidden applicationphotoMb">Submission ID</label>
+                                        <div class="field bg-[#F9FAFB] border  py-3 input-t rounded">
                                             @if (Session::has('submissionID'))
                                                 <p class="text-xs Tablet:text-sm">{{ $submissionID }}</p>
                                             @endif
@@ -2912,7 +2922,7 @@
                         </div>
 
 
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap ">
+                        <div class="border-b flex flex-wrap ">
 
 
                             <div class="mbl-hdn Laptop:w-[30%]">
@@ -3221,7 +3231,7 @@
                         </div>
 
 
-                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap mb-4 ">
+                        <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
 
                             <div class="mbl-hdn Laptop:w-[30%]">
                                 <h2 class="text-sm text-text-color font-semibold leading-[29px]">UAE DL (optional)
@@ -3358,7 +3368,7 @@
 
                         {{-- // --}}
 
-                        <div class="div text-right mt-10">
+                        <div class="div Laptop:text-right text-center mt-10">
                             <input type="checkbox" id="show-agreement-btn" required style="margin-top: 20px;"> <label
                                 for="show-agreement-btn">I Accept the <span style="color: #1f76e1;">Terms and
                                     Condition</span> of the Company</label>
@@ -3437,14 +3447,14 @@
 
                         <div class="button text-right Laptop:mt-10 mt-4 pb-4 ">
                             <button type="button" id="previous3"
-                                class="previous Laptop:px-10 Laptop:py-3 px-4 py-2 text-xs Laptop:text-base bg-Black-c text-White-c rounded-2xl leading-5 mr-4">
+                                class="previous  py-2.5 px-[18px]  text-base bg-Black-c text-White-c rounded-[8px] leading-5 mr-4">
                                 Previous
                             </button>
 
                             <button type="button"
-                                class="action-button next Laptop:py-3 py-2 text-xs Laptop:text-base bg-Primary-c text-White-c rounded-2xl leading-5"
+                                class="action-button next px-[18px] py-2.5 text-base bg-[#1278BC] text-White-c rounded-[8px] leading-5"
                                 style="width: 150px" id="f3Button">
-                                <span class="btn-text close">Save & Confirm</span>
+                                <span class="btn-text text-base close">Submit <i class="fa-regular fa-circle-check ml-1"></i></span>
                             </button>
                         </div>
                     </fieldset>
@@ -3455,16 +3465,16 @@
 
         </div> 
 
-        <footer class="footer container mx-auto  d-flex flex-wrap justify-between items-center">
+        <footer class="footer container mx-auto  d-flex flex-wrap justify-between items-center gap-1 mt-5">
              
             <div class="d-flex items-center gap-2">
-            <h2 class="Laptop:text-xl text-base Laptop:text-[24px] font-semibold text-[#0B4871]">Conqueror</h2>
-            <p class="text-sm">© 2024, All rights reserved</p>
+            <h2 class="Laptop:text-2xl  font-semibold text-[#0B4871]">Conqueror</h2>
+            <p class="text-[15px] text-blue">© 2024, All rights reserved</p>
             </div>
-            <div class="d-flex items-center gap-4">
-                <a href="#" class="text-sm">Privacy Policy</a>
-                <a href="#" class="text-sm">Terms & Conditions</a>
-                <a href="#" class="text-sm">Support</a>
+            <div class="d-flex items-center justify-between gap-4">
+                <a href="#" class="text-[15px] text-blue">Privacy Policy</a>
+                <a href="#" class="text-[15px] text-blue">Terms & Conditions</a>
+                <a href="#" class="text-[15px] text-blue">Support</a>
             </div>
             
            
