@@ -1415,7 +1415,7 @@
                 $applicantcncbUrl = $hasBImage ? asset('applicants/' . $oldData2->nid_cnic_back) : '';
             @endphp
 
-            <div class="left-side Laptop:w-[410px] w-full p-2   bg-Primary-c rounded-3xl border-[7px] border-white Laptop:mt-4 mt-2 m-3">
+            <div class="left-side Laptop:w-[410px] w-full p-2   bg-Primary-c rounded-3xl border-[7px] border-white Laptop:mt-4 mt-2 m-3 Laptop:mb-[25px]">
 
                 <div class="Laptop:pl-2 Laptop:fixed Laptop:pt-8  ml-2 Laptop:ml-0 ">
 
@@ -1566,7 +1566,7 @@
                                     <div>
                                         <label for="jobpossition" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 hidden applicationphotoMb">Mother name <span class="text-Indicates">*</span></label>
 
-                                    <label for="jobpossition" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 applicationphotodesktp ">Full Name<span class="text-Indicates">*</span></label>
+                                    <label for="jobpossition" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 applicationphotodesktp ">Full Name <span class="text-Indicates">*</span></label>
  
                                         <div class="field  mnamearea">
                                             <input type="text" name="mother_name"
