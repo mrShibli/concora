@@ -69,8 +69,10 @@
 
     <style>
         .text-shadow {
-            color: #ffffff; /* Text color */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Horizontal offset, vertical offset, blur radius, shadow color */
+            color: #ffffff;
+            /* Text color */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            /* Horizontal offset, vertical offset, blur radius, shadow color */
         }
 
         /* Styles for the popup */
@@ -317,6 +319,8 @@
             color: red;
             letter-spacing: .5px;
         }
+
+        
     </style>
 
 </head>

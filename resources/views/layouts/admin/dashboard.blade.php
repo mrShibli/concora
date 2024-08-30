@@ -59,7 +59,7 @@
                         <a href="#" id="menu-bar"
                             class="fas fa-align-left text-white-c text-[18px] ml-1  Tablet:hidden"></a>
                         <a href="/admin" id="logo" class="text-white-c"> <img
-                                class=" ml-2 Tablet:ml-4 h-8 Tablet:h-16 Laptop:h-20 w-full object-contain"
+                                class=" ml-2 Tablet:ml-4 h-8 Tablet:h-16 Laptop:h-16 w-full object-contain"
                                 src="{{ asset('dashboardlogo.png') }}" alt=""></a>
 
                         <nav class="navbar flex items-center gap-6">
@@ -193,7 +193,7 @@
                             </div>
                         </a>
 
-                        
+
 
                         <div class="border border-gray-300 rounded-xl p-2 px-4">
                             <div class="flex items-center justify-between mb-4">
@@ -325,7 +325,8 @@
                             <a href="{{ route('applicants.accepted') }}">
                                 <div class="border border-gray-300 rounded-xl p-2 px-4">
                                     <div class="flex items-center justify-between mb-4">
-                                        <h2 class="text-black-c text-sm Tablet:text-base">{{ $applicantsAcceptedCount }}</h2>
+                                        <h2 class="text-black-c text-sm Tablet:text-base">
+                                            {{ $applicantsAcceptedCount }}</h2>
                                         <i class="fas fa-chevron-right"></i>
                                     </div>
                                     <p class="text-xs Tablet:text-sm text-black-c">Interview Accepted</p>
@@ -344,27 +345,65 @@
                         class="grid grid-cols-2 Tablet:grid-cols-3 Laptop:grid-cols-4 gap-2 Tablet:gap-3 Laptop:gap-4">
 
 
-                        <div class="border border-gray-300 rounded-xl p-2 px-4">
-                            <div class="flex items-center justify-between mb-4">
-                                <h2 class="text-black-c text-sm Tablet:text-base">2</h2>
-                                <i class="fas fa-chevron-right"></i>
+                        <a href="{{ route('applicants.pakistan') }}">
+                            <div class="border border-gray-300 rounded-xl p-2 px-4">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h2 class="text-black-c text-sm Tablet:text-base">{{ $pakistan }}</h2>
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                                <p class="text-xs Tablet:text-sm text-black-c">Pakistan</p>
                             </div>
-                            <p class="text-xs Tablet:text-sm text-black-c">Pakistan</p>
-                        </div>
-                        <div class="border border-gray-300 rounded-xl p-2 px-4">
-                            <div class="flex items-center justify-between mb-4">
-                                <h2 class="text-black-c text-sm Tablet:text-base">7</h2>
-                                <i class="fas fa-chevron-right"></i>
+                        </a>
+
+                        <a href="{{ route('applicants.nepal') }}">
+                            <div class="border border-gray-300 rounded-xl p-2 px-4">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h2 class="text-black-c text-sm Tablet:text-base">{{ $nepal }}</h2>
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                                <p class="text-xs Tablet:text-sm text-black-c">Nepal</p>
                             </div>
-                            <p class="text-xs Tablet:text-sm text-black-c">Nepal</p>
-                        </div>
-                        <div class="border border-gray-300 rounded-xl p-2 px-4">
-                            <div class="flex items-center justify-between mb-4">
-                                <h2 class="text-black-c text-sm Tablet:text-base">10</h2>
-                                <i class="fas fa-chevron-right"></i>
+                        </a>
+
+                        <a href="{{ route('applicants.india') }}">
+                            <div class="border border-gray-300 rounded-xl p-2 px-4">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h2 class="text-black-c text-sm Tablet:text-base">{{ $india }}</h2>
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                                <p class="text-xs Tablet:text-sm text-black-c">India</p>
                             </div>
-                            <p class="text-xs Tablet:text-sm text-black-c">India</p>
-                        </div>
+                        </a>
+
+                        <a href="{{ route('applicants.SriLanka') }}">
+                            <div class="border border-gray-300 rounded-xl p-2 px-4">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h2 class="text-black-c text-sm Tablet:text-base">{{ $srilanka }}</h2>
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                                <p class="text-xs Tablet:text-sm text-black-c">Sri Lanka</p>
+                            </div>
+                        </a>
+
+                        <a href="{{ route('applicants.Philippines') }}">
+                            <div class="border border-gray-300 rounded-xl p-2 px-4">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h2 class="text-black-c text-sm Tablet:text-base">{{$philippines  }}</h2>
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                                <p class="text-xs Tablet:text-sm text-black-c">Philippines</p>
+                            </div>
+                        </a>
+
+                        <a href="{{ route('applicants.Bangladesh') }}">
+                            <div class="border border-gray-300 rounded-xl p-2 px-4">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h2 class="text-black-c text-sm Tablet:text-base">{{ $bangladesh }}</h2>
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                                <p class="text-xs Tablet:text-sm text-black-c">Bangladesh</p>
+                            </div>
+                        </a>
 
                     </div>
 

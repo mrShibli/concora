@@ -31,6 +31,7 @@ class Applicant extends Model
         'zip',
         'homeaddrss',
         'nidorcnicnumber',
+        'spouse_name',
         'nidorcnicexpiry',
         'nid_cnic_front',//2
         'nid_cnic_back',//2

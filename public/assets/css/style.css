@@ -1084,7 +1084,7 @@ textarea::placeholder {
   align-items: center;
 }
 .header-area .header-inner-box .logo {
-  border-right: 1px solid #eee;
+  border-right: none;
   height: 100px;
   display: flex;
   align-items: center;

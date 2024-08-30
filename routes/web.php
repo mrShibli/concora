@@ -193,6 +193,14 @@ Route::prefix('admin')->middleware(['auth', CheckRole::class . ':super_admin,gro
 Route::prefix('admin')->middleware(['auth', CheckRole::class . ':super_admin,group_admin,admin,manager,user'])->group(function () {
 
     Route::get('/applicants', [ApplicantController::class, 'index'])->name('applicants.index');
+
+    Route::get('/applicants/pakistan', [ApplicantController::class, 'pakistan'])->name('applicants.pakistan');
+    Route::get('/applicants/nepal', [ApplicantController::class, 'nepal'])->name('applicants.nepal');
+    Route::get('/applicants/india', [ApplicantController::class, 'india'])->name('applicants.india');
+    Route::get('/applicants/sri-lanka', [ApplicantController::class, 'SriLanka'])->name('applicants.SriLanka');
+    Route::get('/applicants/philippines', [ApplicantController::class, 'Philippines'])->name('applicants.Philippines');
+    Route::get('/applicants/bangladesh', [ApplicantController::class, 'Bangladesh'])->name('applicants.Bangladesh');
+
     Route::get('/applicants/verified', [ApplicantController::class, 'indexverified'])->name('applicants.indexverified');
     Route::get('/applicants/notverified', [ApplicantController::class, 'notverified'])->name('applicants.notverified');
 

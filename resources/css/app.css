@@ -133,6 +133,7 @@ line-height: 17px;
     
     .step-titles {
         margin-left: 0px;
+        text-align: center;
        }
     .left-side{
         padding: 2px !important;  

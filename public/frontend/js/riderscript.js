@@ -60,7 +60,8 @@ $(document).ready(function () {
                         // Create the error message
                         const errorMessage = document.createElement("div");
                         errorMessage.classList.add("error-message");
-                        errorMessage.textContent = `The field "${formattedFieldName}" is required.`;
+                        errorMessage.textContent = `The field is required.`;
+                        // errorMessage.textContent = `The field "${formattedFieldName}" is required.`;
 
                         // Append the error message to the container
                         errorContainer.appendChild(errorMessage);

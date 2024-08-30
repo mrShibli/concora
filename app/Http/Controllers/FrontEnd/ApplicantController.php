@@ -33,6 +33,48 @@ class ApplicantController extends Controller
         return view('layouts.admin.job-applicants.index', compact('applicants'));
     }
 
+    public function pakistan()
+    {
+        $applicants = Applicant::orderBy('created_at', 'desc')->where('nationality', 'Pakistan')->get();
+
+        return view('layouts.admin.job-applicants.index', compact('applicants'));
+    }
+
+    public function nepal()
+    {
+        $applicants = Applicant::orderBy('created_at', 'desc')->where('nationality', 'Nepal')->get();
+
+        return view('layouts.admin.job-applicants.index', compact('applicants'));
+    }
+
+    public function india()
+    {
+        $applicants = Applicant::orderBy('created_at', 'desc')->where('nationality', 'India')->get();
+
+        return view('layouts.admin.job-applicants.index', compact('applicants'));
+    }
+
+    public function SriLanka()
+    {
+        $applicants = Applicant::orderBy('created_at', 'desc')->where('nationality', 'Sri Lanka')->get();
+
+        return view('layouts.admin.job-applicants.index', compact('applicants'));
+    }
+
+    public function philippines()
+    {
+        $applicants = Applicant::orderBy('created_at', 'desc')->where('nationality', 'Philippines')->get();
+
+        return view('layouts.admin.job-applicants.index', compact('applicants'));
+    }
+
+    public function bangladesh()
+    {
+        $applicants = Applicant::orderBy('created_at', 'desc')->where('nationality', 'Bangladesh')->get();
+
+        return view('layouts.admin.job-applicants.index', compact('applicants'));
+    }
+
 
 
     public function nextRecord($id)

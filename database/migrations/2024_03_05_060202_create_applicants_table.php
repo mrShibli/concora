@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('zip');
             $table->string('homeaddrss');
             $table->string('nidorcnicnumber');
+            $table->string('spouse_name');
             $table->string('nidorcnicexpiry');
             $table->string('nid_cnic_front')->nullable();
             $table->string('nid_cnic_back')->nullable();

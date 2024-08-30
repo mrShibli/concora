@@ -114,9 +114,9 @@
                         <th>Payment Date</th>
                         <th>Payment Type</th>
                         <th>Ref/Agency</th>
-                        <th>Passport</th>
                         <th>Payment Amount</th>
                         <th>Status</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -126,13 +126,20 @@
                                 <a
                                     href="{{ route('applicants.paymentView', ['applicant_id' => $activity->applicant->id, 'payid_id' => $activity->id]) }}">👁️</a>
                             </td>
-                            <td>{{ \Carbon\Carbon::parse($activity->applicant->created_at)->format('d M Y') }}</td>
+                            <td>{{ \Carbon\Carbon::parse($applicant->payActivities->last()->created_at)->format('d M Y') }}</td>
                             <td>{{ \Carbon\Carbon::parse($activity->payment_date)->format('d M Y') }}</td>
                             <td>{{ $activity->method }}</td>
                             <td>{{ in_array($activity->applicant->reference, ['LS1994ND40', 'QM1990ZD12', 'WK1978SI41', 'GK1980MM51']) ? $activity->applicant->reference : 'No' }}
                             </td>
-                            <td>{{ $activity->applicant->passportno }}</td>
                             <td>{{ $activity->deposit_amount }}</td>
+                            <td>
+                                @if ($activity->status == 'add_payment')
+                                    Add Payment
+                                @else
+                                    Request Deposit
+                                @endif
+                            </td>
+                            
                             <td> {{ ucwords(str_replace('_', ' ', $activity->status)) }} </td>
                         </tr>
                     @empty

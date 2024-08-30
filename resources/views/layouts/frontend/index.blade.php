@@ -83,6 +83,10 @@
 
             }
         }
+        
+        .header-area .header-inner-box .logo {
+            border-right: none !important;
+        }
     </style>
 @endsection
 

@@ -307,7 +307,15 @@ class DashboardController extends Controller
             ->orderBy('created_at', 'desc')
             ->count();
 
-        return view('layouts.admin.dashboard', compact('JobApplicant', 'quotation', 'jobpositions', 'contactscount', 'applicants', 'JobApplicantOtpVerified', 'JobApplicantOtpNotVerified', 'JobApplicantInvited', 'JobApplicantHired', 'JobApplicantNepal', 'JobApplicantIndia', 'applicantsPaymnentRCV', 'applicantsPaymentDues', 'applicantsCreditReqApproval', 'JobApplicantRegular', 'JobApplicantNepalRegular', 'JobApplicantIndiaRegular', 'applicantsInvited', 'applicantsAcceptedCount'));
+        $pakistan = Applicant::orderBy('created_at', 'desc')->where('nationality', 'Pakistan')->count();
+        $nepal = Applicant::orderBy('created_at', 'desc')->where('nationality', 'Nepal')->count();
+        $india = Applicant::orderBy('created_at', 'desc')->where('nationality', 'India')->count();
+        $srilanka = Applicant::orderBy('created_at', 'desc')->where('nationality', 'Sri Lanka')->count();
+        $philippines = Applicant::orderBy('created_at', 'desc')->where('nationality', 'Philippines')->count();
+        $bangladesh = Applicant::orderBy('created_at', 'desc')->where('nationality', 'Bangladesh')->count();
+
+        return view('layouts.admin.dashboard', compact('JobApplicant', 'quotation', 'jobpositions', 'contactscount', 'applicants', 'JobApplicantOtpVerified', 'JobApplicantOtpNotVerified', 'JobApplicantInvited', 'JobApplicantHired', 'JobApplicantNepal', 'JobApplicantIndia', 'applicantsPaymnentRCV', 'applicantsPaymentDues', 'applicantsCreditReqApproval', 'JobApplicantRegular', 'JobApplicantNepalRegular', 'JobApplicantIndiaRegular', 'applicantsInvited', 'applicantsAcceptedCount', 'pakistan', 'nepal', 'india', 'srilanka', 'philippines', 'bangladesh'));
+
     }
 
     public function logout(Request $request)

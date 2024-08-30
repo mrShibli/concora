@@ -302,7 +302,7 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-sm-12 wow fadeInUp animated" data-wow-delay="100ms">
                         <div class="logo">
-                            <img src="{{ asset('assets/img/logo-white.png') }}" width="250" alt="experia-logo">
+                            <img src="{{ asset('assets/img/logo-white.png') }}" width="550" alt="experia-logo">
                         </div>
                         <div class="contact-info">
                             <p><b>Location:</b> City Pharmacy Bld, Port Saeed, Dubai </p>

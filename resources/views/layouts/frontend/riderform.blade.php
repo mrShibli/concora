@@ -12,6 +12,7 @@
     <meta property="og:type" content="website">
     <meta property="og:description"
         content="{{ $pageDescription ?? 'Conqueror Services LLC | Food Delivery Services | UAE | KSA | Bahrain | Qatar' }}">
+    
     <meta property="og:image" content="{{ asset('logoicon.png') }}">
 
     <link rel="stylesheet" href="assets/css/input.css">
@@ -37,6 +38,28 @@
 
         .col-md-6.emailerror .error-message {
             margin-top: -19px;
+        }
+
+        .ddexpiryTime {
+            position: absolute;
+            left: 5px;
+            bottom: 5px;
+            margin-top: 10px;
+        }
+
+        .dexpiryTime {
+            position: absolute;
+            left: 0px;
+            bottom: -21px;
+            margin-top: 10px;
+
+        }
+
+        .pexpiryTime {
+            position: absolute;
+            left: 0px;
+            bottom: -21px;
+            margin-top: 10px
         }
 
         .errormessagenumber {
@@ -292,30 +315,47 @@
         } */
     </style>
 
-
     <style>
         .header {
             background: #fff;
         }
 
         @media(max-width:768px) {
-        .mbl-hdn {
-            display: none
+            .mbl-hdn {
+                display: none
+            }
+
+            .applicationphotoMb {
+                display: initial
+            }
+
+            .applicationphotodesktp {
+                display: none
+            }
+
         }
 
-        .applicationphotoMb {
-            display: initial
+        .capthaArea {
+            display: flex;
+            justify-content: end;
         }
 
-        .applicationphotodesktp {
-            display: none
+        @media (max-width: 1180px) {
+            .step-titles .step span {
+                margin-left: 45px;
+                height: 23px !important;
+                width: 23px !important;
+                line-height: 20px !important;
+            }
         }
 
-    }
+        @media (max-width: 768px) {
+            .step-titles span {
+                display: block !important;
+            }
+        }
 
     </style>
-
-     
 
     @vite('resources/css/app.css')
 
@@ -1365,14 +1405,16 @@
 
 
     <div class="header bg-White-c p-2 pl-2 Laptop:pr-12 Laptop:pl-11 Laptop:ml-0  Laptop:py-4  shadow-md z-10">
-        <div class="container mx-auto d-flex justify-between"> 
-                <a href="{{ route('mainindex') }}" id="logo"><img class="Laptop:w-[173.54px] Laptop:h-[40px] w-40 "
-                        src="{{ asset('assets/img/logo.png') }}" alt=""></a>  
+        <div class="container mx-auto d-flex justify-between">
+            <a href="{{ route('mainindex') }}" id="logo"><img class="Laptop:w-[173.54px] Laptop:h-[40px] w-40 "
+                    src="{{ asset('assets/img/logo.png') }}" alt=""></a>
 
-                <div class="search-bar p-1 Laptop:p-2 bg-gray-50 rounded-xl border Laptop:w-56 w-30 px-3 flex justify-between items-center">
-                    <input class="bg-transparent outline-none w-full" type="search" name="search" id="search" placeholder="Search..">
-                    <span class="fas fa-search text-sm p-0 cursor-pointer"></span>
-                </div> 
+            <div
+                class="search-bar p-1 Laptop:p-2 bg-gray-50 rounded-xl border Laptop:w-56 w-30 px-3 flex justify-between items-center">
+                <input class="bg-transparent outline-none w-full" type="search" name="search" id="search"
+                    placeholder="Search..">
+                <span class="fas fa-search text-sm p-0 cursor-pointer"></span>
+            </div>
         </div>
     </div>
 
@@ -1381,7 +1423,8 @@
 
     <div class="applicant  bg-[#f0f2f8] pb-4 p-3">
 
-        <div class="box-container container mx-auto flex Laptop:flex-nowrap flex-wrap justify-between Laptop:gap-4 gap-2">
+        <div
+            class="box-container container mx-auto flex Laptop:flex-nowrap flex-wrap justify-between Laptop:gap-4 gap-2">
 
             @php
                 $hasOldData1 = false;
@@ -1415,54 +1458,65 @@
                 $applicantcncbUrl = $hasBImage ? asset('applicants/' . $oldData2->nid_cnic_back) : '';
             @endphp
 
-            <div class="left-side Laptop:w-[410px] w-full p-2   bg-Primary-c rounded-3xl border-[7px] border-white Laptop:mt-4 mt-2 m-3 Laptop:mb-[25px]">
+            <div
+                class="left-side Laptop:w-[410px] w-full p-2   bg-Primary-c rounded-3xl border-[7px] border-white Laptop:mt-4 mt-2 m-3 Laptop:mb-[25px]">
 
                 <div class="Laptop:pl-2 Laptop:fixed Laptop:pt-8  ml-2 Laptop:ml-0 ">
 
                     <div class="step-titles gap-1 Laptop:gap-2">
 
                         <div class="step flex flex-wrap gap-1 Laptop:gap-2 Laptop:mb-14" id="firstStep">
-                            <span  class="Laptop:h-6  Laptop:w-6 Laptop:leading-5 h-3 w-3 leading-3 text-center  rounded-full border-2 border-[#1278bc] {{ $currentStep == 1 ?  : 'bg-White-c' }}text-[#1278BC]"><i class="fas fa-circle"></i></span>
+                            <span
+                                class="Laptop:h-6  Laptop:w-6 Laptop:leading-5 h-3 w-3 leading-3 text-center  rounded-full border-2 border-[#1278bc] {{ $currentStep == 1 ?: 'bg-White-c' }}text-[#1278BC]"><i
+                                    class="fas fa-circle"></i></span>
                             <div class="pp">
-                                <h5 class="text-text-color text-sm font-bold"><a class="{{ $currentStep == 1 ? 'text-blue ' : '' }}">Basic Information</a></h5>
-                                    <p class="text-xs mt-1 si">Fill out your personal details accurately</p>
-                            </div> 
+                                <h5 class="text-text-color text-sm font-bold"><a
+                                        class="{{ $currentStep == 1 ? 'text-[#1278BC]' : '' }}">Basic Information</a>
+                                </h5>
+                                <p class="text-xs mt-1 si">Fill out your personal details accurately</p>
+                            </div>
 
                         </div>
 
                         <div class="step flex flex-wrap gap-1 Laptop:gap-2 Laptop:mb-14" id="secondStep">
                             <span
-                                class="Laptop:h-6 h-3 Laptop:w-6 w-3 leading-3 Laptop:leading-5 text-center  rounded-full border-2 border-[#1278bc] {{ $currentStep == 2 ? 'bg-White-c' : 'bg-White-c' }} text-Black-c text-[10px] Laptop:text-sm"><i class="fas fa-circle"></i></span>
-                                <div class="pp">
-                                    <h5 class="text-blue text-sm font-bold "><a
-                                    class="{{ $currentStep == 2 ? 'text-blue bg-transparent' : '' }}">NID/CNIC  Information</a></h5>
-                                    <p class="text-xs mt-1 si">Provide your national identification details</p>
-                                </div>
-                            
+                                class="Laptop:h-6 h-3 Laptop:w-6 w-3 leading-3 Laptop:leading-5 text-center  rounded-full border-2 border-[#1278bc] {{ $currentStep == 2 ?: 'bg-White-c' }} text-Black-c text-[10px] Laptop:text-sm"><i
+                                    class="fas fa-circle"></i></span>
+                            <div class="pp">
+                                <h5 class="text-blue text-sm font-bold "><a
+                                        class="{{ $currentStep == 2 ? 'text-[#1278BC] bg-transparent' : '' }}">NID/CNIC
+                                        Information</a></h5>
+                                <p class="text-xs mt-1 si">Provide your national identification details</p>
+                            </div>
+
                         </div>
                         <div class="step flex flex-wrap gap-1 Laptop:gap-2 " id="thirdStep">
                             <span
-                                class="Laptop:h-6 h-3 Laptop:w-6 w-3 leading-3 Laptop:leading-5 text-center  rounded-full border-2 border-[#1278bc] {{ $currentStep == 3 ? 'bg-White-c' : 'bg-White-c' }} text-Black-c text-[10px] Laptop:text-sm"><i class="fas fa-circle"></i></span>
-                                <div class="pp">
-                                   <h5 class="text-blue text-sm  font-bold"><a class="{{ $currentStep == 3 ? 'text-[#1278BC] bg-transparent' : '' }}">License  Information</a></h5>
-                                    <p class="text-xs mt-1 si">Provide details of your license and residency permit</p>
-                                </div>
-                          
+                                class="Laptop:h-6 h-3 Laptop:w-6 w-3 leading-3 Laptop:leading-5 text-center  rounded-full border-2 border-[#1278bc] {{ $currentStep == 3 ? 'bg-White-c' : 'bg-White-c' }} text-Black-c text-[10px] Laptop:text-sm"><i
+                                    class="fas fa-circle"></i></span>
+                            <div class="pp">
+                                <h5 class="text-blue text-sm  font-bold"><a
+                                        class="{{ $currentStep == 3 ? 'text-[#1278BC] bg-transparent' : '' }}">License
+                                        Information</a></h5>
+                                <p class="text-xs mt-1 si">Provide details of your license and residency permit</p>
+                            </div>
+
                         </div>
 
                     </div>
 
-                    <div class="msteps mx-4 hidden mb-4">
+                    {{-- <div class="msteps mx-4 hidden mb-4">
                         <div class="mstep-1"><i class="fas fa-circle"></i></div>
                         <div class="mstep-2"><i class="fas fa-circle"></i></div>
                         <div class="mstep-3"><i class="fas fa-circle"></i></div>
-                    </div>
+                    </div> --}}
 
                 </div>
 
             </div>
 
-            <div class="right-side rs Laptop:w-[942px] w-full bg-White-c  Laptop:p-6 Laptop:pb-4 p-3 py-5  Tablet:m-4 m-0 Tablet:mb-6 rounded-3xl ">
+            <div
+                class="right-side rs Laptop:w-[942px] w-full bg-White-c  Laptop:p-6 Laptop:pb-4 p-3 py-5  Tablet:m-4 m-0 Tablet:mb-6 rounded-3xl ">
                 @if (Session::has('success'))
                     <section>
                         <div
@@ -1497,7 +1551,8 @@
 
                         <div class="mb-2 Laptop:mb-4">
                             <h2 class="text-base Laptop:text-[18px] font-bold leading-4 mb-1.5">Basic Information</h2>
-                            <p class="text-xs Laptop:text-sm">Please provide your basic information below to help us serve you better
+                            <p class="text-xs Laptop:text-sm">Please provide your basic information below to help us
+                                serve you better
                             </p>
                         </div>
 
@@ -1506,7 +1561,7 @@
                         <div class="border-b py-4 Laptop:py-6  flex flex-wrap">
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Name</h2>
+                                <h2 class="text-sm text-text-color font-bold leading-[29px]">Name</h2>
                             </div>
 
                             <div class="Laptop:w-[70%] w-full">
@@ -1524,7 +1579,7 @@
                                                 placeholder="First Name" required>
                                             @error('firstname')
                                                 <p class="erromessage">{{ $message }}</p>
-                                            @enderror 
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -1556,7 +1611,7 @@
 
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Mother Name</h2>
+                                <h2 class="text-sm text-text-color font-bold leading-[29px]">Mother Name</h2>
                             </div>
 
                             <div class="Laptop:w-[70%] w-full">
@@ -1564,10 +1619,14 @@
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
                                     <div>
-                                        <label for="jobpossition" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 hidden applicationphotoMb">Mother name <span class="text-Indicates">*</span></label>
+                                        <label for="jobpossition"
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 hidden applicationphotoMb">Mother
+                                            name <span class="text-Indicates">*</span></label>
 
-                                    <label for="jobpossition" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 applicationphotodesktp ">Full Name <span class="text-Indicates">*</span></label>
- 
+                                        <label for="jobpossition"
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 applicationphotodesktp ">Full
+                                            Name <span class="text-Indicates">*</span></label>
+
                                         <div class="field  mnamearea">
                                             <input type="text" name="mother_name"
                                                 value="{{ $hasOldData1 ? $oldData1->mother_name : '' }}"
@@ -1596,7 +1655,7 @@
 
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Date of Birth</h2>
+                                <h2 class="text-sm text-text-color font-bold leading-[29px]">Date of Birth</h2>
                             </div>
 
                             <div class="Laptop:w-[70%] w-full">
@@ -1604,7 +1663,7 @@
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
                                     <div>
-                                        <label  class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Date of
+                                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Date of
                                             birth <span class="text-Indicates">*</span></label>
                                         <div class="grid grid-cols-3 gap-1 Tablet:gap-2   dobdate relative">
 
@@ -1647,8 +1706,7 @@
                                                 </select>
                                             </div>
 
-                                            <div id="dexpiryTime"
-                                                style="position: absolute; left: 10px; bottom: 5px; margin-top: 10px">
+                                            <div id="dexpiryTime" class="dexpiryTime">
                                             </div>
                                         </div>
                                     </div>
@@ -1665,7 +1723,7 @@
                         <div class="border-b py-4 Laptop:py-6  flex flex-wrap">
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Country</h2>
+                                <h2 class="text-sm text-text-color font-bold leading-[29px]">Country</h2>
                             </div>
 
                             <div class="Laptop:w-[70%] w-full">
@@ -1728,7 +1786,7 @@
                         <div class="border-b py-4 Laptop:py-6  flex flex-wrap">
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Contact Info</h2>
+                                <h2 class="text-sm text-text-color font-bold leading-[29px]">Contact Info</h2>
                             </div>
 
                             <div class="Laptop:w-[70%] w-full">
@@ -1803,7 +1861,7 @@
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Application</h2>
+                                <h2 class="text-sm text-text-color font-bold leading-[29px]">Application</h2>
                             </div>
 
                             <div class="Laptop:w-[70%] w-full">
@@ -1841,8 +1899,8 @@
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Applicant’s Photo
-                                </h2> 
+                                <h2 class="text-sm text-text-color font-bold leading-[29px]">Applicant’s Photo
+                                </h2>
                             </div>
 
                             <div class="Laptop:w-[70%] w-full">
@@ -1940,7 +1998,8 @@
 
                         <div class="button text-right Laptop:mt-10 mt-4 pb-4">
 
-                            <button type="button" class="action-button next py-2.5  px-[18px] text-base bg-[#1278BC] text-White-c rounded-[8px] leading-5"
+                            <button type="button"
+                                class="action-button next py-2.5  px-[18px] text-base bg-[#1278BC] text-White-c rounded-[8px] leading-5"
                                 style="width: 191px" id="f1Button">
                                 <span class="btn-text ">Save & Continue <i class="fas fa-arrow-right ml-1"></i></span>
                             </button>
@@ -1953,8 +2012,10 @@
 
 
                         <div class="mb-2 Laptop:mb-4">
-                            <h2 class="text-[18px] Laptop:text-xl font-bold leading-4 mb-1.5">NID / CNIC Information</h2>
-                            <p class="text-xs Laptop:text-sm">Provide your National ID or Computerized National Identity Card details
+                            <h2 class="text-[18px] Laptop:text-xl font-bold leading-4 mb-1.5">NID / CNIC Information
+                            </h2>
+                            <p class="text-xs Laptop:text-sm">Provide your National ID or Computerized National
+                                Identity Card details
                             </p>
                         </div>
 
@@ -1962,7 +2023,7 @@
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap ">
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Passport & Expiry
+                                <h2 class="text-sm text-text-color font-bold leading-[29px]">Passport & Expiry
                                     Date</h2>
                             </div>
 
@@ -1975,7 +2036,8 @@
                                             number <span class="text-Indicates">*</span></label>
                                         <div class="field">
                                             <input type="text" name="passportno" id="passportno"
-                                                autocomplete="off" class="input-t Laptop:p-1.5 p-1 rounded-md border outline-none "
+                                                autocomplete="off"
+                                                class="input-t Laptop:p-1.5 p-1 rounded-md border outline-none "
                                                 value="{{ $hasOldData2 && isset($oldData2->passportno) ? $oldData2->passportno : '' }}"
                                                 required>
                                             {{-- <label for="" class="label-t">Passport Number</label> --}}
@@ -1984,7 +2046,8 @@
 
                                     <div>
 
-                                        <label  class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Expiry date
+                                        <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Expiry
+                                            date
                                             <span class="text-Indicates">*</span></label>
                                         <div class="grid grid-cols-3 gap-1 Tablet:gap-2 expiry   date relative">
 
@@ -2066,8 +2129,7 @@
                                                     @endfor
                                                 </select>
                                             </div>
-                                            <div id="pexpiryTime"
-                                                style="position: absolute; left: 10px; bottom: 5px; margin-top: 10px">
+                                            <div id="pexpiryTime" class="pexpiryTime">
                                             </div>
                                         </div>
 
@@ -2084,16 +2146,20 @@
 
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Father Name</h2>
+                                <h2 class="text-sm text-text-color font-bold leading-[29px]">Father Name</h2>
                             </div>
 
                             <div class="Laptop:w-[70%] w-full">
 
                                 <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
 
-                                    <div> 
-                                            <label for="jobpossition" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 hidden applicationphotoMb">Father name <span class="text-Indicates">*</span></label> 
-                                            <label for="jobpossition" class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 applicationphotodesktp ">Full Name<span class="text-Indicates">*</span></label>
+                                    <div>
+                                        <label for="jobpossition"
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 hidden applicationphotoMb">Father
+                                            name <span class="text-Indicates">*</span></label>
+                                        <label for="jobpossition"
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 applicationphotodesktp ">Full
+                                            Name<span class="text-Indicates">*</span></label>
                                         <div class="field ffnamearea">
                                             <input type="text" name="father_name" id="father_name"
                                                 autocomplete="off"
@@ -2116,7 +2182,7 @@
 
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Identity Number</h2>
+                                <h2 class="text-sm text-text-color font-bold leading-[29px]">Identity Number</h2>
                             </div>
 
                             <div class="Laptop:w-[70%] w-full">
@@ -2148,7 +2214,7 @@
 
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Marital Status</h2>
+                                <h2 class="text-sm text-text-color font-bold leading-[29px]">Marital Status</h2>
                             </div>
 
                             <div class="Laptop:w-[70%] w-full">
@@ -2181,14 +2247,20 @@
 
                                 </div>
 
-                                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4">
+                                <div class="grid grid-cols-1 gap-2 Laptop:grid-cols-2 Laptop:gap-4"
+                                    id="spouse_name_area" style="display: none;">
 
                                     <div>
                                         <label class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2">Spouse
                                             Name <span class="text-Indicates">*</span></label>
                                         <div class="field">
-                                            <input type="text" name="spouse name" id=""
-                                                class="input-t Laptop:p-1.5 p-1 rounded-md border outline-none">
+                                            <input type="text" name="spouse_name" id="spouse_name"
+                                                autocomplete="off"
+                                                class="input-t Laptop:p-1.5 p-1 rounded-md border outline-none {{ $errors->has('spouse_name') ? 'error' : '' }}"
+                                                value="{{ $hasOldData2 ? $oldData2->spouse_name : '' }}">
+                                            @error('spouse_name')
+                                                <p class="erromessage">{{ $message }}</p>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -2203,7 +2275,7 @@
 
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Residency</h2>
+                                <h2 class="text-sm text-text-color font-bold leading-[29px]">Residency</h2>
                             </div>
 
                             <div class="Laptop:w-[70%] w-full">
@@ -2358,7 +2430,7 @@
 
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Religion</h2>
+                                <h2 class="text-sm text-text-color font-bold leading-[29px]">Religion</h2>
                             </div>
 
                             <div class="Laptop:w-[70%] w-full">
@@ -2404,7 +2476,7 @@
 
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Home Country Address
+                                <h2 class="text-sm text-text-color font-bold leading-[29px]">Home Country Address
                                 </h2>
                             </div>
 
@@ -2521,7 +2593,7 @@
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap ">
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Passport Images</h2>
+                                <h2 class="text-sm text-text-color font-bold leading-[29px]">Passport Images</h2>
                                 {{-- <img class="mt-2 w-10 Laptop:w-14"
                                     src="{{ asset('frontend/imagesupdate/passport.svg') }}" alt=""> --}}
                             </div>
@@ -2555,9 +2627,9 @@
                                         <input type="file" name="applicant_passporte" id="fileInputPassport"
                                             value="{{ old('applicant_passporte') }}" class="hidden"
                                             accept="image/*">
+                                        <div id="applicant_passport" style="display: none"></div>
 
                                     </div>
-                                    <div id="applicant_passport" style="display: none"></div>
 
                                     <script>
                                         document.addEventListener('DOMContentLoaded', function() {
@@ -2700,7 +2772,7 @@
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap ">
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">NID / CNIC Images
+                                <h2 class="text-sm text-text-color font-bold leading-[29px]">NID / CNIC Images
                                 </h2>
                                 {{-- <img class="mt-2 w-10 Laptop:w-14"
                                     src="{{ asset('frontend/imagesupdate/idfront.svg') }}" alt=""> --}}
@@ -2898,7 +2970,7 @@
 
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">Submission ID</h2>
+                                <h2 class="text-sm text-text-color font-bold leading-[29px]">Submission ID</h2>
                             </div>
 
                             <div class="Laptop:w-[70%] w-full">
@@ -2907,7 +2979,8 @@
 
                                     <div>
                                         <label for="jobpossition"
-                                        class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 hidden applicationphotoMb">Submission ID</label>
+                                            class="text-xs Laptop:text-sm font-medium leading-[29px]  mb-2 hidden applicationphotoMb">Submission
+                                            ID</label>
                                         <div class="field bg-[#F9FAFB] border  py-3 input-t rounded">
                                             @if (Session::has('submissionID'))
                                                 <p class="text-xs Tablet:text-sm">{{ $submissionID }}</p>
@@ -2926,7 +2999,8 @@
 
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm text-text-color font-semibold leading-[29px]"> Driving license (home country)</h2>
+                                <h2 class="text-sm text-text-color font-bold leading-[29px]"> Driving license (home
+                                    country)</h2>
                             </div>
 
                             <div class="Laptop:w-[70%] w-full">
@@ -2991,8 +3065,7 @@
                                                 </select>
                                             </div>
 
-                                            <div id="ddexpiryTime"
-                                                style="position: absolute; left: 10px; bottom: 5px; margin-top: 10px">
+                                            <div id="ddexpiryTime" class="ddexpiryTime">
                                             </div>
                                         </div>
 
@@ -3010,7 +3083,7 @@
 
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm text-text-color font-semibold leading-[29px]"> Do you have UAE
+                                <h2 class="text-sm text-text-color font-bold leading-[29px]"> Do you have UAE
                                     license</h2>
                             </div>
 
@@ -3095,7 +3168,7 @@
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap ">
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm text-text-color font-semibold leading-[29px]"> Driving license
+                                <h2 class="text-sm text-text-color font-bold leading-[29px]"> Driving license
                                     images
                                 </h2>
                                 {{-- <img class="mt-2 w-10 Laptop:w-14"
@@ -3234,7 +3307,7 @@
                         <div class="border-b py-4 Laptop:py-6 flex flex-wrap">
 
                             <div class="mbl-hdn Laptop:w-[30%]">
-                                <h2 class="text-sm text-text-color font-semibold leading-[29px]">UAE DL (optional)
+                                <h2 class="text-sm text-text-color font-bold leading-[29px]">UAE DL (optional)
                                 </h2>
                                 {{-- <img class="mt-2 w-10 Laptop:w-14"
                                 src="{{ asset('frontend/imagesupdate/license.jpg') }}" alt=""> --}}
@@ -3382,14 +3455,16 @@
                         </style>
 
 
-                        <div class="box" style="margin-top: 15px;">
-                            {!! NoCaptcha::renderJs() !!}
-                            {!! NoCaptcha::display() !!}
-                            @if ($errors->has('g-recaptcha-response'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
-                                </span>
-                            @endif
+                        <div class="capthaArea">
+                            <div class="box" style="margin-top: 15px;">
+                                {!! NoCaptcha::renderJs() !!}
+                                {!! NoCaptcha::display() !!}
+                                @if ($errors->has('g-recaptcha-response'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
                         </div>
 
                         <!-- ----  -->
@@ -3454,7 +3529,8 @@
                             <button type="button"
                                 class="action-button next px-[18px] py-2.5 text-base bg-[#1278BC] text-White-c rounded-[8px] leading-5"
                                 style="width: 150px" id="f3Button">
-                                <span class="btn-text text-base close">Submit <i class="fa-regular fa-circle-check ml-1"></i></span>
+                                <span class="btn-text text-base close">Submit <i
+                                        class="fa-regular fa-circle-check ml-1"></i></span>
                             </button>
                         </div>
                     </fieldset>
@@ -3463,27 +3539,27 @@
 
             </div>
 
-        </div> 
+        </div>
 
         <footer class="footer container mx-auto  d-flex flex-wrap justify-between items-center gap-1 mt-5">
-             
+
             <div class="d-flex items-center gap-2">
-            <h2 class="Laptop:text-2xl  font-semibold text-[#0B4871]">Conqueror</h2>
-            <p class="text-[15px] text-blue">© 2024, All rights reserved</p>
+                <h2 class="Laptop:text-2xl  font-semibold text-[#0B4871]">Conqueror</h2>
+                <p class="text-[15px] text-blue">© 2024, All rights reserved</p>
             </div>
             <div class="d-flex items-center justify-between gap-4">
                 <a href="#" class="text-[15px] text-blue">Privacy Policy</a>
                 <a href="#" class="text-[15px] text-blue">Terms & Conditions</a>
                 <a href="#" class="text-[15px] text-blue">Support</a>
             </div>
-            
-           
-           
+
+
+
         </footer>
 
     </div>
 
-    
+
 
 
 </body>
@@ -5186,12 +5262,12 @@
                     firstStep.find('span').removeClass('bg-[#e0b228]');
                     firstStep.find('span').addClass('bg-White-c');
                     firstStep.find('a').removeClass(
-                        'p-1 Laptop:py-1.5 Laptop:px-4  bg-[#e0b228] text-White-c rounded-md');
+                        'text-blue rounded-md');
 
                     secondStep.find('span').addClass('bg-[#e0b228]');
                     secondStep.find('span').removeClass('bg-White-c');
                     secondStep.find('a').addClass(
-                        'p-1 Laptop:py-1.5 Laptop:px-4  bg-[#e0b228] text-White-c rounded-md');
+                        'text-blue rounded-md');
                 }
 
                 if (response.status == 'redirect') {
@@ -5251,6 +5327,7 @@
         formData2.append('passport_doe_year', $('#passport_doe_year').val());
         formData2.append('father_name', $('input[name=father_name]').val());
         formData2.append('nidorcnicnumber', $('input[name=nidorcnicnumber]').val());
+        formData2.append('spouse_name', $('input[name=spouse_name]').val());
         formData2.append('martialstatus', $('#martialstatus').val());
         formData2.append('uaeresident', $('#uaeresident').val());
         formData2.append('religion', $('#religion').val());
@@ -5303,12 +5380,12 @@
                     secondStep.find('span').removeClass('bg-[#e0b228]');
                     secondStep.find('span').addClass('bg-White-c');
                     secondStep.find('a').removeClass(
-                        'p-1 Laptop:py-1.5 Laptop:px-4  bg-[#e0b228] text-White-c rounded-md');
+                        'text-blue rounded-md');
 
                     thirdStep.find('span').addClass('bg-[#e0b228]');
                     thirdStep.find('span').removeClass('bg-White-c');
                     thirdStep.find('a').addClass(
-                        'p-1 Laptop:py-1.5 Laptop:px-4  bg-[#e0b228] text-White-c rounded-md');
+                        'text-blue  rounded-md');
                 }
                 if (response.status == 'redirect') {
                     window.location.href = response.redirect;
@@ -5422,12 +5499,12 @@
                     secondStep.find('span').removeClass('bg-[#e0b228]');
                     secondStep.find('span').addClass('bg-White-c');
                     secondStep.find('a').removeClass(
-                        'p-1 Laptop:py-1.5 Laptop:px-4  bg-[#e0b228] text-White-c rounded-md');
+                        'text-White-c rounded-md');
 
                     thirdStep.find('span').addClass('bg-[#e0b228]');
                     thirdStep.find('span').removeClass('bg-White-c');
                     thirdStep.find('a').addClass(
-                        'p-1 Laptop:py-1.5 Laptop:px-4  bg-[#e0b228] text-White-c rounded-md');
+                        'text-White-c rounded-md');
 
                     window.location.href = response.redirect;
                 }
@@ -5493,11 +5570,11 @@
         fieldset2.hide();
         firstStep.find('span').addClass('bg-[#e0b228]');
         firstStep.find('span').removeClass('bg-White-c');
-        firstStep.find('a').addClass('p-1 Laptop:py-1.5 Laptop:px-4  bg-[#e0b228] text-White-c rounded-md');
+        // firstStep.find('a').addClass('p-1 Laptop:py-1.5 Laptop:px-4  bg-[#e0b228] text-White-c rounded-md');
 
         secondStep.find('span').removeClass('bg-[#e0b228]');
         secondStep.find('span').addClass('bg-White-c');
-        secondStep.find('a').removeClass('p-1 Laptop:py-1.5 Laptop:px-4  bg-[#e0b228] text-White-c rounded-md');
+        // secondStep.find('a').removeClass('p-1 Laptop:py-1.5 Laptop:px-4  bg-[#e0b228] text-White-c rounded-md');
     });
 
     previous3.on('click', function() {
@@ -5506,11 +5583,11 @@
 
         secondStep.find('span').addClass('bg-[#e0b228]');
         secondStep.find('span').removeClass('bg-White-c');
-        secondStep.find('a').addClass('p-1 Laptop:py-1.5 Laptop:px-4  bg-[#e0b228] text-White-c rounded-md');
+        // secondStep.find('a').addClass('p-1 Laptop:py-1.5 Laptop:px-4  bg-[#e0b228] text-White-c rounded-md');
 
         thirdStep.find('span').removeClass('bg-[#e0b228]');
         thirdStep.find('span').addClass('bg-White-c');
-        thirdStep.find('a').removeClass('p-1 Laptop:py-1.5 Laptop:px-4  bg-[#e0b228] text-White-c rounded-md');
+        //  thirdStep.find('a').removeClass('p-1 Laptop:py-1.5 Laptop:px-4  bg-[#e0b228] text-White-c rounded-md');
     });
 </script>
 
@@ -5529,6 +5606,24 @@
 
     // Trigger change event to set initial state based on the selected option
     document.getElementById('have_uae_licence_id').dispatchEvent(new Event('change'));
+</script>
+
+<script>
+    document.getElementById('martialstatus').addEventListener('change', function() {
+        var spouse_name_area = document.getElementById('spouse_name_area');
+        var martialstatus = document.getElementById('martialstatus');
+        var spouse_name = document.getElementById('spouse_name');
+        if (this.value === 'Married') {
+            spouse_name_area.style.display = 'block';
+            spouse_name.setAttribute('required', 'required');
+        } else {
+            spouse_name_area.style.display = 'none';
+            spouse_name.removeAttribute('required');
+        }
+    });
+
+    // Trigger change event to set initial state based on the selected option
+    document.getElementById('spouse_name').dispatchEvent(new Event('change'));
 </script>
 
 <script>

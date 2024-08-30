@@ -102,9 +102,9 @@
                         <th>Payment Date</th>
                         <th>Payment Type</th>
                         <th>Ref/Agency</th>
-                        <th>Passport</th>
                         <th>Payment Amount</th>
                         <th>Status</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -116,13 +116,20 @@
                         @foreach($depoData as $payment)
                             <tr>
                                 <td class="action-icon"><a href="{{ route('applicants.paymentViewRCV', ['applicant' => $applicant->id, 'payment' => $payment->id]) }}">👁️</a></td>
-                                <td>{{ \Carbon\Carbon::parse($applicant->created_at)->format('d M Y') }}</td>
+                                <td>{{ \Carbon\Carbon::parse($applicant->payActivities->last()->created_at)->format('d M Y') }}</td>
                                 <td>{{ \Carbon\Carbon::parse($payment->payment_date)->format('d M Y') }}</td>
                                 <td>{{ $payment->method }}</td>
                                 <td>{{ $applicant->reference }}</td>
-                                <td>{{ $applicant->passportno }}</td>
                                 <td>{{ $payment->deposit_amount }}</td>
+                                <td>
+                                    @if ($payment->status == 'add_payment')
+                                        Add Payment
+                                    @else
+                                        Request Deposit
+                                    @endif
+                                </td>
                                 <td>{{ ucwords(str_replace('_', ' ', $payment->status)) }}</td>
+
                             </tr>
                         @endforeach
                     @endif

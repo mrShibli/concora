@@ -368,8 +368,7 @@
                                 style="background-color: #1278BC; color:#fff;">Invited</a>
                         @else
                             <a href=""
-                                class="px-2 py-1 Tablet:px-6 Tablet:py-2 Laptop:px-8 Laptop:py-2.5 bg-[#EEE915]  text-Black-c font-semibold text-[8px] Tablet:text-xs Laptop:text-sm rounded">New
-                                Entry</a>
+                                class="px-2 py-1 Tablet:px-6 Tablet:py-2 Laptop:px-8 Laptop:py-2.5 bg-[#EEE915]  text-Black-c font-semibold text-[8px] Tablet:text-xs Laptop:text-sm rounded">{{ ucwords(str_replace('_', ' ', $applicant->applicant_status)) }}</a>
                         @endif
                     </li>
                     <li> <a href=""
